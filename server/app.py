@@ -104,3 +104,11 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=port, debug=True)
     
     # flask run --host=localhost --port=5000
+    
+# app.config['CACHE_TYPE'] = 'RedisCache'
+# app.config['CACHE_REDIS_HOST'] = 'localhost'  # Change to your Redis server
+# app.config['CACHE_REDIS_PORT'] = 6379
+# app.config['CACHE_REDIS_DB'] = 0
+# app.config['CACHE_REDIS_URL'] = "redis://localhost:6379/0"
+# app.config['CACHE_DEFAULT_TIMEOUT'] = 300  # 5 minutes
+# cache = Cache(app)

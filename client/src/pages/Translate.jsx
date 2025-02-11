@@ -65,7 +65,7 @@ const FileUpload = () => {
 
   return (
     <div>
-      <div className="w-[70%] border border-black mx-auto rounded-2xl mt-32 p-20">
+      <div className="w-[80%] lg:w-[50%] border border-black mx-auto rounded-2xl mt-32 p-20">
         <div className="mx-auto flex items-center justify-center mb-10">
           <input
             className="border w-52"
