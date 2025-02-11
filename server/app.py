@@ -11,6 +11,10 @@ from extensions import cache
 from routes.test_routes import test_bp
 import os 
 from dotenv import load_dotenv
+from flask_caching import Cache
+
+
+
 
 load_dotenv()
 
@@ -24,20 +28,13 @@ app = Flask(__name__)
 app.config.from_object(app_config)
 
 
-CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "https://activeloc-python.onrender.com"], 
-                             "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-                             "allow_headers": ["Content-Type", "Authorization"]
-                            }})
+CORS(app)
 
 
+app.config['CACHE_TYPE'] = 'SimpleCache'
+app.config['CACHE_DEFAULT_TIMEOUT'] = 300  
 
-app.config['CACHE_TYPE'] = 'RedisCache'
-app.config['CACHE_REDIS_HOST'] = 'localhost'
-app.config['CACHE_REDIS_PORT'] = 6379
-app.config['CACHE_REDIS_DB'] = 0
-app.config['CACHE_REDIS_URL'] = 'redis://localhost:6379/0'
-
-cache.init_app(app) 
+cache.init_app(app)
 
 app.register_blueprint(upload)  
 app.register_blueprint(translate) 
