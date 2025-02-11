@@ -20,8 +20,9 @@ def translate_file():
     if not file_name:
         return jsonify({"error": "please upload a file first"}), 404
 
-    endpoint = "https://active-loc-translator.cognitiveservices.azure.com/"
-    credential = AzureKeyCredential("A2SpkFHbfqpGK4e934wW3G1alyGxNXT3C0Qg6RiBAxkYZwCmboRrJQQJ99BAACGhslBXJ3w3AAAbACOGKRwU")
+    endpoint = os.getenv("ENDPOINT") 
+    cred = os.getenv("CREDENTIAL")
+    credential = AzureKeyCredential(cred)
 
     source_url = os.getenv("SOURCE_URL")
     target_url = os.getenv("TARGET_URL")
