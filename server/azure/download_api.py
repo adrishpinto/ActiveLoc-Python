@@ -17,6 +17,7 @@ CORS(download, expose_headers=["X-File-Type"])  # Allow custom headers
 
 @download.route('/download', methods=['GET'])
 def download_blob():
+    from app import auth
     try:
         blob_name = cache.get("file_name")
         extension = cache.get("extension")

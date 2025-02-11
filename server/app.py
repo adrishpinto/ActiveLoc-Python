@@ -9,7 +9,10 @@ from azure.translate_api import translate
 from azure.download_api import download
 from extensions import cache
 from routes.test_routes import test_bp
+import os 
+from dotenv import load_dotenv
 
+load_dotenv()
 
 
 __version__ = "1.0"
@@ -96,6 +99,7 @@ def call_downstream_api():
     return render_template('display.html', result=api_result)
 
 if __name__ == "__main__":
-    app.run(host='localhost', port=5000)
+    port = int(os.getenv("PORT", 4000))  
+    app.run(host="0.0.0.0", port=port, debug=True)
     
     # flask run --host=localhost --port=5000
