@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 const FileUpload = () => {
   const [file, setFile] = useState(null);
   const [translationStatus, setTranslationStatus] = useState({
@@ -10,7 +13,7 @@ const FileUpload = () => {
   const translate = async () => {
     setTranslationStatus({ message: "Translating..." });
     try {
-      const response = await axios.get("http://localhost:5000/translate");
+      const response = await axios.get(`${API_URL}/translate`);
       setTranslationStatus(response.data);
     } catch (error) {
       console.error("Translation Error:", error);
@@ -29,7 +32,7 @@ const FileUpload = () => {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/upload", {
+      const response = await fetch(`${API_URL}/upload`, {
         method: "POST",
         body: formData,
       });
@@ -44,9 +47,7 @@ const FileUpload = () => {
   const downloadFile = async () => {
     try {
       const blobName = "any";
-      const response = await axios.get(
-        `http://127.0.0.1:5000/download?blob_name=${blobName}`
-      );
+      const response = await axios.get(`${API_URL}/download?blob_name=${blobName}`);
 
       const blob = new Blob([response.data]);
       const link = document.createElement("a");
@@ -62,28 +63,16 @@ const FileUpload = () => {
 
   return (
     <div>
-      <div className="w-[70%] border border-black mx-auto  rounded-2xl mt-32 p-20">
+      <div className="w-[70%] border border-black mx-auto rounded-2xl mt-32 p-20">
         <div className="flex items-center justify-center">
           <input type="file" onChange={handleFileChange} />
-          <button
-            onClick={handleUpload}
-            className="bg-blue-200 mx-4 px-2 py-1 rounded"
-          >
+          <button onClick={handleUpload} className="bg-blue-200 mx-4 px-2 py-1 rounded">
             Upload
           </button>
-
-          <button
-            onClick={translate}
-            disabled={loading}
-            className="bg-blue-200 mx-4 px-2 py-1 rounded"
-          >
+          <button onClick={translate} disabled={loading} className="bg-blue-200 mx-4 px-2 py-1 rounded">
             {loading ? "Translating..." : "Translate File"}
           </button>
-
-          <button
-            onClick={downloadFile}
-            className="bg-blue-200 mx-4 px-2 py-1 rounded"
-          >
+          <button onClick={downloadFile} className="bg-blue-200 mx-4 px-2 py-1 rounded">
             Download File
           </button>
         </div>
@@ -91,17 +80,10 @@ const FileUpload = () => {
         {translationStatus && (
           <div className="text-center mt-10 flex mx-auto w-64 items-center justify-center">
             <p className="font-bold mr-2">Status: </p>
-            {translationStatus?.message == "not started" && (
-              <div>Not Started </div>
-            )}
-            {translationStatus?.message == "Translating..." && (
-              <div>Translating...</div>
-            )}
-            {translationStatus?.message === "Translation failed" && (
-              <div className="text-red-500">Failed</div>
-            )}
-            {translationStatus?.message ===
-              "Translation completed successfully." && (
+            {translationStatus?.message === "not started" && <div>Not Started </div>}
+            {translationStatus?.message === "Translating..." && <div>Translating...</div>}
+            {translationStatus?.message === "Translation failed" && <div className="text-red-500">Failed</div>}
+            {translationStatus?.message === "Translation completed successfully." && (
               <div className="text-green-500">Success</div>
             )}
           </div>
