@@ -1,0 +1,686 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns:sdlxliff="http://schemas.sdl.com/xliff" sdlxliff:support="xliff12sdl" sdlxliff:version="1.2.1">
+  <sdlxliff:doc-info project-id="d2538767-168e-4aac-9c0d-b81bd7837c5f" source="C:\Users\DeepakMadhyastha\Downloads\IFHD\SDL_Files\IFHD_Files\kn-IN\Input suppliers questionnaire.docx.sdlxliff" source-language="en-US" target-language="kn-IN" created="2025-02-11T06:35:03.831Z">
+    <sdlxliff:cmt-defs />
+  </sdlxliff:doc-info>
+  <file original="C:\Users\DeepakMadhyastha\Downloads\IFHD\SDL_Files\IFHD_Files\en-US\Input suppliers questionnaire.docx" source-language="en-US" datatype="xml">
+    <header />
+    <body>
+      <trans-unit id="5341c630-9bdb-476d-876e-0e9e7b120a7e">
+        <source>
+          <ph id="6">&lt;picture name="image1.jpg"&gt;</ph>
+          <bpt id="9">&lt;cf font=Arial bold=True size=12&gt;</bpt>Value Chain Study<ept id="9">&lt;/cf&gt;</ept></source>
+        <target>
+          <mrk mtype="seg" mid="1">
+  <ph id="6">&lt; ಚಿತ್ರ ಹೆಸರು="image1.jpg"&gt;</ph>
+  <bpt id="9">&lt;cf font=Arial bold=True size=12&gt;</bpt>ಮೌಲ್ಯ ಸರಪಳಿ ಅಧ್ಯಯನ<ept id="9">&lt;/cf&gt;</ept>
+</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="1">
+            <ph id="6">&lt;picture name="image1.jpg"&gt;</ph>
+            <bpt id="9">&lt;cf font=Arial bold=True size=12&gt;</bpt>Value Chain Study<ept id="9">&lt;/cf&gt;</ept></mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="1" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="026fffdc-a039-4002-b1a3-b4f3e005d42d">
+        <source>
+          <bpt id="12">&lt;cf bold=True size=12&gt;</bpt>Input Supplie<bpt id="15">&lt;cf highlight=white&gt;</bpt>rs <ept id="15">&lt;/cf&gt;</ept><ept id="12">&lt;/cf&gt;</ept><bpt id="23">&lt;cf highlight=white&gt;</bpt><bpt id="18">&lt;cf size=7&gt;</bpt>	<ept id="18">&lt;/cf&gt;</ept><bpt id="22">&lt;cf bold=True size=12&gt;</bpt>(Seed Producers, Fertilizer Suppliers, Machinery Providers)<ept id="22">&lt;/cf&gt;</ept><ept id="23">&lt;/cf&gt;</ept></source>
+        <target>
+          <mrk mtype="seg" mid="2">
+  <bpt id="12">&lt;cf bold=True size=12&gt;</bpt>ಇನ್ ಪುಟ್ ಪೂರೈಕೆದಾರರು<bpt id="15">&lt;cf highlight=white&gt;</bpt> <ept id="15">&lt;/cf&gt;</ept><ept id="12">&lt;/cf&gt;</ept>
+  <bpt id="23">&lt;cf highlight=white&gt;</bpt>
+    <bpt id="18">&lt;cf size=7&gt;</bpt>	<ept id="18">&lt;/cf&gt;</ept>
+    <bpt id="22">&lt;cf bold=True size=12&gt;</bpt>(ಬೀಜ ಉತ್ಪಾದಕರು, ರಸಗೊಬ್ಬರ ಪೂರೈಕೆದಾರರು, ಯಂತ್ರೋಪಕರಣ ಪೂರೈಕೆದಾರರು)<ept id="22">&lt;/cf&gt;</ept>
+  <ept id="23">&lt;/cf&gt;</ept>
+</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="2">
+            <bpt id="12">&lt;cf bold=True size=12&gt;</bpt>Input Supplie<bpt id="15">&lt;cf highlight=white&gt;</bpt>rs <ept id="15">&lt;/cf&gt;</ept><ept id="12">&lt;/cf&gt;</ept><bpt id="23">&lt;cf highlight=white&gt;</bpt><bpt id="18">&lt;cf size=7&gt;</bpt>	<ept id="18">&lt;/cf&gt;</ept><bpt id="22">&lt;cf bold=True size=12&gt;</bpt>(Seed Producers, Fertilizer Suppliers, Machinery Providers)<ept id="22">&lt;/cf&gt;</ept><ept id="23">&lt;/cf&gt;</ept></mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="2" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="6a254719-f60f-400a-befc-cb4ed4e32023">
+        <source>A. GENERAL PROFILE</source>
+        <target>
+          <mrk mtype="seg" mid="3">A. ಸಾಮಾನ್ಯ ಪ್ರೊಫೈಲ್</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="3">A. GENERAL PROFILE</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="3" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="e88ac39a-50d7-4de2-8c41-8fbbb08b4264">
+        <source>A1. Name of respondent</source>
+        <target>
+          <mrk mtype="seg" mid="4">A1.</mrk>
+          <mrk mtype="seg" mid="5">ಪ್ರತಿಸ್ಪಂದಕನ ಹೆಸರು</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="4">A1.</mrk>
+          <mrk mtype="seg" mid="5">Name of respondent</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="4" />
+          <sdlxliff:seg id="5" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="d6ba9b2a-beba-4f94-99f3-03ba9efcca51">
+        <source>A2. Address: <bpt id="41">&lt;cf font=Arial size=10&gt;</bpt>Village, Block, <ept id="41">&lt;/cf&gt;</ept><bpt id="48">&lt;contentcontrol type="Text" tag="goog_rdk_0"&gt;</bpt><ept id="48">&lt;/contentcontrol&gt;</ept><bpt id="51">&lt;cf font=Arial size=10&gt;</bpt>District<ph id="55">&lt;br type="textWrapping"/&gt;</ph>(Koppal/Raichur/Yadgir)<ept id="51">&lt;/cf&gt;</ept></source>
+        <target>
+          <mrk mtype="seg" mid="6">A2.</mrk>
+          <mrk mtype="seg" mid="7">ವಿಳಾಸ: </mrk>
+          <mrk mtype="seg" mid="8">
+            <bpt id="41">&lt;cf font=Arial size=10&gt;</bpt>ಗ್ರಾಮ, ಬ್ಲಾಕ್, <ept id="41">&lt;/cf&gt;</ept><bpt id="48">&lt;contentcontrol type="Text" tag="goog_rdk_0"&gt;</bpt><ept id="48">&lt;/contentcontrol&gt;</ept><bpt id="51">&lt;cf font=Arial size=10&gt;</bpt>ಜಿಲ್ಲೆ<ph id="55">&lt; br type="textWrapping"/&gt;</ph>(ಕೊಪ್ಪಳ/ರಾಯಚೂರು/ಯಾದಗಿರಿ)<ept id="51">&lt;/cf&gt;</ept>
+  
+  
+  
+</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="6">A2.</mrk>
+          <mrk mtype="seg" mid="7">Address:</mrk>
+          <mrk mtype="seg" mid="8">
+            <bpt id="41">&lt;cf font=Arial size=10&gt;</bpt>Village, Block, <ept id="41">&lt;/cf&gt;</ept><bpt id="48">&lt;contentcontrol type="Text" tag="goog_rdk_0"&gt;</bpt><ept id="48">&lt;/contentcontrol&gt;</ept><bpt id="51">&lt;cf font=Arial size=10&gt;</bpt>District<ph id="55">&lt;br type="textWrapping"/&gt;</ph>(Koppal/Raichur/Yadgir)<ept id="51">&lt;/cf&gt;</ept></mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="6" />
+          <sdlxliff:seg id="7" />
+          <sdlxliff:seg id="8" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="a4800e3d-6e29-4996-872b-1030789e1e11">
+        <source>A3. Phone no.</source>
+        <target>
+          <mrk mtype="seg" mid="9">A3.</mrk>
+          <mrk mtype="seg" mid="10">ದೂರವಾಣಿ ಸಂಖ್ಯೆ.</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="9">A3.</mrk>
+          <mrk mtype="seg" mid="10">Phone no.</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="9" />
+          <sdlxliff:seg id="10" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="a2f67c0d-8d2e-4ee5-bfe9-ee02d6d5f4ab">
+        <source>A4. No of years in business</source>
+        <target>
+          <mrk mtype="seg" mid="11">A4.</mrk>
+          <mrk mtype="seg" mid="12">ವ್ಯವಹಾರದಲ್ಲಿ ವರ್ಷಗಳ ಸಂಖ್ಯೆ</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="11">A4.</mrk>
+          <mrk mtype="seg" mid="12">No of years in business</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="11" />
+          <sdlxliff:seg id="12" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="c3837530-5a1e-4090-bca5-2338c6e72aea">
+        <source>A5: No. of farmers/FPOs you supply inputs to</source>
+        <target>
+          <mrk mtype="seg" mid="13">A5: </mrk>
+          <mrk mtype="seg" mid="14">ನೀವು ಇನ್ ಪುಟ್ ಗಳನ್ನು ಪೂರೈಸುವ ರೈತರು/FPO ಗಳ ಸಂಖ್ಯೆ</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="13">A5:</mrk>
+          <mrk mtype="seg" mid="14">No. of farmers/FPOs you supply inputs to</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="13" />
+          <sdlxliff:seg id="14" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="e795c98c-92c1-4515-b1fd-0d0ba24f1b35">
+        <source>B. Input Supply and Demand</source>
+        <target>
+          <mrk mtype="seg" mid="15">B. ಇನ್ ಪುಟ್ ಪೂರೈಕೆ ಮತ್ತು ಬೇಡಿಕೆ</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="15">B. Input Supply and Demand</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="15" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="92e1fafd-b92d-4caf-a541-c033c1e85ee0">
+        <source>1</source>
+        <target>
+          <mrk mtype="seg" mid="16">1</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="16">1</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="16" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="f4252b18-5088-46d9-a392-03e0437a13fb">
+        <source>Annual input supply to farmers/FPOs</source>
+        <target>
+          <mrk mtype="seg" mid="17">ರೈತರು/ ಎಫ್ ಪಿಒಗಳಿಗೆ ವಾರ್ಷಿಕ ಇನ್ ಪುಟ್ ಪೂರೈಕೆ</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="17">Annual input supply to farmers/FPOs</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="17" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="8dff57de-8bc1-4ece-a08d-4211fa0e6e62">
+        <source>Input</source>
+        <target>
+          <mrk mtype="seg" mid="18">ಇನ್ ಪುಟ್</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="18">Input</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="18" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="ffca5757-0225-440a-84ca-d390a39b8789">
+        <source>Variety/Type &amp; Packing Size</source>
+        <target>
+          <mrk mtype="seg" mid="19">ವೈವಿಧ್ಯತೆ/ವಿಧ &amp; ಪ್ಯಾಕಿಂಗ್ ಗಾತ್ರ</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="19">Variety/Type &amp; Packing Size</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="19" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="f2c0fea6-c1b6-4043-b146-c1554e907762">
+        <source>Sales Price (2024-25)</source>
+        <target>
+          <mrk mtype="seg" mid="20">ಮಾರಾಟ ಬೆಲೆ (2024-25)</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="20">Sales Price (2024-25)</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="20" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="9a8acf57-3e89-40fe-a5df-e423c7fd1011">
+        <source>Sales Price (2023-24)</source>
+        <target>
+          <mrk mtype="seg" mid="21">ಮಾರಾಟ ಬೆಲೆ (2023-24)</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="21">Sales Price (2023-24)</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="21" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="6325cbb8-fd2a-436e-9b5e-8d118dd6feb9">
+        <source>Volume distributed (in kgs/lts)</source>
+        <target>
+          <mrk mtype="seg" mid="22">ವಿತರಿಸಲಾದ ಪರಿಮಾಣ (kgs/lts ನಲ್ಲಿ)</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="22">Volume distributed (in kgs/lts)</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="22" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="34520fcc-560f-4e9c-9068-de0f83f32dcf">
+        <source>Terms &amp; Condition (Payment &amp; Return)</source>
+        <target>
+          <mrk mtype="seg" mid="23">ನಿಯಮಗಳು &amp; ಷರತ್ತು (ಪಾವತಿ ಮತ್ತು ಹಿಂತಿರುಗಿ)</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="23">Terms &amp; Condition (Payment &amp; Return)</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="23" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="0a471b44-657d-49f0-b7b1-afcab21fa2f0">
+        <source>Seeds</source>
+        <target>
+          <mrk mtype="seg" mid="24">ಬೀಜಗಳು</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="24">Seeds</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="24" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="4edd51cb-87ba-41f3-88d1-b30a460da6d6">
+        <source>Tur</source>
+        <target>
+          <mrk mtype="seg" mid="25">ತೊಗರಿ</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="25">Tur</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="25" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="8f0269dd-8cba-4489-9591-b81f30b2d4c3">
+        <source>Groundnut</source>
+        <target>
+          <mrk mtype="seg" mid="26">ನೆಲಗಡಲೆ</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="26">Groundnut</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="26" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="263f0c18-98e4-4a11-b482-f20a1b64d406">
+        <source>Sorghum</source>
+        <target>
+          <mrk mtype="seg" mid="27">ಜೋಳ</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="27">Sorghum</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="27" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="f4ce793a-ae58-4a48-887e-cd0f4cf45fc4">
+        <source>Pesticides</source>
+        <target>
+          <mrk mtype="seg" mid="28">ಕೀಟನಾಶಕಗಳು</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="28">Pesticides</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="28" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="587961f3-3ab0-44cd-917f-e0def493f51e">
+        <source>Fertilizer</source>
+        <target>
+          <mrk mtype="seg" mid="29">ರಸಗೊಬ್ಬರ</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="29">Fertilizer</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="29" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="48484afd-2464-4ae1-ba40-b63fb7e73056">
+        <source>
+          <ph id="341">&lt;br type="textWrapping"/&gt;</ph>
+          <ph id="342">&lt;br type="textWrapping"/&gt;</ph>2</source>
+        <target>
+          <mrk mtype="seg" mid="30">
+  <ph id="341">&lt; br type="textWrapping"/&gt;</ph>
+  <ph id="342">&lt; br type="textWrapping"/&gt;</ph>2</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="30">
+            <ph id="341">&lt;br type="textWrapping"/&gt;</ph>
+            <ph id="342">&lt;br type="textWrapping"/&gt;</ph>2</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="30" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="8d4dc9e9-9a9f-4734-9442-8dfea1b8d41c">
+        <source>
+          <ph id="346">&lt;br type="textWrapping"/&gt;</ph>Source of procurement by the vendor</source>
+        <target>
+          <mrk mtype="seg" mid="31">
+  <ph id="346">&lt; br type="textWrapping"/&gt;</ph>ಮಾರಾಟಗಾರರಿಂದ ಖರೀದಿಯ ಮೂಲ</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="31">
+            <ph id="346">&lt;br type="textWrapping"/&gt;</ph>Source of procurement by the vendor</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="31" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="3017edd0-0d65-4ce0-b5b3-a8c4d3064a4a">
+        <source>Input</source>
+        <target>
+          <mrk mtype="seg" mid="32">ಇನ್ ಪುಟ್</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="32">Input</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="32" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="16db9a29-a002-4ecd-a1bf-c7d2db088247">
+        <source>Source (Brand Name, Company and Location)</source>
+        <target>
+          <mrk mtype="seg" mid="33">ಮೂಲ (ಬ್ರಾಂಡ್ ಹೆಸರು, ಕಂಪನಿ ಮತ್ತು ಸ್ಥಳ)</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="33">Source (Brand Name, Company and Location)</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="33" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="e3610243-aa0c-4dee-83e5-595cd04d857c">
+        <source>Seeds (Tur, Groundnut, Sorghum)</source>
+        <target>
+          <mrk mtype="seg" mid="34">ಬೀಜಗಳು (ತೊಗರಿ, ನೆಲಗಡಲೆ, ಜೋಳ)</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="34">Seeds (Tur, Groundnut, Sorghum)</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="34" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="7db2ca83-9017-462c-8a7a-bafd88520e0d">
+        <source>Pesticides</source>
+        <target>
+          <mrk mtype="seg" mid="35">ಕೀಟನಾಶಕಗಳು</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="35">Pesticides</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="35" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="a8c3f4e1-b71a-4a56-9129-5ab05eab087b">
+        <source>Fertilizer</source>
+        <target>
+          <mrk mtype="seg" mid="36">ರಸಗೊಬ್ಬರ</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="36">Fertilizer</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="36" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="3ee108af-6a84-4ab4-ad26-30fa31da53b7">
+        <source>3</source>
+        <target>
+          <mrk mtype="seg" mid="37">3</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="37">3</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="37" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="2b328236-50db-4a34-816e-1162cb4c911e">
+        <source>Area of coverage</source>
+        <target>
+          <mrk mtype="seg" mid="38">ವ್ಯಾಪ್ತಿಯ ಕ್ಷೇತ್ರ</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="38">Area of coverage</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="38" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="74b09519-5332-4418-a298-c189702dc880">
+        <source>Village</source>
+        <target>
+          <mrk mtype="seg" mid="39">ಗ್ರಾಮ</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="39">Village</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="39" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="6cb909b5-3611-4a35-892b-ecadee0822a4">
+        <source>Distance (km)</source>
+        <target>
+          <mrk mtype="seg" mid="40">ದೂರ (ಕಿಮೀ)</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="40">Distance (km)</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="40" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="a69279ff-39e2-4a3b-98a3-daf6760b7660">
+        <source>4</source>
+        <target>
+          <mrk mtype="seg" mid="41">4</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="41">4</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="41" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="bfc215a3-7bbd-4529-8136-7c80d532fd0c">
+        <source>Percentage of the input supplies purchased</source>
+        <target>
+          <mrk mtype="seg" mid="42">ಖರೀದಿಸಿದ ಇನ್ ಪುಟ್ ಪೂರೈಕೆಗಳ ಶೇಕಡಾವಾರು</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="42">Percentage of the input supplies purchased</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="42" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="f57df9f9-16b9-4267-8045-156346ed02eb">
+        <source>Smallholder farmers: %<ph id="423">&lt;br type="textWrapping"/&gt;</ph><ph id="424">&lt;br type="textWrapping"/&gt;</ph>V/S<ph id="425">&lt;br type="textWrapping"/&gt;</ph><ph id="426">&lt;br type="textWrapping"/&gt;</ph>Large-scale farmers: %</source>
+        <target>
+          <mrk mtype="seg" mid="43">ಸಣ್ಣ ಹಿಡುವಳಿದಾರ ರೈತರು:</mrk>
+          <mrk mtype="seg" mid="44">%<ph id="423">&lt; br type="textWrapping"/&gt;</ph><ph id="424">&lt; br type="textWrapping"/&gt;</ph>V/S<ph id="425">&lt; br type="textWrapping"/&gt;</ph><ph id="426">&lt; br type="textWrapping"/&gt;</ph>ದೊಡ್ಡ ಪ್ರಮಾಣದ ರೈತರು:</mrk>
+          <mrk mtype="seg" mid="45">%</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="43">Smallholder farmers:</mrk>
+          <mrk mtype="seg" mid="44">%<ph id="423">&lt;br type="textWrapping"/&gt;</ph><ph id="424">&lt;br type="textWrapping"/&gt;</ph>V/S<ph id="425">&lt;br type="textWrapping"/&gt;</ph><ph id="426">&lt;br type="textWrapping"/&gt;</ph>Large-scale farmers:</mrk>
+          <mrk mtype="seg" mid="45">%</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="43" />
+          <sdlxliff:seg id="44" />
+          <sdlxliff:seg id="45" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="28b9ccc6-8b45-41d8-8857-b0bfef830e18">
+        <source>5</source>
+        <target>
+          <mrk mtype="seg" mid="46">5</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="46">5</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="46" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="3797ed0a-586b-47bf-8127-74a414240e6b">
+        <source>Popular seed varieties (improved/hybrid) have been introduced in the last 3 years</source>
+        <target>
+          <mrk mtype="seg" mid="47">ಕಳೆದ 3 ವರ್ಷಗಳಲ್ಲಿ ಜನಪ್ರಿಯ ಬೀಜ ಪ್ರಭೇದಗಳನ್ನು (ಸುಧಾರಿತ / ಹೈಬ್ರಿಡ್) ಪರಿಚಯಿಸಲಾಗಿದೆ</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="47">Popular seed varieties (improved/hybrid) have been introduced in the last 3 years</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="47" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="38bc8a8f-8d7b-4f00-9be1-7422f090c2e3">
+        <source>6</source>
+        <target>
+          <mrk mtype="seg" mid="48">6</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="48">6</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="48" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="fad2b4be-f91c-4f08-a25c-a4e657d5c509">
+        <source>Parameters farmers consider before buying an input from your enterprise? such as quality and price.</source>
+        <target>
+          <mrk mtype="seg" mid="49">ನಿಮ್ಮ ಉದ್ಯಮದಿಂದ ಇನ್ ಪುಟ್ ಖರೀದಿಸುವ ಮೊದಲು ರೈತರು ಪರಿಗಣಿಸುವ ನಿಯತಾಂಕಗಳು? ಉದಾಹರಣೆಗೆ ಗುಣಮಟ್ಟ ಮತ್ತು ಬೆಲೆ.</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="49">Parameters farmers consider before buying an input from your enterprise? such as quality and price.</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="49" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="8d6c0911-37d2-48ce-9eb8-55a8eac0c9b0">
+        <source>Seed - <ph id="452">&lt;br type="textWrapping"/&gt;</ph><ph id="453">&lt;br type="textWrapping"/&gt;</ph>Fertilizer -<ph id="454">&lt;br type="textWrapping"/&gt;</ph><ph id="455">&lt;br type="textWrapping"/&gt;</ph>Pesticide -</source>
+        <target>
+          <mrk mtype="seg" mid="50">ಬೀಜ - <ph id="452">&lt; br type="textWrapping"/&gt;</ph><ph id="453">&lt; br type="textWrapping"/&gt;</ph>ರಸಗೊಬ್ಬರ -<ph id="454">&lt; br type="textWrapping"/&gt;</ph><ph id="455">&lt; br type="textWrapping"/&gt;</ph>ಕೀಟನಾಶಕ -</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="50">Seed - <ph id="452">&lt;br type="textWrapping"/&gt;</ph><ph id="453">&lt;br type="textWrapping"/&gt;</ph>Fertilizer -<ph id="454">&lt;br type="textWrapping"/&gt;</ph><ph id="455">&lt;br type="textWrapping"/&gt;</ph>Pesticide -</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="50" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="6e7210a8-ff89-42a0-88f0-df4f37798b5f">
+        <source>7</source>
+        <target>
+          <mrk mtype="seg" mid="51">7</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="51">7</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="51" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="047b22ea-05bc-47f6-8940-66e6078d61aa">
+        <source>Did the crop pattern change in the past 5 years? (Y/N)<ph id="465">&lt;br type="textWrapping"/&gt;</ph>If yes, please specify increase and decrease.</source>
+        <target>
+          <mrk mtype="seg" mid="52">ಕಳೆದ 5 ವರ್ಷಗಳಲ್ಲಿ ಬೆಳೆ ಮಾದರಿ ಬದಲಾಗಿದೆಯೇ?</mrk>
+          <mrk mtype="seg" mid="53">(Y/N)<ph id="465">&lt; br type="textWrapping"/&gt;</ph>ಹೌದು ಎಂದಾದಲ್ಲಿ, ದಯವಿಟ್ಟು ಹೆಚ್ಚಳ ಮತ್ತು ಇಳಿಕೆಯನ್ನು ನಿರ್ದಿಷ್ಟಪಡಿಸಿ.</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="52">Did the crop pattern change in the past 5 years?</mrk>
+          <mrk mtype="seg" mid="53">(Y/N)<ph id="465">&lt;br type="textWrapping"/&gt;</ph>If yes, please specify increase and decrease.</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="52" />
+          <sdlxliff:seg id="53" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="d008f6ec-a3cc-4f80-914c-fb2836fcad60">
+        <source>8</source>
+        <target>
+          <mrk mtype="seg" mid="54">8</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="54">8</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="54" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="8208582f-8a79-41bc-bf5e-32d98b760205">
+        <source>Do you know of any subsidies given by the Govt. as input support to farmers? (Y/N) Please provide details</source>
+        <target>
+          <mrk mtype="seg" mid="55">ರೈತರಿಗೆ ಇನ್ಪುಟ್ ಬೆಂಬಲವಾಗಿ ಸರ್ಕಾರವು ನೀಡುವ ಯಾವುದೇ ಸಬ್ಸಿಡಿಗಳ ಬಗ್ಗೆ ನಿಮಗೆ ತಿಳಿದಿದೆಯೇ?</mrk>
+          <mrk mtype="seg" mid="56">(Y/N) ದಯವಿಟ್ಟು ವಿವರಗಳನ್ನು ಒದಗಿಸಿ</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="55">Do you know of any subsidies given by the Govt. as input support to farmers?</mrk>
+          <mrk mtype="seg" mid="56">(Y/N) Please provide details</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="55" />
+          <sdlxliff:seg id="56" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="46711190-8ee5-412d-8ce9-28e487608f66">
+        <source>9</source>
+        <target>
+          <mrk mtype="seg" mid="57">9</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="57">9</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="57" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="4877c3d9-bff4-4913-b3cc-545a124b1303">
+        <source>What guidance do you give to farmers on selecting proper inputs from your store?</source>
+        <target>
+          <mrk mtype="seg" mid="58">ನಿಮ್ಮ ಅಂಗಡಿಯಿಂದ ಸರಿಯಾದ ಇನ್ ಪುಟ್ ಗಳನ್ನು ಆಯ್ಕೆ ಮಾಡುವ ಬಗ್ಗೆ ರೈತರಿಗೆ ನೀವು ಯಾವ ಮಾರ್ಗದರ್ಶನವನ್ನು ನೀಡುತ್ತೀರಿ?</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="58">What guidance do you give to farmers on selecting proper inputs from your store?</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="58" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="ed485852-8dad-4071-b733-6e95aafdd6e3">
+        <source>10</source>
+        <target>
+          <mrk mtype="seg" mid="59">10</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="59">10</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="59" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="8a6f64db-1c01-4d9e-8ddd-8b4f4694b04b">
+        <source>Do you have a storage space for inputs? What is the capacity?</source>
+        <target>
+          <mrk mtype="seg" mid="60">ಇನ್ ಪುಟ್ ಗಳಿಗಾಗಿ ನಿಮ್ಮಲ್ಲಿ ಶೇಖರಣಾ ಸ್ಥಳವಿದೆಯೇ?</mrk>
+          <mrk mtype="seg" mid="61">ಸಾಮರ್ಥ್ಯ ಎಷ್ಟು?</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="60">Do you have a storage space for inputs?</mrk>
+          <mrk mtype="seg" mid="61">What is the capacity?</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="60" />
+          <sdlxliff:seg id="61" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+      <trans-unit id="20705bfa-351b-438c-9754-0306fe20831f">
+        <source>Date:<ph id="512">&lt;br type="textWrapping"/&gt;</ph>Signature:</source>
+        <target>
+          <mrk mtype="seg" mid="62">ದಿನಾಂಕ:<ph id="512">&lt; br type="textWrapping"/&gt;</ph>ಸಹಿ:</mrk>
+        </target>
+        <seg-source>
+          <mrk mtype="seg" mid="62">Date:<ph id="512">&lt;br type="textWrapping"/&gt;</ph>Signature:</mrk>
+        </seg-source>
+        <sdlxliff:seg-defs>
+          <sdlxliff:seg id="62" />
+        </sdlxliff:seg-defs>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
