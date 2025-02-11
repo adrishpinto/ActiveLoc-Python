@@ -24,7 +24,11 @@ app = Flask(__name__)
 app.config.from_object(app_config)
 
 
-CORS(app)
+CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "https://activeloc-python.onrender.com"], 
+                             "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+                             "allow_headers": ["Content-Type", "Authorization"]
+                            }})
+
 
 
 app.config['CACHE_TYPE'] = 'RedisCache'
@@ -99,7 +103,7 @@ def call_downstream_api():
     return render_template('display.html', result=api_result)
 
 if __name__ == "__main__":
-    port = int(os.getenv("PORT", 4000))  
+    port = int(os.getenv("PORT", 5000))  
     app.run(host="0.0.0.0", port=port, debug=True)
     
     # flask run --host=localhost --port=5000
