@@ -56,7 +56,7 @@ pyparsing==3.2.1
 Pyrebase4==4.8.0
 python-dotenv==0.21.1
 python-jwt==4.1.0
-pywin32==308
+pywin32>=308
 redis==5.2.1
 requests==2.32.3
 requests-toolbelt==0.10.1
