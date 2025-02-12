@@ -21,3 +21,4 @@ ALLOWED_USERS = [
     "employee@yourcompany.com",
     "joshua.pinto@activeloc.com"
 ]
+

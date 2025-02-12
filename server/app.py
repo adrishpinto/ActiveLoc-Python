@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 from flask_caching import Cache
 
 load_dotenv()
-URL = os.getenv("FRONTEND_URL") or "http://localhost:5173"
+URL = os.getenv("FRONTEND_URL") 
 
 __version__ = "1.0"
 
@@ -25,12 +25,20 @@ app = Flask(__name__)
 app.config.from_object(app_config)
 
 
-CORS(app, supports_credentials=True)
+CORS(app, supports_credentials=True, origins=[
+    "http://localhost:5173", 
+    "https://active-loc-python.vercel.app"
+])
+
 # CORS(app)
 
 
 app.config['CACHE_TYPE'] = 'SimpleCache'
 app.config['CACHE_DEFAULT_TIMEOUT'] = 300  
+app.config["SESSION_COOKIE_SECURE"] = True  # Required for HTTPS
+app.config["SESSION_COOKIE_SAMESITE"] = "None"  # Allows cross-origin cookies
+app.config["SESSION_COOKIE_HTTPONLY"] = True  # Prevents JS access
+
 
 cache.init_app(app)
 
@@ -67,7 +75,7 @@ def auth_response():
     result = auth.complete_log_in(request.args)
     if "error" in result:
         return render_template("auth_error.html", result=result)
-    return redirect("http://localhost:5173")
+    return redirect(URL)
 
 @app.route("/logout")
 def logout():
