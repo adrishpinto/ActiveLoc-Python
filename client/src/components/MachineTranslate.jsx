@@ -64,7 +64,7 @@ const MachineTranslate = () => {
   //download
   const downloadFile = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:5000/download");
+      const response = await fetch(`${API_URL}/download`);
       if (!response.ok) throw new Error("Failed to download file");
 
       const blob = await response.blob();
@@ -123,7 +123,6 @@ const MachineTranslate = () => {
           >
             Download File
           </button>
-
         </div>
 
         {translationStatus && (
