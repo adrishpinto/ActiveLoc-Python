@@ -1,0 +1,4934 @@
+#. extracted from test.xml
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-03 17:48+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 3.14.7\n"
+
+#: activity_sample_code
+msgid "API Demos"
+msgstr ""
+
+#: styled_12_hour_clock
+msgid ""
+"MM/<font color=\"red\"><b>dd</b></font>/yy h<font color=\"#ffff0000\""
+"><sup><small>mm</small></sup></font><b>aa</b>"
+msgstr ""
+
+#: styled_24_hour_clock
+msgid ""
+"MM/<font color=\"red\"><b>dd</b></font>/yy k<font color=\"#ffff0000\""
+"><sup><small>mm</small></sup></font>"
+msgstr ""
+
+#: styled_12_hour_clock2
+msgid ""
+"'Custom font:' <font color=\"@android:color/primary_text_holo_dark\" face"
+"=\"sans-serif-thin\">MM/dd/yy h:mm aa</font>"
+msgstr ""
+
+#: styled_24_hour_clock2
+msgid ""
+"'Custom font:' <font color=\"@android:color/primary_text_holo_dark\" face"
+"=\"sans-serif-thin\">MM/dd/yy k:mm</font>"
+msgstr ""
+
+#: tabs_1_tab_1
+msgid "tab1"
+msgstr ""
+
+#: tabs_1_tab_2
+msgid "tab2"
+msgstr ""
+
+#: tabs_1_tab_3
+msgid "tab3"
+msgstr ""
+
+#: activity_hello_world
+msgid "App/Activity/<b>Hello <i>World</i></b>"
+msgstr ""
+
+#: hello_world
+msgid "<b>Hello, <i>World!</i></b>"
+msgstr ""
+
+#: activity_dialog
+msgid "App/Activity/Dialog"
+msgstr ""
+
+#: dialog_activity_text
+msgid ""
+"Example of how you can use the Theme.Dialog theme to make an activity that "
+"looks like a dialog. It also has lots of text to show how text wrapping (and "
+"corresponding window size adjustment) can happen in a dialog."
+msgstr ""
+
+#: dialog_activity_add
+msgid "Add content"
+msgstr ""
+
+#: dialog_activity_remove
+msgid "Remove content"
+msgstr ""
+
+#: activity_custom_dialog
+msgid "App/Activity/Custom Dialog"
+msgstr ""
+
+#: custom_dialog_activity_text
+msgid ""
+"Example of how you can use a custom Theme.Dialog theme to make an activity "
+"that looks like a customized dialog, here with an ugly frame."
+msgstr ""
+
+#: activity_overscan
+msgid "App/Activity/Overscan"
+msgstr ""
+
+#: quick_contacts_demo
+msgid "App/Activity/QuickContactsDemo"
+msgstr ""
+
+#: activity_wallpaper
+msgid "App/Activity/Wallpaper"
+msgstr ""
+
+#: activity_setwallpaper
+msgid "App/Activity/SetWallpaper"
+msgstr ""
+
+#: set_wallpaper
+msgid "Set Wallpaper"
+msgstr ""
+
+#: randomize
+msgid "Randomize"
+msgstr ""
+
+#: activity_screen_orientation
+msgid "App/Activity/Screen Orientation"
+msgstr ""
+
+#: screen_orientation_summary
+msgid ""
+"Demonstrates the available screen orientation modes. Often you want to set "
+"the desired mode in your manifest instead of programmatically."
+msgstr ""
+
+#: screen_orientation
+msgid "Screen Orientation"
+msgstr ""
+
+#: activity_picture_in_picture
+msgid "App/Activity/Picture in Picture"
+msgstr ""
+
+#: activity_picture_in_picture_auto_pip_toggle
+msgid "Enable auto PiP"
+msgstr ""
+
+#: activity_picture_in_picture_source_rect_hint_toggle
+msgid "Enable source rect hint"
+msgstr ""
+
+#: activity_picture_in_picture_seamless_resize_toggle
+msgid "Enable seamless resize"
+msgstr ""
+
+#: activity_picture_in_picture_enter_pip_on_back_toggle
+msgid "Enter PiP on back"
+msgstr ""
+
+#: activity_picture_in_picture_placeholder_text
+msgid "This string should be invisible during the enter-pip animation"
+msgstr ""
+
+#: enter_content_pip
+msgid "Enter content PiP"
+msgstr ""
+
+#: enter_picture_in_picture
+msgid "Manually enter PiP"
+msgstr ""
+
+#: action_custom_close
+msgid "Close PiP"
+msgstr ""
+
+#: action_move_to_back
+msgid "Background PiP"
+msgstr ""
+
+#: label_current_position
+msgid "Current position"
+msgstr ""
+
+#: label_exit_position
+msgid "Exit position"
+msgstr ""
+
+#: label_position_start
+msgctxt "label_position_start"
+msgid "Start"
+msgstr ""
+
+#: label_position_end
+msgid "End"
+msgstr ""
+
+#: label_aspect_ratio
+msgid "Aspect Ratio"
+msgstr ""
+
+#: activity_keep_clear
+msgid "App/Activity/Keep Clear Rects"
+msgstr ""
+
+#: keep_clear_property_set
+msgid "This view has android:preferKeepClear property set."
+msgstr ""
+
+#: keep_clear_set_prefer_keep_clear_toggle
+msgid "Set the bottom right view as keep clear area, via setPreferKeepClear;"
+msgstr ""
+
+#: keep_clear_set_bottom_right_rectangle_keep_clear_toggle
+msgid ""
+"Set the bottom right view as keep clear area, via setPreferKeepClearRects."
+msgstr ""
+
+#: keep_clear_view_bottom_right
+msgid "Use toggles to turn this into keep clear area."
+msgstr ""
+
+#: activity_max_aspect_ratio_square
+msgid "App/Activity/Max Aspect Ratio/1:1"
+msgstr ""
+
+#: activity_max_aspect_ratio_16to9
+msgid "App/Activity/Max Aspect Ratio/16:9"
+msgstr ""
+
+#: activity_max_aspect_ratio_any
+msgid "App/Activity/Max Aspect Ratio/Any"
+msgstr ""
+
+#: activity_translucent
+msgid "App/Activity/Translucent"
+msgstr ""
+
+#: translucent_background
+msgid ""
+"Example of how you can make an activity have a translucent background, "
+"compositing over whatever is behind it."
+msgstr ""
+
+#: activity_translucent_blur
+msgid "App/Activity/Translucent Blur"
+msgstr ""
+
+#: activity_animation
+msgid "App/Activity/Animation"
+msgstr ""
+
+#: activity_animation_msg
+msgid "Press a button to launch an activity with a custom animation."
+msgstr ""
+
+#: activity_animation_fade
+msgid "Fade in"
+msgstr ""
+
+#: activity_animation_zoom
+msgid "Zoom in"
+msgstr ""
+
+#: activity_modern_animation_fade
+msgid "Modern fade in"
+msgstr ""
+
+#: activity_modern_animation_zoom
+msgid "Modern zoom in"
+msgstr ""
+
+#: activity_scale_up_animation
+msgid "Scale up"
+msgstr ""
+
+#: activity_zoom_thumbnail_animation
+msgid "Thumbnail zoom"
+msgstr ""
+
+#: activity_no_animation
+msgid "No Animation"
+msgstr ""
+
+#: activity_save_restore
+msgid "App/Activity/Save & Restore State"
+msgstr ""
+
+#: save_restore_msg
+msgid ""
+"Demonstration of saving and restoring activity state in onSaveInstanceState()"
+" and onCreate()."
+msgstr ""
+
+#: saves_state
+msgid "This text field saves its state:"
+msgstr ""
+
+#: no_saves_state
+msgid "This text field does not save its state:"
+msgstr ""
+
+#: initial_text
+msgid "Initial text."
+msgstr ""
+
+#: soft_input_modes
+msgid "App/Activity/Soft Input Modes"
+msgstr ""
+
+#: soft_input_modes_summary
+msgid ""
+"Shows how different soft input modes impact application resizing due to an "
+"input method."
+msgstr ""
+
+#: soft_input_modes_label
+msgid "Resize mode:"
+msgstr ""
+
+#: soft_input_modes_content
+msgid ""
+"This is a part of the application's UI that can resize to adjust for the IME."
+msgstr ""
+
+#: soft_input_modes_initial_text
+msgid ""
+"Text editor.\n"
+"\n"
+"Tap to show the IME, which will cause this window to resize as requested."
+msgstr ""
+
+#: activity_persistent
+msgid "App/Activity/Persistent State"
+msgstr ""
+
+#: persistent_msg
+msgid ""
+"Demonstration of persistent activity state with getPreferences(0).edit() and "
+"getPreferences(0)."
+msgstr ""
+
+#: activity_recreate
+msgid "App/Activity/Recreate"
+msgstr ""
+
+#: activity_recreate_msg
+msgid ""
+"Demonstration recreating an activity, to have it reconstructed with "
+"significant new changes. In this case the theme is changed."
+msgstr ""
+
+#: recreate
+msgid "Recreate"
+msgstr ""
+
+#: activity_finish_affinity
+msgid "App/Activity/Finish Affinity"
+msgstr ""
+
+#: activity_receive_result
+msgid "App/Activity/Receive Result"
+msgstr ""
+
+#: pick_result
+msgid "Pick a result to send, or BACK to cancel."
+msgstr ""
+
+#: corky
+msgid "Corky"
+msgstr ""
+
+#: violet
+msgid "Violet"
+msgstr ""
+
+#: activity_forwarding
+msgid "App/Activity/Forwarding"
+msgstr ""
+
+#: forwarding
+msgid ""
+"Press the button to go forward to the next activity. This activity will "
+"stop, so you will no longer see it when going back."
+msgstr ""
+
+#: go
+msgid "Go"
+msgstr ""
+
+#: forward_target
+msgid "Press back button and notice we don't see the previous activity."
+msgstr ""
+
+#: activity_redirect
+msgid "App/Activity/Redirection"
+msgstr ""
+
+#: redirect_enter
+msgid ""
+"Press the button to start the example. The next activity will conditionally "
+"redirect to another activity to collect data from the user."
+msgstr ""
+
+#: redirect_main
+msgid ""
+"You now see the main activity running normally because the user text has "
+"been set to:"
+msgstr ""
+
+#: clear_text
+msgid "Clear and Exit"
+msgstr ""
+
+#: new_text
+msgid "New Text"
+msgstr ""
+
+#: redirect_getter
+msgid ""
+"Enter the text that will be used by the main activity. Press back to cancel."
+msgstr ""
+
+#: apply
+msgid "Apply"
+msgstr ""
+
+#: activity_presentation
+msgid "App/Activity/Presentation"
+msgstr ""
+
+#: presentation_activity_text
+msgid ""
+"This activity demonstrates how to use a Presentation and the DisplayManager "
+"to show content on other Displays.\n"
+" Try connecting a secondary display and watch what happens.\n"
+" Selecting a Display will open a Presentation on it."
+msgstr ""
+
+#: presentation_show_all_displays
+msgid "Show all displays"
+msgstr ""
+
+#: presentation_photo_text
+msgid "Showing photo #%1$d on display #%2$d: %3$s."
+msgstr ""
+
+#: presentation_info_text
+msgid "Info"
+msgstr ""
+
+#: presentation_display_id_text
+msgid "Display #%1$d: %2$s"
+msgstr ""
+
+#: presentation_alert_info_text
+msgid "Display #%1$d Info"
+msgstr ""
+
+#: presentation_alert_dismiss_text
+msgctxt "presentation_alert_dismiss_text"
+msgid "OK"
+msgstr ""
+
+#: activity_presentation_with_media_router
+msgid "App/Activity/Presentation with Media Router"
+msgstr ""
+
+#: presentation_with_media_router_activity_text
+msgid ""
+"This activity demonstrates how to use a Presentation and the MediaRouter to "
+"automatically show content on a secondary display when available based on "
+"the currently selected media route.\n"
+" Try connecting a secondary display and watch what happens."
+msgstr ""
+
+#: presentation_with_media_router_play_on
+msgid "Play on..."
+msgstr ""
+
+#: presentation_with_media_router_now_playing_locally
+msgid "Now playing on main display '%s'."
+msgstr ""
+
+#: presentation_with_media_router_now_playing_remotely
+msgid "Now playing on secondary display '%s'."
+msgstr ""
+
+#: activity_secure_window
+msgid "App/Activity/Secure Surfaces/Secure Window"
+msgstr ""
+
+#: secure_window_activity_text
+msgid ""
+"This activity demonstrates how to make an activity use a secure surface so "
+"that its contents will only be visible on secure displays. The activity's "
+"window has been marked with FLAG_SECURE to make it use a secure surface. "
+"Consequently, the contents of the activity will not appear in screenshots "
+"and will not be mirrored to non-secure displays.\n"
+" \n"
+" I am a secure activity!"
+msgstr ""
+
+#: activity_secure_dialog
+msgid "App/Activity/Secure Surfaces/Secure Dialog"
+msgstr ""
+
+#: secure_dialog_activity_text
+msgid ""
+"This activity demonstrates how to make a dialog use a secure surface so that "
+"its contents will only be visible on secure displays. The dialog's window "
+"has been marked with FLAG_SECURE to make it use a secure surface. "
+"Consequently, the contents of the dialog will not appear in screenshots and "
+"will not be mirrored to non-secure displays."
+msgstr ""
+
+#: secure_dialog_show_button
+msgid "Show secure dialog"
+msgstr ""
+
+#: secure_dialog_dialog_text
+msgid "I am a secure dialog!"
+msgstr ""
+
+#: activity_secure_surface_view
+msgid "App/Activity/Secure Surfaces/Secure Surface View"
+msgstr ""
+
+#: secure_surface_view_activity_text
+msgid ""
+"This activity demonstrates how to make a SurfaceView use a secure surface so "
+"that its contents will only be visible on secure displays. The surface "
+"view's window has been made secure using setSecure(true) to make it use a "
+"secure surface. Consequently, the contents of the surface view will not "
+"appear in screenshots and will not be mirrored to non-secure displays."
+msgstr ""
+
+#: fragment_alert_dialog
+msgid "App/Fragment/Alert Dialog"
+msgstr ""
+
+#: fragment_arguments
+msgid "App/Fragment/Arguments"
+msgstr ""
+
+#: fragment_arguments_msg
+msgid ""
+"Demonstrates a fragment that takes arguments as a Bundle at runtime (on the "
+"right) or from attributes in a layout (on the left)."
+msgstr ""
+
+#: fragment_arguments_embedded
+msgid "From Attributes"
+msgstr ""
+
+#: fragment_arguments_embedded_land
+msgid "Landscape Only"
+msgstr ""
+
+#: fragment_arguments_fragment_msg
+msgid ""
+"Demonstrates two embedded fragments that are instantiated with arguments."
+msgstr ""
+
+#: fragment_custom_animations
+msgid "App/Fragment/Custom Animations"
+msgstr ""
+
+#: fragment_hide_show
+msgid "App/Fragment/Hide and Show"
+msgstr ""
+
+#: fragment_context_menu
+msgid "App/Fragment/Context Menu"
+msgstr ""
+
+#: fragment_context_menu_msg
+msgid "Fragment populating a context menu; long press the button to see."
+msgstr ""
+
+#: long_press
+msgid "Long press me"
+msgstr ""
+
+#: fragment_dialog
+msgid "App/Fragment/Dialog"
+msgstr ""
+
+#: show
+msgid "Show"
+msgstr ""
+
+#: fragment_dialog_or_activity
+msgid "App/Fragment/Dialog or Activity"
+msgstr ""
+
+#: fragment_dialog_or_activity_msg
+msgid ""
+"Demonstrates the same fragment being shown as a dialog and embedded inside "
+"of an activity."
+msgstr ""
+
+#: fragment_dialog_or_activity_inline
+msgid "Fragment embedded inside of the activity:"
+msgstr ""
+
+#: fragment_layout
+msgid "App/Fragment/Layout"
+msgstr ""
+
+#: fragment_list_array
+msgid "App/Fragment/List Array"
+msgstr ""
+
+#: fragment_menu
+msgid "App/Fragment/Menu"
+msgstr ""
+
+#: fragment_menu_msg
+msgid ""
+"Build menus from two fragments, allowing you to hide them to remove them.."
+msgstr ""
+
+#: fragment1menu
+msgid "Show fragment 1 menu"
+msgstr ""
+
+#: fragment2menu
+msgid "Show fragment 2 menu"
+msgstr ""
+
+#: fragment_nesting_tabs
+msgid "App/Fragment/Nesting Tabs"
+msgstr ""
+
+#: fragment_retain_instance
+msgid "App/Fragment/Retain Instance"
+msgstr ""
+
+#: fragment_retain_instance_msg
+msgid ""
+"Current progress of retained fragment; restarts if fragment is re-created."
+msgstr ""
+
+#: restart
+msgid "Restart"
+msgstr ""
+
+#: fragment_receive_result
+msgid "App/Fragment/Receive Result"
+msgstr ""
+
+#: fragment_stack
+msgid "App/Fragment/Stack"
+msgstr ""
+
+#: new_fragment
+msgid "Push"
+msgstr ""
+
+#: delete_fragment
+msgid "Pop"
+msgstr ""
+
+#: first
+msgid "First"
+msgstr ""
+
+#: last
+msgid "Last"
+msgstr ""
+
+#: fragment_tabs
+msgid "App/Fragment/Tabs"
+msgstr ""
+
+#: loader_cursor
+msgid "App/Loader/Cursor"
+msgstr ""
+
+#: loader_retained
+msgid "App/Loader/Retained"
+msgstr ""
+
+#: loader_custom
+msgid "App/Loader/Custom"
+msgstr ""
+
+#: loader_throttle
+msgid "App/Loader/Throttle"
+msgstr ""
+
+#: activity_menu
+msgid "App/Activity/Menu"
+msgstr ""
+
+#: open_menu
+msgid "Open menu"
+msgstr ""
+
+#: close_menu
+msgid "Close menu"
+msgstr ""
+
+#: toggle_scenery
+msgid "Toggle scenery"
+msgstr ""
+
+#: toggle_dogs
+msgid "Toggle dogs"
+msgstr ""
+
+#: long_click_for_context_menu
+msgid "Long click for context menu"
+msgstr ""
+
+#: local_service_started
+msgid "Local service has started"
+msgstr ""
+
+#: local_service_stopped
+msgid "Local service has stopped"
+msgstr ""
+
+#: local_service_label
+msgid "Sample Local Service"
+msgstr ""
+
+#: activity_local_service_controller
+msgid "App/Service/Local Service Controller"
+msgstr ""
+
+#: local_service_controller
+msgid ""
+"This demonstrates how you can implement persistent services that may be "
+"started and stopped as desired."
+msgstr ""
+
+#: start_service
+msgid "Start Service"
+msgstr ""
+
+#: stop_service
+msgid "Stop Service"
+msgstr ""
+
+#: activity_local_service_binding
+msgid "App/Service/Local Service Binding"
+msgstr ""
+
+#: local_service_binding
+msgid ""
+"This demonstrates how you can connect with a persistent service. Notice how "
+"it automatically starts for you, and play around with the interaction "
+"between this and Local Service Controller."
+msgstr ""
+
+#: bind_service
+msgid "Bind Service"
+msgstr ""
+
+#: unbind_service
+msgid "Unbind Service"
+msgstr ""
+
+#: local_service_connected
+msgid "Connected to local service"
+msgstr ""
+
+#: local_service_disconnected
+msgid "Disconnected from local service"
+msgstr ""
+
+#: activity_messenger_service_binding
+msgid "App/Service/Messenger Service"
+msgstr ""
+
+#: messenger_service_binding
+msgid ""
+"This demonstrates how you can communicate with a remote service using "
+"Messenger."
+msgstr ""
+
+#: remote_service_started
+msgid "Remote service has started"
+msgstr ""
+
+#: remote_service_stopped
+msgid "Remote service has stopped"
+msgstr ""
+
+#: remote_service_label
+msgid "Sample Remote Service"
+msgstr ""
+
+#: activity_remote_service_controller
+msgid "App/Service/Remote Service Controller"
+msgstr ""
+
+#: remote_service_controller
+msgid ""
+"This demonstrates how you can implement persistent services running in a "
+"separate process that may be started and stopped as desired."
+msgstr ""
+
+#: activity_remote_service_binding
+msgid "App/Service/Remote Service Binding"
+msgstr ""
+
+#: remote_service_binding
+msgid ""
+"This demonstrates how you can connect with a persistent service running in "
+"another process. Use the kill button to see what happens when the process "
+"crashes."
+msgstr ""
+
+#: kill_process
+msgid "Kill Process"
+msgstr ""
+
+#: remote_service_connected
+msgid "Connected to remote service"
+msgstr ""
+
+#: remote_service_disconnected
+msgid "Disconnected from remote service"
+msgstr ""
+
+#: remote_service_unbind_disconn
+msgid "Unbinding due to disconnect"
+msgstr ""
+
+#: remote_call_failed
+msgid "Failure calling remote service"
+msgstr ""
+
+#: activity_remote_service_binding_options
+msgid "App/Service/Remote Service Binding Options"
+msgstr ""
+
+#: service_start_arguments_label
+msgid "Sample Service Start Arguments"
+msgstr ""
+
+#: activity_service_start_arguments_controller
+msgid "App/Service/Service Start Arguments Controller"
+msgstr ""
+
+#: service_start_arguments_controller
+msgid ""
+"This demonstrates how service can be started with arguments, and run until "
+"all arguments are processed."
+msgstr ""
+
+#: start1_service
+msgid "Start \"One\" no redeliver"
+msgstr ""
+
+#: start2_service
+msgid "Start \"Two\" no redeliver"
+msgstr ""
+
+#: start3_service
+msgid "Start \"Three\" w/redeliver"
+msgstr ""
+
+#: startfail_service
+msgid "Start failed delivery"
+msgstr ""
+
+#: service_created
+msgid "Service created."
+msgstr ""
+
+#: service_destroyed
+msgid "Service destroyed."
+msgstr ""
+
+#: job_work_service_label
+msgid "Job Work Service"
+msgstr ""
+
+#: activity_job_work_service
+msgid "App/Job/Job Work Service Controller"
+msgstr ""
+
+#: job_work_service_controller
+msgid ""
+"This demonstrates how work can be enqueued and executed by a job, running "
+"work in the job until everything is complete."
+msgstr ""
+
+#: enqueue1_job
+msgid "Enqueue \"One\""
+msgstr ""
+
+#: enqueue2_job
+msgid "Enqueue \"Two\""
+msgstr ""
+
+#: enqueue3_job
+msgid "Enqueue \"Three\""
+msgstr ""
+
+#: job_service_created
+msgid "JobService created."
+msgstr ""
+
+#: job_service_destroyed
+msgid "JobService destroyed."
+msgstr ""
+
+#: foreground_service_started
+msgid "Service is in the foreground"
+msgstr ""
+
+#: foreground_service_label
+msgid "Sample Foreground Service"
+msgstr ""
+
+#: activity_foreground_service_controller
+msgid "App/Service/Foreground Service Controller"
+msgstr ""
+
+#: foreground_service_controller
+msgid ""
+"This demonstrates how you can implement services that run in the foreground "
+"when needed."
+msgstr ""
+
+#: start_service_foreground
+msgid "Start Service Foreground"
+msgstr ""
+
+#: start_service_foreground_wakelock
+msgid "Start Service Foreground w/Wakelock"
+msgstr ""
+
+#: start_service_background
+msgid "Start Service Background"
+msgstr ""
+
+#: start_service_background_wakelock
+msgid "Start Service Background w/Wakelock"
+msgstr ""
+
+#: start_service_foreground_2
+msgid "Start Service Foreground 2"
+msgstr ""
+
+#: start_service_foreground_2_alarm
+msgid "Start Service Foreground 2 Via Alarm"
+msgstr ""
+
+#: activity_isolated_service_controller
+msgid "App/Service/Isolated Service Controller"
+msgstr ""
+
+#: isolated_service_controller
+msgid ""
+"This demonstrates the use of android:isolatedProcess with services. There "
+"are two services, which can be independently controlled; they will each run "
+"in their own isolated process"
+msgstr ""
+
+#: start_service_1
+msgid "Start Service 1"
+msgstr ""
+
+#: stop_service_1
+msgid "Stop Service 1"
+msgstr ""
+
+#: bind_service_1
+msgid "Bind Service 1"
+msgstr ""
+
+#: start_service_2
+msgid "Start Service 2"
+msgstr ""
+
+#: stop_service_2
+msgid "Stop Service 2"
+msgstr ""
+
+#: bind_service_2
+msgid "Bind Service 2"
+msgstr ""
+
+#: isolated_service_1_started
+msgid "Isolated service 1 has started"
+msgstr ""
+
+#: isolated_service_1_stopped
+msgid "Isolated service 1 has stopped"
+msgstr ""
+
+#: isolated_service_1_label
+msgid "Sample Isolated Service 1"
+msgstr ""
+
+#: one_shot_received
+msgid "The one-shot alarm has gone off"
+msgstr ""
+
+#: repeating_received
+msgid "The repeating alarm has gone off"
+msgstr ""
+
+#: activity_alarm_controller
+msgid "App/Alarm/Alarm Controller"
+msgstr ""
+
+#: alarm_controller
+msgid ""
+"This demonstrates how to schedule and handle one-shot and repeating alarms."
+msgstr ""
+
+#: one_shot_alarm
+msgid "One Shot Alarm"
+msgstr ""
+
+#: one_shot_while_idle_alarm
+msgid "One Shot While-Idle Alarm"
+msgstr ""
+
+#: start_repeating_alarm
+msgid "Start Repeating Alarm"
+msgstr ""
+
+#: stop_repeating_alarm
+msgid "Stop Repeating Alarm"
+msgstr ""
+
+#: one_shot_scheduled
+msgid ""
+"One-shot alarm will go off in 30 seconds based on the real time clock. Try "
+"changing the current time before then!"
+msgstr ""
+
+#: repeating_scheduled
+msgid ""
+"Repeating alarm will go off in 15 seconds and every 15 seconds after based "
+"on the elapsed realtime clock"
+msgstr ""
+
+#: repeating_unscheduled
+msgid "Repeating alarm has been unscheduled"
+msgstr ""
+
+#: alarm_service_started
+msgid "The alarm service has started running"
+msgstr ""
+
+#: alarm_service_finished
+msgid "The alarm service has finished running"
+msgstr ""
+
+#: alarm_service_label
+msgid "Sample Alarm Service"
+msgstr ""
+
+#: activity_alarm_service
+msgid "App/Alarm/Alarm Service"
+msgstr ""
+
+#: alarm_service
+msgid ""
+"This demonstrates how to schedule a repeating alarm that will initiate a "
+"long-lived operation through a service."
+msgstr ""
+
+#: start_alarm_service
+msgid "Start Alarm Service"
+msgstr ""
+
+#: stop_alarm_service
+msgid "Stop Alarm Service"
+msgstr ""
+
+#: alarm_service_scheduled
+msgid "Alarm service will run now, and then every 30 seconds for 15 seconds"
+msgstr ""
+
+#: alarm_service_unscheduled
+msgid "Alarm service has been unscheduled"
+msgstr ""
+
+#: activity_local_sample
+msgid "App/Instrumentation/Local Sample"
+msgstr ""
+
+#: local_sample
+msgid ""
+"This demonstrates an Instrumentation that runs against one of our own "
+"classes. Note that this activity will be killed as a side-effect of starting "
+"instrumentation on its own application."
+msgstr ""
+
+#: activity_contacts_filter
+msgid "App/Instrumentation/Contacts Filter"
+msgstr ""
+
+#: contacts_filter
+msgid ""
+"This demonstrates an Instrumentation package that launches the contacts list "
+"and simulates user events to filter it."
+msgstr ""
+
+#: pick_image_label
+msgid "App/Activity/PickImage"
+msgstr ""
+
+#: pick_image
+msgid "Pick Image"
+msgstr ""
+
+#: short_notification_text
+msgid "Short notification"
+msgstr ""
+
+#: long_notification_text
+msgid ""
+"This is a long notification. See, you might need a second more to read it."
+msgstr ""
+
+#: status_bar_notification_title
+msgid "Sample Notification"
+msgstr ""
+
+#: notifying_service_controller
+msgid ""
+"This service will update a status bar notification every 5 seconds for a "
+"minute"
+msgstr ""
+
+#: notification_background_service
+msgid ""
+"This shows how you can use a notification to send a broadcast and allow you "
+"to start a service even if your app is in the background."
+msgstr ""
+
+#: notify_bg
+msgid "Post notification"
+msgstr ""
+
+#: notification_background_label
+msgid "Notification to background"
+msgstr ""
+
+#: activity_custom_title
+msgid "App/Activity/Custom Title"
+msgstr ""
+
+#: custom_title_left
+msgid "Left is best"
+msgstr ""
+
+#: custom_title_right
+msgid "Right is always right"
+msgstr ""
+
+#: custom_title_left_button
+msgid "Change Left"
+msgstr ""
+
+#: custom_title_right_button
+msgid "Change Right"
+msgstr ""
+
+#: activity_reorder
+msgid "App/Activity/Reorder Activities"
+msgstr ""
+
+#: reorder_on_launch
+msgid ""
+"This is the first of a sequence of four Activities. A button on the fourth "
+"will use the Intent.FLAG_ACTIVITY_REORDER_TO_FRONT flag to bring the second "
+"of the activities to the front of the history stack. After that, proceeding "
+"back through the history should begin with the newly-frontmost second "
+"reorder activity, then the fourth, the third, and finally the first."
+msgstr ""
+
+#: reorder_launch_two
+msgid "Go to the second"
+msgstr ""
+
+#: reorder_two_text
+msgid "This is the second in a sequence of four Activities."
+msgstr ""
+
+#: reorder_launch_three
+msgid "Go to the third"
+msgstr ""
+
+#: reorder_three_text
+msgid "This is the third of a sequence of four Activities."
+msgstr ""
+
+#: reorder_launch_four
+msgid "Go to the fourth"
+msgstr ""
+
+#: reorder_four_text
+msgid "This is the last in a sequence of four Activities."
+msgstr ""
+
+#: reorder_second_to_front
+msgid "Bring the second in front"
+msgstr ""
+
+#: activity_rotation_animation
+msgid "App/Activity/Rotation Animation"
+msgstr ""
+
+#: menu_from_xml_title
+msgid "App/Menu/Inflate from XML"
+msgstr ""
+
+#: menu_from_xml_instructions_press_menu
+msgid "Select a menu resource and press the menu key."
+msgstr ""
+
+#: menu_from_xml_instructions_go_back
+msgid ""
+"If you want to choose another menu resource, go back and re-run this "
+"activity."
+msgstr ""
+
+#: voice_recognition
+msgid "App/Voice Recognition"
+msgstr ""
+
+#: supported_languages
+msgid "Supported languages"
+msgstr ""
+
+#: language_preference
+msgid "Voice Search in Settings"
+msgstr ""
+
+#: text_to_speech
+msgid "App/Text-To-Speech"
+msgstr ""
+
+#: again
+msgid "Again"
+msgstr ""
+
+#: app_update_received
+msgid "ApiDemos has been updated!"
+msgstr ""
+
+#: activity_clipboard
+msgid "Content/Clipboard/Data Types"
+msgstr ""
+
+#: copy_text
+msgid "Copy Text"
+msgstr ""
+
+#: copy_intent
+msgid "Copy Intent"
+msgstr ""
+
+#: copy_uri
+msgid "Copy URI"
+msgstr ""
+
+#: clip_type_prompt
+msgid "Clip Type"
+msgstr ""
+
+#: activity_external_storage
+msgid "Content/Storage/External Storage"
+msgstr ""
+
+#: create
+msgid "Create"
+msgstr ""
+
+#: delete
+msgctxt "delete"
+msgid "Delete"
+msgstr ""
+
+#: activity_styled_text
+msgid "Content/Resources/<i>Styled</i> <b>Text</b>"
+msgstr ""
+
+#: styled_text_rsrc
+msgid "Initialized from a resource:"
+msgstr ""
+
+#: styled_text
+msgid "Plain, <b>bold</b>, <i>italic</i>, <b><i>bold-italic</i></b>"
+msgstr ""
+
+#: styled_text_prog
+msgid "Assigned programmatically:"
+msgstr ""
+
+#: activity_text_undo
+msgid "Content/Undo"
+msgstr ""
+
+#: text_undo_default_edit_msg
+msgid "TextView with the default Control-Z undo behavior."
+msgstr ""
+
+#: text_undo_set_text
+msgid "SetText"
+msgstr ""
+
+#: text_undo_append_text
+msgid "Append"
+msgstr ""
+
+#: text_undo_insert_text
+msgid "Insert"
+msgstr ""
+
+#: text_undo_undo_disabled_msg
+msgid "TextView with undo disabled."
+msgstr ""
+
+#: text_undo_length_limit_msg
+msgid "TextView with a length limit InputFilter."
+msgstr ""
+
+#: text_undo_credit_card_msg
+msgid "Credit card input field with a TextWatcher."
+msgstr ""
+
+#: activity_resources_layout_reference
+msgid "Content/Resources/Layout Reference"
+msgstr ""
+
+#: resources_layout_reference_description
+msgid ""
+"Shows how to write layout resource references, so that you can define "
+"multiple different configurations of a layout resource that refer to one "
+"actual XML definition."
+msgstr ""
+
+#: resources_layout_reference_default
+msgid "Default layout"
+msgstr ""
+
+#: resources_layout_reference_tablet
+msgid "Tablet layout"
+msgstr ""
+
+#: activity_resources_width_and_height
+msgid "Content/Resources/Width and Height"
+msgstr ""
+
+#: resources_width_and_height_description
+msgid ""
+"The layouts below use -wNNNdp and -hNNNdp to select between different "
+"versions based on the size of the screen."
+msgstr ""
+
+#: activity_resources_smallest_width
+msgid "Content/Resources/Smallest Width"
+msgstr ""
+
+#: resources_smallest_width_description
+msgid ""
+"The layouts below use -swNNNdp to select between different versions based on "
+"the size of the screen."
+msgstr ""
+
+#: activity_read_asset
+msgid "Content/Assets/Read Asset"
+msgstr ""
+
+#: activity_themes
+msgid "Content/Resources/Themes"
+msgstr ""
+
+#: activity_resources
+msgid "Content/Resources/Resources"
+msgstr ""
+
+#: activity_pick_contact
+msgid "Content/Provider/Pick Contact"
+msgstr ""
+
+#: pick_contact_msg
+msgid ""
+"Invoke Contacts to pick various kinds of contact data. None of these require "
+"that the caller hold the READ_CONTACTS permission."
+msgstr ""
+
+#: pick_contact
+msgid "Pick a Contact"
+msgstr ""
+
+#: pick_person
+msgid "Pick a Person"
+msgstr ""
+
+#: pick_phone
+msgid "Pick a Phone"
+msgstr ""
+
+#: pick_address
+msgid "Pick an Address"
+msgstr ""
+
+#: activity_share_content
+msgid "Content/Provider/Share Content"
+msgstr ""
+
+#: share_content_msg
+msgid ""
+"Share private data of the app by granting access to a specific URI in its "
+"content provider."
+msgstr ""
+
+#: share_image
+msgid "Share Image"
+msgstr ""
+
+#: activity_changed_contact
+msgid "Content/Provider/Changed Contacts"
+msgstr ""
+
+#: activity_media_content_observer
+msgid "Content/Provider/Media Content Observer"
+msgstr ""
+
+#: activity_install_apk
+msgid "Content/Packages/Install Apk"
+msgstr ""
+
+#: activity_install_apk_session_api
+msgid "Content/Packages/Install Apk using Session API"
+msgstr ""
+
+#: ir_send
+msgid "Send IR"
+msgstr ""
+
+#: ir_get_freqs
+msgid "Get Carrier Frequencies"
+msgstr ""
+
+#: activity_documents
+msgid "Content/Storage/Documents"
+msgstr ""
+
+#: activity_intents
+msgid "App/Activity/Intents"
+msgstr ""
+
+#: intents
+msgid "Example of launching various Intents."
+msgstr ""
+
+#: get_music
+msgid "Get Music"
+msgstr ""
+
+#: get_image
+msgid "Get Image"
+msgstr ""
+
+#: get_stream
+msgid "Get Stream"
+msgstr ""
+
+#: activity_intent_activity_flags
+msgid "App/Activity/Intent Activity Flags"
+msgstr ""
+
+#: intent_activity_flags
+msgid "Example of the use of various intent activity flags."
+msgstr ""
+
+#: flag_activity_clear_task
+msgid "FLAG_ACTIVITY_CLEAR_TASK"
+msgstr ""
+
+#: flag_activity_clear_task_pi
+msgid "FLAG_ACTIVITY_CLEAR_TASK (PI)"
+msgstr ""
+
+#: short_notification
+msgid "Short notification."
+msgstr ""
+
+#: long_notification
+msgid "Long notification."
+msgstr ""
+
+#: short_top_notification
+msgid "Short top."
+msgstr ""
+
+#: short_bottom_notification
+msgid "Short bottom."
+msgstr ""
+
+#: short_center_notification
+msgid "Short center."
+msgstr ""
+
+#: short_left_notification
+msgid "Short left."
+msgstr ""
+
+#: short_right_notification
+msgid "Short right."
+msgstr ""
+
+#: custom_notification
+msgid "Custom Notification:"
+msgstr ""
+
+#: custom_notification_button
+msgid "With a Button"
+msgstr ""
+
+#: status_bar_notifications_icons_only
+msgid "Icons only"
+msgstr ""
+
+#: status_bar_notifications_icons_and_marquee
+msgid "Icons and marquee"
+msgstr ""
+
+#: status_bar_notifications_remote_views
+msgid "Use remote views in balloon"
+msgstr ""
+
+#: status_bar_notifications_defaults
+msgid "Use default values where applicable"
+msgstr ""
+
+#: status_bar_notifications_happy
+msgid ":-)"
+msgstr ""
+
+#: status_bar_notifications_ok
+msgid ":-|"
+msgstr ""
+
+#: status_bar_notifications_sad
+msgid ":-("
+msgstr ""
+
+#: status_bar_notifications_happy_message
+msgid "I am happy"
+msgstr ""
+
+#: status_bar_notifications_ok_message
+msgid "I am ok"
+msgstr ""
+
+#: status_bar_notifications_sad_message
+msgid "I am sad"
+msgstr ""
+
+#: status_bar_notifications_clear
+msgid "Clear notification"
+msgstr ""
+
+#: status_bar_notifications_mood_title
+msgid "Mood ring"
+msgstr ""
+
+#: status_bar_notifications_default_sound
+msgid "Sound"
+msgstr ""
+
+#: status_bar_notifications_default_vibrate
+msgctxt "status_bar_notifications_default_vibrate"
+msgid "Vibrate"
+msgstr ""
+
+#: status_bar_notifications_default_all
+msgid "All"
+msgstr ""
+
+#: activity_alert_dialog
+msgid "App/Alert Dialogs"
+msgstr ""
+
+#: alert_dialog_two_buttons
+msgid "OK Cancel dialog with a message"
+msgstr ""
+
+#: alert_dialog_two_buttons_old_school
+msgid "OK Cancel dialog with traditional theme"
+msgstr ""
+
+#: alert_dialog_two_buttons_holo_light
+msgid "OK Cancel dialog with Holo Light theme"
+msgstr ""
+
+#: alert_dialog_two_buttons_default_light
+msgid "OK Cancel dialog with DeviceDefault Light theme"
+msgstr ""
+
+#: alert_dialog_two_buttons_default_dark
+msgid "OK Cancel dialog with DeviceDefault theme"
+msgstr ""
+
+#: alert_dialog_two_buttons2
+msgid "OK Cancel dialog with a long message"
+msgstr ""
+
+#: alert_dialog_two_buttons2ultra
+msgid "OK Cancel dialog with ultra long message"
+msgstr ""
+
+#: alert_dialog_select_button
+msgctxt "alert_dialog_select_button"
+msgid "List dialog"
+msgstr ""
+
+#: alert_dialog_single_choice
+msgid "Single choice list"
+msgstr ""
+
+#: alert_dialog_multi_choice
+msgid "Repeat alarm"
+msgstr ""
+
+#: alert_dialog_multi_choice_cursor
+msgid "Send Call to VoiceMail"
+msgstr ""
+
+#: alert_dialog_progress_button
+msgid "Progress bar dialog"
+msgstr ""
+
+#: alert_dialog_progress_spinner_button
+msgid "Progress spinner dialog"
+msgstr ""
+
+#: alert_dialog_text_entry
+msgid "Text Entry dialog"
+msgstr ""
+
+#: alert_dialog_username
+msgctxt "alert_dialog_username"
+msgid "Name:"
+msgstr ""
+
+#: alert_dialog_password
+msgid "Password:"
+msgstr ""
+
+#: alert_dialog_two_buttons_title
+msgid ""
+"Lorem ipsum dolor sit aie consectetur adipiscing\n"
+"Plloaso mako nuto siwuf cakso dodtos anr koop."
+msgstr ""
+
+#: alert_dialog_two_buttons_msg
+msgctxt "alert_dialog_two_buttons_msg"
+msgid "Header title"
+msgstr ""
+
+#: alert_dialog_two_buttons2_msg
+msgid ""
+"Plloaso mako nuto siwuf cakso dodtos anr koop a cupy uf cak vux noaw yerw "
+"phuno. Whag schengos, uf efed, quiel ba mada su otrenzr.\n"
+"\n"
+"Swipontgwook proudgs hus yag su ba dagarmidad. Plasa maku noga wipont "
+"trenzsa schengos ent kaap zux comy.\n"
+"\n"
+"Wipont trenz kipg naar mixent phona. Cak pwico siructiun ruous nust apoply "
+"tyu cak Uhex sisulutiun munityuw uw dseg"
+msgstr ""
+
+#: alert_dialog_two_buttons2ultra_msg
+msgid ""
+"Plloaso mako nuto siwuf cakso dodtos anr koop a cupy uf cak vux noaw yerw "
+"phuno. Whag schengos, uf efed, quiel ba mada su otrenzr.\n"
+"\n"
+"Swipontgwook proudgs hus yag su ba dagarmidad. Plasa maku noga wipont "
+"trenzsa schengos ent kaap zux comy.\n"
+"\n"
+"Wipont trenz kipg naar mixent phona. Cak pwico siructiun ruous nust apoply "
+"tyu cak Uhex sisulutiun munityuw uw dseg\n"
+"\n"
+" Plloaso mako nuto siwuf cakso dodtos anr koop a cupy uf cak vux noaw yerw "
+"phuno. Whag schengos, uf efed, quiel ba mada su otrenzr.\n"
+"\n"
+"Swipontgwook proudgs hus yag su ba dagarmidad. Plasa maku noga wipont "
+"trenzsa schengos ent kaap zux comy.\n"
+"\n"
+"Wipont trenz kipg naar mixent phona. Cak pwico siructiun ruous nust apoply "
+"tyu cak Uhex sisulutiun munityuw uw dseg\n"
+"\n"
+" Plloaso mako nuto siwuf cakso dodtos anr koop a cupy uf cak vux noaw yerw "
+"phuno. Whag schengos, uf efed, quiel ba mada su otrenzr.\n"
+"\n"
+"Swipontgwook proudgs hus yag su ba dagarmidad. Plasa maku noga wipont "
+"trenzsa schengos ent kaap zux comy.\n"
+"\n"
+"Wipont trenz kipg naar mixent phona. Cak pwico siructiun ruous nust apoply "
+"tyu cak Uhex sisulutiun munityuw uw dseg\n"
+"\n"
+" Plloaso mako nuto siwuf cakso dodtos anr koop a cupy uf cak vux noaw yerw "
+"phuno. Whag schengos, uf efed, quiel ba mada su otrenzr.\n"
+"\n"
+"Swipontgwook proudgs hus yag su ba dagarmidad. Plasa maku noga wipont "
+"trenzsa schengos ent kaap zux comy.\n"
+"\n"
+"Wipont trenz kipg naar mixent phona. Cak pwico siructiun ruous nust apoply "
+"tyu cak Uhex sisulutiun munityuw uw dseg\n"
+"\n"
+" Plloaso mako nuto siwuf cakso dodtos anr koop a cupy uf cak vux noaw yerw "
+"phuno. Whag schengos, uf efed, quiel ba mada su otrenzr.\n"
+"\n"
+"Swipontgwook proudgs hus yag su ba dagarmidad. Plasa maku noga wipont "
+"trenzsa schengos ent kaap zux comy.\n"
+"\n"
+"Wipont trenz kipg naar mixent phona. Cak pwico siructiun ruous nust apoply "
+"tyu cak Uhex sisulutiun munityuw uw dseg\n"
+"\n"
+" Plloaso mako nuto siwuf cakso dodtos anr koop a cupy uf cak vux noaw yerw "
+"phuno. Whag schengos, uf efed, quiel ba mada su otrenzr.\n"
+"\n"
+"Swipontgwook proudgs hus yag su ba dagarmidad. Plasa maku noga wipont "
+"trenzsa schengos ent kaap zux comy.\n"
+"\n"
+"Wipont trenz kipg naar mixent phona. Cak pwico siructiun ruous nust apoply "
+"tyu cak Uhex sisulutiun munityuw uw dseg"
+msgstr ""
+
+#: alert_dialog_ok
+msgctxt "alert_dialog_ok"
+msgid "OK"
+msgstr ""
+
+#: alert_dialog_hide
+msgid "Hide"
+msgstr ""
+
+#: alert_dialog_something
+msgid "Something"
+msgstr ""
+
+#: alert_dialog_cancel
+msgctxt "alert_dialog_cancel"
+msgid "Cancel"
+msgstr ""
+
+#: alert_dialog_progress_text1
+msgid "34<xliff:g id=\"percent\">%</xliff:g>"
+msgstr ""
+
+#: alert_dialog_progress_text2
+msgid "145/305 KB"
+msgstr ""
+
+#: select_dialog
+msgctxt "select_dialog"
+msgid "Header title"
+msgstr ""
+
+#: select_dialog_show
+msgctxt "select_dialog_show"
+msgid "List dialog"
+msgstr ""
+
+#: last_most_often
+msgid "Last most often"
+msgstr ""
+
+#: middle_most_often
+msgid "Middle most often"
+msgstr ""
+
+#: first_most_often
+msgid "First most often"
+msgstr ""
+
+#: last_least_often
+msgid "Last least often"
+msgstr ""
+
+#: middle_least_often
+msgid "Middle least often"
+msgstr ""
+
+#: first_least_often
+msgid "First least often"
+msgstr ""
+
+#: item_1
+msgid "Item 1"
+msgstr ""
+
+#: item_2
+msgid "Item 2"
+msgstr ""
+
+#: item_3
+msgid "Item 3"
+msgstr ""
+
+#: browser_visibility
+msgid "Browser visibility"
+msgstr ""
+
+#: browser_refresh
+msgid "Refresh"
+msgstr ""
+
+#: browser_bookmark
+msgid "Bookmark"
+msgstr ""
+
+#: email_visibility
+msgid "Email visibility"
+msgstr ""
+
+#: email_reply
+msgctxt "email_reply"
+msgid "Reply"
+msgstr ""
+
+#: email_forward
+msgid "Forward"
+msgstr ""
+
+#: jump
+msgid "Jump"
+msgstr ""
+
+#: dive
+msgid "Dive"
+msgstr ""
+
+#: search_invoke
+msgid "App/Search/Invoke Search"
+msgstr ""
+
+#: msg_search
+msgid ""
+"This activity shows a few different ways to invoke search, and inserts "
+"context-specific data for use by the search activity."
+msgstr ""
+
+#: search_sect_invocation
+msgid "Ways to invoke search"
+msgstr ""
+
+#: label_onsearchrequested
+msgid "onSearchRequested()"
+msgstr ""
+
+#: search_sect_options
+msgid "Optional search parameters"
+msgstr ""
+
+#: label_search_query_prefill
+msgid "Prefill query: "
+msgstr ""
+
+#: label_search_query_appdata
+msgid "App Data: "
+msgstr ""
+
+#: search_query_results
+msgid "App/Search/Query Search Results"
+msgstr ""
+
+#: msg_search_results
+msgid ""
+"This activity accepts query strings via the ACTION_SEARCH intent. In a full "
+"implementation, you would use the query string to select results from your "
+"data source, and present a list of those results to the user."
+msgstr ""
+
+#: label_search_query
+msgid "Query String: "
+msgstr ""
+
+#: label_search_appdata
+msgid "Query App Data: "
+msgstr ""
+
+#: label_search_deliveredby
+msgid "Activity Method: "
+msgstr ""
+
+#: search_label
+msgid "Search Demo"
+msgstr ""
+
+#: search_hint
+msgid "Search Demo Hint"
+msgstr ""
+
+#: shortcuts
+msgid "App/Launcher Shortcuts"
+msgstr ""
+
+#: sample_shortcuts
+msgid "ApiDemos"
+msgstr ""
+
+#: shortcut_name
+msgid "Sample"
+msgstr ""
+
+#: msg_launcher_shortcuts
+msgid ""
+"This activity creates shortcuts for the launcher (home screen), and receives "
+"intents from those shortcuts. To try it, return to the launcher and long-"
+"press to create a shortcut."
+msgstr ""
+
+#: label_intent
+msgid "Intent:"
+msgstr ""
+
+#: activity_sample_device_admin
+msgid "App/Device Admin"
+msgstr ""
+
+#: sample_device_admin
+msgid "Sample Device Admin"
+msgstr ""
+
+#: sample_device_admin_description
+msgid ""
+"Sample code for writing a DeviceAdmin class. This implementation provides a "
+"UI (in ApiDemos) for you to directly control what the DeviceAdmin does with "
+"the system."
+msgstr ""
+
+#: sample_device_admin2
+msgid "Dummy Device Admin"
+msgstr ""
+
+#: sample_device_admin_description2
+msgid "Dummy device admin"
+msgstr ""
+
+#: header_general
+msgid "General"
+msgstr ""
+
+#: header_quality
+msgctxt "header_quality"
+msgid "Password quality"
+msgstr ""
+
+#: header_expiration
+msgid "Password expiration"
+msgstr ""
+
+#: header_lock_wipe
+msgctxt "header_lock_wipe"
+msgid "Lock screen / Wipe"
+msgstr ""
+
+#: header_encryption
+msgctxt "header_encryption"
+msgid "Encryption"
+msgstr ""
+
+#: enable_admin
+msgid "Enable admin"
+msgstr ""
+
+#: device_capabilities_category
+msgid "Device capabilities"
+msgstr ""
+
+#: disable_camera
+msgid "Disable all device cameras"
+msgstr ""
+
+#: disable_keyguard_widgets
+msgid "Disable keyguard widgets"
+msgstr ""
+
+#: disable_keyguard_secure_camera
+msgid "Disable keyguard secure camera"
+msgstr ""
+
+#: disable_keyguard_notifications
+msgid "Disable keyguard notifications"
+msgstr ""
+
+#: disable_keyguard_unredacted_notifications
+msgid "Disable keyguard unredacted notifications"
+msgstr ""
+
+#: disable_keyguard_trust_agents
+msgid "Disable keyguard Trust Agents"
+msgstr ""
+
+#: disable_keyguard_fingerprint
+msgid "Disable keyguard Fingerprint"
+msgstr ""
+
+#: disable_keyguard_remote_input
+msgid "Disable keyguard Remote Input"
+msgstr ""
+
+#: keyguard_widgets_disabled
+msgid "Keyguard widgets disabled"
+msgstr ""
+
+#: keyguard_widgets_enabled
+msgid "Keyguard widgets enabled"
+msgstr ""
+
+#: keyguard_secure_camera_disabled
+msgid "Keyguard secure camera disabled"
+msgstr ""
+
+#: keyguard_secure_camera_enabled
+msgid "Keyguard secure camera enabled"
+msgstr ""
+
+#: keyguard_secure_notifications_disabled
+msgid "Keyguard notifications disabled"
+msgstr ""
+
+#: keyguard_secure_notifications_enabled
+msgid "Keyguard notifications enabled"
+msgstr ""
+
+#: keyguard_unredacted_notifications_disabled
+msgid "Keyguard unredacted notifications disabled"
+msgstr ""
+
+#: keyguard_unredacted_notifications_enabled
+msgid "Keyguard unredacted notifications enabled"
+msgstr ""
+
+#: keyguard_trust_agents_disabled
+msgid "Keyguard Trust Agents disabled"
+msgstr ""
+
+#: keyguard_trust_agents_enabled
+msgid "Keyguard Trust Agents enabled"
+msgstr ""
+
+#: keyguard_fingerprint_disabled
+msgid "Keyguard Fingerprint disabled"
+msgstr ""
+
+#: keyguard_fingerprint_enabled
+msgid "Keyguard Fingerprint enabled"
+msgstr ""
+
+#: keyguard_remote_input_disabled
+msgid "Keyguard Remote Input disabled"
+msgstr ""
+
+#: keyguard_remote_input_enabled
+msgid "Keyguard Remote Input enabled"
+msgstr ""
+
+#: camera_disabled
+msgid "Device cameras disabled"
+msgstr ""
+
+#: camera_enabled
+msgid "Device cameras enabled"
+msgstr ""
+
+#: password_controls_category
+msgid "Password controls"
+msgstr ""
+
+#: set_password_user
+msgid "Set password (user)"
+msgstr ""
+
+#: set_password_api
+msgid "Set password (via API)"
+msgstr ""
+
+#: set_password_api_dialog
+msgid "Set screen lock password to"
+msgstr ""
+
+#: password_quality_category
+msgctxt "password_quality_category"
+msgid "Password quality"
+msgstr ""
+
+#: password_quality
+msgctxt "password_quality"
+msgid "Password quality"
+msgstr ""
+
+#: password_minimum_length
+msgid "Minimum length"
+msgstr ""
+
+#: password_minimum_letters
+msgid "Minimum letters"
+msgstr ""
+
+#: password_minimum_numeric
+msgid "Minimum numeric"
+msgstr ""
+
+#: password_minimum_lower_case
+msgid "Minimum lower case"
+msgstr ""
+
+#: password_minimum_upper_case
+msgid "Minimum upper case"
+msgstr ""
+
+#: password_minimum_symbols
+msgid "Minimum symbols"
+msgstr ""
+
+#: password_minimum_non_letter
+msgid "Minimum non-letter"
+msgstr ""
+
+#: password_expiration_category
+msgid "Password history / Expiration"
+msgstr ""
+
+#: password_history_depth
+msgid "Password history depth"
+msgstr ""
+
+#: password_expiration_timeout
+msgid "Password expiration timeout (minutes)"
+msgstr ""
+
+#: password_expiration_status
+msgid "Password expiration status"
+msgstr ""
+
+#: lock_wipe_category
+msgctxt "lock_wipe_category"
+msgid "Lock screen / Wipe"
+msgstr ""
+
+#: maximum_lock_time
+msgid "Max time to screen lock (minutes)"
+msgstr ""
+
+#: maximum_password_fails
+msgid "Max password failures for local wipe"
+msgstr ""
+
+#: lock_screen
+msgid "Lock screen now"
+msgstr ""
+
+#: wipe_data
+msgid "Wipe data"
+msgstr ""
+
+#: wipe_data_summary
+msgid "Wipe internal data, like a factory reset"
+msgstr ""
+
+#: wipe_all_data
+msgid "Wipe all data"
+msgstr ""
+
+#: wipe_all_data_summary
+msgid "Wipe internal data and external storage"
+msgstr ""
+
+#: encryption_category
+msgctxt "encryption_category"
+msgid "Encryption"
+msgstr ""
+
+#: require_encryption
+msgid "Require encryption"
+msgstr ""
+
+#: activate_encryption
+msgid "Activate encryption"
+msgstr ""
+
+#: trust_agent_category
+msgid "Trust Agent Features"
+msgstr ""
+
+#: set_trust_agent_component_name
+msgid "Enabled Component Name"
+msgstr ""
+
+#: set_trust_agent_feature_list
+msgid "Enabled Features (comma-separated)"
+msgstr ""
+
+#: password_sufficient
+msgid "Current password meets policy requirements"
+msgstr ""
+
+#: password_insufficient
+msgid "Current password does not meet policy requirements"
+msgstr ""
+
+#: monkey_reset_password
+msgid "You can't reset my password, you are a monkey!"
+msgstr ""
+
+#: monkey_lock_screen
+msgid "You can't lock my screen, you are a monkey!"
+msgstr ""
+
+#: monkey_encryption
+msgid "You can't start encryption, you are a monkey!"
+msgstr ""
+
+#: monkey_wipe_data
+msgid "You can't wipe my data, you are a monkey!"
+msgstr ""
+
+#: monkey_ok
+msgid "I admit defeat"
+msgstr ""
+
+#: reset_password_warning
+msgid "You have just reset your screen lock password to \"%1$s\"\""
+msgstr ""
+
+#: reset_password_ok
+msgid "Don't forget it"
+msgstr ""
+
+#: add_admin_extra_app_text
+msgid "Additional text explaining why this needs to be added."
+msgstr ""
+
+#: status_local_global
+msgid "Local=%1$s / Global=%2$s"
+msgstr ""
+
+#: status_device_encryption
+msgid "Device encryption status=%1$s"
+msgstr ""
+
+#: status_days_hours_minutes
+msgid "%1$sd %2$sh %3$sm"
+msgstr ""
+
+#: number_format_warning
+msgid "Bad value \"%1$s\"\""
+msgstr ""
+
+#: wipe_warning_first
+msgid "This will erase all of your data. Are you sure?"
+msgstr ""
+
+#: wipe_warning_first_ok
+msgid "Yes"
+msgstr ""
+
+#: wipe_warning_first_no
+msgid "No"
+msgstr ""
+
+#: wipe_warning_second
+msgid ""
+"This is not a test. This WILL erase all of your data! Are you really "
+"absolutely sure?"
+msgstr ""
+
+#: wipe_warning_second_full
+msgid ""
+"This is not a test. This WILL erase all of your data, including external "
+"storage! Are you really absolutely sure?"
+msgstr ""
+
+#: wipe_warning_second_ok
+msgid "BOOM!"
+msgstr ""
+
+#: wipe_warning_second_no
+msgid "Oops, run away!"
+msgstr ""
+
+#: encryption_not_supported
+msgid "Encryption is not supported on this device."
+msgstr ""
+
+#: encryption_not_supported_ok
+msgctxt "encryption_not_supported_ok"
+msgid "OK"
+msgstr ""
+
+#: encryption_status_unknown
+msgid "unknown"
+msgstr ""
+
+#: encryption_status_unsupported
+msgid "unsupported"
+msgstr ""
+
+#: encryption_status_inactive
+msgid "inactive"
+msgstr ""
+
+#: encryption_status_activating
+msgid "activating"
+msgstr ""
+
+#: encryption_status_active
+msgid "active"
+msgstr ""
+
+#: expiration_status_none
+msgid "None"
+msgstr ""
+
+#: expiration_status_past
+msgid "Password expired %1$s ago"
+msgstr ""
+
+#: expiration_status_future
+msgid "Password will expire %1$s from now"
+msgstr ""
+
+#: admin_receiver_status
+msgid "Sample Device Admin: %1$s"
+msgstr ""
+
+#: admin_receiver_status_enabled
+msgid "enabled"
+msgstr ""
+
+#: admin_receiver_status_disabled
+msgid "disabled"
+msgstr ""
+
+#: admin_receiver_status_pw_changed
+msgid "pw changed"
+msgstr ""
+
+#: admin_receiver_status_pw_failed
+msgid "pw failed"
+msgstr ""
+
+#: admin_receiver_status_pw_succeeded
+msgid "pw succeeded"
+msgstr ""
+
+#: admin_receiver_status_disable_warning
+msgid "This is an optional message to warn the user about disabling."
+msgstr ""
+
+#: voice_recognition_prompt
+msgid "This activity demonstrates the voice recognition APIs."
+msgstr ""
+
+#: speak_button
+msgid "Speak!"
+msgstr ""
+
+#: voice_recognition_results
+msgid "Results:"
+msgstr ""
+
+#: action_bar_mechanics
+msgid "App/Action Bar/Action Bar Mechanics"
+msgstr ""
+
+#: action_bar_usage
+msgid "App/Action Bar/Action Bar Usage"
+msgstr ""
+
+#: action_bar_tabs
+msgid "App/Action Bar/Action Bar Tabs"
+msgstr ""
+
+#: action_bar_settings_action_provider
+msgid "App/Action Bar/Action Provider/Settings Action Provider"
+msgstr ""
+
+#: action_bar_share_action_provider
+msgid "App/Action Bar/Action Provider/Share Action Provider"
+msgstr ""
+
+#: action_bar_settings_action_provider_no_handling
+msgid "Handling in onOptionsItemSelected avoided"
+msgstr ""
+
+#: action_bar_search
+msgctxt "action_bar_search"
+msgid "Search"
+msgstr ""
+
+#: action_bar_add
+msgctxt "action_bar_add"
+msgid "Add"
+msgstr ""
+
+#: action_bar_edit
+msgctxt "action_bar_edit"
+msgid "Edit"
+msgstr ""
+
+#: action_bar_share
+msgctxt "action_bar_share"
+msgid "Share"
+msgstr ""
+
+#: action_bar_sort
+msgid "Sort"
+msgstr ""
+
+#: action_bar_sort_alpha
+msgid "Alphabetically"
+msgstr ""
+
+#: action_bar_sort_size
+msgid "By size"
+msgstr ""
+
+#: action_bar_share_with
+msgid "Share with..."
+msgstr ""
+
+#: action_bar_settings
+msgid "Settings"
+msgstr ""
+
+#: action_bar_display_options
+msgid "App/Action Bar/Display Options"
+msgstr ""
+
+#: toggle_home_as_up
+msgid "DISPLAY_HOME_AS_UP"
+msgstr ""
+
+#: toggle_show_home
+msgid "DISPLAY_SHOW_HOME"
+msgstr ""
+
+#: toggle_use_logo
+msgid "DISPLAY_USE_LOGO"
+msgstr ""
+
+#: toggle_show_title
+msgid "DISPLAY_SHOW_TITLE"
+msgstr ""
+
+#: toggle_show_custom
+msgid "DISPLAY_SHOW_CUSTOM"
+msgstr ""
+
+#: toggle_navigation
+msgid "Navigation"
+msgstr ""
+
+#: cycle_custom_gravity
+msgid "Cycle Custom View Gravity"
+msgstr ""
+
+#: toggle_visibility
+msgid "Toggle Visibility"
+msgstr ""
+
+#: toggle_system_ui
+msgid "Toggle System UI"
+msgstr ""
+
+#: display_options_custom_button
+msgid "Custom View!"
+msgstr ""
+
+#: display_options_menu_item
+msgid "Menu Item"
+msgstr ""
+
+#: btn_add_tab
+msgid "Add new tab"
+msgstr ""
+
+#: btn_remove_tab
+msgid "Remove last tab"
+msgstr ""
+
+#: btn_toggle_tabs
+msgid "Toggle tab mode"
+msgstr ""
+
+#: btn_remove_all_tabs
+msgid "Remove all tabs"
+msgstr ""
+
+#: action_bar_navigation
+msgid "App/Action Bar/Action Bar Navigation"
+msgstr ""
+
+#: action_bar_navigation_msg
+msgid ""
+"Demonstrates various ways to navigate in applications involving the action "
+"bar. This activity has been launched as the root of the app's task."
+msgstr ""
+
+#: btn_newactivity
+msgid "New in-task activity"
+msgstr ""
+
+#: btn_newdoc
+msgid "New document"
+msgstr ""
+
+#: action_bar_navigation_target
+msgid "App Nav Child"
+msgstr ""
+
+#: action_bar_navigation_target_msg
+msgid ""
+"This is a sub-activity launched by the application. It may be in either the "
+"app's main task or another task. Press up on the action bar to navigate up "
+"in the app's hierarchy, regardless of where this activity appears."
+msgstr ""
+
+#: print_bitmap
+msgid "App/Print/Print Bitmap"
+msgstr ""
+
+#: print_html_from_screen
+msgid "App/Print/Print HTML from screen"
+msgstr ""
+
+#: print_html_off_screen
+msgid "App/Print/Print HTML off screen"
+msgstr ""
+
+#: print_custom_content
+msgid "App/Print/Print Custom Layout"
+msgstr ""
+
+#: print
+msgid "Print"
+msgstr ""
+
+#: print_html_off_screen_msg
+msgid "From the overflow menu you can print some off screen content."
+msgstr ""
+
+#: android_logo
+msgid "Android logo"
+msgstr ""
+
+#: hide_me
+msgid "Hide Me!"
+msgstr ""
+
+#: density_title
+msgid "Density: Unknown Screen"
+msgstr ""
+
+#: camera_alert
+msgid "Device has only one camera!"
+msgstr ""
+
+#: switch_cam
+msgid "Switch Camera"
+msgstr ""
+
+#: draggable_card
+msgid "Draggable Card"
+msgstr ""
+
+#: enable_tilt
+msgid "Enable Tilt"
+msgstr ""
+
+#: enable_shading
+msgid "Enable Shading"
+msgstr ""
+
+#: select_shape
+msgid "Select Shape"
+msgstr ""
+
+#: local_video
+msgid "Play Video from Local File"
+msgstr ""
+
+#: stream_video
+msgid "Play Streaming Video"
+msgstr ""
+
+#: local_audio
+msgid "Play Audio from Local File"
+msgstr ""
+
+#: res_audio
+msgid "Play Audio from Resources"
+msgstr ""
+
+#: screen_sharing_toggle
+msgid "Toggle screen sharing"
+msgstr ""
+
+#: no_sig_motion
+msgid "Significant Motion Sensor Not Detected"
+msgstr ""
+
+#: sig_motion
+msgid "Significant Motion Sensor Detected"
+msgstr ""
+
+#: sig_motion_enabled
+msgid "Significant Motion Sensor Enabled"
+msgstr ""
+
+#: sig_motion_auto_disabled
+msgid "Significant Motion Sensor Auto Disabled"
+msgstr ""
+
+#: linear_layout_8_vertical
+msgid "Vertical"
+msgstr ""
+
+#: linear_layout_8_horizontal
+msgid "Horizontal"
+msgstr ""
+
+#: linear_layout_8_top
+msgctxt "linear_layout_8_top"
+msgid "Top"
+msgstr ""
+
+#: linear_layout_8_middle
+msgid "Middle"
+msgstr ""
+
+#: linear_layout_8_bottom
+msgctxt "linear_layout_8_bottom"
+msgid "Bottom"
+msgstr ""
+
+#: linear_layout_8_left
+msgid "Left"
+msgstr ""
+
+#: linear_layout_8_center
+msgid "Center"
+msgstr ""
+
+#: linear_layout_8_right
+msgctxt "linear_layout_8_right"
+msgid "Right"
+msgstr ""
+
+#: linear_layout_10_from
+msgid "From:"
+msgstr ""
+
+#: linear_layout_10_to
+msgctxt "linear_layout_10_to"
+msgid "To:"
+msgstr ""
+
+#: radio_group_snack
+msgid "Snack"
+msgstr ""
+
+#: radio_group_selection
+msgid "You have selected: "
+msgstr ""
+
+#: radio_group_none
+msgid "(none)"
+msgstr ""
+
+#: table_layout_7_quit
+msgctxt "table_layout_7_quit"
+msgid "Quit"
+msgstr ""
+
+#: table_layout_7_ctrlq
+msgctxt "table_layout_7_ctrlq"
+msgid "Ctrl-Q"
+msgstr ""
+
+#: table_layout_8_quit
+msgctxt "table_layout_8_quit"
+msgid "Quit"
+msgstr ""
+
+#: table_layout_8_ctrlq
+msgctxt "table_layout_8_ctrlq"
+msgid "Ctrl-Q"
+msgstr ""
+
+#: seekbar_tracking_on
+msgid "Tracking on"
+msgstr ""
+
+#: seekbar_tracking_off
+msgid "Tracking off"
+msgstr ""
+
+#: seekbar_from_touch
+msgid "from touch"
+msgstr ""
+
+#: enabled
+msgid "Enabled"
+msgstr ""
+
+#: ratingbar_rating
+msgid "Rating:"
+msgstr ""
+
+#: popup_menu_search
+msgctxt "popup_menu_search"
+msgid "Search"
+msgstr ""
+
+#: popup_menu_add
+msgctxt "popup_menu_add"
+msgid "Add"
+msgstr ""
+
+#: popup_menu_edit
+msgctxt "popup_menu_edit"
+msgid "Edit"
+msgstr ""
+
+#: popup_menu_share
+msgctxt "popup_menu_share"
+msgid "Share"
+msgstr ""
+
+#: popup_menu_button
+msgid "Make a Popup!"
+msgstr ""
+
+#: secure_view_description
+msgid ""
+"This activity demonstrates a view that detects when it is potentially "
+"obscured by other windows."
+msgstr ""
+
+#: secure_view_step1_heading
+msgid "Click me first:"
+msgstr ""
+
+#: secure_view_step1_detail
+msgid ""
+"Pop up a toast that will overlay and obscure this window in a poor attempt "
+"to fool you into clicking the big red buttons. Don't do it!"
+msgstr ""
+
+#: secure_view_step2_heading
+msgid "Unfiltered demo:"
+msgstr ""
+
+#: secure_view_step2_detail
+msgid ""
+"This button does no filtering. This button will still work as usual while "
+"the toast is visible and is spoofing the view. Careful!"
+msgstr ""
+
+#: secure_view_step3_heading
+msgid "Built-in filtering demo:"
+msgstr ""
+
+#: secure_view_step3_detail
+msgid ""
+"This button uses the built-in secure touch filtering provided by the "
+"framework using the android:filterTouchesWhenObscured attribute. This button "
+"will be inoperable while the toast is visible."
+msgstr ""
+
+#: secure_view_step4_heading
+msgid "Custom filtering demo:"
+msgstr ""
+
+#: secure_view_step4_detail
+msgid ""
+"This button filters touches using a touch listener to examine the "
+"MotionEvent flags and warns the user. This button will display a message if "
+"touched while the toast is visible."
+msgstr ""
+
+#: secure_view_pop_toast
+msgid "Pop toast"
+msgstr ""
+
+#: secure_view_button
+msgid "Don't click! It'll cost you!"
+msgstr ""
+
+#: secure_view_action_dialog_title
+msgid "Oh no!"
+msgstr ""
+
+#: secure_view_action_dialog_dismiss
+msgid "Oops..."
+msgstr ""
+
+#: secure_view_caught_dialog_title
+msgid "Saved!"
+msgstr ""
+
+#: secure_view_caught_dialog_message
+msgid ""
+"Careful! There appears to be another window partly obscuring this window... "
+"Something unutterably HORRIBLE might have happened."
+msgstr ""
+
+#: secure_view_caught_dialog_dismiss
+msgid "Phew!"
+msgstr ""
+
+#: secure_view_overlay_description
+msgid "A toast! A toast!"
+msgstr ""
+
+#: secure_view_overlay_button1
+msgid "Totally safe, trust me..."
+msgstr ""
+
+#: secure_view_overlay_button2
+msgid "Clicky?"
+msgstr ""
+
+#: secure_view_overlay_button3
+msgid "Think of the penguins!"
+msgstr ""
+
+#: split_touch_view_description
+msgid ""
+"This activity demonstrates splitting touch events across multiple views "
+"within a view group. Here we have two ListViews within a LinearLayout that "
+"has the attribute android:splitMotionEvents set to true. Try scrolling both "
+"lists simultaneously using multiple fingers."
+msgstr ""
+
+#: split_touch_view_cheese_toast
+msgid ""
+"Do you have any %1$s?\n"
+"%2$s"
+msgstr ""
+
+#: searchview_hint
+msgid "Find something"
+msgstr ""
+
+#: cheese_hunt_hint
+msgid "Cheese hunt"
+msgstr ""
+
+#: open_search
+msgid "Expand"
+msgstr ""
+
+#: close_search
+msgid "Iconify"
+msgstr ""
+
+#: drag_explanation
+msgid ""
+"Longpress on a dot to start a drag, then drop over another dot. The "
+"destination dot will append the drag's textual conversion to the EditText."
+msgstr ""
+
+#: game_controller_input_description
+msgid ""
+"This activity demonstrates how to process input events received from game "
+"controllers. Please connect your game controller now and try moving the "
+"joysticks or pressing buttons. If it helps, try to imagine that you are a "
+"lone space cowboy in hot pursuit of the aliens who kidnapped your favorite "
+"llama on their way back to Andromeda..."
+msgstr ""
+
+#: game_controller_input_heading_device
+msgid "Input Device"
+msgstr ""
+
+#: game_controller_input_heading_axes
+msgid "Axes"
+msgstr ""
+
+#: game_controller_input_heading_keys
+msgid "Keys and Buttons"
+msgstr ""
+
+#: game_controller_input_label_device_name
+msgid "Name"
+msgstr ""
+
+#: game_controller_input_key_pressed
+msgid "Pressed"
+msgstr ""
+
+#: game_controller_input_key_released
+msgid "Released"
+msgstr ""
+
+#: hover_description
+msgid ""
+"This activity demonstrates how to handle hover events with "
+"View.onHoverEvent, ViewGroup.onInterceptHoverEvent, and "
+"View.setOnHoverListener."
+msgstr ""
+
+#: hover_intercept_checkbox
+msgid "Make container intercept hover events"
+msgstr ""
+
+#: hover_message_initial
+msgid ""
+"Try using a mouse or touch pad to hover over views within this activity."
+msgstr ""
+
+#: hover_message_entered_at
+msgid "Entered the container at (%1$f,%2$f)."
+msgstr ""
+
+#: hover_message_moved_at
+msgid "Moved within the container at (%1$f,%2$f)."
+msgstr ""
+
+#: hover_message_exited_at
+msgid ""
+"Exited the container at (%1$f,%2$f). The pointer may be inside the bounds of "
+"a child instead."
+msgstr ""
+
+#: hover_intercept_message_initial
+msgid "Try hovering over the button."
+msgstr ""
+
+#: hover_intercept_message_intercepted
+msgid ""
+"Intercepted hover event instead of sending it to the button. Om nom nom!"
+msgstr ""
+
+#: hover_button
+msgid "Hover Here"
+msgstr ""
+
+#: pointer_type_description
+msgid ""
+"The following demo is meaningful only with mouse. This does not have any "
+"effects on the touch screens."
+msgstr ""
+
+#: pointer_type_arrow
+msgid "arrow"
+msgstr ""
+
+#: pointer_type_context_menu
+msgid "context menu"
+msgstr ""
+
+#: pointer_type_hand
+msgid "hand"
+msgstr ""
+
+#: pointer_type_help
+msgid "help"
+msgstr ""
+
+#: pointer_type_wait
+msgid "wait"
+msgstr ""
+
+#: pointer_type_cell
+msgid "cell"
+msgstr ""
+
+#: pointer_type_crosshair
+msgid "crosshair"
+msgstr ""
+
+#: pointer_type_text
+msgid "text (I-beam)"
+msgstr ""
+
+#: pointer_type_vertical_text
+msgid "vertical text"
+msgstr ""
+
+#: pointer_type_alias
+msgid "alias"
+msgstr ""
+
+#: pointer_type_copy
+msgid "copy"
+msgstr ""
+
+#: pointer_type_no_drop
+msgid "no drop"
+msgstr ""
+
+#: pointer_type_all_scroll
+msgid "all scroll"
+msgstr ""
+
+#: pointer_type_horizontal_double_arrow
+msgid "horizontal double arrow"
+msgstr ""
+
+#: pointer_type_vertical_double_arrow
+msgid "vertical double arrow"
+msgstr ""
+
+#: pointer_type_top_right_diagonal_double_arrow
+msgid "top right diagonal double arrow"
+msgstr ""
+
+#: pointer_type_top_left_diagonal_double_arrow
+msgid "top left diagonal double arrow"
+msgstr ""
+
+#: pointer_type_zoom_in
+msgid "zoom in"
+msgstr ""
+
+#: pointer_type_zoom_out
+msgid "zoom out"
+msgstr ""
+
+#: pointer_type_grab
+msgid "grab"
+msgstr ""
+
+#: pointer_type_grabbing
+msgid "grabbing"
+msgstr ""
+
+#: pointer_type_none
+msgid "none (invisible)"
+msgstr ""
+
+#: pointer_type_custom_resource
+msgid "Custom (defined in resource file)"
+msgstr ""
+
+#: pointer_type_custom_resource_code
+msgid "Custom (resource loaded in code)"
+msgstr ""
+
+#: pointer_type_custom_static
+msgid "Custom (static bitmap created in code)"
+msgstr ""
+
+#: pointer_type_custom_system
+msgid "Custom (system icon picked in code)"
+msgstr ""
+
+#: pointer_type_custom_live
+msgid "Custom (dynamic image created in code)"
+msgstr ""
+
+#: tooltips_container_tooltip
+msgid "Parent view may have its own tooltip"
+msgstr ""
+
+#: tooltips_description
+msgid "Long press or hover on widgets to see tooltips"
+msgstr ""
+
+#: tooltips_code_label
+msgid "Set in code"
+msgstr ""
+
+#: tooltips_resource_label
+msgid "Set in resource"
+msgstr ""
+
+#: tooltips_resource_tooltip
+msgid "This tooltip is set in resource"
+msgstr ""
+
+#: tooltips_long_label
+msgid "Long tooltip"
+msgstr ""
+
+#: tooltips_long_tooltip
+msgid ""
+"An overly long tooltip will be truncated (3 lines max). An overly long "
+"tooltip will be truncated (3 lines max). An overly long tooltip will be "
+"truncated (3 lines max). An overly long tooltip will be truncated (3 lines "
+"max)"
+msgstr ""
+
+#: tooltips_edge_label
+msgid "Near the edge"
+msgstr ""
+
+#: tooltips_edge_tooltip
+msgid "A tooltip always fits inside the app window"
+msgstr ""
+
+#: tooltips_above_label
+msgid "Above placement"
+msgstr ""
+
+#: tooltips_above_tooltip
+msgid "When there is not enough room below, the tooltip goes above"
+msgstr ""
+
+#: tooltips_wide_label
+msgid "Wide widget"
+msgstr ""
+
+#: tooltips_wide_tooltip
+msgid "Wide widget gets a tooltip horizontally aligned to the pointer position"
+msgstr ""
+
+#: tooltips_tall_label
+msgid ""
+"Tall\n"
+"widget"
+msgstr ""
+
+#: tooltips_tall_tooltip
+msgid "Tall widget gets a tooltip vertically aligned to the pointer position"
+msgstr ""
+
+#: tooltips_large_label
+msgid "Large widget"
+msgstr ""
+
+#: tooltips_large_tooltip
+msgid "Tall and wide widget gets a tooltip aligned to the pointer position"
+msgstr ""
+
+#: googlelogin_err
+msgid "Use a better username and password, please."
+msgstr ""
+
+#: animation_1_instructions
+msgid "Please enter your password:"
+msgstr ""
+
+#: animation_2_text_1
+msgid "Freedom"
+msgstr ""
+
+#: animation_2_text_2
+msgid "is nothing else but"
+msgstr ""
+
+#: animation_2_text_3
+msgid "a chance to be better."
+msgstr ""
+
+#: animation_2_text_4
+msgid "— Albert Camus"
+msgstr ""
+
+#: animation_2_instructions
+msgid "Select an animation:"
+msgstr ""
+
+#: animation_3_text
+msgid "Interpolators"
+msgstr ""
+
+#: autocomplete_1_instructions
+msgctxt "autocomplete_1_instructions"
+msgid "Type in the text field for auto-completion."
+msgstr ""
+
+#: autocomplete_1_country
+msgctxt "autocomplete_1_country"
+msgid "Country:"
+msgstr ""
+
+#: autocomplete_1_focus
+msgctxt "autocomplete_1_focus"
+msgid "Give me Focus"
+msgstr ""
+
+#: autocomplete_2_country
+msgctxt "autocomplete_2_country"
+msgid "Country:"
+msgstr ""
+
+#: autocomplete_2_focus
+msgctxt "autocomplete_2_focus"
+msgid "Give me Focus"
+msgstr ""
+
+#: autocomplete_3_button_1
+msgid "Scroll"
+msgstr ""
+
+#: autocomplete_3_button_2
+msgid "Down"
+msgstr ""
+
+#: autocomplete_3_button_3
+msgctxt "autocomplete_3_button_3"
+msgid "To"
+msgstr ""
+
+#: autocomplete_3_button_4
+msgid "See"
+msgstr ""
+
+#: autocomplete_3_button_5
+msgid "Auto"
+msgstr ""
+
+#: autocomplete_3_button_6
+msgid "Complete"
+msgstr ""
+
+#: autocomplete_3_button_7
+msgctxt "autocomplete_3_button_7"
+msgid "Text"
+msgstr ""
+
+#: autocomplete_3_button_8
+msgid "View"
+msgstr ""
+
+#: autocomplete_3_button
+msgctxt "autocomplete_3_button"
+msgid "Button"
+msgstr ""
+
+#: autocomplete_3_country
+msgctxt "autocomplete_3_country"
+msgid "Country:"
+msgstr ""
+
+#: autocomplete_4_instructions
+msgctxt "autocomplete_4_instructions"
+msgid "Type in the text field for auto-completion."
+msgstr ""
+
+#: autocomplete_4_name
+msgctxt "autocomplete_4_name"
+msgid "Name:"
+msgstr ""
+
+#: autocomplete_4_message
+msgid ""
+"You must have contacts in your address book. Typing * will show all of your "
+"contacts."
+msgstr ""
+
+#: autocomplete_5_instructions
+msgctxt "autocomplete_5_instructions"
+msgid "Type in the text field for auto-completion."
+msgstr ""
+
+#: autocomplete_5_hint
+msgid "Typing * will show all of your contacts."
+msgstr ""
+
+#: autocomplete_5_name
+msgctxt "autocomplete_5_name"
+msgid "Name:"
+msgstr ""
+
+#: autocomplete_6_to
+msgctxt "autocomplete_6_to"
+msgid "To:"
+msgstr ""
+
+#: autocomplete_6_to_hint
+msgctxt "autocomplete_6_to_hint"
+msgid "To"
+msgstr ""
+
+#: autocomplete_6_subject
+msgid "Subject:"
+msgstr ""
+
+#: autocomplete_7_instructions
+msgid "Type in the text field for auto-completion by words."
+msgstr ""
+
+#: autocomplete_7_country
+msgctxt "autocomplete_7_country"
+msgid "Country:"
+msgstr ""
+
+#: autocomplete_7_focus
+msgctxt "autocomplete_7_focus"
+msgid "Give me Focus"
+msgstr ""
+
+#: baseline_1_label
+msgctxt "baseline_1_label"
+msgid "Label:"
+msgstr ""
+
+#: baseline_1_button
+msgctxt "baseline_1_button"
+msgid "Button"
+msgstr ""
+
+#: baseline_1_bigger
+msgctxt "baseline_1_bigger"
+msgid "Bigger"
+msgstr ""
+
+#: baseline_2_label
+msgctxt "baseline_2_label"
+msgid "Label:"
+msgstr ""
+
+#: baseline_2_button
+msgctxt "baseline_2_button"
+msgid "Button"
+msgstr ""
+
+#: baseline_2_bigger
+msgctxt "baseline_2_bigger"
+msgid "Bigger"
+msgstr ""
+
+#: baseline_3_label
+msgctxt "baseline_3_label"
+msgid "Label:"
+msgstr ""
+
+#: baseline_3_button
+msgctxt "baseline_3_button"
+msgid "Button"
+msgstr ""
+
+#: baseline_3_bigger
+msgctxt "baseline_3_bigger"
+msgid "Bigger"
+msgstr ""
+
+#: baseline_3_explanation
+msgid ""
+"This example shows that baseline alignment has no effect when the layout "
+"gravity is set to center_vertical."
+msgstr ""
+
+#: baseline_4_label
+msgctxt "baseline_4_label"
+msgid "Label:"
+msgstr ""
+
+#: baseline_4_button
+msgctxt "baseline_4_button"
+msgid "Button"
+msgstr ""
+
+#: baseline_4_bigger
+msgctxt "baseline_4_bigger"
+msgid "Bigger"
+msgstr ""
+
+#: baseline_4_label_2
+msgid "Label Again"
+msgstr ""
+
+#: baseline_4_label_3
+msgid "Label Me"
+msgstr ""
+
+#: baseline_6_multi_line
+msgid ""
+"This is a\n"
+"multi-line field."
+msgstr ""
+
+#: baseline_6_baseline
+msgid "Baseline Aligned"
+msgstr ""
+
+#: baseline_7_fat
+msgid "Big and bold"
+msgstr ""
+
+#: baseline_7_lean
+msgid "Slim and slick."
+msgstr ""
+
+#: baseline_nested_1_label
+msgid "label"
+msgstr ""
+
+#: controls_1_save
+msgctxt "controls_1_save"
+msgid "Save"
+msgstr ""
+
+#: controls_1_checkbox_1
+msgid "Checkbox 1"
+msgstr ""
+
+#: controls_1_checkbox_2
+msgid "Checkbox 2"
+msgstr ""
+
+#: controls_1_radiobutton_1
+msgid "RadioButton 1"
+msgstr ""
+
+#: controls_1_radiobutton_2
+msgid "RadioButton 2"
+msgstr ""
+
+#: controls_1_star
+msgid "Star"
+msgstr ""
+
+#: controls_header_buttons
+msgid "Buttons"
+msgstr ""
+
+#: controls_button
+msgctxt "controls_button"
+msgid "Button"
+msgstr ""
+
+#: controls_button_borderless
+msgid "Button.Borderless"
+msgstr ""
+
+#: controls_button_colored
+msgid "Button.Colored"
+msgstr ""
+
+#: controls_button_borderless_colored
+msgid "Button.Borderless.Colored"
+msgstr ""
+
+#: controls_header_compound_buttons
+msgid "Compound buttons"
+msgstr ""
+
+#: controls_header_spinners
+msgid "Spinners"
+msgstr ""
+
+#: controls_spinner
+msgid "Spinner"
+msgstr ""
+
+#: controls_spinner_underlined
+msgid "Spinner.Underlined"
+msgstr ""
+
+#: controls_switch
+msgid "Switch"
+msgstr ""
+
+#: controls_header_seek_bars
+msgid "Seek bars"
+msgstr ""
+
+#: controls_seek_bar
+msgid "SeekBar"
+msgstr ""
+
+#: controls_seek_bar_discrete
+msgid "SeekBar.Discrete"
+msgstr ""
+
+#: controls_header_text_fields
+msgid "Text fields"
+msgstr ""
+
+#: controls_header_text_appearances
+msgid "Text appearances"
+msgstr ""
+
+#: focus_1_message
+msgid "Service not running"
+msgstr ""
+
+#: focus_1_placeholder
+msgid "placeholder"
+msgstr ""
+
+#: focus_2_left
+msgctxt "focus_2_left"
+msgid "left"
+msgstr ""
+
+#: focus_2_jump
+msgid "jump over me from L to R"
+msgstr ""
+
+#: focus_2_right
+msgctxt "focus_2_right"
+msgid "right"
+msgstr ""
+
+#: focus_3_left
+msgctxt "focus_3_left"
+msgid "left"
+msgstr ""
+
+#: focus_3_right
+msgctxt "focus_3_right"
+msgid "right"
+msgstr ""
+
+#: focus_3_top
+msgid "top"
+msgstr ""
+
+#: focus_3_bottom
+msgid "bottom"
+msgstr ""
+
+#: focus_5_button1
+msgid "1"
+msgstr ""
+
+#: focus_5_button2
+msgid "2"
+msgstr ""
+
+#: focus_5_button3
+msgid "3"
+msgstr ""
+
+#: focus_5_button4
+msgid "4"
+msgstr ""
+
+#: focus_5_button5
+msgid "5"
+msgstr ""
+
+#: grid_layout_1_instructions
+msgctxt "grid_layout_1_instructions"
+msgid "Type here:"
+msgstr ""
+
+#: grid_layout_1_ok
+msgctxt "grid_layout_1_ok"
+msgid "Ok"
+msgstr ""
+
+#: grid_layout_1_cancel
+msgctxt "grid_layout_1_cancel"
+msgid "Cancel"
+msgstr ""
+
+#: googlelogin_login
+msgctxt "googlelogin_login"
+msgid "Login"
+msgstr ""
+
+#: googlelogin_bad_login
+msgid "Bad Login"
+msgstr ""
+
+#: googlelogin_clear
+msgid "Clear Credentials"
+msgstr ""
+
+#: googlelogin_user
+msgid "Username:"
+msgstr ""
+
+#: layout_animation_name
+msgctxt "layout_animation_name"
+msgid "Name:"
+msgstr ""
+
+#: layout_animation_lastname
+msgid "Last Name:"
+msgstr ""
+
+#: layout_animation_phone
+msgid "Phone:"
+msgstr ""
+
+#: layout_animation_address
+msgid "Address:"
+msgstr ""
+
+#: linear_layout_1_top
+msgctxt "linear_layout_1_top"
+msgid "This is the top view."
+msgstr ""
+
+#: linear_layout_1_middle
+msgctxt "linear_layout_1_middle"
+msgid ""
+"This is the middle view. It has more text in it than either the top view or "
+"the bottom view."
+msgstr ""
+
+#: linear_layout_1_bottom
+msgctxt "linear_layout_1_bottom"
+msgid "This is the bottom view."
+msgstr ""
+
+#: linear_layout_2_top
+msgctxt "linear_layout_2_top"
+msgid "This is the top view."
+msgstr ""
+
+#: linear_layout_2_middle
+msgctxt "linear_layout_2_middle"
+msgid ""
+"This is the middle view. It has more text in it than either the top view or "
+"the bottom view."
+msgstr ""
+
+#: linear_layout_2_bottom
+msgctxt "linear_layout_2_bottom"
+msgid "This is the bottom view."
+msgstr ""
+
+#: linear_layout_3_top
+msgctxt "linear_layout_3_top"
+msgid "This is the top view."
+msgstr ""
+
+#: linear_layout_3_middle
+msgctxt "linear_layout_3_middle"
+msgid ""
+"This is the middle view. It has more text in it than either the top view or "
+"the bottom view."
+msgstr ""
+
+#: linear_layout_3_bottom
+msgctxt "linear_layout_3_bottom"
+msgid "This is the bottom view."
+msgstr ""
+
+#: linear_layout_5_instructions
+msgid "Type Here:"
+msgstr ""
+
+#: linear_layout_5_cancel
+msgctxt "linear_layout_5_cancel"
+msgid "Cancel"
+msgstr ""
+
+#: linear_layout_5_ok
+msgctxt "linear_layout_5_ok"
+msgid "OK"
+msgstr ""
+
+#: linear_layout_6_one
+msgid "One"
+msgstr ""
+
+#: linear_layout_6_two
+msgid "Two"
+msgstr ""
+
+#: linear_layout_6_three
+msgid "This is the third one"
+msgstr ""
+
+#: linear_layout_6_four
+msgid "Four"
+msgstr ""
+
+#: linear_layout_7_small
+msgid "Not much text"
+msgstr ""
+
+#: linear_layout_7_big
+msgid ""
+"A lot more text than any of the other columns. This column should set the "
+"height of the linear layout."
+msgstr ""
+
+#: linear_layout_7_wrap
+msgid "wrap_content"
+msgstr ""
+
+#: linear_layout_8_a
+msgctxt "linear_layout_8_a"
+msgid "A"
+msgstr ""
+
+#: linear_layout_8_b
+msgid "B"
+msgstr ""
+
+#: linear_layout_8_c
+msgid "C"
+msgstr ""
+
+#: linear_layout_9_button
+msgctxt "linear_layout_9_button"
+msgid "Button"
+msgstr ""
+
+#: link_text_auto
+msgid ""
+"<b>text1: Various kinds of data that will be auto-linked.</b> In this text "
+"are some things that are actionable. For instance, you can click on http://"
+"www.google.com and it will launch the web browser. You can click on "
+"google.com too. If you click on (415) 555-1212 it should dial the phone. Or "
+"just write foobar@example.com for an e-mail link. If you have a URI like "
+"http://www.example.com/lala/foobar@example.com you should get the full link "
+"not the e-mail address. Or you can put a location like 1600 Amphitheatre "
+"Parkway, Mountain View, CA 94043. To summarize: https://www.google.com, or "
+"650-253-0000, somebody@example.com, or 9606 North MoPac Expressway, Suite "
+"400, Austin, TX 78759."
+msgstr ""
+
+#: link_text_manual
+msgid ""
+"<b>text2: Explicit links using &lt;a&gt; markup.</b> This has markup for a "
+"<a href=\"http://www.google.com\">link</a> specified via an &lt;a&gt; tag. "
+"Use a \"tel:\" URL to <a href=\"tel:4155551212\">dial a phone number</a>."
+msgstr ""
+
+#: list_8_new_photo
+msgid "New photo"
+msgstr ""
+
+#: list_8_clear_photos
+msgid "Clear photos"
+msgstr ""
+
+#: list_8_no_photos
+msgid "No photos"
+msgstr ""
+
+#: progressbar_1_plus
+msgid "+"
+msgstr ""
+
+#: progressbar_1_minus
+msgid "-"
+msgstr ""
+
+#: progressbar_1_default_progress
+msgid "Default progress:"
+msgstr ""
+
+#: progressbar_1_secondary_progress
+msgid "Secondary progress:"
+msgstr ""
+
+#: progressbar_3_progress
+msgid "Show Progress"
+msgstr ""
+
+#: progressbar_3_indeterminate
+msgid "Show Indeterminate"
+msgstr ""
+
+#: progressbar_3_indeterminate_no_title
+msgid "Show Indeterminate No Title"
+msgstr ""
+
+#: progressbar_4_toggle
+msgid "Toggle Indeterminate"
+msgstr ""
+
+#: radio_group_1_breakfast
+msgid "Breakfast"
+msgstr ""
+
+#: radio_group_1_lunch
+msgid "Lunch"
+msgstr ""
+
+#: radio_group_1_dinner
+msgid "Dinner"
+msgstr ""
+
+#: radio_group_1_all
+msgid "All of them"
+msgstr ""
+
+#: radio_group_1_selection
+msgid "You have selected: (none)"
+msgstr ""
+
+#: radio_group_1_clear
+msgid "Clear"
+msgstr ""
+
+#: receive_result_instructions
+msgid ""
+"Press the button to get an activity result, which will be displayed here:"
+msgstr ""
+
+#: receive_result_result
+msgid "Get Result"
+msgstr ""
+
+#: relative_layout_1_top
+msgctxt "relative_layout_1_top"
+msgid "Top"
+msgstr ""
+
+#: relative_layout_1_bottom
+msgctxt "relative_layout_1_bottom"
+msgid "Bottom"
+msgstr ""
+
+#: relative_layout_1_center
+msgid "center_vertical"
+msgstr ""
+
+#: relative_layout_2_instructions
+msgctxt "relative_layout_2_instructions"
+msgid "Type here:"
+msgstr ""
+
+#: relative_layout_2_ok
+msgctxt "relative_layout_2_ok"
+msgid "Ok"
+msgstr ""
+
+#: relative_layout_2_cancel
+msgctxt "relative_layout_2_cancel"
+msgid "Cancel"
+msgstr ""
+
+#: rotation_animation_description
+msgid ""
+"Change the default rotation animation from rotating to fade or jumpcut. Only "
+"works if FLAG_FULLSCREEN is set and there are no dialogs up. Try rotating "
+"with and without the Power Off dialog visible."
+msgstr ""
+
+#: rotation_animation_fullscreen
+msgid "FULLSCREEN"
+msgstr ""
+
+#: rotation_animation_choices
+msgid "Rotation Animation:"
+msgstr ""
+
+#: rotation_animation_rotate
+msgid "ROTATE"
+msgstr ""
+
+#: rotation_animation_crossfade
+msgid "XFADE"
+msgstr ""
+
+#: rotation_animation_jumpcut
+msgid "JUMPCUT"
+msgstr ""
+
+#: rotation_animation_seamless
+msgid "SEAMLESS"
+msgstr ""
+
+#: scroll_view_1_text_1
+msgctxt "scroll_view_1_text_1"
+msgid "Text View 1"
+msgstr ""
+
+#: scroll_view_1_button_1
+msgctxt "scroll_view_1_button_1"
+msgid "Button 1"
+msgstr ""
+
+#: scroll_view_1_text_2
+msgid "Text View 2"
+msgstr ""
+
+#: scroll_view_1_button_2
+msgid "Button 2"
+msgstr ""
+
+#: scroll_view_1_text_3
+msgid "Text View 3"
+msgstr ""
+
+#: scroll_view_1_button_3
+msgid "Button 3"
+msgstr ""
+
+#: scroll_view_1_text_4
+msgid "Text View 4"
+msgstr ""
+
+#: scroll_view_1_button_4
+msgid "Button 4"
+msgstr ""
+
+#: scroll_view_1_text_5
+msgid "Text View 5"
+msgstr ""
+
+#: scroll_view_1_button_5
+msgid "Button 5"
+msgstr ""
+
+#: scroll_view_1_text_6
+msgid "Text View 6"
+msgstr ""
+
+#: scroll_view_1_button_6
+msgid "Button 6"
+msgstr ""
+
+#: scroll_view_2_text_1
+msgctxt "scroll_view_2_text_1"
+msgid "Text View 1"
+msgstr ""
+
+#: scroll_view_2_button_1
+msgctxt "scroll_view_2_button_1"
+msgid "Button 1"
+msgstr ""
+
+#: scrollbar_1_text
+msgctxt "scrollbar_1_text"
+msgid "Lorem ipsum dolor sit amet."
+msgstr ""
+
+#: scrollbar_2_text
+msgctxt "scrollbar_2_text"
+msgid "Lorem ipsum dolor sit amet."
+msgstr ""
+
+#: scrollbar_3_text
+msgid ""
+"The Android platform is a software stack for mobile devices including an "
+"operating system, middleware and key applications. Developers can create "
+"applications for the platform using the Android SDK. Applications are "
+"written using the Java programming language and run on Dalvik, a custom "
+"virtual machine designed for embedded use which runs on top of a Linux "
+"kernel. If you want to know how to develop applications for Android, you're "
+"in the right place. This site provides a variety of documentation that will "
+"help you learn about Android and develop mobile applications for the "
+"platform. An early look at the the Android SDK is also available. It "
+"includes sample projects with source code, development tools, an emulator, "
+"and of course all the libraries you'll need to build an Android application. "
+"What would it take to build a better mobile phone?"
+msgstr ""
+
+#: spinner_1_color
+msgid "Color:"
+msgstr ""
+
+#: spinner_1_planet
+msgid "Planet:"
+msgstr ""
+
+#: spinner_1_color_prompt
+msgid "Choose a color"
+msgstr ""
+
+#: spinner_1_planet_prompt
+msgid "Choose a planet"
+msgstr ""
+
+#: table_layout_1_star
+msgctxt "table_layout_1_star"
+msgid "*"
+msgstr ""
+
+#: table_layout_1_triple_star
+msgctxt "table_layout_1_triple_star"
+msgid "***"
+msgstr ""
+
+#: table_layout_1_open
+msgctxt "table_layout_1_open"
+msgid "Open…"
+msgstr ""
+
+#: table_layout_1_open_shortcut
+msgctxt "table_layout_1_open_shortcut"
+msgid "Ctrl-O"
+msgstr ""
+
+#: table_layout_1_save
+msgctxt "table_layout_1_save"
+msgid "Save As…"
+msgstr ""
+
+#: table_layout_1_save_shortcut
+msgctxt "table_layout_1_save_shortcut"
+msgid "(Save Document)"
+msgstr ""
+
+#: table_layout_1_quit
+msgctxt "table_layout_1_quit"
+msgid "Quit Application"
+msgstr ""
+
+#: table_layout_1_quit_shortcut
+msgctxt "table_layout_1_quit_shortcut"
+msgid "Ctrl-Shift-Q"
+msgstr ""
+
+#: table_layout_2_path_1
+msgid "~/path/to/file/to/open"
+msgstr ""
+
+#: table_layout_2_path_2
+msgid "~/.profile"
+msgstr ""
+
+#: table_layout_2_open
+msgid "Open"
+msgstr ""
+
+#: table_layout_2_save
+msgctxt "table_layout_2_save"
+msgid "Save"
+msgstr ""
+
+#: table_layout_2_save_all
+msgid "Save All"
+msgstr ""
+
+#: table_layout_3_star
+msgctxt "table_layout_3_star"
+msgid "*"
+msgstr ""
+
+#: table_layout_3_triple_star
+msgctxt "table_layout_3_triple_star"
+msgid "***"
+msgstr ""
+
+#: table_layout_3_open
+msgctxt "table_layout_3_open"
+msgid "Open…"
+msgstr ""
+
+#: table_layout_3_open_shortcut
+msgctxt "table_layout_3_open_shortcut"
+msgid "Ctrl-O"
+msgstr ""
+
+#: table_layout_3_save
+msgctxt "table_layout_3_save"
+msgid "Save As…"
+msgstr ""
+
+#: table_layout_3_save_shortcut
+msgctxt "table_layout_3_save_shortcut"
+msgid "(Save Document)"
+msgstr ""
+
+#: table_layout_3_too_long
+msgid "Too Long"
+msgstr ""
+
+#: table_layout_3_quit
+msgctxt "table_layout_3_quit"
+msgid "Quit Application"
+msgstr ""
+
+#: table_layout_3_quit_shortcut
+msgctxt "table_layout_3_quit_shortcut"
+msgid "Ctrl-Shift-Q"
+msgstr ""
+
+#: table_layout_4_open
+msgctxt "table_layout_4_open"
+msgid "Open…"
+msgstr ""
+
+#: table_layout_4_open_shortcut
+msgctxt "table_layout_4_open_shortcut"
+msgid "Ctrl-O"
+msgstr ""
+
+#: table_layout_4_save
+msgctxt "table_layout_4_save"
+msgid "Save As…"
+msgstr ""
+
+#: table_layout_4_save_shortcut
+msgctxt "table_layout_4_save_shortcut"
+msgid "Ctrl-Shift-S"
+msgstr ""
+
+#: table_layout_5_open
+msgctxt "table_layout_5_open"
+msgid "Open…"
+msgstr ""
+
+#: table_layout_5_open_shortcut
+msgctxt "table_layout_5_open_shortcut"
+msgid "Ctrl-O"
+msgstr ""
+
+#: table_layout_5_save
+msgctxt "table_layout_5_save"
+msgid "Save…"
+msgstr ""
+
+#: table_layout_5_save_shortcut
+msgctxt "table_layout_5_save_shortcut"
+msgid "Ctrl-S"
+msgstr ""
+
+#: table_layout_5_save_as
+msgctxt "table_layout_5_save_as"
+msgid "Save As…"
+msgstr ""
+
+#: table_layout_5_save_as_shortcut
+msgctxt "table_layout_5_save_as_shortcut"
+msgid "Ctrl-Shift-S"
+msgstr ""
+
+#: table_layout_5_import
+msgctxt "table_layout_5_import"
+msgid "Import…"
+msgstr ""
+
+#: table_layout_5_export
+msgctxt "table_layout_5_export"
+msgid "Export…"
+msgstr ""
+
+#: table_layout_5_export_shortcut
+msgctxt "table_layout_5_export_shortcut"
+msgid "Ctrl-E"
+msgstr ""
+
+#: table_layout_5_quit
+msgctxt "table_layout_5_quit"
+msgid "Quit…"
+msgstr ""
+
+#: table_layout_6_x
+msgctxt "table_layout_6_x"
+msgid "X"
+msgstr ""
+
+#: table_layout_6_open
+msgctxt "table_layout_6_open"
+msgid "Open…"
+msgstr ""
+
+#: table_layout_6_open_shortcut
+msgctxt "table_layout_6_open_shortcut"
+msgid "Ctrl-O"
+msgstr ""
+
+#: table_layout_6_save
+msgctxt "table_layout_6_save"
+msgid "Save…"
+msgstr ""
+
+#: table_layout_6_save_shortcut
+msgctxt "table_layout_6_save_shortcut"
+msgid "Ctrl-S"
+msgstr ""
+
+#: table_layout_6_save_as
+msgctxt "table_layout_6_save_as"
+msgid "Save As…"
+msgstr ""
+
+#: table_layout_6_save_as_shortcut
+msgctxt "table_layout_6_save_as_shortcut"
+msgid "Ctrl-Shift-S"
+msgstr ""
+
+#: table_layout_6_import
+msgctxt "table_layout_6_import"
+msgid "Import…"
+msgstr ""
+
+#: table_layout_6_export
+msgctxt "table_layout_6_export"
+msgid "Export…"
+msgstr ""
+
+#: table_layout_6_export_shortcut
+msgctxt "table_layout_6_export_shortcut"
+msgid "Ctrl-E"
+msgstr ""
+
+#: table_layout_6_quit
+msgctxt "table_layout_6_quit"
+msgid "Quit…"
+msgstr ""
+
+#: table_layout_7_x
+msgctxt "table_layout_7_x"
+msgid "X"
+msgstr ""
+
+#: table_layout_7_open
+msgctxt "table_layout_7_open"
+msgid "Open…"
+msgstr ""
+
+#: table_layout_7_open_shortcut
+msgctxt "table_layout_7_open_shortcut"
+msgid "Ctrl-O"
+msgstr ""
+
+#: table_layout_7_save
+msgctxt "table_layout_7_save"
+msgid "Save…"
+msgstr ""
+
+#: table_layout_7_save_shortcut
+msgctxt "table_layout_7_save_shortcut"
+msgid "Ctrl-S"
+msgstr ""
+
+#: table_layout_7_save_as
+msgctxt "table_layout_7_save_as"
+msgid "Save As…"
+msgstr ""
+
+#: table_layout_7_save_as_shortcut
+msgctxt "table_layout_7_save_as_shortcut"
+msgid "Ctrl-Shift-S"
+msgstr ""
+
+#: table_layout_7_import
+msgctxt "table_layout_7_import"
+msgid "Import…"
+msgstr ""
+
+#: table_layout_7_export
+msgctxt "table_layout_7_export"
+msgid "Export…"
+msgstr ""
+
+#: table_layout_7_export_shortcut
+msgctxt "table_layout_7_export_shortcut"
+msgid "Ctrl-E"
+msgstr ""
+
+#: table_layout_7_toggle_checkmarks
+msgid "Toggle Checkmarks"
+msgstr ""
+
+#: table_layout_7_toggle_shortcuts
+msgid "Toggle Shortcuts"
+msgstr ""
+
+#: table_layout_8_x
+msgctxt "table_layout_8_x"
+msgid "X"
+msgstr ""
+
+#: table_layout_8_open
+msgctxt "table_layout_8_open"
+msgid "Open…"
+msgstr ""
+
+#: table_layout_8_open_shortcut
+msgctxt "table_layout_8_open_shortcut"
+msgid "Ctrl-O"
+msgstr ""
+
+#: table_layout_8_save
+msgctxt "table_layout_8_save"
+msgid "Save…"
+msgstr ""
+
+#: table_layout_8_save_shortcut
+msgctxt "table_layout_8_save_shortcut"
+msgid "Ctrl-S"
+msgstr ""
+
+#: table_layout_8_save_as
+msgctxt "table_layout_8_save_as"
+msgid "Save As…"
+msgstr ""
+
+#: table_layout_8_save_as_shortcut
+msgctxt "table_layout_8_save_as_shortcut"
+msgid "Ctrl-Shift-S"
+msgstr ""
+
+#: table_layout_8_import
+msgctxt "table_layout_8_import"
+msgid "Import…"
+msgstr ""
+
+#: table_layout_8_export
+msgctxt "table_layout_8_export"
+msgid "Export…"
+msgstr ""
+
+#: table_layout_8_export_shortcut
+msgctxt "table_layout_8_export_shortcut"
+msgid "Ctrl-E"
+msgstr ""
+
+#: table_layout_8_toggle_stretch
+msgid "Toggle Stretch"
+msgstr ""
+
+#: table_layout_9_open
+msgctxt "table_layout_9_open"
+msgid "Open…"
+msgstr ""
+
+#: table_layout_9_open_shortcut
+msgctxt "table_layout_9_open_shortcut"
+msgid "Ctrl-O"
+msgstr ""
+
+#: table_layout_9_save
+msgctxt "table_layout_9_save"
+msgid "Save…"
+msgstr ""
+
+#: table_layout_9_save_shortcut
+msgctxt "table_layout_9_save_shortcut"
+msgid "Ctrl-S"
+msgstr ""
+
+#: table_layout_9_save_as
+msgctxt "table_layout_9_save_as"
+msgid "Save As…"
+msgstr ""
+
+#: table_layout_9_save_as_shortcut
+msgctxt "table_layout_9_save_as_shortcut"
+msgid "Ctrl-Shift-S"
+msgstr ""
+
+#: table_layout_9_save_all
+msgid ""
+"Save All And Do A Lot Of Stuff Just To Be Too Long For This Screen Because "
+"It Is A Test After All"
+msgstr ""
+
+#: table_layout_9_save_all_shortcut
+msgctxt "table_layout_9_save_all_shortcut"
+msgid "Ctrl-E"
+msgstr ""
+
+#: table_layout_9_import
+msgctxt "table_layout_9_import"
+msgid "Import…"
+msgstr ""
+
+#: table_layout_9_export
+msgctxt "table_layout_9_export"
+msgid "Export…"
+msgstr ""
+
+#: table_layout_9_export_shortcut
+msgctxt "table_layout_9_export_shortcut"
+msgid "Ctrl-E"
+msgstr ""
+
+#: table_layout_9_toggle_shrink
+msgid "Toggle Shrink"
+msgstr ""
+
+#: table_layout_10_user
+msgid "User"
+msgstr ""
+
+#: table_layout_10_password
+msgid "Password"
+msgstr ""
+
+#: table_layout_10_cancel
+msgctxt "table_layout_10_cancel"
+msgid "Cancel"
+msgstr ""
+
+#: table_layout_10_login
+msgctxt "table_layout_10_login"
+msgid "Login"
+msgstr ""
+
+#: table_layout_12_a
+msgctxt "table_layout_12_a"
+msgid "A"
+msgstr ""
+
+#: table_layout_12_b
+msgid "BB"
+msgstr ""
+
+#: table_layout_12_c
+msgid "CCCC"
+msgstr ""
+
+#: table_layout_12_d
+msgid "D"
+msgstr ""
+
+#: table_layout_12_e
+msgid "E"
+msgstr ""
+
+#: table_layout_12_f
+msgid "F"
+msgstr ""
+
+#: table_layout_12_g
+msgid "G"
+msgstr ""
+
+#: table_layout_12_h
+msgid "H"
+msgstr ""
+
+#: visibility_1_view_1
+msgid "View A"
+msgstr ""
+
+#: visibility_1_view_2
+msgid "View B"
+msgstr ""
+
+#: visibility_1_view_3
+msgid "View C"
+msgstr ""
+
+#: visibility_1_vis
+msgid "Vis"
+msgstr ""
+
+#: visibility_1_invis
+msgid "Invis"
+msgstr ""
+
+#: visibility_1_gone
+msgid "Gone"
+msgstr ""
+
+#: google_login_username_text
+msgctxt "google_login_username_text"
+msgid ""
+msgstr ""
+
+#: incoming_message_info_message_text
+msgid ""
+"this is the text of a previous message.\n"
+"kthx. meet u for dinner. cul8r"
+msgstr ""
+
+#: incoming_message_view_message_text
+msgid "This is the text of the posted notification."
+msgstr ""
+
+#: imcoming_message_view_message2_text
+msgid "Did you notice that the status bar icon disappeared?"
+msgstr ""
+
+#: imcoming_message_ticker_text
+msgid "New text message: <xliff:g id=\"text\">%0$s</xliff:g>"
+msgstr ""
+
+#: log_text_box_1_do_nothing_text
+msgid "Do nothing"
+msgstr ""
+
+#: log_text_box_1_add_text
+msgctxt "log_text_box_1_add_text"
+msgid "Add"
+msgstr ""
+
+#: notify_with_text_long_notify_text
+msgid "Show Long Notification"
+msgstr ""
+
+#: notify_with_text_short_notify_text
+msgid "Show Short Notification"
+msgstr ""
+
+#: marquee_default
+msgid "This use the default marquee animation limit of 3"
+msgstr ""
+
+#: marquee_once
+msgid "This will run the marquee animation once"
+msgstr ""
+
+#: marquee_forever
+msgid "This will run the marquee animation forever"
+msgstr ""
+
+#: table_layout_10_password_text
+msgctxt "table_layout_10_password_text"
+msgid ""
+msgstr ""
+
+#: table_layout_10_username_text
+msgctxt "table_layout_10_username_text"
+msgid ""
+msgstr ""
+
+#: text_switcher_1_next_text
+msgid "Next"
+msgstr ""
+
+#: date_widgets_example_dateDisplay_text
+msgctxt "date_widgets_example_dateDisplay_text"
+msgid ""
+msgstr ""
+
+#: date_widgets_example_pickTime12_text
+msgid "change the time (12 hour)"
+msgstr ""
+
+#: date_widgets_example_pickTime24_text
+msgid "change the time (24 hour)"
+msgstr ""
+
+#: date_widgets_example_pickDate_text
+msgid "change the date"
+msgstr ""
+
+#: buttons_1_normal
+msgid "Normal"
+msgstr ""
+
+#: buttons_1_right
+msgctxt "buttons_1_right"
+msgid "Right"
+msgstr ""
+
+#: buttons_1_small
+msgid "Small"
+msgstr ""
+
+#: buttons_1_small_right
+msgid "S R"
+msgstr ""
+
+#: buttons_1_small_left
+msgid "S L"
+msgstr ""
+
+#: buttons_1_small_up
+msgid "S U"
+msgstr ""
+
+#: buttons_1_small_down
+msgid "S D"
+msgstr ""
+
+#: buttons_1_toggle
+msgid "Toggle"
+msgstr ""
+
+#: expandable_list_sample_action
+msgid "Sample action"
+msgstr ""
+
+#: chronometer_start
+msgctxt "chronometer_start"
+msgid "Start"
+msgstr ""
+
+#: chronometer_stop
+msgid "Stop"
+msgstr ""
+
+#: chronometer_reset
+msgid "Reset"
+msgstr ""
+
+#: chronometer_set_format
+msgid "Set format string"
+msgstr ""
+
+#: chronometer_clear_format
+msgid "Clear format string"
+msgstr ""
+
+#: chronometer_initial_format
+msgid "Initial format: <xliff:g id=\"initial-format\">%s</xliff:g>"
+msgstr ""
+
+#: play
+msgid "Play"
+msgstr ""
+
+#: pause
+msgid "Pause"
+msgstr ""
+
+#: vibrate
+msgctxt "vibrate"
+msgid "Vibrate"
+msgstr ""
+
+#: image_view_large_normal
+msgid "Large image at normal size"
+msgstr ""
+
+#: image_view_large_at_most
+msgid "Large image scaled to at most 50x50"
+msgstr ""
+
+#: image_view_large_at_most_padded
+msgid "Large image scaled to at most 70x70 with padding"
+msgstr ""
+
+#: image_view_large_exactly_padded
+msgid "Large image scaled to exactly 70x70 with padding"
+msgstr ""
+
+#: image_view_small_normal
+msgid "Small image at normal size"
+msgstr ""
+
+#: image_view_small_at_most
+msgid "Small image scaled to at most 50x50"
+msgstr ""
+
+#: image_view_small_at_most_padded
+msgid "Small image scaled to at most 70x70 with padding"
+msgstr ""
+
+#: image_view_small_exactly_padded
+msgid "Small image scaled to exactly 70x70 with padding"
+msgstr ""
+
+#: textColorPrimary
+msgid "textColorPrimary"
+msgstr ""
+
+#: textColorSecondary
+msgid "textColorSecondary"
+msgstr ""
+
+#: textColorTertiary
+msgid "textColorTertiary"
+msgstr ""
+
+#: listSeparatorTextViewStyle
+msgid "listSeparatorTextViewStyle"
+msgstr ""
+
+#: appwidget_configure_instructions
+msgid "This text will be shown before the date in our example widget."
+msgstr ""
+
+#: appwidget_prefix_default
+msgid "Oh hai"
+msgstr ""
+
+#: appwidget_text_format
+msgid ""
+"<xliff:g id=\"prefix\">%1$s</xliff:g>: <xliff:g id=\"time\">%2$s</xliff:g>"
+msgstr ""
+
+#: sms_warning
+msgid ""
+"WARNING: this demo can send actual text messages (one at a time), so be sure "
+"to test with the Android emulator or have a text messaging plan with your "
+"carrier."
+msgstr ""
+
+#: sms_enable_receiver
+msgid "Enable SMS broadcast receiver"
+msgstr ""
+
+#: sms_recipient_label
+msgid "Recipient #"
+msgstr ""
+
+#: sms_content_label
+msgid "Message Body"
+msgstr ""
+
+#: sms_send_message
+msgctxt "sms_send_message"
+msgid "Send"
+msgstr ""
+
+#: sms_speak_string_format
+msgid "Message from %1$s: %2$s"
+msgstr ""
+
+#: reply
+msgctxt "reply"
+msgid "Reply"
+msgstr ""
+
+#: dismiss
+msgid "Dismiss"
+msgstr ""
+
+#: share
+msgctxt "share"
+msgid "Share"
+msgstr ""
+
+#: accessibility_service
+msgid "Accessibility/Accessibility Service"
+msgstr ""
+
+#: accessibility_service_label
+msgid "ClockBack"
+msgstr ""
+
+#: accessibility_service_instructions
+msgid ""
+"1. Enable TalkBack (Settings -> Accessibility -> TalkBack). \n"
+"\n"
+"2. Enable Explore-by-Touch (Settings -> Accessibility -> Explore by Touch). "
+"\n"
+"\n"
+"3. Touch explore the Clock application and the home screen. \n"
+"\n"
+"4. Go to the Clock application and change the time of an alarm. \n"
+"\n"
+"5. Enable ClockBack (Settings -> Accessibility -> ClockBack). \n"
+"\n"
+"6. Go to the Clock application and change an alarm. \n"
+"\n"
+"7. Set the ringer to vibration mode and change an alarm. \n"
+"\n"
+"8. Set the ringer to muted mode and change an alarm."
+msgstr ""
+
+#: value_ringer_audible
+msgid "Ringer audible"
+msgstr ""
+
+#: value_ringer_vibrate
+msgid "Ringer vibrate"
+msgstr ""
+
+#: value_ringer_silent
+msgid "Ringer silent"
+msgstr ""
+
+#: template_screen_on
+msgid "Screen on. Volume %1$s percent."
+msgstr ""
+
+#: template_screen_off
+msgid "Screen off. Volume %1$s percent."
+msgstr ""
+
+#: accessibility_query_window
+msgid "Accessibility/Accessibility Node Querying"
+msgstr ""
+
+#: accessibility_query_window_label
+msgid "QueryBack"
+msgstr ""
+
+#: accessibility_query_window_description
+msgid "Task App Accessibility Service"
+msgstr ""
+
+#: accessibility_query_window_instructions
+msgid ""
+"1. Enable QueryBack (Settings -> Accessibility -> QueryBack). \n"
+"\n"
+"2. Enable Explore-by-Touch (Settings -> Accessibility -> Explore by Touch). "
+"\n"
+"\n"
+"3. Touch explore the list."
+msgstr ""
+
+#: accessibility_custom_view
+msgid "Accessibility/Custom View"
+msgstr ""
+
+#: accessibility_custom_view_instructions
+msgid ""
+"1. Enable TalkBack (Settings -> Accessibility -> TalkBack). \n"
+"\n"
+"2. Enable Explore-by-Touch (Settings -> Accessibility -> Explore by Touch). "
+"\n"
+"\n"
+"3. Touch explore/poke the buttons."
+msgstr ""
+
+#: accessibility_custom_on
+msgid "On"
+msgstr ""
+
+#: accessibility_custom_off
+msgid "Off"
+msgstr ""
+
+#: magnification_service_label
+msgid "Magnification"
+msgstr ""
+
+#: magnification_service_description
+msgid "Allows the volume keys to control display magnification"
+msgstr ""
+
+#: task_name
+msgid "Task"
+msgstr ""
+
+#: task_complete_template
+msgid "Task %1$s %2$s"
+msgstr ""
+
+#: task_complete
+msgid "is complete"
+msgstr ""
+
+#: task_not_complete
+msgid "is not complete"
+msgstr ""
+
+#: keystore_entries_list
+msgid "List of entries:"
+msgstr ""
+
+#: keystore_key_ops_header
+msgid "Key operations"
+msgstr ""
+
+#: keystore_plaintext
+msgid "Plaintext:"
+msgstr ""
+
+#: keystore_ciphertext
+msgid "Ciphertext:"
+msgstr ""
+
+#: keystore_sign
+msgid "Sign"
+msgstr ""
+
+#: keystore_verify
+msgid "Verify"
+msgstr ""
+
+#: keystore_delete
+msgctxt "keystore_delete"
+msgid "Delete"
+msgstr ""
+
+#: keystore_generating_header
+msgid "Generating"
+msgstr ""
+
+#: keystore_entry_alias
+msgid "Entry alias:"
+msgstr ""
+
+#: keystore_generate
+msgid "Generate"
+msgstr ""
+
+#: keystore_no_alias_error
+msgid "Must supply an alias"
+msgstr ""
+
+#: mms_received_label
+msgid "Last received message"
+msgstr ""
+
+#: mms_recipients_label
+msgid "Addresses"
+msgstr ""
+
+#: mms_subject_label
+msgid "Subject"
+msgstr ""
+
+#: mms_text_label
+msgctxt "mms_text_label"
+msgid "Text"
+msgstr ""
+
+#: mms_send_button_label
+msgctxt "mms_send_button_label"
+msgid "Send"
+msgstr ""
+
+#: mms_status_sending
+msgid "Sending"
+msgstr ""
+
+#: mms_status_sent
+msgid "Sent OK"
+msgstr ""
+
+#: mms_status_downloaded
+msgid "Downloaded"
+msgstr ""
+
+#: mms_status_failed
+msgid "Failed"
+msgstr ""
+
+#: mms_status_downloading
+msgid "Downloading"
+msgstr ""
+
+#: mms_enable_receiver
+msgid "Enable MMS broadcast receiver"
+msgstr ""
+
+#: process_text_title
+msgid "Content/Process Text Intent"
+msgstr ""
+
+#: process_text_received_text_title
+msgid "Received text selection"
+msgstr ""
+
+#: process_text_finish_readonly
+msgid "Finish"
+msgstr ""
+
+#: process_text_finish
+msgid "Replace"
+msgstr ""
+
+#: process_text_no_text_received
+msgid "No text received."
+msgstr ""
+
+#: process_text_no_text_process_intent_received
+msgid ""
+"Try selecting some text in another app and find this app's name in the list "
+"of options for its selection menu."
+msgstr ""
+
+#: process_text_send_title
+msgid "Select text to process"
+msgstr ""
+
+#: process_text_send_description
+msgid ""
+"Select a piece of text from this box to trigger the text selection action "
+"mode. In there, you will find \"ApiDemos\". That is because this app "
+"declares it can handle text processing intents. Try selecting that action to "
+"send the selected text to that activity and retrieve processed text back."
+msgstr ""

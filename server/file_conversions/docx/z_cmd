@@ -1,0 +1,11 @@
+python docx_to_odt.py
+
+python odf_to_xliff.py
+
+--> send to translator or use azure to get translated xliff
+
+python modify_xliff.py
+
+python xliff_to_odf.py
+
+python odt_to_docx.py

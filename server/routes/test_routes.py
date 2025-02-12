@@ -12,10 +12,4 @@ def test():
     if "error" in token:
         return jsonify({"error": "Authentication failed"}), 401
 
-    api_result = requests.get(
-        app_config.ENDPOINT,
-        headers={'Authorization': 'Bearer ' + token['access_token']},
-        timeout=30,
-    ).json()
-
-    return jsonify(api_result)
+    return jsonify({"message": "hello"})

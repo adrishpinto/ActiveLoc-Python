@@ -1,0 +1,392 @@
+#. extracted from ./output\intial.json
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-04 17:47+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 3.14.7\n"
+
+#: [0].term
+msgid "app.name"
+msgstr ""
+
+#: [0].definition
+msgid "TODO List"
+msgstr ""
+
+#: [0].context
+msgctxt "[0].context"
+msgid ""
+msgstr ""
+
+#: [0].term_plural
+msgctxt "[0].term_plural"
+msgid ""
+msgstr ""
+
+#: [0].reference
+msgctxt "[0].reference"
+msgid "/app/modules/views"
+msgstr ""
+
+#: [0].comment
+msgid "Please don't change the name of the application"
+msgstr ""
+
+#: [1].term
+msgctxt "[1].term"
+msgid "app.login.text"
+msgstr ""
+
+#: [1].definition
+msgid "Enter your credentials below to login"
+msgstr ""
+
+#: [1].context
+msgctxt "[1].context"
+msgid ""
+msgstr ""
+
+#: [1].term_plural
+msgctxt "[1].term_plural"
+msgid ""
+msgstr ""
+
+#: [1].reference
+msgctxt "[1].reference"
+msgid "/app/modules/views"
+msgstr ""
+
+#: [1].comment
+msgctxt "[1].comment"
+msgid ""
+msgstr ""
+
+#: [2].term
+msgid "app.login.message.success"
+msgstr ""
+
+#: [2].definition
+msgid ""
+"Login successful !\n"
+"Welcome back %s !"
+msgstr ""
+
+#: [2].context
+msgctxt "[2].context"
+msgid ""
+msgstr ""
+
+#: [2].term_plural
+msgctxt "[2].term_plural"
+msgid ""
+msgstr ""
+
+#: [2].reference
+msgctxt "[2].reference"
+msgid "/app/modules/views"
+msgstr ""
+
+#: [2].comment
+msgctxt "[2].comment"
+msgid ""
+msgstr ""
+
+#: [3].term
+msgid "app.login.message.error"
+msgstr ""
+
+#: [3].definition
+msgid "Make sure you've entered the correct username and password"
+msgstr ""
+
+#: [3].context
+msgctxt "[3].context"
+msgid ""
+msgstr ""
+
+#: [3].term_plural
+msgctxt "[3].term_plural"
+msgid ""
+msgstr ""
+
+#: [3].reference
+msgctxt "[3].reference"
+msgid "/app/modules/views"
+msgstr ""
+
+#: [3].comment
+msgctxt "[3].comment"
+msgid ""
+msgstr ""
+
+#: [4].term
+msgid "app.login.password.forget"
+msgstr ""
+
+#: [4].definition
+msgid "I forgot my password"
+msgstr ""
+
+#: [4].context
+msgctxt "[4].context"
+msgid ""
+msgstr ""
+
+#: [4].term_plural
+msgctxt "[4].term_plural"
+msgid ""
+msgstr ""
+
+#: [4].reference
+msgctxt "[4].reference"
+msgid "/app/modules/views"
+msgstr ""
+
+#: [4].comment
+msgctxt "[4].comment"
+msgid ""
+msgstr ""
+
+#: [5].term
+msgid "app.login.password.reset"
+msgstr ""
+
+#: [5].definition
+msgid ""
+"Enter your address in the field below. A new password will be sent to your "
+"inbox."
+msgstr ""
+
+#: [5].context
+msgctxt "[5].context"
+msgid ""
+msgstr ""
+
+#: [5].term_plural
+msgctxt "[5].term_plural"
+msgid ""
+msgstr ""
+
+#: [5].reference
+msgctxt "[5].reference"
+msgid "/app/modules/views"
+msgstr ""
+
+#: [5].comment
+msgctxt "[5].comment"
+msgid ""
+msgstr ""
+
+#: [6].term
+msgid "app.register.text"
+msgstr ""
+
+#: [6].definition
+msgid "Sign up for free! No credit card required!"
+msgstr ""
+
+#: [6].context
+msgctxt "[6].context"
+msgid ""
+msgstr ""
+
+#: [6].term_plural
+msgctxt "[6].term_plural"
+msgid ""
+msgstr ""
+
+#: [6].reference
+msgctxt "[6].reference"
+msgid "/app/modules/views"
+msgstr ""
+
+#: [6].comment
+msgctxt "[6].comment"
+msgid ""
+msgstr ""
+
+#: [7].term
+msgid "app.register.message.success"
+msgstr ""
+
+#: [7].definition
+msgid ""
+"Thank you for signing up !\n"
+"Please check your email address to activate your account."
+msgstr ""
+
+#: [7].context
+msgctxt "[7].context"
+msgid ""
+msgstr ""
+
+#: [7].term_plural
+msgctxt "[7].term_plural"
+msgid ""
+msgstr ""
+
+#: [7].reference
+msgctxt "[7].reference"
+msgid "/app/modules/views"
+msgstr ""
+
+#: [7].comment
+msgctxt "[7].comment"
+msgid ""
+msgstr ""
+
+#: [8].term
+msgid "app.register.message.error"
+msgstr ""
+
+#: [8].definition
+msgid ""
+"We were unable to sign you up.\n"
+"Please correct the marked fields."
+msgstr ""
+
+#: [8].context
+msgctxt "[8].context"
+msgid ""
+msgstr ""
+
+#: [8].term_plural
+msgctxt "[8].term_plural"
+msgid ""
+msgstr ""
+
+#: [8].reference
+msgctxt "[8].reference"
+msgid "/app/modules/views"
+msgstr ""
+
+#: [8].comment
+msgctxt "[8].comment"
+msgid ""
+msgstr ""
+
+#: [9].term
+msgid "app.menu.terms"
+msgstr ""
+
+#: [9].definition
+msgid "Terms and conditions"
+msgstr ""
+
+#: [9].context
+msgctxt "[9].context"
+msgid ""
+msgstr ""
+
+#: [9].term_plural
+msgctxt "[9].term_plural"
+msgid ""
+msgstr ""
+
+#: [9].reference
+msgctxt "[9].reference"
+msgid "/app/modules/views"
+msgstr ""
+
+#: [9].comment
+msgctxt "[9].comment"
+msgid ""
+msgstr ""
+
+#: [10].term
+msgctxt "[10].term"
+msgid "app.login.text"
+msgstr ""
+
+#: [10].definition
+msgid "Username"
+msgstr ""
+
+#: [10].context
+msgctxt "[10].context"
+msgid "form_label"
+msgstr ""
+
+#: [10].term_plural
+msgctxt "[10].term_plural"
+msgid ""
+msgstr ""
+
+#: [10].reference
+msgctxt "[10].reference"
+msgid "/app/modules/views"
+msgstr ""
+
+#: [10].comment
+msgctxt "[10].comment"
+msgid ""
+msgstr ""
+
+#: [11].term
+msgctxt "[11].term"
+msgid "app.users.active"
+msgstr ""
+
+#: [11].definition.one
+msgid "Just one user online"
+msgstr ""
+
+#: [11].definition.other
+msgid "There are %d users online"
+msgstr ""
+
+#: [11].context
+msgctxt "[11].context"
+msgid ""
+msgstr ""
+
+#: [11].term_plural
+msgctxt "[11].term_plural"
+msgid "app.users.active"
+msgstr ""
+
+#: [11].reference
+msgctxt "[11].reference"
+msgid "/app/modules/views"
+msgstr ""
+
+#: [11].comment
+msgctxt "[11].comment"
+msgid ""
+msgstr ""
+
+#: [12].term
+msgid "app.login.pass"
+msgstr ""
+
+#: [12].definition
+msgid "Password"
+msgstr ""
+
+#: [12].context
+msgctxt "[12].context"
+msgid "form_label"
+msgstr ""
+
+#: [12].term_plural
+msgctxt "[12].term_plural"
+msgid ""
+msgstr ""
+
+#: [12].reference
+msgctxt "[12].reference"
+msgid "/app/modules/views"
+msgstr ""
+
+#: [12].comment
+msgctxt "[12].comment"
+msgid ""
+msgstr ""

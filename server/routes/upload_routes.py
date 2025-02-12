@@ -1,10 +1,12 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, redirect, render_template, url_for, session
 import os
 import logging
+import uuid
+import requests
 from azure.upload_func import upload_blob
-from flask import session
 from extensions import cache
-import uuid 
+import app_config
+
 
 
 # Set up logging
@@ -20,7 +22,13 @@ if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
 @upload.route('/upload', methods=['POST'])
+
 def upload_file():
+    from app import auth
+    token = auth.get_token_for_user(app_config.SCOPE)
+    if "error" in token:
+        return redirect(url_for("login"))
+    
     if 'file' not in request.files:
         return jsonify({'error': 'No file provided'}), 400
 

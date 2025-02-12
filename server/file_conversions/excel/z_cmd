@@ -1,0 +1,3 @@
+python xlsx_to_xliff.py
+
+python xliff_to_xlsx.py

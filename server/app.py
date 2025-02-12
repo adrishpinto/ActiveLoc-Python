@@ -13,11 +13,8 @@ import os
 from dotenv import load_dotenv
 from flask_caching import Cache
 
-
-
-
 load_dotenv()
-
+URL = os.getenv("FRONTEND_URL") or "http://localhost:5173"
 
 __version__ = "1.0"
 
@@ -28,7 +25,8 @@ app = Flask(__name__)
 app.config.from_object(app_config)
 
 
-CORS(app)
+CORS(app, supports_credentials=True)
+# CORS(app)
 
 
 app.config['CACHE_TYPE'] = 'SimpleCache'
@@ -69,7 +67,7 @@ def auth_response():
     result = auth.complete_log_in(request.args)
     if "error" in result:
         return render_template("auth_error.html", result=result)
-    return redirect(url_for("index"))
+    return redirect("http://localhost:5173")
 
 @app.route("/logout")
 def logout():

@@ -1,0 +1,4207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file source-language="en" target-language="fr">
+		<body>
+			<trans-unit id="Music_Music selection screen title">
+				<source>
+					Music
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Yes_Used when the question is answered yes">
+				<source>
+					Yes
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="No_Used when answering a negative question">
+				<source>
+					No
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Error_Title of the message if an error occurs">
+				<source>
+					Error
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Next_Move to next screen">
+				<source>
+					Next
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Cancel_Ability to cancel">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="CLOSE_Ability to close">
+				<source>
+					CLOSE
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="alert.reset.all.title">
+				<source>
+					Reset all?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="alert.reset.all.message">
+				<source />
+				<target />
+			</trans-unit>
+			<trans-unit id="record.screen.reset.all.title_Used in alert with Yes and No options when resetting filters.">
+				<source>
+					Want to reset changes?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="editor.screen.reset.all.title">
+				<source>
+					Reset all?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="record.screen.reset.all.message">
+				<source />
+				<target />
+			</trans-unit>
+			<trans-unit id="editor.screen.reset.all.message">
+				<source />
+				<target />
+			</trans-unit>
+			<trans-unit id="alert.delete.last.clip.title_Used in alert with Yes and No options">
+				<source>
+					Delete the last video?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="alert.delete.last.clip.message">
+				<source />
+				<target />
+			</trans-unit>
+			<trans-unit id="alert.camera.continue.editing.video.question.title_Used for alert message to continure editing video">
+				<source>
+					You have a not finished video. Do you want to continue?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="alert.camera.continue.editing.video.question.message">
+				<source />
+				<target />
+			</trans-unit>
+			<trans-unit id="Mask not loaded_Error message received when trying to load a mask">
+				<source>
+					Mask not loaded
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.toShortVideoMessageFormatPluralSeconds_An error message that appears in the camera when the length of the recorded video is less than the minimum allowed duration">
+				<source>
+					Record at least %d seconds
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.toShortVideoMessageSingleSecond">
+				<source>
+					Record at least 1 second
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.requireMaskAlertTitle">
+				<source>
+					Let's Keep it Fun and Safe!
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.requreMaskAlertMessage">
+				<source>
+					Before you start recording, please select a mask filter! It's a fun and cool way to express yourself while keeping our community joyful and secure!
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.requireMaskButtonTitle">
+				<source>
+					Ok, got it!
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.TooLongVideoMessageFormat_An error message that appears in the trimmer when user tryed to use too long video">
+				<source>
+					Video duration should be between %d and %d seconds
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Max video length %d sec_An error message that appears in the camera if the recorded video is longer than the maximum allowed length">
+				<source>
+					Max video length %d sec
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Timer is off_Turning off the camera's auto timer">
+				<source>
+					Timer is off
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="%i seconds timer is on_Enabling the countdown timer to automatically start shooting in the camera">
+				<source>
+					%i seconds timer is on
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.speedFormat_Record speed format">
+				<source>
+					%@x
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Press and hold mask_Hint on how to apply masks to video">
+				<source>
+					Tap and hold to apply mask
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Press and hold time_Hint on how to apply time filter to video">
+				<source>
+					Tap and hold to add time warp effects
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Press and hold visual_Hint on how to apply visual filters to video">
+				<source>
+					Tap and hold to add effects
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Video is uploading from iCloud_Message about downloading videos from iCloud in the window for selecting videos saved on the mobile device">
+				<source>
+					Video is uploading from iCloud
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Network Unavailable_Network Unavailable info">
+				<source>
+					Network Unavailable
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Choose Cover Screen Name_Screen name which will be visible if enable in configuration">
+				<source>
+					Thumbnail
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Reach maximum video duration">
+				<source>
+					Reach maximum video duration
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.searchGif.placeholder_Hint, which is shown in the GIF objects search input field, if it is empty">
+				<source>
+					Search GIPHY
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Cancel_Ability to cancel the search for GIF objects">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="No stickers found_Pictures not found by custom keyword">
+				<source>
+					No stickers found
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Giphy API key missing_Stickers search can not be performed due to missing API key">
+				<source>
+					Stickers will appear here when you set up Giphy key
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Problems with internet_A heading showing that there are problems with the Internet connection">
+				<source>
+					No internet connection
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Check your connection and try again_Advice to the user on further actions to solve this problem">
+				<source>
+					Check your connection and try again
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Again_Ability to load GIF objects again">
+				<source>
+					Try again
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="HTTP Error %d_Message when request failed with `statusCode` code">
+				<source>
+					HTTP Error %d
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="You don't seem to be connected to the internet. \nPlease try again_Message displayed when there is no internet connection">
+				<source>
+					You don't seem to be connected to the internet. \nPlease try again
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Cannot download media file from your iCloud_Message displayed when media file cannot be downloaded">
+				<source>
+					Cannot download media file from your iCloud
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Unknown data format_Error if the format of the response from the server does not match the expected">
+				<source>
+					Unknown data format
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="banuba.camera.alert.missed.gallery.persmission.title_Used in alert re-asking permissions to Photos with Cancel and Settings options.">
+				<source>
+					Please, allow your Photos &amp; Videos in the settings to make a clip.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="banuba.camera.alert.missed.gallery.persmission.message">
+				<source />
+				<target />
+			</trans-unit>
+			<trans-unit id="Banuba.Camera.MissedCameraAndMicrophonePersmissions_Used in alert re-asking Camera &amp; Microphone permissions with Settings option.">
+				<source>
+					Please, allow your Camera and Mic to make a recording.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="banuba.alert.camera.access.restricted.title_Used in a message to the user when access to the camera is denied through special options in the phone settings (such as 'Parental Control')">
+				<source>
+					Camera permissions are not granted
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="banuba.alert.camera.access.restricted.message">
+				<source />
+				<target />
+			</trans-unit>
+			<trans-unit id="banuba.alert.camera.no.headphones.title_Used in a message to the user when microphone is not muted and headphones are not plugged">
+				<source>
+					Use Headphones
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="banuba.alert.camera.no.headphones.message">
+				<source>
+					For better sound of your reaction, please, use headphones.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="banuba.alert.camera.no.headphones.music.messageFormat">
+				<source>
+					To achieve premium audio please record with headphones. Recording must be greater than %d seconds.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="banuba.alert.camera.no.headphones.button.title">
+				<source>
+					Okay
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="alert.microphone.unavailable.title_Used in alert with options Cancel and In settings">
+				<source>
+					Microphone unavailable. Please allow access in device settings
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="alert.microphone.unavailable.message">
+				<source />
+				<target />
+			</trans-unit>
+			<trans-unit id="errors.lowDiskSpace">
+				<source>
+					Low on space. Please make sure the device storage space is not critically full
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="errors.photosLibraryNetworkError">
+				<source>
+					Unfortunately, there was an error downloading the video. Please try again.\nIf the issue persists check internet connection and try opening the video in your gallery first.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Settings_The name of the button, by clicking on which you can go to the Settings application.">
+				<source>
+					Settings
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Settings.Close_The name of the button, by clicking on which you can refuse missed permission alert message">
+				<source>
+					Close
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="alert.reset.effects.title_Used in an alert with Yes and No when resetting effects.">
+				<source>
+					Discard changes?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="alert.reset.effects.message">
+				<source />
+				<target />
+			</trans-unit>
+			<trans-unit id="Undo_Undo filters applied to video in the add filters screen">
+				<source>
+					Undo
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Done_Finish button title">
+				<source>
+					Done
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="OK_OK button title in alert">
+				<source>
+					OK
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Not enough storage_Show the user when the disk space has run out during video recording and when he clicks the Record video button">
+				<source>
+					Not enough storage
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.soul_Soul effect name">
+				<source>
+					Soul
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.tv-foam_TV Foam effect name">
+				<source>
+					TV-Foam
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.vhs_VHS video effect name">
+				<source>
+					VHS
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.flash_Flash video effect name">
+				<source>
+					Flash
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.rave_Rave effect name">
+				<source>
+					Rave
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.glitch_Glitch effect name">
+				<source>
+					Glitch
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.acid-whip_Acid whip effect name">
+				<source>
+					Acid whip
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.zoom_Zoom effect name">
+				<source>
+					Zoom
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.zoom2_Zoom 2 effect name">
+				<source>
+					Zoom 2
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.cathode_Cathode effect name">
+				<source>
+					Cathode
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.polaroid_Polaroid effect name">
+				<source>
+					Polaroid
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.slow-motion_Slow motion effect name">
+				<source>
+					Slow mo
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.rapid_Rapid effect name">
+				<source>
+					Rapid
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.mirror2_Mirror 2 effect name">
+				<source>
+					Mirror 2
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.dvcam_DV Cam effect name">
+				<source>
+					DV Cam
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.glitch2_Glitch 2 effect name">
+				<source>
+					Glitch 2
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.heatmap_Heat map effect name">
+				<source>
+					Heat Map
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.mirror_Mirror effect name">
+				<source>
+					Mirror
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.lumiere_Lumiere">
+				<source>
+					Lumiere
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.pixelationdynamic_Pixel dynamic effect name">
+				<source>
+					Pixel Dynamic
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.pixelationstatic_Pixel static effect name">
+				<source>
+					Pixel Static
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.stars_Stars effect name">
+				<source>
+					Stars
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.transition_Transition effect name">
+				<source>
+					Transition
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.transition4_Transition 4">
+				<source>
+					Transition 4
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.vhs2_VHS 2 effect name">
+				<source>
+					VHS 2
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.twitch_Twitch effect name">
+				<source>
+					Twitch
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.blur-out_Blur out effect name">
+				<source>
+					Blur out
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.corner-flip_Corner flip effect name">
+				<source>
+					Corner flip
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.zoom-out_Zoom out effect name">
+				<source>
+					Zoom out
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.effect.name.warp-back_Warp back effect name">
+				<source>
+					Warp back
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.openTrimButtonTitle_Open trimmer button name (for dradt)">
+				<source>
+					Adjust Clip
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.captions_Captions button title">
+				<source>
+					Captions
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.captionsNotAvailableForMutipleVideos_Captions not available for multiple videos">
+				<source>
+					Not available for multiple videos and photo
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.lux_glitch filter name">
+				<source>
+					Lux
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.remy_remy filter name">
+				<source>
+					Remy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.hyla_hyla filter name">
+				<source>
+					Hyla
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.neon_neon filter name">
+				<source>
+					Neon
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.retro_retro filter name">
+				<source>
+					Retro
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.sunny_sunny filter name">
+				<source>
+					Sunny
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.egypt_egypt filter name">
+				<source>
+					Egypt
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.spark_spark filter name">
+				<source>
+					Spark
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.byers_byers filter name">
+				<source>
+					Byers
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.lilac_lilac filter name">
+				<source>
+					Lilac
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.vinyl_vinyl filter name">
+				<source>
+					Vinyl
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.japan_japan filter name">
+				<source>
+					Japan
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.chile_chile filter name">
+				<source>
+					Chile
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.glitch_glitch filter name">
+				<source>
+					Glitch
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.grunge_grunge filter name">
+				<source>
+					Grunge
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.canada_canada filter name">
+				<source>
+					Canada
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.chroma_chroma filter name">
+				<source>
+					Chroma
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.norway_norway filter name">
+				<source>
+					Norway
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.korben_korben filter name">
+				<source>
+					Korben
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.sunset_sunset filter name">
+				<source>
+					Sunset
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.instant_instant filter name">
+				<source>
+					Instant
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.england_england filter name">
+				<source>
+					England
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.pinkvine_pinkvine filter name">
+				<source>
+					Pinkvine
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.vivid_vivid filter name">
+				<source>
+					Vivid
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.filter.name.bright_bright filter name">
+				<source>
+					Bright
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="You can select only %d files_User selected too many files in the gallery">
+				<source>
+					You can select up to %d files
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Failed to create video_Failed to export a video">
+				<source>
+					Failed to create video
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicEditor.Delete_Delete track button title">
+				<source>
+					Delete
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicEditor.VoiceEffect_Voice effect button title">
+				<source>
+					Effect
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicEditor.Edit_Edit track button title">
+				<source>
+					Edit
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicEditor.Tracks_Add track button title">
+				<source>
+					Tracks
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicEditor.Record_Add voice record button title">
+				<source>
+					Record
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicEditor.VideoVolume_Video volume title">
+				<source>
+					Volume
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicEditor.OriginalSound_Original sound title">
+				<source>
+					Original sound
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicEditor.AddedSound_Added sound title">
+				<source>
+					Added sound
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicEditor.Duration_Audio duration title">
+				<source>
+					Duration
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.musicEditor.mainScreen.resetAll.title_Confirmation message for discarding changes">
+				<source>
+					Discard changes?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.musicEditor.mainScreen.resetAll.message">
+				<source />
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicEditor.Max available tracks - %i_Error message when a user tries to add tracks with reached limit">
+				<source>
+					Max available tracks - %i
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.musicEditor.elf_Elf filter title">
+				<source>
+					Elf
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.musicEditor.baritone_Baritone filter title">
+				<source>
+					Baritone
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.musicEditor.echo_Echo filter title">
+				<source>
+					Echo
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.musicEditor.giant_Giant filter title">
+				<source>
+					Giant
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.musicEditor.robot_Robot filter title">
+				<source>
+					Robot
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.musicEditor.squirrel_Squirrel filter title">
+				<source>
+					Squirrel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="OverlayEditor.Delete_Delete overlay item button title">
+				<source>
+					Delete
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="OverlayEditor.Edit_Edit overlay item button title">
+				<source>
+					Edit
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="OverlayEditor.Style_Style overlay item button title">
+				<source>
+					Style
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="OverlayEditor.Text_Add text button title">
+				<source>
+					Text
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="OverlayEditor.Captions_Add captions button title">
+				<source>
+					Captions
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="OverlayEditor.Sticker_Add sticker button title">
+				<source>
+					Sticker
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="OverlayEditor.Square.Blur_Add square blur button title">
+				<source>
+					Square
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="OverlayEditor.Circle.Blur_Add circle Blur button title">
+				<source>
+					Circle
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="OverlayEditor.Cancel_Cancel button title">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.mainScreen.resetAll.title_Confirmation message for discarding changes">
+				<source>
+					Discard changes?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.mainScreen.resetAll.message">
+				<source />
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.mainScreen.resetAll.agree">
+				<source>
+					Discard
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.mainScreen.resetAll.disagree">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.creationCaptions">
+				<source>
+					Creating auto captions
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.noSpeechRecognized">
+				<source>
+					No speech recognized
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.noInternetConnectionTitle">
+				<source>
+					No internet connection
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.noInternetConnectionMessage">
+				<source>
+					Check your connection and try again.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.tryAgain">
+				<source>
+					Try Again
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.noInternetConnectionToast">
+				<source>
+					The internet connection appears to be offline.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.captions.noAvailableForMiltipleVideosAndPhotoError">
+				<source>
+					Not available for multiple videos and photo.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.textStyle.basic">
+				<source>
+					Basic
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.textStyle.multicolor">
+				<source>
+					Multicolor
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.textStyle.gradient">
+				<source>
+					Gradient
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.createNewCaptionsQuestion">
+				<source>
+					Create new captions?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.createNewCaptionsQuestionDetails">
+				<source>
+					Previously created captions will be deleted.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.create">
+				<source>
+					Create
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.captionsEditing">
+				<source>
+					Captions editing
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.discardCaptionsTitle">
+				<source>
+					Discard captions?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.discard">
+				<source>
+					Discard
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.delete">
+				<source>
+					Delete
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.keep">
+				<source>
+					Keep
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.deleteCaptionsTitle">
+				<source>
+					Delete captions?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.deleteSelectedCaption">
+				<source>
+					Delete selected
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.deleteAllCaptions">
+				<source>
+					Delete all
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.selectLanguage">
+				<source>
+					Select language
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.language.english">
+				<source>
+					English
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.language.mandarin">
+				<source>
+					Mandarin
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.language.portuguese">
+				<source>
+					Portuguese
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.language.spanish">
+				<source>
+					Spanish
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.language.arabicGulf">
+				<source>
+					Gulf Arabic
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.overlayEditor.captions.language.arabic">
+				<source>
+					Arabic
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="AudioBrowser.noInternetConnection_No internet connection title in alert">
+				<source>
+					No internet connection
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="AudioBrowser.checkConnectionMessage_Message for user if No internet connection">
+				<source>
+					Please, check your connection and try again
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="AudioBrowser.retry_Retry button title">
+				<source>
+					Retry
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="AudioBrowser.allowAccessMessage_Allow access message">
+				<source>
+					To use your own music, allow access to Apple Music library, please.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="AudioBrowser.allowAccess_Allow button title">
+				<source>
+					Allow Access
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="AudioBrowser.myFiles_My files button title">
+				<source>
+					My Files
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="AudioBrowser.localAudio.musicHeader_My files local audio button title">
+				<source>
+					Music
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="AudioBrowser.localAudio.myFiles_My files local audio my files button title">
+				<source>
+					My files
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="AudioBrowser.localAudio.emptyStateTitle_My files local audio empty state title">
+				<source>
+					No music files found
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="AudioBrowser.localAudio.emptyStateMessage_My files local audio empty state message">
+				<source>
+					Add songs to your device to display them\n here
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="audioBrowser.search.by.categories">
+				<source>
+					Search by categories
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="audioBrowser.search.by.groups">
+				<source>
+					Search by groups
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="audioBrowser.search.by.tracks">
+				<source>
+					Search by tracks
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="audioBrowser.use">
+				<source>
+					Use
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="audioBrowser.show.more">
+				<source>
+					Show more
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="audioBrowser.stop.using">
+				<source>
+					Stop using
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="audioBrowser.my.library">
+				<source>
+					My library
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="audioBrowser.no.matches">
+				<source>
+					No matches
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="audioBrowser.no.tracks">
+				<source>
+					No tracks
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="audioBrowser.mubertTrackFormat_Track format for displaying mubert track title">
+				<source>
+					Track %d
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="audioBrowser.wrongPatError_Wrong Mubert key error text">
+				<source>
+					Mubert license is missing. Please contact Mubert
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="feature.disabled.audiobrowser">
+				<source>
+					Default music browser is not included in your package. You can plugin your own music.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.homeScreenTitle">
+				<source>
+					Music
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.featured">
+				<source>
+					Featured
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.favorites">
+				<source>
+					Favorites
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.recents">
+				<source>
+					Recents
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.collections">
+				<source>
+					Collections
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.genres">
+				<source>
+					Genres
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.viewAll">
+				<source>
+					View All
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.showMore">
+				<source>
+					Show More
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.tryAgain">
+				<source>
+					Try again
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.tryAgainLaterTitle">
+				<source>
+					Please try again later
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.allTracks">
+				<source>
+					All tracks
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.popular">
+				<source>
+					Popular
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.noInternetTitle">
+				<source>
+					No internet connection
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.noInternetMessage">
+				<source>
+					Check your connection or try again.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.noContentMessage">
+				<source>
+					Sorry, audio content is temporarily unavailable
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.noFavoritesTitle">
+				<source>
+					No favorites yet
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.noFavoritesMessage">
+				<source>
+					Mark your favorite songs and always have them here.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.noRecentsTitle">
+				<source>
+					No recent sounds
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.noRecentsMessage">
+				<source>
+					The sounds you have used in your videos will be displayed here.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.noMatchesMessage">
+				<source>
+					No matches
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.searchBarPlaceholder">
+				<source>
+					Search by song names
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="MusicLibrary.searchBarCancelButtonTitle">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Soundstripe.artists">
+				<source>
+					Artists
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Soundstripe.playlists">
+				<source>
+					Playlists
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Soundstripe.categories">
+				<source>
+					Categories
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Soundstripe.trendingSongs">
+				<source>
+					Trending Songs
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Soundstripe.moods">
+				<source>
+					Moods
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Soundstripe.styles">
+				<source>
+					Styles
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Soundstripe.instruments">
+				<source>
+					Instruments
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Soundstripe.searchBarPlaceholder">
+				<source>
+					Search
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Soundstripe.homeScreenTitle">
+				<source>
+					Music
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Soundstripe.genres">
+				<source>
+					Genres
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Soundstripe.viewAll">
+				<source>
+					View All
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Soundstripe.noContentMessage">
+				<source>
+					Sorry, audio content is temporarily unavailable
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Soundstripe.showMore">
+				<source>
+					Show More
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="Soundstripe.searchBarCancelButtonTitle">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="hands.free.video.drag.title">
+				<source>
+					Drag to set video duration
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="hands.free.btn.title">
+				<source>
+					Start countdown
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="hands.free.seconds">
+				<source>
+					%@ s
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.AllTabTitle_Gallery all tab title">
+				<source>
+					All
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.ImageTabTitle_Gallery image tab title">
+				<source>
+					Photos
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.VideoTabTitle_Gallery video tab title">
+				<source>
+					Videos
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.SelectItemName_Gallery previe select button name">
+				<source>
+					Select
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.DeselectItemName_Gallery previe deselect button name">
+				<source>
+					Deselect
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.HeaderInfoTitle_Gallery header info title">
+				<source>
+					Update files %@ to choose more files
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.HeaderInfoColoredTitle">
+				<source>
+					settings
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.RecentPhotosTitle_Gallery Recent Photos title">
+				<source>
+					Recents
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.DamagedFile_Damaged file from gallery">
+				<source>
+					Damaged file
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.ExportVideoFailed_Export video from gallery failed">
+				<source>
+					Content uploading failed
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.SelectItems_Gallery selection hint">
+				<source>
+					Select items
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.EmptySelectionMessage_Gallery empty selection message">
+				<source>
+					Select at least 1 file
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.recorder.additionalEffects.NoMediaFound_No media files found in gallery for adding to the effect">
+				<source>
+					No media found
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.recorder.additionalEffects.AllowAccess_No media files found in gallery for adding to the effect">
+				<source>
+					Allow Access
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="cover.thumbnail.title">
+				<source>
+					Choose a thumbnail
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="cover.gallery.button.title">
+				<source>
+					Choose from Gallery
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="pip.switch.camera.title">
+				<source>
+					Switch
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="pip.square.camera.title">
+				<source>
+					Square
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="pip.round.camera.title">
+				<source>
+					Round
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="pip.floating.camera.title">
+				<source>
+					Floating
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="pip.react.camera.title">
+				<source>
+					React
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="pip.original.camera.title">
+				<source>
+					Original
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="pip.centered.camera.title">
+				<source>
+					Centered
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="pip.left.right.camera.title">
+				<source>
+					Portrait
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="pip.top.bottom.camera.title">
+				<source>
+					Landscape
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="pip.layout.settings.title">
+				<source>
+					Select layout settings
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="feature.disabled.pip">
+				<source>
+					Picture in picture is not included in your package. Contact account manager to have it.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.DraftsTitle_Drafts button title">
+				<source>
+					Drafts
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.DraftTitle_Draft actions subtitle">
+				<source>
+					Draft
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.DraftEditActionName_Draft edit action name">
+				<source>
+					Edit
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.DraftRemoveActionName_Draft remove action name">
+				<source>
+					Delete
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.BanubaVideoEditor.draft.question.title_Used in alert with Yes and No options when resetting current sequence">
+				<source>
+					Do you want to save the draft?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.BanubaVideoEditor.draft.question.message">
+				<source />
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.BanubaVideoEditor.draft.question.agree">
+				<source>
+					Save
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.BanubaVideoEditor.draft.question.disagree">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Draft.DraftSavedMessage_Displayed when current sequence saved to drafts">
+				<source>
+					Draft saved
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Draft.EmptyDraftsMessage_Displays message about no saved drafts">
+				<source>
+					No drafts
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.BanubaVideoEditor.draft.remove.title_Ask a user about completion removing a draft">
+				<source>
+					Do you want to delete the draft?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.BanubaVideoEditor.draft.remove.message">
+				<source />
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.BanubaVideoEditor.draft.remove.agree">
+				<source>
+					Delete
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.BanubaVideoEditor.draft.remove.disagree">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.BanubaVideoEditor.draft.update.title_Ask a user about completion updating a draft">
+				<source>
+					Do you want to update the draft?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.BanubaVideoEditor.draft.update.message">
+				<source />
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.BanubaVideoEditor.draft.update.agree">
+				<source>
+					Update
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.BanubaVideoEditor.draft.update.disagree">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.BanubaVideoEditor.draft.lose.message">
+				<source>
+					Note! You will lose the current editing settings. Continue?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.BanubaVideoEditor.draft.lose.agree">
+				<source>
+					Adjust Clip
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.BanubaVideoEditor.draft.discardChangesAction_Editor, back button menu. Edit draft mode">
+				<source>
+					Discard changes
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.BanubaVideoEditor.draft.updateAction">
+				<source>
+					Update draft
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.color.title">
+				<source>
+					Filters
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.sticker.title">
+				<source>
+					Stickers
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.blur.title">
+				<source>
+					Blur
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.text.title">
+				<source>
+					Text
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.sound.title">
+				<source>
+					Add sound
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.effects.title">
+				<source>
+					Effects
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.toggle.title">
+				<source>
+					Flip
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.greenScreen.title">
+				<source>
+					Green Screen
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.flashlight.title">
+				<source>
+					Flash
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.timer.title">
+				<source>
+					Timer
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.speed.title">
+				<source>
+					Speed
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.beauty.title">
+				<source>
+					Beauty
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.masks.title">
+				<source>
+					Masks
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.muteSound.title">
+				<source>
+					Mic
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.pip.title">
+				<source>
+					PiP
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.music">
+				<source>
+					Music
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.time.title">
+				<source>
+					Time
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.editor.autoCut">
+				<source>
+					AI Clipping
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.gallery.title_Gallery button title">
+				<source>
+					Gallery
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.secondsFormat_Recorder video duration">
+				<source>
+					%d sec
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.minutesFormat">
+				<source>
+					%d min
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.shortedSecondsFormat">
+				<source>
+					%ds
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.shortedMinutesFormat">
+				<source>
+					%dm
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.aspect.original_Aspect title for cells">
+				<source>
+					Original
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.aspect.16:9">
+				<source>
+					16:9
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.aspect.9:16">
+				<source>
+					9:16
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.aspect.4:3">
+				<source>
+					4:3
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.aspect.4:5">
+				<source>
+					4:5
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.transition.none_Transitions title for cells">
+				<source>
+					None
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.transition.whipDown">
+				<source>
+					Whip down
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.transition.whipUp">
+				<source>
+					Whip up
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.transition.whipRight">
+				<source>
+					Whip right
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.transition.whipLeft">
+				<source>
+					Whip left
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.transition.scrollDown">
+				<source>
+					Scroll down
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.transition.scrollUp">
+				<source>
+					Scroll up
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.transition.scrollRight">
+				<source>
+					Scroll right
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.transition.scrollLeft">
+				<source>
+					Scroll left
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.transition.spinRight">
+				<source>
+					Spin
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.transition.fade">
+				<source>
+					Fade
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.videoEditor.transition.disabledToastMessage_Transition disabled alert message">
+				<source>
+					The clip must be longer than 0.5 sec to apply transition.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.textEditor.fontName.baskerville_Text editor font names">
+				<source>
+					Baskerville
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.textEditor.fontName.courier">
+				<source>
+					Courier
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.textEditor.fontName.palatino">
+				<source>
+					Palatino
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.textEditor.fontName.noteworthy">
+				<source>
+					Noteworthy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.textEditor.fontName.papyrus">
+				<source>
+					Papyrus
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.textEditor.fontName.sinhala">
+				<source>
+					Sinhala
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.textEditor.fontName.menlo">
+				<source>
+					Menlo
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.textEditor.fontName.emoji">
+				<source>
+					Emoji
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.discardAllRecord.additionalButtonTitle_discard all alert type for record screen">
+				<source>
+					Start over
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.discardAllRecord.agreeButtonTitle">
+				<source>
+					Reset
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.discardAllRecord.disagreeButtonTitle">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.discardAllEditor.agreeButtonTitle_discard all alert type for editor screen">
+				<source>
+					Reset
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.discardAllEditor.disagreeButtonTitle">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.notFinishedVideo.agreeButtonTitle_not finished video alert type">
+				<source>
+					Continue
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.notFinishedVideo.disagreeButtonTitle">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.discardChanges.agreeButtonTitle_discard changes alert type">
+				<source>
+					Reset
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.discardChanges.disagreeButtonTitle">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.deleteSegment.agreeButtonTitle_delete segment alert type">
+				<source>
+					Delete
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.deleteSegment.disagreeButtonTitle">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.discardEffects.agreeButtonTitle_discard effects alert type">
+				<source>
+					Discard
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.discardEffects.disagreeButtonTitle">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.discardMusic.agreeButtonTitle_discard music alert type">
+				<source>
+					Discard
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.discardMusic.disagreeButtonTitle">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.progressView.agreeButtonTitle_progress view alert type">
+				<source>
+					Retry
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.progressView.disagreeButtonTitle">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.progressView.importingMedia">
+				<source>
+					Importing media
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.progressView.exportingVideo">
+				<source>
+					Exporting video
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.progressView.tooltipMessage">
+				<source>
+					Please, don't lock your screen or switch to other apps
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.alert.progressView.exportVideoInterrupted">
+				<source>
+					Export interrupted
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.trim.startOverRecordVideoTitle_remove and start over record video">
+				<source>
+					Want to record a new video?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.trim.startOverRecordVideoMessage">
+				<source />
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.trim.startOverRecordVideoAgreeButtonTitle">
+				<source>
+					Start over
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.trim.startOverRecordVideoDisagreeButtonTitle">
+				<source>
+					Discard
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.trim.rotateEditButtonTitle_Edit video rotate button title">
+				<source>
+					Rotate
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.trim.splitEditButtonTitle_Edit video split button title">
+				<source>
+					Split
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.trim.deleteEditButtonTitle_Edit video delete button title">
+				<source>
+					Delete
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.trim.trimEditButtonTitle_Edit video trim button title">
+				<source>
+					Trim
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.trim.reorderingToolTip_Reordering video tool tip label message">
+				<source>
+					Drag to swap
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.trim.deleteLastClipErrorMessage_Delete single video error message">
+				<source>
+					The last clip can't be deleted
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.trim.splitErrorMessage_Split video part error message">
+				<source>
+					The selected position is invalid
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.record.captureButtonVideoMode">
+				<source>
+					Video
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.record.captureButtonPhotoMode">
+				<source>
+					Photo
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.record.beautyIntensityTitle">
+				<source>
+					Intensity
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="sharing.other.title_Sharing other button">
+				<source>
+					Other
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="sharing.video.title_Sharing video main title">
+				<source>
+					Share video
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="sharing.app.not.installed_Error if sharing application is not installed">
+				<source>
+					Sorry the application is not installed
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.expiredLicense.infoLabel">
+				<source>
+					Video content creation is temporarily unavailable
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.expiredLicense.cancelButtonTitle">
+				<source>
+					Close
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.canvas">
+				<source>
+					Canvas
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.sticker">
+				<source>
+					Sticker
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.text">
+				<source>
+					Text
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.effects">
+				<source>
+					Effects
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.masks">
+				<source>
+					Masks
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.audio">
+				<source>
+					Audio
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.filters">
+				<source>
+					Filters
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.pixelate">
+				<source>
+					Pixelate
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.speed">
+				<source>
+					Speed
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.crop">
+				<source>
+					Crop
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.split">
+				<source>
+					Split
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.add">
+				<source>
+					Add
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.edit">
+				<source>
+					Edit
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.replace">
+				<source>
+					Replace
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.delete">
+				<source>
+					Delete
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.adjust">
+				<source>
+					Adjust
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.addCircle">
+				<source>
+					Add Circle
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.addSquare">
+				<source>
+					Add Square
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.pixelation">
+				<source>
+					Pixelation
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.voiceEffect">
+				<source>
+					Effect
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.captions">
+				<source>
+					Captions
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.secondsFormat">
+				<source>
+					%@s
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.musicVolume">
+				<source>
+					Volume
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.recordingEffectTitle">
+				<source>
+					Recording...
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.voiceoverEffectTitle">
+				<source>
+					Voiceover
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.unavailableAtCurrentPosition">
+				<source>
+					Unavailable at current position.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.addAudioButtonTitle">
+				<source>
+					Add Audio
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.theSelectedPositionIsInvalid">
+				<source>
+					The selected position is invalid.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.addVoiceover">
+				<source>
+					Voiceover
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.addText">
+				<source>
+					Add Text
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.addCaptions">
+				<source>
+					Add Captions
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.applyToAll">
+				<source>
+					Apply to all
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.videoIsTooLongFormat">
+				<source>
+					The video is too long. Maximum length is %d minutes.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.videoIsTooShortFormat">
+				<source>
+					The video is too short. Minimum length is %d second.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.next">
+				<source>
+					Next
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.reset">
+				<source>
+					Reset
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.noFreeClipForFilter">
+				<source>
+					No free clip for new filter
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.noFreeClipForMask">
+				<source>
+					No free clip for new masks
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.none">
+				<source>
+					None
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.normal">
+				<source>
+					Normal
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.videoVolumeTitle">
+				<source>
+					Video
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.audioVolumeTitle">
+				<source>
+					Audio
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.newEditor.editCover">
+				<source>
+					Edit Cover
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.disardVideoAlertMessage">
+				<source>
+					Discard video?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.disardVideoAlertDiscardButton">
+				<source>
+					Discard
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.greenScreen.selectImageAsABackground">
+				<source>
+					Select image as a background
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.greenScreen.selectFromGallery">
+				<source>
+					Select from gallery
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.recorder.greenScreen.allowAccess">
+				<source>
+					Allow Access
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.autocut.choosePart">
+				<source>
+					Choose the part you want for your video
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.autocut.changesWillNotBeSaved">
+				<source>
+					Previously made changes will not be saved
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.autocut.processingMedia">
+				<source>
+					Processing media %@
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.autocut.tryAgain">
+				<source>
+					Try Again
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.autocut.couldNotProcess">
+				<source>
+					Couldn't process video
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.autocut.somethingWentWrong">
+				<source>
+					Something went wrong. Please try again.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.autocut.chooseTheme">
+				<source>
+					Choose a theme
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.autocut.alert.tryAgain.agree">
+				<source>
+					Try again
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.autocut.alert.tryAgain.disagree">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.autocut.alert.tryAgain.title">
+				<source>
+					Something went wrong.\nTry again?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.autocut.alert.discard.agree">
+				<source>
+					Discard
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.autocut.alert.discard.disagree">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.autocut.alert.discard.title">
+				<source>
+					Discard AI Clipping video?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.autocut.recommended.sounds">
+				<source>
+					Recommended sounds
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.autocut.original.sound">
+				<source>
+					Original sound
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.autocut.added.sound">
+				<source>
+					Added sound
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.autocut.error.loadingTrackFailedMessage">
+				<source>
+					Unable to load the song. Check your internet connection.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.Autocut">
+				<source>
+					AI Clipping
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.Next">
+				<source>
+					Next
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.NextWithCount">
+				<source>
+					Next (%d)
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="BanubaVideoEditor.Gallery.TotalLengthUpTo">
+				<source>
+					Total length should be up to %d sec
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.music.panel.title">
+				<source>
+					Add sound
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="com.banuba.search.placeholder">
+				<source>
+					Search
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.gallery.addPhotos">
+				<source>
+					Add photos
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.gallery.noPhotos">
+				<source>
+					No photos found
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.gallery.openSettings">
+				<source>
+					Open Settings
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.gallery.allowAccessToContinue">
+				<source>
+					Allow access to “All Photos” in Settings to continue
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.gallery.noAccessToPhotos">
+				<source>
+					No access to photos
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.adjust">
+				<source>
+					Adjust
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.retouch">
+				<source>
+					Retouch
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.makeup">
+				<source>
+					Makeup
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.effects">
+				<source>
+					Effects
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.text">
+				<source>
+					Text
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.faceNotRecognizedHint">
+				<source>
+					The face is not recognized, so this tool is not available
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.reset">
+				<source>
+					Reset
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.default">
+				<source>
+					Default
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.slider.noFilter">
+				<source>
+					No filter
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.slider.natural">
+				<source>
+					Soft
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.slider.delicate">
+				<source>
+					Moderate
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.slider.supreme">
+				<source>
+					Supreme
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.done">
+				<source>
+					Done
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.save">
+				<source>
+					Save
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.acneHint">
+				<source>
+					Tap on spots
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.eyebagsHint">
+				<source>
+					Drag to remove eyebags
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.makeupTab.looks">
+				<source>
+					Looks
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.makeupTab.haircolors">
+				<source>
+					Hair
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.makeupTab.lips">
+				<source>
+					Lips
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.makeupTab.eyes">
+				<source>
+					Eyes
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.makeupTab.foundation">
+				<source>
+					Foundation
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.makeupTab.lashes">
+				<source>
+					Lashes
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.makeupTab.blush">
+				<source>
+					Blush
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.effectsTab.backdrop">
+				<source>
+					Backdrop
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.effectsTab.filters">
+				<source>
+					Filters
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.effectsTab.overlays">
+				<source>
+					Overlays
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.alert.resetAll">
+				<source>
+					Reset all?
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.alert.reset">
+				<source>
+					Reset
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.alert.cancel">
+				<source>
+					Cancel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.preview.saved">
+				<source>
+					Saved!
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.preview.more">
+				<source>
+					More
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.preview.stories">
+				<source>
+					Stories
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Aster">
+				<source>
+					Aster
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Begonia">
+				<source>
+					Begonia
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Jasmine">
+				<source>
+					Jasmine
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Carnation">
+				<source>
+					Carnation
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Daisy">
+				<source>
+					Daisy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Freesia">
+				<source>
+					Freesia
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Iris">
+				<source>
+					Iris
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Tulip">
+				<source>
+					Tulip
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Sunset">
+				<source>
+					Sunset
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Smoky">
+				<source>
+					Smoky
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Femme">
+				<source>
+					Femme
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Romp">
+				<source>
+					Romp
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Hush">
+				<source>
+					Hush
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Brun">
+				<source>
+					Brun
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Icon">
+				<source>
+					Icon
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Crocus">
+				<source>
+					Crocus
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Malt">
+				<source>
+					Malt
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Kid">
+				<source>
+					Kid
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Bluebell">
+				<source>
+					Bluebell
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Foxy">
+				<source>
+					Foxy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Swan">
+				<source>
+					Swan
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Dreamy">
+				<source>
+					Dreamy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Galaxy">
+				<source>
+					Galaxy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Elf">
+				<source>
+					Elf
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Gloom">
+				<source>
+					Gloom
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Elegant">
+				<source>
+					Elegant
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Feast">
+				<source>
+					Feast
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.40s">
+				<source>
+					40s
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Coral">
+				<source>
+					Coral
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Mermaid">
+				<source>
+					Mermaid
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Fresh">
+				<source>
+					Fresh
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Cleo">
+				<source>
+					Cleo
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Dusk">
+				<source>
+					Dusk
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Stylish">
+				<source>
+					Stylish
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Lotus">
+				<source>
+					Lotus
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Hippie">
+				<source>
+					Hippie
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Glitz">
+				<source>
+					Glitz
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Flash">
+				<source>
+					Flash
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Karma">
+				<source>
+					Karma
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Fairy">
+				<source>
+					Fairy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Holy">
+				<source>
+					Holy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Flirty">
+				<source>
+					Flirty
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Twilight">
+				<source>
+					Twilight
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Sugar">
+				<source>
+					Sugar
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Misty">
+				<source>
+					Misty
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Bounty">
+				<source>
+					Bounty
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Peachy">
+				<source>
+					Peachy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Crystal">
+				<source>
+					Crystal
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Queen">
+				<source>
+					Queen
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Cutie">
+				<source>
+					Cutie
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Hearts">
+				<source>
+					Hearts
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Lovebug">
+				<source>
+					Love Bug
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Glossy">
+				<source>
+					Glossy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Romance">
+				<source>
+					Romance
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Bemine">
+				<source>
+					Be Mine
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Candy">
+				<source>
+					Candy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Xmas">
+				<source>
+					Xmas
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Snowy">
+				<source>
+					Snowy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Club">
+				<source>
+					Club
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Dewy">
+				<source>
+					Dewy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Drama">
+				<source>
+					Drama
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.makeup.Swish">
+				<source>
+					Swish
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.main">
+				<source>
+					Auto
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.morph_cheeks_str">
+				<source>
+					Shape
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.morph_eyes_str">
+				<source>
+					Eyes
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.morph_nose_str">
+				<source>
+					Nose
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.skin_soft_str">
+				<source>
+					Smooth
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.softlight_alpha">
+				<source>
+					Bright
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.teeth_whitening_str">
+				<source>
+					Whiten
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.reset_button">
+				<source>
+					Reset
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.acne_str">
+				<source>
+					Heal
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.eyebags_str">
+				<source>
+					Eyebags
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.necklift_str">
+				<source>
+					Neck Lift
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.lipsize_str">
+				<source>
+					Lip Size
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.eyes_whitening">
+				<source>
+					Whitening
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.saturation">
+				<source>
+					Saturation
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.brightness">
+				<source>
+					Brightness
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.sharpen">
+				<source>
+					Sharpness
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.noise">
+				<source>
+					Noise
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.feature.contrast">
+				<source>
+					Contrast
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Brown">
+				<source>
+					Brown
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Pink">
+				<source>
+					Pink
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Violet">
+				<source>
+					Violet
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Silver">
+				<source>
+					Silver
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Blonde">
+				<source>
+					Blonde
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Brunette">
+				<source>
+					Brunette
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Bisque">
+				<source>
+					Bisque
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Bambu">
+				<source>
+					Bamboo
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Daino">
+				<source>
+					Daino
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Goldenrod">
+				<source>
+					Golden
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Chocolate">
+				<source>
+					Chocolate
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Moro">
+				<source>
+					Moro
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Sienna">
+				<source>
+					Sienna
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Copper">
+				<source>
+					Copper
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Peru">
+				<source>
+					Peru
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Red">
+				<source>
+					Red
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Blue">
+				<source>
+					Blue
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Green">
+				<source>
+					Green
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Cobalt">
+				<source>
+					Cobalt
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Mint">
+				<source>
+					Mint
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Lavender">
+				<source>
+					Lavender
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Ginger">
+				<source>
+					Ginger
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Rose">
+				<source>
+					Rose
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Purple">
+				<source>
+					Purple
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Yellow">
+				<source>
+					Yellow
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Rufous">
+				<source>
+					Rufous
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Avocado">
+				<source>
+					Avocado
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Guava">
+				<source>
+					Guava
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Fig">
+				<source>
+					Fig
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Plum">
+				<source>
+					Plum
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Grape">
+				<source>
+					Grape
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Eggplant">
+				<source>
+					Eggplant
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Cherry">
+				<source>
+					Cherry
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Kiwi">
+				<source>
+					Kiwi
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Apple">
+				<source>
+					Apple
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.hairColor.Pitaya">
+				<source>
+					Pitaya
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Pink">
+				<source>
+					Pink
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Red">
+				<source>
+					Red
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Brown">
+				<source>
+					Brown
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Violet">
+				<source>
+					Violet
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Bronze">
+				<source>
+					Bronze
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Coral">
+				<source>
+					Coral
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.CalmPink">
+				<source>
+					Calm Pink
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Burgundy">
+				<source>
+					Burgundy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Glintwein">
+				<source>
+					Glintwein
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.CafeChic">
+				<source>
+					Cafe Chic
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Candy">
+				<source>
+					Candy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Lilac">
+				<source>
+					Lilac
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Raspberry">
+				<source>
+					Raspberry
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Syrup">
+				<source>
+					Syrup
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Diva">
+				<source>
+					Diva
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Nude">
+				<source>
+					Nude
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Melon">
+				<source>
+					Melon
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Kiss">
+				<source>
+					Kiss
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Retro">
+				<source>
+					Retro
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Taffy">
+				<source>
+					Taffy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Brave">
+				<source>
+					Brave
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Heroine">
+				<source>
+					Heroine
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Beige">
+				<source>
+					Beige
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Night">
+				<source>
+					Night
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Berry">
+				<source>
+					Berry
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Unicorn">
+				<source>
+					Unicorn
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Sahara">
+				<source>
+					Sahara
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Cherry">
+				<source>
+					Cherry
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Muse">
+				<source>
+					Muse
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Flirt">
+				<source>
+					Flirt
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Punch">
+				<source>
+					Punch
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Rebel">
+				<source>
+					Rebel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Peach">
+				<source>
+					Peach
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Medusa">
+				<source>
+					Medusa
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Pearl">
+				<source>
+					Pearl
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Disco">
+				<source>
+					Disco
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Lollipop">
+				<source>
+					Lollipop
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Mocha">
+				<source>
+					Mocha
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Mauve">
+				<source>
+					Mauve
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Apricot">
+				<source>
+					Apricot
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Belle">
+				<source>
+					Belle
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Icon">
+				<source>
+					Icon
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Honey">
+				<source>
+					Honey
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Angel">
+				<source>
+					Angel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Peony">
+				<source>
+					Peony
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.lipsColor.Cream">
+				<source>
+					Cream
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.eyesColor.Brown">
+				<source>
+					Brown
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.eyesColor.Green">
+				<source>
+					Green
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.eyesColor.Blue">
+				<source>
+					Blue
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.eyesColor.Grey">
+				<source>
+					Grey
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.eyesColor.Purple">
+				<source>
+					Purple
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.eyesColor.Red">
+				<source>
+					Red
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.eyesColor.Yellow">
+				<source>
+					Yellow
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.eyesColor.Honey">
+				<source>
+					Honey
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.eyesColor.Hazel">
+				<source>
+					Hazel
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.eyesColor.India">
+				<source>
+					India
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.eyesColor.Sapphire">
+				<source>
+					Sapphire
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.eyesColor.Pacific">
+				<source>
+					Pacific
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.eyesColor.Jade">
+				<source>
+					Jade
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.eyesColor.Emerald">
+				<source>
+					Emerald
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Rainbow">
+				<source>
+					Rainbow
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Glamour">
+				<source>
+					Glamour
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Galaxy">
+				<source>
+					Galaxy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Ocean">
+				<source>
+					Ocean
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Mist">
+				<source>
+					Mist
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Sky">
+				<source>
+					Sky
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Allure">
+				<source>
+					Allure
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Frost">
+				<source>
+					Frost
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Lights">
+				<source>
+					Lights
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Hawaii">
+				<source>
+					Hawaii
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Fruits">
+				<source>
+					Fruits
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.blur">
+				<source>
+					Blur
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Bar">
+				<source>
+					Bar
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Home">
+				<source>
+					Home
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Dawn">
+				<source>
+					Dawn
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Beach">
+				<source>
+					Beach
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Shore">
+				<source>
+					Shore
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Office">
+				<source>
+					Office
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Bouquet">
+				<source>
+					Bouquet
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Butterfly">
+				<source>
+					Butterfly
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Tropical">
+				<source>
+					Tropical
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Floral">
+				<source>
+					Floral
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Letters">
+				<source>
+					Letters
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Bokeh">
+				<source>
+					Bokeh
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Lotus">
+				<source>
+					Lotus
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Glare">
+				<source>
+					Glare
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Oranges">
+				<source>
+					Oranges
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Jungle">
+				<source>
+					Jungle
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Space">
+				<source>
+					Space
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Summer">
+				<source>
+					Summer
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Daisy">
+				<source>
+					Daisy
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Gradient">
+				<source>
+					Gradient
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Candies">
+				<source>
+					Candies
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Baubles">
+				<source>
+					Baubles
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.editor.content.backdrop.Gifts">
+				<source>
+					Gifts
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.expired.editingUnavailable">
+				<source>
+					Photo editing is temporarily unavailable.
+				</source>
+				<target />
+			</trans-unit>
+			<trans-unit id="photoEditor.expired.close">
+				<source>
+					Close
+				</source>
+				<target />
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

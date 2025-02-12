@@ -3,24 +3,33 @@ import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-const FileUpload = () => {
+const MachineTranslate = () => {
   const [file, setFile] = useState(null);
   const [translationStatus, setTranslationStatus] = useState({
     message: "not started",
   });
   const [loading, setLoading] = useState(false);
 
+  //translate
   const translate = async () => {
     setTranslationStatus({ message: "Translating..." });
     try {
-      const response = await axios.get(`${API_URL}/translate`);
+      const response = await axios.get(`${API_URL}/translate`, {
+        withCredentials: true,
+      });
       setTranslationStatus(response.data);
+
+      if (response.request.responseURL !== `${API_URL}/translate`) {
+        window.location.href = response.request.responseURL;
+        return;
+      }
     } catch (error) {
       console.error("Translation Error:", error);
       setTranslationStatus({ message: "Translation failed" });
     }
   };
 
+  // uploads...
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
   };
@@ -35,8 +44,16 @@ const FileUpload = () => {
       const response = await fetch(`${API_URL}/upload`, {
         method: "POST",
         body: formData,
+        credentials: "include",
       });
+
       setTranslationStatus({ message: "not started" });
+
+      if (response.redirected) {
+        window.location.href = response.url;
+        return;
+      }
+
       const result = await response.json();
       alert(result.message);
     } catch (error) {
@@ -44,22 +61,35 @@ const FileUpload = () => {
     }
   };
 
+  //download
   const downloadFile = async () => {
     try {
-      const blobName = "any";
-      const response = await axios.get(
-        `${API_URL}/download?blob_name=${blobName}`
-      );
+      const response = await fetch("http://127.0.0.1:5000/download");
+      if (!response.ok) throw new Error("Failed to download file");
 
-      const blob = new Blob([response.data]);
-      const link = document.createElement("a");
-
-      link.href = URL.createObjectURL(blob);
-      link.download = "filename" + response.headers.get("X-File-Type");
-      link.click();
-      URL.revokeObjectURL(link.href);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "downloaded_file.docx";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     } catch (error) {
-      console.error("Error downloading the file", error);
+      console.error("Error downloading file:", error);
+    }
+  };
+
+  const fetchTestMessage = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/test", {
+        withCredentials: true,
+      });
+      console.log(response.data);
+      alert(response.data.message);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      alert("Authentication failed");
     }
   };
 
@@ -93,6 +123,7 @@ const FileUpload = () => {
           >
             Download File
           </button>
+
         </div>
 
         {translationStatus && (
@@ -118,4 +149,4 @@ const FileUpload = () => {
   );
 };
 
-export default FileUpload;
+export default MachineTranslate;
