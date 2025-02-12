@@ -9,8 +9,8 @@ CONNECTION_STRING = os.getenv("CONTAINER_CONNECTION_STRING")
 blob_service_client = BlobServiceClient.from_connection_string(CONNECTION_STRING)
                     
 CONTAINER_NAME = "target"
-BLOB_NAME = "acbd093f-a23b-4baf-9667-2055882893ca.txt"
-local_file_name = "hello.txt"
+BLOB_NAME = "8a9371c7-55ab-49a8-af78-bb953222dfbc.docx"
+local_file_name = "hello.docx"
 
 
 local_path = os.getcwd()

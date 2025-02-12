@@ -1,11 +1,12 @@
-from flask import Blueprint, jsonify, send_file
-from flask_cors import CORS  # Import CORS
+from flask import Blueprint, jsonify, send_file,  redirect, url_for
 from azure.storage.blob import BlobServiceClient
 import io
 import os
 import mimetypes
 from extensions import cache
 from dotenv import load_dotenv
+import app_config
+
 
 load_dotenv()
 
@@ -13,14 +14,18 @@ CONNECTION_STRING = os.getenv("CONTAINER_CONNECTION_STRING")
 blob_service_client = BlobServiceClient.from_connection_string(CONNECTION_STRING)
 
 download = Blueprint('download', __name__)
-CORS(download, expose_headers=["X-File-Type"])  # Allow custom headers
+
 
 @download.route('/download', methods=['GET'])
 def download_blob():
-    from app import auth
+    # from app import auth
+    # token = auth.get_token_for_user(app_config.SCOPE)
+    # if "error" in token:
+    #     return redirect(url_for("login"))
+    
     try:
         blob_name = cache.get("file_name")
-        extension = cache.get("extension")
+       
 
         if not blob_name:
             return jsonify({"error": "Please upload, or reupload the file"}), 400
@@ -39,10 +44,8 @@ def download_blob():
 
         response = send_file(file_stream, as_attachment=True, download_name=blob_name, mimetype=mime_type)
 
-        # Add custom headers
-        response.headers["X-File-Type"] = extension or "Unknown"
-        response.headers["X-Blob-Name"] = blob_name
-        response.headers["Content-Length"] = str(file_stream.getbuffer().nbytes)
+        
+   
 
         return response
 
