@@ -1,22 +1,28 @@
 import React, { useState } from "react";
 import axios from "axios";
+import LanguageDropdown from "./LanguageDropdown";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const MachineTranslate = () => {
+  const [language, setLanguage] = useState("...");
+
   const [file, setFile] = useState(null);
   const [translationStatus, setTranslationStatus] = useState({
     message: "not started",
   });
   const [loading, setLoading] = useState(false);
 
-  //translate
-  const translate = async () => {
+  const translate = async (language) => {
     setTranslationStatus({ message: "Translating..." });
+
     try {
-      const response = await axios.get(`${API_URL}/translate`, {
-        withCredentials: true,
-      });
+      const response = await axios.post(
+        `${API_URL}/translate`,
+        { lang: language },
+        { withCredentials: true }
+      );
+
       setTranslationStatus(response.data);
 
       if (response.request.responseURL !== `${API_URL}/translate`) {
@@ -76,7 +82,7 @@ const MachineTranslate = () => {
 
       const a = document.createElement("a");
       a.href = url;
-      a.download = `downloaded_file.${ext}`;
+      a.download = `downloaded_file${ext}`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -99,6 +105,12 @@ const MachineTranslate = () => {
             onChange={handleFileChange}
           />
         </div>
+        <div className="flex gap-2 mx-auto w-fit my-10">
+          <LanguageDropdown
+            language={language}
+            onLanguageChange={(e) => setLanguage(e.target.value)}
+          />
+        </div>
         <div className="flex items-center justify-center">
           <button
             onClick={handleUpload}
@@ -107,7 +119,7 @@ const MachineTranslate = () => {
             Upload
           </button>
           <button
-            onClick={translate}
+            onClick={() => translate(language)}
             disabled={loading}
             className="bg-blue-200 mx-4 px-2 py-1 rounded"
           >
@@ -137,6 +149,8 @@ const MachineTranslate = () => {
               "Translation completed successfully." && (
               <div className="text-green-500">Success</div>
             )}
+
+            {/* translation button */}
           </div>
         )}
       </div>

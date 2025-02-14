@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.1" version="1.1">
+  <file original="./all_files/converted/temp.po" source-language="en-US" datatype="plaintext">
+    <body>
+      <trans-unit xml:space="preserve" id="2" approved="no" restype="x-gettext-domain-header">
+        <source>Project-Id-Version: PACKAGE VERSION
+Report-Msgid-Bugs-To: 
+POT-Creation-Date: 2025-02-14 10:18+0000
+PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE
+Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt;
+Language-Team: LANGUAGE &lt;LL@li.org&gt;
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Generator: Translate Toolkit 3.14.7
+</source>
+        <target state="translated">Project-Id-Version: PACKAGE VERSION
+Report-Msgid-Bugs-To: 
+POT-Creation-Date: 2025-02-14 10:18+0000
+PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE
+Last-Translator: FULL NAME &lt;EMAIL@ADDRESS&gt;
+Language-Team: LANGUAGE &lt;LL@li.org&gt;
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Generator: Translate Toolkit 3.14.7
+Version-id-projet : VERSION DU PACKAGE
+report-msgid-bugs-to : 
+Date-de-création : 2025-02-14 10:18+0000
+PO-Revision-Date : YEAR-MO-DA HO :MI+ZONE
+Last-Translator : NOM COMPLET &lt; EMAIL@ADDRESS&gt;
+Équipe de langue : LANGUE &lt; LL@li.org&gt;
+Version MIME : 1.0
+Type de contenu : texte/brut ; charset=UTF-8
+Transfert de contenu-Encodage : 8 bits
+X-Generator : Boîte à outils de traduction 3.14.7</target>
+      </trans-unit>
+      <trans-unit xml:space="preserve" id="3">
+        <source>en</source>
+        <target>en</target>
+        <context-group name="po-reference" purpose="location">
+          <context context-type="sourcefile">./all_files/uploads/ac8aa937-cdbd-467a-9c05-0b00921b799c.html+html[lang]</context>
+          <context context-type="linenumber">2-1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit xml:space="preserve" id="4">
+        <source>Sample HTML File</source>
+        <target>Exemple de fichier HTML</target>
+        <context-group name="po-reference" purpose="location">
+          <context context-type="sourcefile">./all_files/uploads/ac8aa937-cdbd-467a-9c05-0b00921b799c.html+html.head.title</context>
+          <context context-type="linenumber">6-5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit xml:space="preserve" id="5">
+        <source>Welcome to My Sample Page</source>
+        <target>Bienvenue sur ma page d'échantillon</target>
+        <context-group name="po-reference" purpose="location">
+          <context context-type="sourcefile">./all_files/uploads/ac8aa937-cdbd-467a-9c05-0b00921b799c.html+html.body.header.h1</context>
+          <context context-type="linenumber">11-9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit xml:space="preserve" id="6">
+        <source>This is a Heading</source>
+        <target>Ceci est un titre</target>
+        <context-group name="po-reference" purpose="location">
+          <context context-type="sourcefile">./all_files/uploads/ac8aa937-cdbd-467a-9c05-0b00921b799c.html+html.body.section.h2</context>
+          <context context-type="linenumber">15-9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit xml:space="preserve" id="7">
+        <source>This is a paragraph of text to demonstrate some inline CSS styling. You can customize the text and styles based on your preferences. Here's an image below:</source>
+        <target>Il s'agit d'un paragraphe de texte pour illustrer un style CSS en ligne. Vous pouvez personnaliser le texte et les styles en fonction de vos préférences. Voici une image ci-dessous :</target>
+        <context-group name="po-reference" purpose="location">
+          <context context-type="sourcefile">./all_files/uploads/ac8aa937-cdbd-467a-9c05-0b00921b799c.html+html.body.section.p</context>
+          <context context-type="linenumber">16-9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit xml:space="preserve" id="8">
+        <source>Sample Image</source>
+        <target>Exemple d'image</target>
+        <context-group name="po-reference" purpose="location">
+          <context context-type="sourcefile">./all_files/uploads/ac8aa937-cdbd-467a-9c05-0b00921b799c.html+html.body.section.img[alt]</context>
+          <context context-type="linenumber">21-9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit xml:space="preserve" id="9">
+        <source>© 2025 My Website</source>
+        <target>© 2025 Mon site web</target>
+        <context-group name="po-reference" purpose="location">
+          <context context-type="sourcefile">./all_files/uploads/ac8aa937-cdbd-467a-9c05-0b00921b799c.html+html.body.footer.p</context>
+          <context context-type="linenumber">26-9</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

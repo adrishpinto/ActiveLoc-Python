@@ -37,7 +37,7 @@ def download():
     
     html_to_xliff(html_src, xliff_file) 
     upload_blob_xliff(f"./all_files/converted/{converted_name}",f"{converted_name}")
-    translate_xliff(converted_name)
+    translate_xliff(converted_name, "en")
     time.sleep(2)
     blob_download_xliff(converted_name)
     

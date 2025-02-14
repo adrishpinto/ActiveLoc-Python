@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import LanguageDropdown from "./LanguageDropdown";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const PostEditTranslate = () => {
+  const [language, setLanguage] = useState("");
   const translate = async () => {
     setTranslationStatus({ message: "Translating..." });
     try {
@@ -48,6 +50,10 @@ const PostEditTranslate = () => {
       <div className="w-[80%] lg:w-[50%] border border-black mx-auto rounded-2xl mt-20 p-10 mb-20">
         <h1 className="text-center mb-10 text-3xl">MTPE - html</h1>
         <div className="flex items-center justify-center">
+          <LanguageDropdown
+            language={language}
+            onLanguageChange={(e) => setLanguage(e.target.value)}
+          />
           <button
             onClick={convertFile}
             className="bg-blue-200 hover:bg-blue-300  mx-4 px-2 py-1 rounded"

@@ -5,7 +5,7 @@ import os
 
 load_dotenv()
 
-def translate_xliff(file_name): 
+def translate_xliff(file_name, lang): 
     if not file_name:
         return {"error": "File name is required."}, 400
 
@@ -20,7 +20,7 @@ def translate_xliff(file_name):
     document_translation_client = DocumentTranslationClient(endpoint, AzureKeyCredential(credential))
 
     try:
-        poller = document_translation_client.begin_translation(source_url, target_url, "fr" , prefix=file_name)
+        poller = document_translation_client.begin_translation(source_url, target_url, lang, prefix=file_name)
         result = poller.result()
         print(f"Translation result: {result}")
         
