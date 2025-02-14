@@ -3,19 +3,17 @@ import os
 import logging
 import uuid
 import requests
-from azure.upload_func import upload_blob
+from azure.upload_blob import upload_blob
 from extensions import cache
 import app_config
-
+from custom_logger import logger
 
 
 # Set up logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 upload = Blueprint('upload', __name__)
 
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = './all_files/uploads'
 
 # Ensure upload folder exists
 if not os.path.exists(UPLOAD_FOLDER):
@@ -35,14 +33,16 @@ def upload_file():
     file = request.files['file']
     full_name = file.filename
     extension = os.path.splitext(full_name)[1]
-    
-    file_name = str(uuid.uuid4()) + extension
+    base_name = str(uuid.uuid4())
+    file_name = base_name + extension
     file_path = os.path.join(UPLOAD_FOLDER, file_name)
+    
     cache.set('file_path', file_path, timeout=300)
     cache.set('file_name', file_name, timeout=300)
     cache.set('extension', extension, timeout=300)
+    cache.set('base_name', base_name, timeout=300)
     
-    print(f"Stored file path in Redis: {cache.get('file_name')}")
+    logger.info(f"Stored file to cache: {cache.get('file_name')}")
 
     file.save(file_path)
     

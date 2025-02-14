@@ -5,10 +5,11 @@ from flask_session import Session
 from routes.upload_routes import upload
 from flask_cors import CORS
 from routes.upload_routes import upload
-from azure.translate_api import translate
-from azure.download_api import download
+from azure_api.translate_api import translate
+from azure_api.download_xliff_api import download_xliff
+from azure_api.download_api import download
 from extensions import cache
-from routes.test_routes import test_bp
+from routes.convert_routes import convert_bp
 import os 
 from dotenv import load_dotenv
 from flask_caching import Cache
@@ -45,7 +46,8 @@ cache.init_app(app)
 app.register_blueprint(upload)  
 app.register_blueprint(translate) 
 app.register_blueprint(download)
-app.register_blueprint(test_bp)
+app.register_blueprint(download_xliff)
+app.register_blueprint(convert_bp)
 
 assert app.config["REDIRECT_PATH"] != "/", "REDIRECT_PATH must not be /"
 

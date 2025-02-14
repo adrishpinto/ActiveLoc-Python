@@ -6,7 +6,7 @@ import mimetypes
 from extensions import cache
 from dotenv import load_dotenv
 import app_config
-
+from custom_logger import logger
 
 load_dotenv()
 
@@ -22,10 +22,11 @@ def download_blob():
     # token = auth.get_token_for_user(app_config.SCOPE)
     # if "error" in token:
     #     return redirect(url_for("login"))
-    
+   
     try:
+        ext = cache.get("extension")
         blob_name = cache.get("file_name")
-       
+        logger.info(ext)
 
         if not blob_name:
             return jsonify({"error": "Please upload, or reupload the file"}), 400
@@ -43,8 +44,12 @@ def download_blob():
             mime_type = "application/octet-stream" 
 
         response = send_file(file_stream, as_attachment=True, download_name=blob_name, mimetype=mime_type)
-
+        response.headers["Content-Disposition"] = f"attachment; filename={blob_name}"
+        response.headers["file_type"] = ext
         
+        response.headers["Access-Control-Expose-Headers"] = "file_type"
+
+         
    
 
         return response

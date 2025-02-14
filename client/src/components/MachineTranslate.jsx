@@ -69,33 +69,29 @@ const MachineTranslate = () => {
 
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
+
+      const ext = response.headers.get("file_type") || "txt";
+      console.log(response.headers.get("file_type"));
+      console.log([...response.headers.entries()]);
+
       const a = document.createElement("a");
       a.href = url;
-      a.download = "downloaded_file.docx";
+      a.download = `downloaded_file.${ext}`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
+
+      // Revoke the object URL to free memory
+      window.URL.revokeObjectURL(url);
     } catch (error) {
       console.error("Error downloading file:", error);
     }
   };
 
-  const fetchTestMessage = async () => {
-    try {
-      const response = await axios.get("http://localhost:5000/test", {
-        withCredentials: true,
-      });
-      console.log(response.data);
-      alert(response.data.message);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      alert("Authentication failed");
-    }
-  };
-
   return (
     <div>
-      <div className="w-[80%] lg:w-[50%] border border-black mx-auto rounded-2xl mt-32 p-20">
+      <div className="w-[80%] lg:w-[50%] border border-black mx-auto rounded-2xl mt-32 p-10">
+        <h1 className="mb-10 text-center text-3xl ">Machine Translation</h1>
         <div className="mx-auto flex items-center justify-center mb-10">
           <input
             className="border w-52"
