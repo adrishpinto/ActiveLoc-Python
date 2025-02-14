@@ -29,7 +29,7 @@ app.config.from_object(app_config)
 CORS(app, supports_credentials=True, origins=[
     "http://localhost:5173", 
     "https://active-loc-python.vercel.app"
-])
+], allow_headers=["Content-Type", "Authorization"], methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
 
 # CORS(app)
 

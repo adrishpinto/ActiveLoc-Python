@@ -34,7 +34,7 @@ const PostEditTranslate = () => {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "downloaded_file.html";
+      a.download = "downloaded_file.xlf";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
