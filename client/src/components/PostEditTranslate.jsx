@@ -20,7 +20,9 @@ const PostEditTranslate = () => {
 
   const convertFile = async () => {
     try {
-      const res = await axios.get(`${API_URL}/convert`);
+      const res = await axios.get(`${API_URL}/convert`, {
+        params: { language }, 
+      });
     } catch (error) {
       console.log("error:", error);
     }

@@ -29,7 +29,7 @@ def upload_file():
     
     if 'file' not in request.files:
         return jsonify({'error': 'No file provided'}), 400
-
+    
     file = request.files['file']
     full_name = file.filename
     extension = os.path.splitext(full_name)[1]

@@ -7,9 +7,7 @@ const LanguageDropdown = ({ language, onLanguageChange }) => {
       value={language}
       onChange={onLanguageChange}
     >
-      <option value="af" disabled="true">
-        Choose Language
-      </option>
+      <option value="af">Choose Language</option>
       <option value="af">Afrikaans</option>
       <option value="sq">Albanian</option>
       <option value="am">Amharic</option>
