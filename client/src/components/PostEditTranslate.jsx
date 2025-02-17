@@ -21,7 +21,7 @@ const PostEditTranslate = () => {
   const convertFile = async () => {
     try {
       const res = await axios.get(`${API_URL}/convert`, {
-        params: { language }, 
+        params: { language },
       });
     } catch (error) {
       console.log("error:", error);
@@ -50,7 +50,14 @@ const PostEditTranslate = () => {
   return (
     <div>
       <div className="w-[80%] lg:w-[50%] border border-black mx-auto rounded-2xl mt-20 p-10 mb-20">
-        <h1 className="text-center mb-10 text-3xl">MTPE - html</h1>
+        <h1 className="text-center mb-10 text-3xl">Post Edit Translation</h1>
+        <h2 className="border-2 border-green-500 bg-green-200 mb-8 w-fit mx-auto px-6 py-2 rounded-lg  text-black font-semibold">
+          <span className="font-semibold text-lg pr-4">
+            Supported File Types:{" "}
+          </span>{" "}
+          HTML, iOS Strings, ODT
+        </h2>
+
         <div className="flex items-center justify-center">
           <LanguageDropdown
             language={language}
