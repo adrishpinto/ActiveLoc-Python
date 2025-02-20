@@ -5,9 +5,8 @@ import uuid
 import requests
 from azure.upload_blob import upload_blob
 from extensions import cache
-import app_config
 from custom_logger import logger
-
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
 # Set up logging
 
@@ -20,13 +19,9 @@ if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
 @upload.route('/upload', methods=['POST'])
-
-def upload_file():
-    from app import auth
-    token = auth.get_token_for_user(app_config.SCOPE)
-    if "error" in token:
-        return redirect(url_for("login"))
-    
+@jwt_required()
+def upload_file():   
+    current_user = get_jwt_identity()
     if 'file' not in request.files:
         return jsonify({'error': 'No file provided'}), 400
     

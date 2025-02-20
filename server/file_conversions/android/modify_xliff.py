@@ -1,15 +1,17 @@
 from lxml import etree
 
-tree = etree.parse('output/xliff.xlf')
-root = tree.getroot()
+tree = etree.parse('./output/intial.xlf')
 
-namespace = {'xliff': 'urn:oasis:names:tc:xliff:document:1.1'}
+# Loop through each 'trans-unit' element
+for trans_unit in tree.xpath('//xliff:trans-unit', namespaces={'xliff': 'urn:oasis:names:tc:xliff:document:1.1'}):
+    # Get the source and target elements
+    source = trans_unit.find('xliff:source', namespaces={'xliff': 'urn:oasis:names:tc:xliff:document:1.1'})
+    target = trans_unit.find('xliff:target', namespaces={'xliff': 'urn:oasis:names:tc:xliff:document:1.1'})
 
-for trans_unit in root.findall('.//xliff:trans-unit', namespace):
-    source_element = trans_unit.find('xliff:source', namespace)
-    target_element = trans_unit.find('xliff:target', namespace)
-    
-    if source_element is not None and target_element is not None:
-        trans_unit.remove(target_element)
+    # If both source and target exist, replace target's content with source's content and empty the target
+    if source is not None and target is not None:
+        source.text = target.text  # Replace source with target's text
+        target.text = ""  # Empty the target content
 
-tree.write('output/modified_file.xlf', encoding='UTF-8', xml_declaration=True, pretty_print=True)
+# Write the modified XML to a new file
+tree.write('./output/intial_modified_file.xlf', pretty_print=True, xml_declaration=True, encoding="UTF-8")

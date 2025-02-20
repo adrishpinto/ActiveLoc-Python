@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<resources>
+    <string name="app_name" translatable="false">Sunflower</string>
+    <string name="menu_filter_by_grow_zone" translation_description="The label for the menu item to filter the displayed plants by grow zone.">Filtrer par zone de culture</string>
+    <string name="my_garden_title" translation_description="Title for the 'My garden' screen where the user can see the list of plants that have been added to their garden.">Mon jardin</string>
+    <string name="plant_list_title" translation_description="Title for the plant list screen where the user can see a list of plants available to add to their garden.">Liste des plantes</string>
+    <string name="available" translation_description="Text for the header of the plant list page indicating the available plants for users to choose from.">Plantes disponibles</string>
+    <string name="plant_details_title" translation_description="Title for the plant details screen where the user can see the details for a specific plant.">Détails de l'installation</string>
+    <string name="add_plant" translation_description="Button text that prompts user to navigate to the Plant List to add plants to their empty garden.">Ajouter une plante</string>
+    <string name="added_plant_to_garden" translation_description="Confirmation text that is shown when a user adds a plant to their empty garden.">Ajout de plantes au jardin</string>
+    <string name="garden_empty" translation_description="Text that is shown on the 'My Garden' screen when no plants have been added to the user's garden">Votre jardin est vide</string>
+    <string name="plant_date_header" translation_description="Text that is shown on each plant on the 'My Garden' screen which says the word Planted to show date of planting below">Planté</string>
+    <string name="watered_date_header" translation_description="Text that is shown on each plant on the 'My Garden' screen which says the word Last Watered to show date of last watering below">Dernier arrosage</string>
+    <string name="menu_item_share_plant" translation_description="The label for the Share menu item">Partager</string>
+    <string name="share_text_plant" translation_description="The default messaged used when sharing a plant on SNS, etc.">Découvrez la plante %s dans l'application Android Sunflower</string>
+    <string name="gallery_title" translation_description="Title for the photo gallery screen">Photos par Unsplash</string>
+    <string name="watering_needs_prefix" translation_description="Prefix for the text describing how often a plant should be watered. Used in combination with watering_needs_suffix.">Besoins en arrosage</string>
+    <plurals name="watering_needs_suffix">
+        <item quantity="one" translation_description="Suffix for the text describing how often a plant should be watered, singular. Used in combination with watering_needs_prefix: 'Watering needs: every day'.">tous les jours</item>
+        <item quantity="other" translation_description="Suffix for the text describing how often a plant should be watered, singular. Used in combination with watering_needs_prefix: 'Watering needs: every day'.">tous les %d jours</item>
+    </plurals>
+    <plurals name="watering_next">
+        <item quantity="one" translation_description="Text indicating when the the plant should next be watered, singular. Used in conjunction with last watered date. 'May 24, 2018 - water tomorrow.'.">l'eau demain.</item>
+        <item quantity="other" translation_description="Text indicating when the the plant should next be watered, singular. Used in conjunction with last watered date. 'May 24, 2018 - water tomorrow.'.">Arrosez en %d jours.</item>
+    </plurals>
+    <string name="a11y_plant_item_image" translation_description="Accessibility text for each of the plant images shown in the 'My garden' and 'Plant list' screens.">Photo de la plante</string>
+    <string name="a11y_back" translatable="false">Navigate up</string>
+    <string name="gallery_content_description" translation_description="Content description for the clickable image to navigate to the gallery screen">Accéder à l'écran de la galerie</string>
+    <string name="plant_detail_image_content_description" translation_description="Content description for the header / hero image that is show at the top of the plant detail screen.">Image de la plante</string>
+</resources>

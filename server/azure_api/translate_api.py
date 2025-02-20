@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 from extensions import cache
 import os
 import logging
-import app_config
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -16,10 +15,7 @@ translate = Blueprint('translate', __name__)
 
 @translate.route('/translate', methods=['POST'])
 def translate_file():
-    # from app import auth
-    # token = auth.get_token_for_user(app_config.SCOPE)
-    # if "error" in token:
-    #     return redirect(url_for("login"))
+   
 
     file_name = cache.get("file_name")
     

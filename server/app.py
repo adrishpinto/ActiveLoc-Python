@@ -1,122 +1,67 @@
-import identity.web
-import requests
-from flask import Flask, redirect, render_template, request, session, url_for
+from flask import Flask
+from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, JWTManager
 from flask_session import Session
-from routes.upload_routes import upload
 from flask_cors import CORS
+from dotenv import load_dotenv
+from flask_caching import Cache
+from mongoengine import connect
+import os
+import datetime
+
+
 from routes.upload_routes import upload
 from azure_api.translate_api import translate
 from azure_api.download_xliff_api import download_xliff
 from azure_api.download_api import download
+from routes.user_routes import user_bp
 from extensions import cache
 from routes.convert_routes import convert_bp
-import os 
-from dotenv import load_dotenv
-from flask_caching import Cache
 
+# Load environment variables
 load_dotenv()
-URL = os.getenv("FRONTEND_URL") 
+MONGO_URI = os.getenv("MONGO_URI")  # Example: "mongodb://localhost:27017/test"
 
-__version__ = "1.0"
-
-import app_config
-
-
+# Initialize Flask App
 app = Flask(__name__)
-app.config.from_object(app_config)
-
 
 CORS(app, supports_credentials=True, origins=[
-    "http://localhost:5173", 
+    "http://localhost:5173",
     "https://active-loc-python.vercel.app"
 ], allow_headers=["Content-Type", "Authorization"], methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
 
-# CORS(app)
-
-
 app.config['CACHE_TYPE'] = 'SimpleCache'
-app.config['CACHE_DEFAULT_TIMEOUT'] = 300  
-app.config["SESSION_COOKIE_SECURE"] = True  # Required for HTTPS
-app.config["SESSION_COOKIE_SAMESITE"] = "None"  # Allows cross-origin cookies
-app.config["SESSION_COOKIE_HTTPONLY"] = True  # Prevents JS access
+app.config['CACHE_DEFAULT_TIMEOUT'] = 300
+  
+app.config["SESSION_TYPE"] = "filesystem"
+app.config["SESSION_COOKIE_SECURE"] = True  
+app.config["SESSION_COOKIE_SAMESITE"] = "None"  
+app.config["SESSION_COOKIE_HTTPONLY"] = True 
+
 
 
 cache.init_app(app)
 
+# ✅ Connect MongoEngine to MongoDB
+connect(db="activeloc_users",host=MONGO_URI, alias="default")
+
+# Register blueprints
 app.register_blueprint(upload)  
 app.register_blueprint(translate) 
 app.register_blueprint(download)
 app.register_blueprint(download_xliff)
 app.register_blueprint(convert_bp)
+app.register_blueprint(user_bp)
 
-assert app.config["REDIRECT_PATH"] != "/", "REDIRECT_PATH must not be /"
+app.config["JWT_SECRET_KEY"] = "your_secret_key"  # Change this!
+app.config["JWT_TOKEN_LOCATION"] = ["cookies"]  
+app.config["JWT_COOKIE_SECURE"] = False  # Set to False for local testing
+app.config["JWT_COOKIE_HTTPONLY"] = True  
+app.config["JWT_COOKIE_SAMESITE"] = "Lax" 
+
+jwt = JWTManager(app) 
 
 Session(app)
-
-from werkzeug.middleware.proxy_fix import ProxyFix
-app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
-
-app.jinja_env.globals.update(Auth=identity.web.Auth)
-auth = identity.web.Auth(
-    session=session,
-    authority=app.config["AUTHORITY"],
-    client_id=app.config["CLIENT_ID"],
-    client_credential=app.config["CLIENT_SECRET"],
-)
-
-@app.route("/login")
-def login():
-    return render_template("login.html", version=__version__, **auth.log_in(
-        scopes=app_config.SCOPE,
-        redirect_uri=url_for("auth_response", _external=True), 
-        prompt="select_account",  
-        ))
-    
-@app.route(app_config.REDIRECT_PATH)
-def auth_response():
-    result = auth.complete_log_in(request.args)
-    if "error" in result:
-        return render_template("auth_error.html", result=result)
-    return redirect(URL)
-
-@app.route("/logout")
-def logout():
-    return redirect(auth.log_out(url_for("index", _external=True)))
-
-@app.route("/")
-def index():
-    if not (app.config["CLIENT_ID"] and app.config["CLIENT_SECRET"]):
-        
-        return render_template('config_error.html')
-    if not auth.get_user():
-        return redirect(url_for("login"))
-    return render_template('index.html', user=auth.get_user(), version=__version__)
-
-
-@app.route("/call_downstream_api")
-def call_downstream_api():
-   
-    token = auth.get_token_for_user(app_config.SCOPE)
-    if "error" in token:
-        return redirect(url_for("login"))
-    
-    api_result = requests.get(
-        app_config.ENDPOINT,
-        headers={'Authorization': 'Bearer ' + token['access_token']},
-        timeout=30,
-    ).json()
-    return render_template('display.html', result=api_result)
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))  
     app.run(host="0.0.0.0", port=port, debug=True)
-    
-    # flask run --host=localhost --port=5000
-    
-# app.config['CACHE_TYPE'] = 'RedisCache'
-# app.config['CACHE_REDIS_HOST'] = 'localhost'  # Change to your Redis server
-# app.config['CACHE_REDIS_PORT'] = 6379
-# app.config['CACHE_REDIS_DB'] = 0
-# app.config['CACHE_REDIS_URL'] = "redis://localhost:6379/0"
-# app.config['CACHE_DEFAULT_TIMEOUT'] = 300  # 5 minutes
-# cache = Cache(app)

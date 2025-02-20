@@ -2,6 +2,7 @@ from flask import Blueprint,request
 from file_conversions.html.html_to_xliff import html_to_xliff
 from file_conversions.iOS_Strings.strings_to_xliff import string_to_xliff
 from file_conversions.docx.odf_to_xliff import odf_to_xliff
+from file_conversions.new_android.android_to_xliff import android_to_xliff
 import os 
 from custom_logger import logger
 from azure.blob_download import blob_download
@@ -37,7 +38,10 @@ def download():
         string_to_xliff(src, xliff_file) 
        
     elif ext == ".odt":
-        odf_to_xliff(src, xliff_file) 
+        odf_to_xliff(src, xliff_file)
+        
+    elif ext == ".xml":
+        android_to_xliff(src, xliff_file) 
         
         
     else:

@@ -5,7 +5,6 @@ import os
 import mimetypes
 from extensions import cache
 from dotenv import load_dotenv
-import app_config
 from custom_logger import logger
 
 load_dotenv()
@@ -17,12 +16,7 @@ download = Blueprint('download', __name__)
 
 
 @download.route('/download', methods=['GET'])
-def download_blob():
-    # from app import auth
-    # token = auth.get_token_for_user(app_config.SCOPE)
-    # if "error" in token:
-    #     return redirect(url_for("login"))
-   
+def download_blob():   
     try:
         ext = cache.get("extension")
         blob_name = cache.get("file_name")

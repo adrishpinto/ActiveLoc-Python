@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2">
+  <file source-language="en" datatype="plaintext" original="strings">
+    <body>
+      <trans-unit id="app_name" translate="false">
+        <source>Sunflower</source>
+      </trans-unit>
+      <trans-unit id="menu_filter_by_grow_zone">
+        <source>Filter by grow zone</source><target>Filtrer par zone de culture</target>
+        <note>The label for the menu item to filter the displayed plants by grow zone.</note>
+      </trans-unit>
+      <trans-unit id="my_garden_title">
+        <source>My garden</source><target>Mon jardin</target>
+        <note>Title for the 'My garden' screen where the user can see the list of plants that have been added to their garden.</note>
+      </trans-unit>
+      <trans-unit id="plant_list_title">
+        <source>Plant list</source><target>Liste des plantes</target>
+        <note>Title for the plant list screen where the user can see a list of plants available to add to their garden.</note>
+      </trans-unit>
+      <trans-unit id="available">
+        <source>Available Plants</source><target>Plantes disponibles</target>
+        <note>Text for the header of the plant list page indicating the available plants for users to choose from.</note>
+      </trans-unit>
+      <trans-unit id="plant_details_title">
+        <source>Plant details</source><target>Détails de l'installation</target>
+        <note>Title for the plant details screen where the user can see the details for a specific plant.</note>
+      </trans-unit>
+      <trans-unit id="add_plant">
+        <source>Add plant</source><target>Ajouter une plante</target>
+        <note>Button text that prompts user to navigate to the Plant List to add plants to their empty garden.</note>
+      </trans-unit>
+      <trans-unit id="added_plant_to_garden">
+        <source>Added plant to garden</source><target>Ajout de plantes au jardin</target>
+        <note>Confirmation text that is shown when a user adds a plant to their empty garden.</note>
+      </trans-unit>
+      <trans-unit id="garden_empty">
+        <source>Your garden is empty</source><target>Votre jardin est vide</target>
+        <note>Text that is shown on the 'My Garden' screen when no plants have been added to the user's garden</note>
+      </trans-unit>
+      <trans-unit id="plant_date_header">
+        <source>Planted</source><target>Planté</target>
+        <note>Text that is shown on each plant on the 'My Garden' screen which says the word Planted to show date of planting below</note>
+      </trans-unit>
+      <trans-unit id="watered_date_header">
+        <source>Last Watered</source><target>Dernier arrosage</target>
+        <note>Text that is shown on each plant on the 'My Garden' screen which says the word Last Watered to show date of last watering below</note>
+      </trans-unit>
+      <trans-unit id="menu_item_share_plant">
+        <source>Share</source><target>Partager</target>
+        <note>The label for the Share menu item</note>
+      </trans-unit>
+      <trans-unit id="share_text_plant">
+        <source>Check out the %s plant in the Android Sunflower app</source><target>Découvrez la plante %s dans l'application Android Sunflower</target>
+        <note>The default messaged used when sharing a plant on SNS, etc.</note>
+      </trans-unit>
+      <trans-unit id="gallery_title">
+        <source>Photos by Unsplash</source><target>Photos par Unsplash</target>
+        <note>Title for the photo gallery screen</note>
+      </trans-unit>
+      <trans-unit id="watering_needs_prefix">
+        <source>Watering needs</source><target>Besoins en arrosage</target>
+        <note>Prefix for the text describing how often a plant should be watered. Used in combination with watering_needs_suffix.</note>
+      </trans-unit>
+      <trans-unit id="watering_needs_suffix">
+        <source>
+          <item quantity="one">every day</item>
+          <item quantity="other">every %d days</item>
+        </source><target>
+          <item quantity="one">tous les jours</item>
+          <item quantity="other">tous les %d jours</item>
+        </target>
+        <note>Suffix for the text describing how often a plant should be watered, singular. Used in combination with watering_needs_prefix: 'Watering needs: every day'.</note>
+      </trans-unit>
+      <trans-unit id="watering_next">
+        <source>
+          <item quantity="one">water tomorrow.</item>
+          <item quantity="other">water in %d days.</item>
+        </source><target>
+          <item quantity="one">l'eau demain.</item>
+          <item quantity="other">Arrosez en %d jours.</item>
+        </target>
+        <note>Text indicating when the the plant should next be watered, singular. Used in conjunction with last watered date. 'May 24, 2018 - water tomorrow.'.</note>
+      </trans-unit>
+      <trans-unit id="a11y_plant_item_image">
+        <source>Picture of plant</source><target>Photo de la plante</target>
+        <note>Accessibility text for each of the plant images shown in the 'My garden' and 'Plant list' screens.</note>
+      </trans-unit>
+      <trans-unit id="a11y_back" translate="false">
+        <source>Navigate up</source>
+      </trans-unit>
+      <trans-unit id="gallery_content_description">
+        <source>Navigate to gallery screen</source><target>Accéder à l'écran de la galerie</target>
+        <note>Content description for the clickable image to navigate to the gallery screen</note>
+      </trans-unit>
+      <trans-unit id="plant_detail_image_content_description">
+        <source>Image of plant</source><target>Image de la plante</target>
+        <note>Content description for the header / hero image that is show at the top of the plant detail screen.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

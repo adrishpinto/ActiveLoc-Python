@@ -1,0 +1,127 @@
+from flask import Blueprint, request, jsonify, make_response, session  # Flask utilities for handling requests and responses
+from flask_jwt_extended import create_access_token, set_access_cookies, jwt_required, get_jwt_identity  # JWT utilities for authentication
+from datetime import timedelta  # To set token expiration time
+from models.user_model import User  # Import the User model from your models
+from mongoengine.errors import NotUniqueError, ValidationError
+from werkzeug.security import generate_password_hash
+
+
+user_bp = Blueprint("user", __name__)
+
+@user_bp.route("/add_user", methods=["POST"])
+def add_user():
+    try:
+        data = request.get_json()
+        
+        # Basic data validation
+        required_fields = ['email', 'password', 'first_name', 'group']
+        for field in required_fields:
+            if field not in data:
+                return jsonify({
+                    'error': f'Missing required field: {field}'
+                }), 400
+
+        # Create new user instance
+        new_user = User(
+            email=data['email'],
+            # password=generate_password_hash(data['password']), 
+            password=data['password'],
+            first_name=data['first_name'],
+            group=data['group'],
+            last_name=data['group']
+        )
+        
+        # Optional fields
+        optional_fields = {
+            
+            'customer_id': int,
+            'customer_code': str,
+            'access_level': str,
+            'customer_type': str,
+            'company_name': str,
+            'form_filled': bool
+        }
+        
+        for field, field_type in optional_fields.items():
+            if field in data:
+                setattr(new_user, field, data[field])
+
+        # Validate and save the user
+        new_user.validate()
+        new_user.save()
+
+        return jsonify({
+            'message': 'User created successfully',
+            'user_id': str(new_user.id)
+        }), 201
+
+    except ValidationError as e:
+        return jsonify({
+            'error': 'Validation error',
+            'details': str(e)
+        }), 400
+        
+    except NotUniqueError:
+        return jsonify({
+            'error': 'Email already exists'
+        }), 409
+        
+    except Exception as e:
+        return jsonify({
+            'error': 'An unexpected error occurred',
+            'details': str(e)
+        }), 500  
+
+@user_bp.route("/users", methods=["GET"])
+@jwt_required()
+def get_users():
+    try:
+        current_user = get_jwt_identity()
+        users = User.objects()
+        user_list = [
+            {
+                **user.to_mongo().to_dict(), 
+                "_id": str(user.id)  
+            }
+            for user in users
+        ]
+        return jsonify({"current_user": current_user, "users": user_list}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
+    
+    
+    
+@user_bp.route("/login", methods=["POST"])
+def login():
+    try:
+        data = request.json
+        email = data.get("email")
+        password = data.get("password")
+
+        if not email or not password:
+            return jsonify({"error": "Email and password are required"}), 400
+
+        user = User.objects(email=email, password=password).first()
+
+        if user:
+            expires = timedelta(hours=1)
+            access_token = create_access_token(identity=str(user.id), expires_delta=expires)
+  
+            session["user_email"] = email  
+  
+            response = jsonify({
+                "message": "Login successful",
+                "user_id": str(user.id),
+                "email": email
+            })
+            set_access_cookies(response, access_token) 
+            return response
+
+        return jsonify({"error": "Invalid email or password"}), 401
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+   
