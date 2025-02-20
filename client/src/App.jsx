@@ -7,7 +7,7 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/mt" element={<TranslationServices />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
       </Routes>
     </Router>
   );
