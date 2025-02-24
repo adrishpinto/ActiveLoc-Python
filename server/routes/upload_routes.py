@@ -7,7 +7,8 @@ from azure.upload_blob import upload_blob
 from extensions import cache
 from custom_logger import logger
 from flask_jwt_extended import jwt_required, get_jwt_identity
-
+from auth.decorators import require_auth
+from models.user_model import User
 # Set up logging
 
 upload = Blueprint('upload', __name__)
@@ -20,8 +21,10 @@ if not os.path.exists(UPLOAD_FOLDER):
 
 @upload.route('/upload', methods=['POST'])
 @jwt_required()
-def upload_file():   
-    current_user = get_jwt_identity()
+def upload_file():
+    user_id = get_jwt_identity()  
+    logger.info(user_id) 
+     
     if 'file' not in request.files:
         return jsonify({'error': 'No file provided'}), 400
     
@@ -33,15 +36,13 @@ def upload_file():
     file_path = os.path.join(UPLOAD_FOLDER, file_name)
     
     cache.set('file_path', file_path, timeout=300)
-    cache.set('file_name', file_name, timeout=300)
+    cache.set(f'file_name_{user_id}', file_name, timeout=300)
     cache.set('extension', extension, timeout=300)
-    cache.set('base_name', base_name, timeout=300)
+    cache.set(f'base_name_{user_id}', base_name, timeout=300)
     
     logger.info(f"Stored file to cache: {cache.get('file_name')}")
 
     file.save(file_path)
-    
-
    
     try:
         azure_response = upload_blob(file_path, file_name)

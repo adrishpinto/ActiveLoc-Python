@@ -58,16 +58,20 @@ const App = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
+  
     try {
-      const response = await axios.post("http://localhost:5000/login", {
-        email,
-        password,
-      });
-
+      const response = await axios.post(
+        "http://localhost:5000/login",
+        { email, password },
+        {
+          withCredentials: true,
+        }
+      );
+  
       setMessage(response.data.message);
       console.log("User ID:", response.data.user_id);
-      navigate("/mt");
+  
+      navigate("/dashboard");
     } catch (error) {
       if (error.response) {
         setMessage(error.response.data.error);
@@ -76,6 +80,7 @@ const App = () => {
       }
     }
   };
+  
 
   return (
     <div className="border-[1px] w-[99%] mx-auto rounded-xl border-black sm:m-1 flex justify-around h-[150vh] ">

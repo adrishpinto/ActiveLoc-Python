@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 import LanguageDropdown from "./LanguageDropdown";
+import FileUpload from "./FileUpload";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const PostEditTranslate = () => {
   const [language, setLanguage] = useState("");
+
+  
+
   const translate = async () => {
     setTranslationStatus({ message: "Translating..." });
     try {
@@ -22,6 +26,7 @@ const PostEditTranslate = () => {
     try {
       const res = await axios.get(`${API_URL}/convert`, {
         params: { language },
+        withCredentials : true
       });
     } catch (error) {
       console.log("error:", error);
@@ -31,7 +36,10 @@ const PostEditTranslate = () => {
   //download
   const downloadFile = async () => {
     try {
-      const response = await fetch(`${API_URL}/download_xliff`);
+      const response = await fetch(`${API_URL}/download_xliff`, 
+        {
+        credentials: "include",
+      });
       if (!response.ok) throw new Error("Failed to download file");
 
       const blob = await response.blob();
@@ -49,7 +57,7 @@ const PostEditTranslate = () => {
 
   return (
     <div>
-      <div className="w-[80%] lg:w-[50%] border border-black mx-auto rounded-2xl mt-20 p-10 mb-20">
+      <div className="w-[80%] lg:w-[50%] border border-black mx-auto rounded-2xl my-32 p-10 mb-20">
         <h1 className="text-center mb-10 text-3xl">Post Edit Translation</h1>
         <h2 className="border-2 border-green-500 bg-green-200 mb-8 w-fit mx-auto px-6 py-2 rounded-lg  text-black font-semibold">
           <span className="font-semibold text-lg pr-4">
@@ -57,8 +65,9 @@ const PostEditTranslate = () => {
           </span>{" "}
           HTML, iOS Strings, ODT
         </h2>
+        <FileUpload/>
 
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center mt-10">
           <LanguageDropdown
             language={language}
             onLanguageChange={(e) => setLanguage(e.target.value)}

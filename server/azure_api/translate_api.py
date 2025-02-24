@@ -1,7 +1,9 @@
 from flask import Blueprint, session, jsonify, redirect, url_for, request
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.translation.document import DocumentTranslationClient
+from flask_jwt_extended import create_access_token, set_access_cookies, jwt_required, get_jwt_identity
 from dotenv import load_dotenv
+from models.user_model import User
 from extensions import cache
 import os
 import logging
@@ -14,16 +16,16 @@ load_dotenv()
 translate = Blueprint('translate', __name__)
 
 @translate.route('/translate', methods=['POST'])
+@jwt_required()
 def translate_file():
-   
-
-    file_name = cache.get("file_name")
+    user_id = get_jwt_identity()  
+    file_name = cache.get(f"file_name_{user_id}")
     
     if not file_name:
         return jsonify({"error": "Please upload a file first"}), 404
 
     language = request.json.get("lang", "fr")
-  # Default to "fr" if not provided
+
 
     endpoint = os.getenv("ENDPOINT") 
     cred = os.getenv("CREDENTIAL")

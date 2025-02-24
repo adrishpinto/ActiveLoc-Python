@@ -1,0 +1,5 @@
+enable csrf 
+update the cache for production
+update cookies for production
+use production in .env
+add login for create user with admin

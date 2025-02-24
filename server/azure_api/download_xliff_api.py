@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, send_file,  redirect, url_for
 from azure.storage.blob import BlobServiceClient
+from flask_jwt_extended import jwt_required, get_jwt_identity
 import io
 import os
 import mimetypes
@@ -16,10 +17,11 @@ download_xliff = Blueprint('download_xliff', __name__)
 
 
 @download_xliff.route('/download_xliff', methods=['GET'])
+@jwt_required()
 def download_blob():
-    
+    user_id = get_jwt_identity()
     try:
-        blob_name = cache.get("base_name") + ".xlf"
+        blob_name = cache.get(f"base_name_{user_id}") + ".xlf"
        
 
         if not blob_name:

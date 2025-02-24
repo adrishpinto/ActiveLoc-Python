@@ -11,16 +11,18 @@ from azure.translate_xliff import translate_xliff
 from azure.blob_download_xliff import blob_download_xliff
 import threading
 import time
-
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from extensions import cache
 # this is only html mtpe and works with the current set up. 
 
 convert_bp = Blueprint("convert_bp", __name__)
 
 @convert_bp.route("/convert", methods=['GET'])
+@jwt_required()
 def download():
-    from app import cache
-    file_name = cache.get("file_name")
-    converted_name = cache.get("base_name") + ".xlf"
+    user_id = get_jwt_identity()
+    file_name = cache.get(f"file_name_{user_id}")
+    converted_name = cache.get(f"base_name_{user_id}") + ".xlf"
     language = request.args.get("language", "en")  # Default to English if not provided
     
     blob_download(file_name)

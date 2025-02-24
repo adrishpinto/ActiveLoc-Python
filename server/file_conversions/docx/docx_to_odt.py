@@ -19,7 +19,7 @@ def docx_to_odt(docx_file_path, odt_file_path):
     subprocess.run(command, check=True)
     print(f"Conversion successful! File saved at {odt_file_path}")
 
-
-docx_file = "./output/test.docx"
-odt_file = "./output/step1.odt"
-docx_to_odt(docx_file, odt_file)
+if __name__ == "__main__":
+   docx_file = "./output/test.docx"
+   odt_file = "./output/step1.odt"
+   docx_to_odt(docx_file, odt_file)
