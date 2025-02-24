@@ -7,7 +7,7 @@ import { IoSettings } from "react-icons/io5";
 import { CiLogout } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 
-const SideBar = ({isOpen, setIsOpen}) => {
+const Sidebar = ({isOpen, setIsOpen}) => {
   
   const navigate = useNavigate();
   return (
@@ -89,4 +89,4 @@ const SideBar = ({isOpen, setIsOpen}) => {
   );
 };
 
-export default SideBar;
+export default Sidebar;
