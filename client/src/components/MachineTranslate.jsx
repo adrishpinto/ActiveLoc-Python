@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import LanguageDropdown from "./LanguageDropdown";
 import FileUpload from "./FileUpload";
-import Sidebar from "./SideBar";
 
 const API_URL = import.meta.env.VITE_API_URL;
 

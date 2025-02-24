@@ -5,9 +5,6 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
-
-
 const API_URL = import.meta.env.VITE_API_URL;
 
 const App = () => {
@@ -21,10 +18,12 @@ const App = () => {
 
   const validateEmail = (email) => {
     const invalidSymbols = /[\s!#$%^&*()+=<>?]/;
+
     if (email === "" || email === null) {
       setEmailErr("Please fill out email ");
       return false;
     }
+    
     if (invalidSymbols.test(email)) {
       setEmailErr("Email contains invalid symbols");
       return false;

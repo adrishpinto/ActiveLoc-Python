@@ -104,6 +104,7 @@ def login():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
+    
 @user_bp.route("/user", methods=["GET"])
 @jwt_required()  
 def get_user_details():
