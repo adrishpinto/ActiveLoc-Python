@@ -8,7 +8,7 @@ import Dashboard from "./components/Dashboard";
 
 function Layout() {
   const location = useLocation();
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const isLoginPage = location.pathname === "/";
 
   return (
