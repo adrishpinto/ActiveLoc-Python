@@ -4,11 +4,12 @@ import PostEditTranslate from "./PostEditTranslate";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const [name, setName] = useState("");
 
     const getUser = async () => { 
         try {
-            const res = await axios.get("http://localhost:5000/user", 
+            const res = await axios.get(`${API_URL}/login`, 
                 { withCredentials: true }
             );
             setName(res.data.first_name); 
