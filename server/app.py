@@ -34,9 +34,9 @@ app.config['CACHE_DEFAULT_TIMEOUT'] = 300
 #  JWT Configuration (Only Using Cookies)
 app.config["JWT_SECRET_KEY"] = "your_secret_key"  # Change this
 app.config["JWT_TOKEN_LOCATION"] = ["cookies"]  
-app.config["JWT_COOKIE_SECURE"] = False  # Set to True in production
+app.config["JWT_COOKIE_SECURE"] = True  # Set to True in production
 app.config["JWT_COOKIE_HTTPONLY"] = True  
-app.config["JWT_COOKIE_SAMESITE"] = "Lax"  # Change to "None" if using cross-origin requests
+app.config["JWT_COOKIE_SAMESITE"] = "none"  # Change to "None" if using cross-origin requests
 
 
 cache.init_app(app)
