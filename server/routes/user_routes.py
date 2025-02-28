@@ -24,7 +24,7 @@ def add_user():
             password=data['password'],  # Use `generate_password_hash(data['password'])` for security
             first_name=data['first_name'],
             group=data['group'],
-            last_name=data['group']
+            last_name=data['last_name']
         )
         
         optional_fields = {
@@ -104,6 +104,40 @@ def login():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
+@user_bp.route("/edit_user/<user_id>", methods=["PUT"])
+def edit_user(user_id):
+    try:
+        data = request.get_json()
+        
+        # Find the user by ID
+        user = User.objects(id=user_id).first()
+        if not user:
+            return jsonify({'error': 'User not found'}), 404
+        
+        
+        updatable_fields = ['email', 'password', 'first_name', 'group', 'last_name',
+                            'customer_id', 'customer_code', 'access_level', 
+                            'customer_type', 'company_name', 'form_filled']
+        
+        for field in updatable_fields:
+            if field in data:
+                if field == 'password':
+                    setattr(user, field, generate_password_hash(data[field]))
+                else:
+                    setattr(user, field, data[field])
+        
+        # Save updated user
+        user.validate()
+        user.save()
+        
+        return jsonify({'message': 'User updated successfully'}), 200
+    
+    except ValidationError as e:
+        return jsonify({'error': 'Validation error', 'details': str(e)}), 400
+    
+    except Exception as e:
+        return jsonify({'error': 'An unexpected error occurred', 'details': str(e)}), 500
+
     
 @user_bp.route("/user", methods=["GET"])
 @jwt_required()  
@@ -122,3 +156,5 @@ def get_user_details():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+
