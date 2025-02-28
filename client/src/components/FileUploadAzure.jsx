@@ -1,11 +1,12 @@
 import React, { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { toast } from "react-toastify";
-
+import { useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const FileUpload = ({ onUploadSuccess }) => {
+  const navigate = useNavigate()
   const [file, setFile] = useState(null);
 
   //get cookie for auth
@@ -42,16 +43,22 @@ const FileUpload = ({ onUploadSuccess }) => {
           "X-CSRF-TOKEN": csrfToken,
         },
       });
-
+    
       if (response.redirected) {
         window.location.href = response.url;
         return;
       }
 
+      if (response.status === 401) {
+        
+        localStorage.removeItem("token"); 
+        navigate("/");
+      } 
+
       const result = await response.json();
       toast.success(result.message);
     } catch (error) {
-      console.error("Upload failed", error);
+      console.log("Upload failed", error);
     }
   };
 

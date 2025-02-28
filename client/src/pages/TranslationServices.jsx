@@ -1,11 +1,10 @@
-import MachineTranslate from "../components/MachineTranslate";
-import PostEditTranslate from "../components/PostEditTranslate";
-import FileUpload from "../components/FileUpload";
+import MachineTranslate from "./MachineTranslate";
+import PostEditTranslate from "./PostEditTranslate";
+import FileUpload from "../components/FileUploadAzure";
 
 const TranslationServices = () => {
   return (
     <div>
-    
       <MachineTranslate />
       <PostEditTranslate />
     </div>

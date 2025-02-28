@@ -1,7 +1,12 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import MachineTranslate from "./components/MachineTranslate";
-import PostEditTranslate from "./components/PostEditTranslate";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import MachineTranslate from "./pages/MachineTranslate";
+import PostEditTranslate from "./pages/PostEditTranslate";
 import Login from "./pages/Login";
 import Sidebar from "./components/SideBar";
 import Dashboard from "./components/Dashboard";
@@ -10,13 +15,17 @@ import "react-toastify/dist/ReactToastify.css";
 
 function Layout() {
   const location = useLocation();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const isLoginPage = location.pathname === "/";
 
   return (
     <div className="flex">
       {!isLoginPage && <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />}
-      <div className={`flex-1 ${!isLoginPage ? (isOpen ? "sm:ml-64" : "sm:ml-16") : ""}`}>
+      <div
+        className={`flex-1 ${
+          !isLoginPage ? (isOpen ? "sm:ml-64" : "sm:ml-16") : ""
+        }`}
+      >
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -24,7 +33,7 @@ function Layout() {
           <Route path="/postedit-translate" element={<PostEditTranslate />} />
         </Routes>
       </div>
-   
+
       <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );

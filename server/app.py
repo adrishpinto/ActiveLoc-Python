@@ -9,6 +9,7 @@ from routes.upload_routes import upload
 from azure_api.translate_api import translate
 from azure_api.download_xliff_api import download_xliff
 from azure_api.download_api import download
+from routes.upload_local_route import upload_local
 from routes.user_routes import user_bp
 from routes.convert_routes import convert_bp
 
@@ -34,6 +35,7 @@ connect(db="activeloc_users", host=CurrentConfig.MONGO_URI, alias="default")
 
 # Register blueprints
 app.register_blueprint(upload)  
+app.register_blueprint(upload_local) 
 app.register_blueprint(translate) 
 app.register_blueprint(download)
 app.register_blueprint(download_xliff)

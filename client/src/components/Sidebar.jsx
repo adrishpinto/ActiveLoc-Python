@@ -2,29 +2,32 @@ import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
 import { MdGTranslate } from "react-icons/md";
-import { IoHomeSharp } from "react-icons/io5";
-import { IoSettings } from "react-icons/io5";
+import { IoHomeSharp, IoSettings } from "react-icons/io5";
 import { CiLogout } from "react-icons/ci";
-import { useNavigate } from "react-router-dom";
-import axios from "axios"
+import { useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
 
-const Sidebar = ({isOpen, setIsOpen}) => {
-  
+const Sidebar = ({ isOpen, setIsOpen }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogout = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/logout', {}, {
-        withCredentials: true 
-      });
-      
-      localStorage.removeItem('userData');
-      
+      await axios.post(
+        "http://localhost:5000/logout",
+        {},
+        { withCredentials: true }
+      );
+      localStorage.removeItem("userData");
+      navigate("./");
     } catch (err) {
-      console.log(err.response?.data?.error || 'Logout failed');
+      console.log(err.response?.data?.error || "Logout failed");
     }
   };
-  
-  const navigate = useNavigate();
+
+  // Function to check if the link is active
+  const isActive = (x) => (location.pathname == x ? "bg-gray-200" : "");
+
   return (
     <>
       {/* Sidebar Toggle Button */}
@@ -32,7 +35,7 @@ const Sidebar = ({isOpen, setIsOpen}) => {
         onClick={() => setIsOpen(!isOpen)}
         className="fixed top-4 left-4 z-50 p-2 bg-gray-800 text-white rounded-lg"
       >
-        {!isOpen ? <FaBars/> : <IoMdClose/>} 
+        {!isOpen ? <FaBars /> : <IoMdClose />}
       </button>
 
       {/* Sidebar */}
@@ -41,62 +44,65 @@ const Sidebar = ({isOpen, setIsOpen}) => {
           isOpen ? "translate-x-0" : "-translate-x-[100%]"
         }`}
       >
-        <h5
-          id="drawer-navigation-label"
-          className="text-base font-semibold text-gray-500 uppercase dark:text-gray-400 ml-10 mt-1"
-        >
+        <h5 className="text-base font-semibold text-gray-500 uppercase dark:text-gray-400 ml-10 mt-1">
           Menu
         </h5>
 
-        {/* Close Button */}
-        
         {/* Sidebar Menu */}
         <ul className="py-4 space-y-2 font-medium">
-        <li>
+          <li>
             <a
-              href="./Dashboard"
-              className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              href="/Dashboard"
+              className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+                "/Dashboard"
+              )}`}
             >
-            <span><IoHomeSharp /></span>
+              <IoHomeSharp />
               <span className="ms-3">Dashboard</span>
             </a>
           </li>
           <li>
             <a
-              href="./machine-translate"
-              className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              href="/machine-translate"
+              className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+                "/machine-translate"
+              )}`}
             >
-            <span><MdGTranslate/></span>
+              <MdGTranslate />
               <span className="ms-3">Machine Translation</span>
             </a>
           </li>
           <li>
             <a
-              href="./postedit-translate"
-              className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              href="/postedit-translate"
+              className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+                "/postedit-translate"
+              )}`}
             >
-              <span><MdGTranslate/></span> 
+              <MdGTranslate />
               <span className="ms-3">Post Edit Translation</span>
             </a>
           </li>
           <li>
             <a
-              href="#"
-              className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              href="/settings"
+              className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+                "/settings"
+              )}`}
             >
-            <span><IoSettings/></span>
+              <IoSettings />
               <span className="ms-3">Settings</span>
             </a>
           </li>
 
           <li>
-            <a
-              href="./"
-              className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+            <button
+              onClick={handleLogout}
+              className="flex items-center w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
-            <span><CiLogout/></span>
-              <span className="ms-3" onClick={handleLogout}>Logout</span>
-            </a>
+              <CiLogout />
+              <span className="ms-3">Logout</span>
+            </button>
           </li>
         </ul>
       </div>

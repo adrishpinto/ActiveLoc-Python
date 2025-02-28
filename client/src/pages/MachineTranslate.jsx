@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
-import LanguageDropdown from "./LanguageDropdown";
-import FileUpload from "./FileUpload";
+import LanguageDropdown from "../components/LanguageDropdown";
+import FileUpload from "../components/FileUploadAzure";
 import { toast } from "react-toastify";
+
 const API_URL = import.meta.env.VITE_API_URL;
 
 const MachineTranslate = () => {
   const [language, setLanguage] = useState("");
-  const [translationStatus, setTranslationStatus] = useState({ message: "not started" });
+  const [translationStatus, setTranslationStatus] = useState({
+    message: "not started",
+  });
   const [loading, setLoading] = useState(false);
 
   const getCookie = (name) => {
@@ -17,7 +20,7 @@ const MachineTranslate = () => {
 
   const translate = async (language) => {
     setTranslationStatus({ message: "Translating..." });
-    if(!language) return toast.error("please select a language")
+    if (!language) return toast.error("please select a language");
     try {
       const csrfToken = getCookie("csrf_access_token");
       const response = await axios.post(
@@ -32,7 +35,7 @@ const MachineTranslate = () => {
       );
 
       setTranslationStatus(response.data);
-      toast.success("translation has completed succesfully")
+      toast.success("translation has completed succesfully");
       if (response.request.responseURL !== `${API_URL}/translate`) {
         window.location.href = response.request.responseURL;
         return;
@@ -53,7 +56,11 @@ const MachineTranslate = () => {
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const ext = response.headers.get("file_type") || "txt";
-      const file_name = response.headers.get("file_name") || "downloaded_file"
+      let file_name = response.headers.get("file_name") || "downloaded_file";
+
+      if (language) {
+        file_name = file_name + "_" + language;
+      }
       const a = document.createElement("a");
       a.href = url;
       a.download = `${file_name}${ext}`;
@@ -77,14 +84,24 @@ const MachineTranslate = () => {
         <FileUpload />
 
         <div className="flex gap-2 mx-auto w-fit my-10">
-          <LanguageDropdown language={language} onLanguageChange={(e) => setLanguage(e.target.value)} />
+          <LanguageDropdown
+            language={language}
+            onLanguageChange={(e) => setLanguage(e.target.value)}
+          />
         </div>
 
         <div className="flex items-center justify-center">
-          <button onClick={() => translate(language)} disabled={loading} className="bg-blue-200 mx-4 px-2 py-1 rounded">
+          <button
+            onClick={() => translate(language)}
+            disabled={loading}
+            className="bg-blue-200 mx-4 px-2 py-1 rounded"
+          >
             {loading ? "Translating..." : "Translate File"}
           </button>
-          <button onClick={downloadFile} className="bg-blue-200 mx-4 px-2 py-1 rounded">
+          <button
+            onClick={downloadFile}
+            className="bg-blue-200 mx-4 px-2 py-1 rounded"
+          >
             Download File
           </button>
         </div>
@@ -92,10 +109,19 @@ const MachineTranslate = () => {
         {translationStatus && (
           <div className="text-center mt-10 flex mx-auto w-64 items-center justify-center">
             <p className="font-bold mr-2">Status:</p>
-            {translationStatus?.message === "not started" && <div>Not Started</div>}
-            {translationStatus?.message === "Translating..." && <div>Translating...</div>}
-            {translationStatus?.message === "Translation failed" && <div className="text-red-500">Failed</div>}
-            {translationStatus?.message === "Translation completed successfully." && <div className="text-green-500">Success</div>}
+            {translationStatus?.message === "not started" && (
+              <div>Not Started</div>
+            )}
+            {translationStatus?.message === "Translating..." && (
+              <div>Translating...</div>
+            )}
+            {translationStatus?.message === "Translation failed" && (
+              <div className="text-red-500">Failed</div>
+            )}
+            {translationStatus?.message ===
+              "Translation completed successfully." && (
+              <div className="text-green-500">Success</div>
+            )}
           </div>
         )}
       </div>
