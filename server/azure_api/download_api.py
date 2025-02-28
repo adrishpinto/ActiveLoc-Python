@@ -22,8 +22,15 @@ def download_blob():
     user_id = get_jwt_identity()  
     try:
         ext = cache.get(f"extension")
-        blob_name = cache.get(f"file_name_{user_id}")
+        base_name = cache.get(f"base_name_{user_id}")
+        original_name = cache.get(f"original_name_{user_id}")
+        
+        if ext == ".odt":
+            ext = ".docx"
+        
+        blob_name = base_name + ext
         logger.info(ext)
+        logger.info(blob_name)
 
         if not blob_name:
             return jsonify({"error": "Please upload, or reupload the file"}), 400
@@ -43,8 +50,10 @@ def download_blob():
         response = send_file(file_stream, as_attachment=True, download_name=blob_name, mimetype=mime_type)
         response.headers["Content-Disposition"] = f"attachment; filename={blob_name}"
         response.headers["file_type"] = ext
+        response.headers["file_name"] = original_name
         
-        response.headers["Access-Control-Expose-Headers"] = "file_type"
+        #allowed headers. 
+        response.headers["Access-Control-Expose-Headers"] = "file_type, file_name"
 
          
    

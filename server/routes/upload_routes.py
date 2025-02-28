@@ -28,9 +28,13 @@ def upload_file():
     if 'file' not in request.files:
         return jsonify({'error': 'No file provided'}), 400
     
+    # file name is taken, extension is taken from original file name, and original file name is saved.
+    # original name is saved, and then uuid name is assigned for file_name.
     file = request.files['file']
-    full_name = file.filename
-    extension = os.path.splitext(full_name)[1]
+    original_name = file.filename
+    extension = os.path.splitext(original_name)[1]
+    original_name = os.path.splitext(original_name)[0]
+    
     base_name = str(uuid.uuid4())
     file_name = base_name + extension
     file_path = os.path.join(UPLOAD_FOLDER, file_name)
@@ -39,6 +43,7 @@ def upload_file():
     cache.set(f'file_name_{user_id}', file_name, timeout=300)
     cache.set('extension', extension, timeout=300)
     cache.set(f'base_name_{user_id}', base_name, timeout=300)
+    cache.set(f"original_name_{user_id}", original_name, timeout=300)
     
     logger.info(f"Stored file to cache: {cache.get('file_name')}")
 
@@ -58,3 +63,5 @@ def upload_file():
         'file_path': file_path,
         'azure_response': azure_response
     })
+    
+

@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import MachineTranslate from "./components/MachineTranslate";
 import PostEditTranslate from "./components/PostEditTranslate";
 import Login from "./pages/Login";
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/SideBar";
 import Dashboard from "./components/Dashboard";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Layout() {
   const location = useLocation();
@@ -22,6 +24,8 @@ function Layout() {
           <Route path="/postedit-translate" element={<PostEditTranslate />} />
         </Routes>
       </div>
+   
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 }

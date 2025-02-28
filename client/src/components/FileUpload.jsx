@@ -1,11 +1,14 @@
 import React, { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
+import { toast } from "react-toastify";
+
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const FileUpload = ({ onUploadSuccess }) => {
   const [file, setFile] = useState(null);
 
+  //get cookie for auth
   const getCookie = (name) => {
     const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`));
     return match ? match[2] : null;
@@ -20,11 +23,11 @@ const FileUpload = ({ onUploadSuccess }) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     multiple: false,
-    accept: "image/*, application/pdf", // Modify based on file types allowed
+    accept: "", // later add the file type if needed
   });
 
   const handleUpload = async () => {
-    if (!file) return alert("Please select a file");
+    if (!file) return toast.error("please select a file to upload...")
 
     const formData = new FormData();
     formData.append("file", file);
@@ -46,8 +49,7 @@ const FileUpload = ({ onUploadSuccess }) => {
       }
 
       const result = await response.json();
-      alert(result.message);
-
+      toast.success(result.message);
     } catch (error) {
       console.error("Upload failed", error);
     }
@@ -57,7 +59,7 @@ const FileUpload = ({ onUploadSuccess }) => {
     <div className="flex flex-col items-center justify-center space-y-4">
       <div
         {...getRootProps()}
-        className={`sm:w-[500px] h-[250px]  flex flex-col items-center justify-center border-2 border-dashed rounded-lg cursor-pointer ${
+        className={`sm:w-[500px] h-[250px] flex flex-col items-center justify-center border-2 border-dashed rounded-lg cursor-pointer ${
           isDragActive ? "border-blue-500 bg-blue-100" : "border-gray-300"
         }`}
       >

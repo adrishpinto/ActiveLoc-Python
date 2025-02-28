@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import LanguageDropdown from "./LanguageDropdown";
 import FileUpload from "./FileUpload";
+import { toast } from "react-toastify";
+
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -23,13 +25,18 @@ const PostEditTranslate = () => {
   // uploads...
 
   const convertFile = async () => {
+    if (!language) return toast.error("please select a language")
+  
     try {
       const res = await axios.get(`${API_URL}/convert`, {
         params: { language },
-        withCredentials : true
+        withCredentials: true,
       });
+      // Handle success response here if needed
+      toast.success("File sent succesfully")
     } catch (error) {
       console.log("error:", error);
+      toast.error("Failed to convert file. Please try again.");
     }
   };
 
@@ -46,8 +53,9 @@ const PostEditTranslate = () => {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "downloaded_file.xlf";
-      document.body.appendChild(a);
+      const file_name = response.headers.get("file_name") || "downloaded_file"
+      a.download = `${file_name}`;
+      document.body.appendChild(a); 
       a.click();
       document.body.removeChild(a);
     } catch (error) {
@@ -60,13 +68,13 @@ const PostEditTranslate = () => {
       <div className="w-[80%] lg:w-[50%] border border-black mx-auto rounded-2xl my-32 p-10 mb-20">
         <h1 className="text-center mb-10 text-3xl">Post Edit Translation</h1>
         <h2 className="border-2 border-green-500 bg-green-200 mb-8 w-fit mx-auto px-6 py-2 rounded-lg  text-black font-semibold">
-          <span className="font-semibold text-lg pr-4">
+          <span className="font-semibold text-lg pr-1">
             Supported File Types:{" "}
           </span>{" "}
-          HTML, iOS Strings, ODT
+          docx, andriod strings, HTML, iOS Strings, ODT 
         </h2>
         <FileUpload/>
-
+        
         <div className="flex items-center justify-center mt-10">
           <LanguageDropdown
             language={language}

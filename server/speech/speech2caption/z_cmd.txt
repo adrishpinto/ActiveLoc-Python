@@ -1,0 +1,1 @@
+python captioning.py --input Sports.wav --format any --output output.txt --srt --realTime --threshold 5 --delay 0 --profanity mask 

@@ -3,13 +3,14 @@ import { useState, useEffect } from "react";
 import PostEditTranslate from "./PostEditTranslate";
 import { useNavigate } from "react-router-dom";
 
+
 const Dashboard = () => {
     const API_URL = import.meta.env.VITE_API_URL;
     const [name, setName] = useState("");
 
     const getUser = async () => { 
         try {
-            const res = await axios.get(`${API_URL}/login`, 
+            const res = await axios.get(`${API_URL}/user`, 
                 { withCredentials: true }
             );
             setName(res.data.first_name); 
@@ -45,6 +46,7 @@ const Dashboard = () => {
                 <h1 className="text-center text-3xl font-[300]">{name}</h1>
             </div>
             </div>
+            
         </>)
     }
 

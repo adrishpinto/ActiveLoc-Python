@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import LanguageDropdown from "./LanguageDropdown";
 import FileUpload from "./FileUpload";
-
+import { toast } from "react-toastify";
 const API_URL = import.meta.env.VITE_API_URL;
 
 const MachineTranslate = () => {
-  const [language, setLanguage] = useState("...");
+  const [language, setLanguage] = useState("");
   const [translationStatus, setTranslationStatus] = useState({ message: "not started" });
   const [loading, setLoading] = useState(false);
 
@@ -17,7 +17,7 @@ const MachineTranslate = () => {
 
   const translate = async (language) => {
     setTranslationStatus({ message: "Translating..." });
-
+    if(!language) return toast.error("please select a language")
     try {
       const csrfToken = getCookie("csrf_access_token");
       const response = await axios.post(
@@ -32,7 +32,7 @@ const MachineTranslate = () => {
       );
 
       setTranslationStatus(response.data);
-
+      toast.success("translation has completed succesfully")
       if (response.request.responseURL !== `${API_URL}/translate`) {
         window.location.href = response.request.responseURL;
         return;
@@ -53,15 +53,16 @@ const MachineTranslate = () => {
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const ext = response.headers.get("file_type") || "txt";
-
+      const file_name = response.headers.get("file_name") || "downloaded_file"
       const a = document.createElement("a");
       a.href = url;
-      a.download = `downloaded_file.${ext}`;
+      a.download = `${file_name}${ext}`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
 
       window.URL.revokeObjectURL(url);
+      console.log([...response.headers.entries()]);
     } catch (error) {
       console.error("Error downloading file:", error);
     }

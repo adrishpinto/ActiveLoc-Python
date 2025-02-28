@@ -6,8 +6,23 @@ import { IoHomeSharp } from "react-icons/io5";
 import { IoSettings } from "react-icons/io5";
 import { CiLogout } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
+import axios from "axios"
 
 const Sidebar = ({isOpen, setIsOpen}) => {
+  
+
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/logout', {}, {
+        withCredentials: true 
+      });
+      
+      localStorage.removeItem('userData');
+      
+    } catch (err) {
+      console.log(err.response?.data?.error || 'Logout failed');
+    }
+  };
   
   const navigate = useNavigate();
   return (
@@ -80,7 +95,7 @@ const Sidebar = ({isOpen, setIsOpen}) => {
               className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
             <span><CiLogout/></span>
-              <span className="ms-3">Logout</span>
+              <span className="ms-3" onClick={handleLogout}>Logout</span>
             </a>
           </li>
         </ul>

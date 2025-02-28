@@ -9,6 +9,7 @@ from azure.blob_download import blob_download
 from azure.upload_blob_xliff import upload_blob_xliff
 from azure.translate_xliff import translate_xliff
 from azure.blob_download_xliff import blob_download_xliff
+from file_conversions.docx.docx_to_xliff import docx_to_xliff
 import threading
 import time
 from flask_jwt_extended import jwt_required, get_jwt_identity
@@ -45,7 +46,8 @@ def download():
     elif ext == ".xml":
         android_to_xliff(src, xliff_file) 
         
-        
+    elif ext == ".docx":
+         docx_to_xliff(src, xliff_file)
     else:
         logger.error("Unsupported extension: %s", ext)
         return "Unsupported file type!", 400

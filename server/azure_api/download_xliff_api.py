@@ -40,9 +40,11 @@ def download_blob():
             mime_type = "application/octet-stream" 
 
         response = send_file(file_stream, as_attachment=True, download_name=blob_name, mimetype=mime_type)
-
+        response.headers["file_name"] = blob_name
         
-   
+        #allowed headers. 
+        response.headers["Access-Control-Expose-Headers"] = "file_type, file_name"
+
 
         return response
 

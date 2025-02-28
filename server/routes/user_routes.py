@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify, make_response  # Removed `session`
-from flask_jwt_extended import create_access_token, set_access_cookies, jwt_required, get_jwt_identity  # JWT for authentication
+from flask_jwt_extended import create_access_token, set_access_cookies, jwt_required, get_jwt_identity, unset_jwt_cookies # JWT for authentication
 from datetime import timedelta  # Set token expiration
 from models.user_model import User  # Import User model
 from mongoengine.errors import NotUniqueError, ValidationError
@@ -103,6 +103,16 @@ def login():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+@user_bp.route("/logout", methods=["POST"])
+def logout():
+    try:
+        response = jsonify({"message": "Logout successful"})
+        unset_jwt_cookies(response)
+        return response
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
     
 @user_bp.route("/edit_user/<user_id>", methods=["PUT"])
 def edit_user(user_id):

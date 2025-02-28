@@ -1,6 +1,6 @@
 from lxml import etree
 
-tree = etree.parse('output/xliff.xlf')
+tree = etree.parse('output/azure.xlf')
 root = tree.getroot()
 
 namespace = {'xliff': 'urn:oasis:names:tc:xliff:document:1.1'}
