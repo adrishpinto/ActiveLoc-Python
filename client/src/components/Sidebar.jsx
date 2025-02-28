@@ -19,14 +19,14 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         { withCredentials: true }
       );
       localStorage.removeItem("userData");
-      navigate("./");
+      navigate("/");
     } catch (err) {
       console.log(err.response?.data?.error || "Logout failed");
     }
   };
 
   // Function to check if the link is active
-  const isActive = (x) => (location.pathname == x ? "bg-gray-200" : "");
+  const isActive = (x) => (location.pathname === x ? "bg-gray-200" : "");
 
   return (
     <>
@@ -51,48 +51,48 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         {/* Sidebar Menu */}
         <ul className="py-4 space-y-2 font-medium">
           <li>
-            <a
-              href="/Dashboard"
-              className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+            <button
+              onClick={() => navigate("/Dashboard")}
+              className={`flex items-center w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
                 "/Dashboard"
               )}`}
             >
               <IoHomeSharp />
               <span className="ms-3">Dashboard</span>
-            </a>
+            </button>
           </li>
           <li>
-            <a
-              href="/machine-translate"
-              className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+            <button
+              onClick={() => navigate("/machine-translate")}
+              className={`flex items-center w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
                 "/machine-translate"
               )}`}
             >
               <MdGTranslate />
               <span className="ms-3">Machine Translation</span>
-            </a>
+            </button>
           </li>
           <li>
-            <a
-              href="/postedit-translate"
-              className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+            <button
+              onClick={() => navigate("/postedit-translate")}
+              className={`flex items-center w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
                 "/postedit-translate"
               )}`}
             >
               <MdGTranslate />
               <span className="ms-3">Post Edit Translation</span>
-            </a>
+            </button>
           </li>
           <li>
-            <a
-              href="/settings"
-              className={`flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+            <button
+              onClick={() => navigate("/settings")}
+              className={`flex items-center w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
                 "/settings"
               )}`}
             >
               <IoSettings />
               <span className="ms-3">Settings</span>
-            </a>
+            </button>
           </li>
 
           <li>
