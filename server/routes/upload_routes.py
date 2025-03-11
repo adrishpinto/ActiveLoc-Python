@@ -7,7 +7,6 @@ from azure.upload_blob import upload_blob
 from extensions import cache
 from custom_logger import logger
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from auth.decorators import require_auth
 from models.user_model import User
 # Set up logging
 
@@ -15,9 +14,16 @@ upload = Blueprint('upload', __name__)
 
 UPLOAD_FOLDER = './all_files/uploads'
 
+UPLOAD_AUDIO_FOLDER = './all_files/audio'
+
 # Ensure upload folder exists
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
+
+# Ensure upload folder exists
+if not os.path.exists(UPLOAD_AUDIO_FOLDER):
+    os.makedirs(UPLOAD_AUDIO_FOLDER)
+
 
 @upload.route('/upload', methods=['POST'])
 @jwt_required()
@@ -35,6 +41,7 @@ def upload_file():
     extension = os.path.splitext(original_name)[1]
     original_name = os.path.splitext(original_name)[0]
     
+    #base_name is just filename without the extension so you can modify it later, file_path is not used yet
     base_name = str(uuid.uuid4())
     file_name = base_name + extension
     file_path = os.path.join(UPLOAD_FOLDER, file_name)
@@ -42,7 +49,11 @@ def upload_file():
     cache.set('file_path', file_path, timeout=300)
     cache.set(f'file_name_{user_id}', file_name, timeout=300)
     cache.set('extension', extension, timeout=300)
+    
+    #base name is to take name and add different extnesion
     cache.set(f'base_name_{user_id}', base_name, timeout=300)
+    
+    #original name is for naming the file at the end, don't use it for getting file 
     cache.set(f"original_name_{user_id}", original_name, timeout=300)
     
     logger.info(f"Stored file to cache: {cache.get('file_name')}")
@@ -65,3 +76,40 @@ def upload_file():
     })
     
 
+@upload.route('/upload_audio', methods=['POST'])
+@jwt_required()
+def upload_audio_file():
+    user_id = get_jwt_identity()  
+    logger.info(user_id) 
+     
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file provided'}), 400
+    
+    # Extract file details
+    file = request.files['file']
+    original_name = file.filename
+    extension = os.path.splitext(original_name)[1]
+    original_name = os.path.splitext(original_name)[0]
+    
+    base_name = str(uuid.uuid4())
+    file_name = base_name + extension
+    file_path = os.path.join(UPLOAD_AUDIO_FOLDER, file_name)
+    
+    # Store metadata in cache
+    cache.set('file_path', file_path, timeout=300)
+    cache.set(f'file_name_{user_id}', file_name, timeout=300)
+    cache.set('extension', extension, timeout=300)
+    cache.set(f'base_name_{user_id}', base_name, timeout=300)
+    cache.set(f"original_name_{user_id}", original_name, timeout=300)
+    
+    logger.info(f"Stored file to cache: {file_name}")
+
+    # Save file locally
+    file.save(file_path)
+
+    # Return response
+    return jsonify({
+        'message': 'File uploaded successfully',
+        'filename': file_name,
+        'file_path': file_path
+    })

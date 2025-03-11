@@ -97,6 +97,18 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 
           <li>
             <button
+              onClick={() => navigate("/speechtotext")}
+              className={`flex items-center w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+                "/Dashboard"
+              )}`}
+            >
+              <IoHomeSharp />
+              <span className="ms-3">Speech to Text</span>
+            </button>
+          </li>
+
+          <li>
+            <button
               onClick={handleLogout}
               className="flex items-center w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >

@@ -1,0 +1,68 @@
+speaker_0: Hello.
+
+speaker_1: Yeah, madam, can you give me Eamon's number, please?
+
+speaker_0: I.Q. Bayman's number?
+
+speaker_1: Yeah, I.Q. Bayman's, sir.
+
+speaker_0: He's left the job, sir.
+
+speaker_1: Okay, who is that girl, ma'am?
+
+speaker_0: Regarding, sir? Regarding?
+
+speaker_1: There's a... Uh, Loan Department. I want to talk to somebody from the loan department.
+
+speaker_0: Sir, which, uh, finance?
+
+speaker_1: TBS Finance.
+
+speaker_0: Okay. But she's also weak on Saturday, TBS people.
+
+speaker_1: Then who is there?
+
+speaker_0: I can give her number. You can talk to her.
+
+speaker_1: Uh-
+
+speaker_0: Contact number.
+
+speaker_1: Yeah, nobody else is there, is it?
+
+speaker_0: No, no, sir. TBS people, nobody else. I can give her number. You can talk to her any regarding.
+
+speaker_1: Yeah, one minute. Just hold on one second. One minute, madam. Yeah, tell me, madam.
+
+speaker_0: 76194.
+
+speaker_1: 76194?
+
+speaker_0: 77390, sir.
+
+speaker_1: Double seven, three nine zero.
+
+speaker_0: Three nine zero.
+
+speaker_1: Three nine zero. Right.
+
+speaker_0: Yeah.
+
+speaker_1: Iswariya or somebody was there, no?
+
+speaker_0: Sir?
+
+speaker_1: Somebody called Iswariya or somebody is there? Jyoti...
+
+speaker_0: Not Iswariya, sir. Nobody is there. Like Divya, her name, name is.
+
+speaker_1: Divya. Okay, okay. Divya. Whose number you've given now?
+
+speaker_0: Divya, Divya, sir.
+
+speaker_1: Divya, sir. Okay.
+
+speaker_0: TVS Finance, you can talk to her.
+
+speaker_1: Okay, thank you.
+
