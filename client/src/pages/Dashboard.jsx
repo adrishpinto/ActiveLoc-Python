@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import PostEditTranslate from "../pages/PostEditTranslate";
+import PostEditTranslate from "./PostEditTranslate";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
@@ -29,6 +29,8 @@ const Dashboard = () => {
       <div className="border flex sm:flex-row gap-4 items-center justify-center flex-col mt-10">
         <Card name="Machine Translation" link="machine-translate" />
         <Card name="Post Edit Translation" link="postedit-translate" />
+        <Card name="Speech to Text" link="speechtotext" />
+        <Card name="Voice Isolator" link="speechtotext" />
       </div>
     </div>
   );

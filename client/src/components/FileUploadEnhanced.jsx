@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-const FileUpload = ({ onUploadSuccess }) => {
-  const navigate = useNavigate()
+const FileUploadEnchanced = () => {
+  const navigate = useNavigate();
   const [file, setFile] = useState(null);
 
   //get cookie for auth
@@ -28,14 +28,14 @@ const FileUpload = ({ onUploadSuccess }) => {
   });
 
   const handleUpload = async () => {
-    if (!file) return toast.error("please select a file to upload...")
+    if (!file) return toast.error("please select a file to upload...");
 
     const formData = new FormData();
     formData.append("file", file);
 
     try {
       const csrfToken = getCookie("csrf_access_token");
-      const response = await fetch(`${API_URL}/upload`, {
+      const response = await fetch(`${API_URL}/upload-enhanced-audio`, {
         method: "POST",
         body: formData,
         credentials: "include",
@@ -43,17 +43,16 @@ const FileUpload = ({ onUploadSuccess }) => {
           "X-CSRF-TOKEN": csrfToken,
         },
       });
-    
+
       if (response.redirected) {
         window.location.href = response.url;
         return;
       }
 
       if (response.status === 401) {
-        
-        localStorage.removeItem("token"); 
+        localStorage.removeItem("token");
         navigate("/");
-      } 
+      }
 
       const result = await response.json();
       toast.success(result.message);
@@ -94,4 +93,4 @@ const FileUpload = ({ onUploadSuccess }) => {
   );
 };
 
-export default FileUpload;
+export default FileUploadEnchanced;

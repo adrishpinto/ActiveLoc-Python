@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Acme&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-*{
+* {
   font-family: "Roboto", sans-serif;
 }
 
@@ -13,4 +12,17 @@ button:hover {
   background-color: #93c5fd;
 }
 
-  
+h1 {
+  font-weight: 900;
+}
+
+.tooltip-arrow::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  transform: translateY(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: transparent rgb(55, 65, 81) transparent transparent;
+}

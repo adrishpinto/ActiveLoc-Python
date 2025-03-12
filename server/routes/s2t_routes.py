@@ -43,7 +43,7 @@ def transcribe():
         return str(e), 500    
 
 
-@speech_bp.route("/transcribe_text", methods=["POST"])
+@speech_bp.route("/transcribe-text", methods=["POST"])
 @jwt_required()
 def transcribe_audio():
     try:
@@ -63,7 +63,7 @@ def transcribe_audio():
         return jsonify({"error": str(e)}), 500  
  
 
-@speech_bp.route("/transcribe_dialogue", methods=["POST"])
+@speech_bp.route("/transcribe-dialogue", methods=["POST"])
 @jwt_required()
 def transcribe_dialogue():
     try:
@@ -100,7 +100,7 @@ def transcribe_dialogue():
         return jsonify({"error": str(e)}), 500
     
     
-@speech_bp.route("/transcribe_srt", methods=["POST"])
+@speech_bp.route("/transcribe-srt", methods=["POST"])
 @jwt_required()
 def transcribe_srt():
     try:

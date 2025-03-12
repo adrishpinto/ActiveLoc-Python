@@ -18,14 +18,20 @@ const Speech2Text = () => {
     return match ? match[2] : null;
   };
 
-  const transcribe = async () => {
-    try {
-      const csrfToken = getCookie("csrf_access_token");
-      if (!csrfToken) {
-        toast.error("CSRF token missing.");
-        return;
-      }
+  const fetchCSRFToken = () => {
+    const csrfToken = getCookie("csrf_access_token");
+    if (!csrfToken) {
+      toast.error("CSRF token missing.");
+      return null;
+    }
+    return csrfToken;
+  };
 
+  const transcribe = async () => {
+    const csrfToken = fetchCSRFToken();
+    if (!csrfToken) return;
+
+    try {
       const response = await axios.post(
         `${API_URL}/transcribe`,
         {},
@@ -42,48 +48,85 @@ const Speech2Text = () => {
         setError("Failed to process transcription.");
       }
     } catch (error) {
-      console.error("Error in transcription:", error);
       setError("Transcription Failed.");
       toast.error("Transcription Failed.");
     }
   };
 
-  const fetchTranscription = async (endpoint, setState, type) => {
+  const fetchText = async () => {
+    const csrfToken = fetchCSRFToken();
+    if (!csrfToken) return;
+
     try {
-      const csrfToken = getCookie("csrf_access_token");
-      if (!csrfToken) {
-        toast.error("CSRF token missing.");
-        return;
-      }
-  
-      const response = await axios.post(`${API_URL}/${endpoint}`, {}, {
-        withCredentials: true,
-        headers: { "X-CSRF-TOKEN": csrfToken },
-      });
-  
-      console.log("API Response:", response.data);
-  
-      if (response.data.text || response.data.dialogue || response.data.subtitles) {
-        if (type === "SRT") {
-          const srtFormat = response.data.subtitles.map((item, index) => 
-            `${index + 1}\n${item.start} --> ${item.end}\n${item.text}\n`
-          ).join("\n");
-          
-          setState(srtFormat);
-        } else {
-          setState(response.data.text || response.data.dialogue);
+      const response = await axios.post(
+        `${API_URL}/transcribe-text`,
+        {},
+        {
+          withCredentials: true,
+          headers: { "X-CSRF-TOKEN": csrfToken },
         }
-        setViewing(type);
-      } else {
-        setError(`Failed to retrieve ${type} transcription.`);
-      }
+      );
+
+      setTranscription(response.data.text || "No transcription found.");
+      setViewing("Text");
     } catch (error) {
-      console.error(`Error fetching ${type} transcription:`, error);
-      setError(`${type} Transcription Failed.`);
-      toast.error(`${type} Transcription Failed.`);
+      setError("Text Transcription Failed.");
+      toast.error("Text Transcription Failed.");
     }
   };
-  
+
+  const fetchDialogue = async () => {
+    const csrfToken = fetchCSRFToken();
+    if (!csrfToken) return;
+
+    try {
+      const response = await axios.post(
+        `${API_URL}/transcribe-dialogue`,
+        {},
+        {
+          withCredentials: true,
+          headers: { "X-CSRF-TOKEN": csrfToken },
+        }
+      );
+
+      setDialogue(response.data.dialogue || "No dialogue found.");
+      setViewing("Dialogue");
+    } catch (error) {
+      setError("Dialogue Transcription Failed.");
+      toast.error("Dialogue Transcription Failed.");
+    }
+  };
+
+  const fetchSRT = async () => {
+    const csrfToken = fetchCSRFToken();
+    if (!csrfToken) return;
+
+    try {
+      const response = await axios.post(
+        `${API_URL}/transcribe-srt`,
+        {},
+        {
+          withCredentials: true,
+          headers: { "X-CSRF-TOKEN": csrfToken },
+        }
+      );
+
+      if (response.data.subtitles) {
+        const formattedSRT = response.data.subtitles
+          .map(
+            (item, index) =>
+              `${index + 1}\n${item.start} --> ${item.end}\n${item.text}\n`
+          )
+          .join("\n");
+
+        setSrt(formattedSRT);
+        setViewing("SRT");
+      }
+    } catch (error) {
+      setError("SRT Transcription Failed.");
+      toast.error("SRT Transcription Failed.");
+    }
+  };
 
   const downloadAsFile = (data, fileName, fileType) => {
     const blob = new Blob([data], { type: "text/plain" });
@@ -104,7 +147,6 @@ const Speech2Text = () => {
 
         <FileUploadAudio />
 
-        {/* INITIAL TRANSCRIBE BUTTON */}
         {!isTranscribed ? (
           <div className="flex items-center justify-center mt-10">
             <button
@@ -115,41 +157,41 @@ const Speech2Text = () => {
             </button>
           </div>
         ) : (
-          <div className="flex items-center justify-center mt-10">
-            <button
-              onClick={() =>
-                fetchTranscription("transcribe_text", setTranscription, "Text")
-              }
-              className="bg-blue-500 mx-4 px-2 py-1 rounded text-white"
-            >
-              View Text
-            </button>
-            <button
-              onClick={() =>
-                fetchTranscription(
-                  "transcribe_dialogue",
-                  setDialogue,
-                  "Dialogue"
-                )
-              }
-              className="bg-green-500 mx-4 px-2 py-1 rounded text-white"
-            >
-              View Dialogue
-            </button>
-            <button
-              onClick={() =>
-                fetchTranscription("transcribe_srt", setSrt, "SRT")
-              }
-              className="bg-purple-500 mx-4 px-2 py-1 rounded text-white"
-            >
-              View SRT
-            </button>
+          <div>
+            <div className="flex items-center justify-center mt-10">
+              <button
+                onClick={transcribe}
+                className="bg-blue-500 px-4 py-2 rounded text-white"
+              >
+                Transcribe
+              </button>
+            </div>
+
+            <div className="flex items-center justify-center mt-10">
+              <button
+                onClick={fetchText}
+                className="bg-cyan-500 mx-4 px-2 py-1 rounded text-white"
+              >
+                View Text
+              </button>
+              <button
+                onClick={fetchDialogue}
+                className="bg-emerald-500 mx-4 px-2 py-1 rounded text-white"
+              >
+                View Dialogue
+              </button>
+              <button
+                onClick={fetchSRT}
+                className="bg-purple-500 mx-4 px-2 py-1 rounded text-white"
+              >
+                View SRT
+              </button>
+            </div>
           </div>
         )}
 
         {error && <p className="text-red-500 text-center mt-4">{error}</p>}
 
-        {/* DISPLAY SELECTED TRANSCRIPTION */}
         {viewing && (
           <div className="mt-4">
             <h2 className="font-bold text-center">{viewing} Transcription:</h2>

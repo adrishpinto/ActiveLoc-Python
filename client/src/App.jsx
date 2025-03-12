@@ -9,10 +9,11 @@ import MachineTranslate from "./pages/MachineTranslate";
 import PostEditTranslate from "./pages/PostEditTranslate";
 import Login from "./pages/Login";
 import Sidebar from "./components/Sidebar";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./pages/Dashboard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Speech2Text from "./pages/Speech2Text";
+import VoiceIsolator from "./pages/VoiceIsolator";
 
 function Layout() {
   const location = useLocation();
@@ -33,6 +34,7 @@ function Layout() {
           <Route path="/machine-translate" element={<MachineTranslate />} />
           <Route path="/postedit-translate" element={<PostEditTranslate />} />
           <Route path="/speechtotext" element={<Speech2Text />} />
+          <Route path="/voice-isolator" element={<VoiceIsolator />} />
         </Routes>
       </div>
 

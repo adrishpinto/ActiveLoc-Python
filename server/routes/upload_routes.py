@@ -16,13 +16,17 @@ UPLOAD_FOLDER = './all_files/uploads'
 
 UPLOAD_AUDIO_FOLDER = './all_files/audio'
 
-# Ensure upload folder exists
+UPLOAD_ENHANCED_FOLDER = './all_files/enhanced_audio_input'
+
+# create folders if not there
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
-# Ensure upload folder exists
 if not os.path.exists(UPLOAD_AUDIO_FOLDER):
     os.makedirs(UPLOAD_AUDIO_FOLDER)
+    
+if not os.path.exists(UPLOAD_ENHANCED_FOLDER):
+    os.makedirs(UPLOAD_ENHANCED_FOLDER)
 
 
 @upload.route('/upload', methods=['POST'])
@@ -94,6 +98,45 @@ def upload_audio_file():
     base_name = str(uuid.uuid4())
     file_name = base_name + extension
     file_path = os.path.join(UPLOAD_AUDIO_FOLDER, file_name)
+    
+    # Store metadata in cache
+    cache.set('file_path', file_path, timeout=300)
+    cache.set(f'file_name_{user_id}', file_name, timeout=300)
+    cache.set('extension', extension, timeout=300)
+    cache.set(f'base_name_{user_id}', base_name, timeout=300)
+    cache.set(f"original_name_{user_id}", original_name, timeout=300)
+    
+    logger.info(f"Stored file to cache: {file_name}")
+
+    # Save file locally
+    file.save(file_path)
+
+    # Return response
+    return jsonify({
+        'message': 'File uploaded successfully',
+        'filename': file_name,
+        'file_path': file_path
+    })
+
+
+@upload.route('/upload-enhanced-audio', methods=['POST'])
+@jwt_required()
+def upload_audio_enchanced_file():
+    user_id = get_jwt_identity()  
+    logger.info(user_id) 
+     
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file provided'}), 400
+    
+    # Extract file details
+    file = request.files['file']
+    original_name = file.filename
+    extension = os.path.splitext(original_name)[1]
+    original_name = os.path.splitext(original_name)[0]
+    
+    base_name = str(uuid.uuid4())
+    file_name = base_name + extension
+    file_path = os.path.join(UPLOAD_ENHANCED_FOLDER, file_name)
     
     # Store metadata in cache
     cache.set('file_path', file_path, timeout=300)
