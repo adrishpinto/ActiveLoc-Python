@@ -14,6 +14,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Speech2Text from "./pages/Speech2Text";
 import VoiceIsolator from "./pages/VoiceIsolator";
+import FileList from "./pages/FileList";
 
 function Layout() {
   const location = useLocation();
@@ -35,6 +36,7 @@ function Layout() {
           <Route path="/postedit-translate" element={<PostEditTranslate />} />
           <Route path="/speechtotext" element={<Speech2Text />} />
           <Route path="/voice-isolator" element={<VoiceIsolator />} />
+          <Route path="/file-list" element={<FileList />} />
         </Routes>
       </div>
 
