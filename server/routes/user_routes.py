@@ -4,58 +4,20 @@ from datetime import timedelta  # Set token expiration
 from models.user_model import User  # Import User model
 from mongoengine.errors import NotUniqueError, ValidationError
 from werkzeug.security import generate_password_hash
+from flask_wtf.csrf import generate_csrf
+from flask import jsonify, request
+from flask_jwt_extended import (
+    create_access_token,
+    get_csrf_token,
+    set_access_cookies
+)
 
 user_bp = Blueprint("user", __name__)
 
-@user_bp.route("/add_user", methods=["POST"])
-def add_user():
-    try:
-        data = request.get_json()
-        
-        # Required fields
-        required_fields = ['email', 'password', 'first_name', 'group']
-        for field in required_fields:
-            if field not in data:
-                return jsonify({'error': f'Missing required field: {field}'}), 400
-
-        # Create new user
-        new_user = User(
-            email=data['email'],
-            password=data['password'],  # Use `generate_password_hash(data['password'])` for security
-            first_name=data['first_name'],
-            group=data['group'],
-            last_name=data['last_name']
-        )
-        
-        optional_fields = {
-            'customer_id': int,
-            'customer_code': str,
-            'access_level': str,
-            'customer_type': str,
-            'company_name': str,
-            'form_filled': bool
-        }
-        
-        for field, field_type in optional_fields.items():
-            if field in data:
-                setattr(new_user, field, data[field])
-
-        # Save user
-        new_user.validate()
-        new_user.save()
-
-        return jsonify({'message': 'User created successfully', 'user_id': str(new_user.id)}), 201
-
-    except ValidationError as e:
-        return jsonify({'error': 'Validation error', 'details': str(e)}), 400
-        
-    except NotUniqueError:
-        return jsonify({'error': 'Email already exists'}), 409
-        
-    except Exception as e:
-        return jsonify({'error': 'An unexpected error occurred', 'details': str(e)}), 500  
-
-
+from flask import jsonify, request
+from flask_wtf.csrf import generate_csrf
+from datetime import timedelta
+from flask_jwt_extended import create_access_token, set_access_cookies
 
 
 @user_bp.route("/users", methods=["GET"])
@@ -95,7 +57,7 @@ def login():
                 "email": email
             })
             
-            set_access_cookies(response, access_token) 
+            set_access_cookies(response, access_token)
 
             return response
 
@@ -103,6 +65,8 @@ def login():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+    
     
 @user_bp.route("/logout", methods=["POST"])
 def logout():

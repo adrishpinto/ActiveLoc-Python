@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { getCsrfToken } from "../utils/csrfUtils";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -10,10 +11,6 @@ const FileUpload = ({ onUploadSuccess }) => {
   const [file, setFile] = useState(null);
 
   //get cookie for auth
-  const getCookie = (name) => {
-    const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`));
-    return match ? match[2] : null;
-  };
 
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles.length > 0) {
@@ -28,13 +25,17 @@ const FileUpload = ({ onUploadSuccess }) => {
   });
 
   const handleUpload = async () => {
-    if (!file) return toast.error("please select a file to upload...");
+    if (!file) {
+      console.log("No file selected");
+      return toast.error("Please select a file to upload...");
+    }
 
     const formData = new FormData();
     formData.append("file", file);
 
     try {
-      const csrfToken = getCookie("csrf_access_token");
+      const csrfToken = getCsrfToken();
+
       const response = await fetch(`${API_URL}/upload`, {
         method: "POST",
         body: formData,
@@ -44,20 +45,20 @@ const FileUpload = ({ onUploadSuccess }) => {
         },
       });
 
-      if (response.redirected) {
-        window.location.href = response.url;
-        return;
-      }
+      console.log("Response Headers:", response.headers);
 
       if (response.status === 401) {
-        localStorage.removeItem("token");
+        console.log("Unauthorized: Invalid credentials");
         navigate("/");
+        toast.error("Unauthorized: Invalid credentials or session expired.");
       }
 
       const result = await response.json();
+      console.log("Upload result:", result); // Logs the response body
       toast.success(result.message);
     } catch (error) {
-      console.log("Upload failed", error);
+      console.log("Upload failed", error); // Logs the error
+      toast.error("Upload failed, please try again.");
     }
   };
 

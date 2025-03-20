@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import LanguageDropdown from "../components/LanguageDropdown";
+import LanguageDropdown from "../components/LanguageDropdownMT";
 import FileUpload from "../components/FileUploadAzure";
 import { toast } from "react-toastify";
 

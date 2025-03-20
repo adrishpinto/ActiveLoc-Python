@@ -47,7 +47,7 @@ const VoiceIsolator = () => {
   };
 
   return (
-    <div className="w-[80%] lg:w-[50%] border border-black mx-auto rounded-2xl my-32 p-10 flex flex-col ">
+    <div className="w-[80%] lg:w-[50%] border border-black mx-auto rounded-2xl my-20 p-10 flex flex-col ">
       <h1 className="mb-10 text-center text-3xl font-bold">Voice Isolator</h1>
       <FileUploadEnchanced />
       <button

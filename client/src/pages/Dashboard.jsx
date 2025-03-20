@@ -26,11 +26,13 @@ const Dashboard = () => {
         Welcome, <span className="font-semibold">{name || "User"}!</span>
       </h1>
       <h1 className="text-center text-4xl mt-20 font-[200]">Our Sevices</h1>
-      <div className="border flex sm:flex-row gap-4 items-center justify-center flex-col mt-10">
+      <div className="border flex sm:flex-row gap-4 items-center justify-center flex-col mt-10 flex-wrap">
         <Card name="Machine Translation" link="machine-translate" />
         <Card name="Post Edit Translation" link="postedit-translate" />
         <Card name="Speech to Text" link="speechtotext" />
-        <Card name="Voice Isolator" link="speechtotext" />
+        <Card name="Voice Isolator" link="voice-isolator" />
+        <Card name="Text to Speech" link="texttospeech" />
+        <Card name="Text to Speech Batch" link="texttospeechbatch" />
       </div>
     </div>
   );

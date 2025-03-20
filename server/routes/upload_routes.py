@@ -18,6 +18,8 @@ UPLOAD_AUDIO_FOLDER = './all_files/audio'
 
 UPLOAD_ENHANCED_FOLDER = './all_files/enhanced_audio_input'
 
+UPLOAD_T2S_FOLDER = './all_Files/t2s_batch'
+
 # create folders if not there
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
@@ -28,7 +30,10 @@ if not os.path.exists(UPLOAD_AUDIO_FOLDER):
 if not os.path.exists(UPLOAD_ENHANCED_FOLDER):
     os.makedirs(UPLOAD_ENHANCED_FOLDER)
 
-
+if not os.path.exists(UPLOAD_T2S_FOLDER):
+    os.makedirs(UPLOAD_T2S_FOLDER)
+    
+#azure file upload for mtpe
 @upload.route('/upload', methods=['POST'])
 @jwt_required()
 def upload_file():
@@ -38,26 +43,21 @@ def upload_file():
     if 'file' not in request.files:
         return jsonify({'error': 'No file provided'}), 400
     
-    # file name is taken, extension is taken from original file name, and original file name is saved.
-    # original name is saved, and then uuid name is assigned for file_name.
     file = request.files['file']
     original_name = file.filename
     extension = os.path.splitext(original_name)[1]
     original_name = os.path.splitext(original_name)[0]
     
-    #base_name is just filename without the extension so you can modify it later, file_path is not used yet
     base_name = str(uuid.uuid4())
     file_name = base_name + extension
     file_path = os.path.join(UPLOAD_FOLDER, file_name)
     
     cache.set('file_path', file_path, timeout=300)
     cache.set(f'file_name_{user_id}', file_name, timeout=300)
-    cache.set('extension', extension, timeout=300)
+    cache.set(f'extension_{user_id}', extension, timeout=300)
     
-    #base name is to take name and add different extnesion
     cache.set(f'base_name_{user_id}', base_name, timeout=300)
     
-    #original name is for naming the file at the end, don't use it for getting file 
     cache.set(f"original_name_{user_id}", original_name, timeout=300)
     
     logger.info(f"Stored file to cache: {cache.get('file_name')}")
@@ -71,7 +71,6 @@ def upload_file():
         logger.error(f"Error uploading file to Azure: {str(e)}")
         return jsonify({'error': 'Azure upload failed'}), 500
 
-    # Return response
     return jsonify({
         'message': 'File uploaded successfully',
         'filename': file_name,
@@ -99,19 +98,18 @@ def upload_audio_file():
     file_name = base_name + extension
     file_path = os.path.join(UPLOAD_AUDIO_FOLDER, file_name)
     
-    # Store metadata in cache
+    # meta data for other routes
     cache.set('file_path', file_path, timeout=300)
     cache.set(f'file_name_{user_id}', file_name, timeout=300)
-    cache.set('extension', extension, timeout=300)
+    cache.set(f'extension_{user_id}', extension, timeout=300)
     cache.set(f'base_name_{user_id}', base_name, timeout=300)
     cache.set(f"original_name_{user_id}", original_name, timeout=300)
     
     logger.info(f"Stored file to cache: {file_name}")
 
-    # Save file locally
+    # local save
     file.save(file_path)
 
-    # Return response
     return jsonify({
         'message': 'File uploaded successfully',
         'filename': file_name,
@@ -141,7 +139,7 @@ def upload_audio_enchanced_file():
     # Store metadata in cache
     cache.set('file_path', file_path, timeout=300)
     cache.set(f'file_name_{user_id}', file_name, timeout=300)
-    cache.set('extension', extension, timeout=300)
+    cache.set(f'extension_{user_id}', extension, timeout=300)
     cache.set(f'base_name_{user_id}', base_name, timeout=300)
     cache.set(f"original_name_{user_id}", original_name, timeout=300)
     
@@ -156,3 +154,37 @@ def upload_audio_enchanced_file():
         'filename': file_name,
         'file_path': file_path
     })
+    
+
+
+@upload.route('/upload_folder', methods=['POST'])
+@jwt_required()
+def upload_folder():
+    user_id = get_jwt_identity()  
+    logger.info(user_id) 
+    if 'files' not in request.files:
+        return jsonify({'error': 'No files part'}), 400
+    
+    files = request.files.getlist('files')  
+    saved_files = []
+    unique = str(uuid.uuid4())
+    logger.info(UPLOAD_T2S_FOLDER)
+    folder_name = UPLOAD_T2S_FOLDER + "/" + unique
+    
+    cache.set('t2s_folder_name', folder_name, timeout=300)
+    
+    
+    os.makedirs(folder_name)
+    
+    for file in files:
+        if file.filename == '':
+            continue  
+
+        file_path = os.path.join(folder_name, file.filename)
+        file.save(file_path)
+        saved_files.append(file.filename)
+
+    if saved_files:
+        return jsonify({'message': 'Files uploaded successfully', 'files': saved_files}), 200
+    else:
+        return jsonify({'error': 'No valid files uploaded'}), 400

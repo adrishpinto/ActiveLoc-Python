@@ -6,10 +6,9 @@ BASE_FOLDER = "all_files"  # Base directory
 UPLOADS_FOLDER = os.path.join(BASE_FOLDER, "uploads")
 CONVERTED_FOLDER = os.path.join(BASE_FOLDER, "converted")
 
-
+#test route to display all_files folders, files to manage deletion
 @file_bp.route("/list-folders", methods=["GET"])
 def list_folders():
-    """List only folders inside all_files."""
     try:
         folders = [
             f for f in os.listdir(BASE_FOLDER) if os.path.isdir(os.path.join(BASE_FOLDER, f))

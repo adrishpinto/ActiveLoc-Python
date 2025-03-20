@@ -9,11 +9,14 @@ from routes.upload_routes import upload
 from azure_api.translate_api import translate
 from azure_api.download_xliff_api import download_xliff
 from azure_api.download_api import download
+from routes.t2s_batch_routes import t2s_batch
 from routes.user_routes import user_bp
 from routes.file_route import file_bp
 from routes.convert_routes import convert_bp
 from routes.s2t_routes import speech_bp
 from routes.isolator_routes import isolator_bp
+from routes.t2s_routes import t2s_bp
+
 # Import the new config
 from config import CurrentConfig
 
@@ -37,18 +40,19 @@ connect(db="activeloc_users", host=CurrentConfig.MONGO_URI, alias="default")
 # Register blueprints
 app.register_blueprint(upload)  
 app.register_blueprint(speech_bp)  
-
+app.register_blueprint(t2s_batch)
 app.register_blueprint(translate) 
 app.register_blueprint(download)
 app.register_blueprint(download_xliff)
 app.register_blueprint(convert_bp)
 app.register_blueprint(user_bp)
 app.register_blueprint(isolator_bp)
-
+app.register_blueprint(t2s_bp)
 app.register_blueprint(file_bp)
 
 # Initialize JWT
 jwt = JWTManager(app) 
+
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))  

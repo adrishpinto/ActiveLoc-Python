@@ -21,7 +21,7 @@ download = Blueprint('download', __name__)
 def download_blob():
     user_id = get_jwt_identity()  
     try:
-        ext = cache.get(f"extension")
+        ext = cache.get(f"extension_{user_id}")
         base_name = cache.get(f"base_name_{user_id}")
         original_name = cache.get(f"original_name_{user_id}")
         

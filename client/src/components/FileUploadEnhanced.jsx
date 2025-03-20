@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { getCsrfToken } from "../utils/csrfUtils";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -34,7 +35,7 @@ const FileUploadEnchanced = () => {
     formData.append("file", file);
 
     try {
-      const csrfToken = getCookie("csrf_access_token");
+      const csrfToken = getCsrfToken();
       const response = await fetch(`${API_URL}/upload-enhanced-audio`, {
         method: "POST",
         body: formData,

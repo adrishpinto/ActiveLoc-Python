@@ -142,7 +142,7 @@ const Speech2Text = () => {
 
   return (
     <div>
-      <div className="w-[80%] lg:w-[50%] border border-black mx-auto rounded-2xl my-32 p-10">
+      <div className="w-[80%] lg:w-[50%] border border-black mx-auto rounded-2xl my-20 p-10">
         <h1 className="mb-10 text-center text-3xl">Speech to Text</h1>
 
         <FileUploadAudio />

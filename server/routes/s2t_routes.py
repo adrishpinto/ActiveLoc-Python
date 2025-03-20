@@ -9,7 +9,7 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 
 load_dotenv()
 
-speech_bp = Blueprint("speech", __name__)
+speech_bp = Blueprint("speech_bp", __name__)
 
 client = ElevenLabs(api_key=os.getenv("ELEVENLABS_API_KEY"))
 

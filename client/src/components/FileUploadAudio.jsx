@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { getCsrfToken } from "../utils/csrfUtils";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -10,10 +11,6 @@ const FileUploadAudio = () => {
   const [file, setFile] = useState(null);
 
   //get cookie for auth
-  const getCookie = (name) => {
-    const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`));
-    return match ? match[2] : null;
-  };
 
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles.length > 0) {
@@ -34,7 +31,7 @@ const FileUploadAudio = () => {
     formData.append("file", file);
 
     try {
-      const csrfToken = getCookie("csrf_access_token");
+      const csrfToken = getCsrfToken();
       const response = await fetch(`${API_URL}/upload_audio`, {
         method: "POST",
         body: formData,
@@ -44,14 +41,10 @@ const FileUploadAudio = () => {
         },
       });
 
-      if (response.redirected) {
-        window.location.href = response.url;
-        return;
-      }
-
       if (response.status === 401) {
-        localStorage.removeItem("token");
+        console.log("Unauthorized: Invalid credentials");
         navigate("/");
+        toast.error("Unauthorized: Invalid credentials or session expired.");
       }
 
       const result = await response.json();

@@ -7,6 +7,8 @@ import { CiLogout } from "react-icons/ci";
 import { useNavigate, useLocation } from "react-router-dom";
 import { FaMicrophoneAlt } from "react-icons/fa";
 import { GiSoundWaves } from "react-icons/gi";
+import { GiSpeaker } from "react-icons/gi";
+
 import axios from "axios";
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
@@ -202,6 +204,58 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 {!isOpen && (
                   <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
                     Voice Isolator
+                  </span>
+                )}
+              </button>
+            </li>
+
+            <li>
+              <button
+                onClick={() => navigate("/texttospeech")}
+                className={`relative group flex items-center ${
+                  isOpen ? "justify-start" : "justify-center"
+                } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+                  "/texttospeech"
+                )}`}
+              >
+                <GiSpeaker size={20} />
+                <span
+                  className={`ms-3 transition-all ${
+                    isOpen ? "block" : "hidden"
+                  }`}
+                >
+                  Text to Speech
+                </span>
+
+                {!isOpen && (
+                  <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
+                    Text to Speech
+                  </span>
+                )}
+              </button>
+            </li>
+
+            <li>
+              <button
+                onClick={() => navigate("/texttospeechbatch")}
+                className={`relative group flex items-center ${
+                  isOpen ? "justify-start" : "justify-center"
+                } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+                  "/texttospeechbatch"
+                )}`}
+              >
+                <GiSpeaker size={20} />
+                <span
+                  className={`ms-3 transition-all ${
+                    isOpen ? "block" : "hidden"
+                  }`}
+                >
+                  Text to Speech Batch
+                </span>
+
+                {!isOpen && (
+                  <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
+                    Text to Speech Batch
                   </span>
                 )}
               </button>
