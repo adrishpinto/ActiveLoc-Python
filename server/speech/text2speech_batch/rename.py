@@ -1,7 +1,7 @@
 import zipfile
 
 def rename_files(zip_path, new_names):
-    old_names = [f"{i:04}.wav" for i in range(1, 101)] # Extend as needed
+    old_names = [f"{i:04}.wav" for i in range(1, 101)] 
     new_zip_path = zip_path.replace(".zip", "_updated.zip")
 
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
@@ -10,7 +10,6 @@ def rename_files(zip_path, new_names):
                 with zip_ref.open(item.filename) as file:
                     data = file.read()
                 
-                # Check if the file should be renamed
                 if item.filename in old_names and old_names.index(item.filename) < len(new_names):
                     arcname = new_names[old_names.index(item.filename)]
                     print(f"Renaming '{item.filename}' → '{arcname}'")
