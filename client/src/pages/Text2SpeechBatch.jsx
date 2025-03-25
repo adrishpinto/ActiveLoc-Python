@@ -9,6 +9,8 @@ const Text2SpeechBatch = () => {
   const [files, setFiles] = useState([]);
   const [customNames, setCustomNames] = useState([]);
   const [uploadCheck, setUploadCheck] = useState(false);
+  const [selectedPitch, setSelectedPitch] = useState("medium");
+  const [selectedRate, setSelectedRate] = useState("medium");
 
   const updateArray = (index, value) => {
     setCustomNames((prev) => {
@@ -48,6 +50,8 @@ const Text2SpeechBatch = () => {
         {
           voice: selectedVoice,
           custom_names: customNames,
+          pitch: selectedPitch,
+          rate: selectedRate,
         },
         {
           responseType: "blob",
@@ -102,6 +106,39 @@ const Text2SpeechBatch = () => {
             selectedVoice={selectedVoice}
             setSelectedVoice={setSelectedVoice}
           />
+        </div>
+        <div className="flex gap-4 p-4 items-center justify-center mt-5 mb-10">
+          {/* Pitch Selection */}
+          <label className="flex flex-col">
+            <span className="font-semibold">Select Pitch:</span>
+            <select
+              value={selectedPitch}
+              onChange={(e) => setSelectedPitch(e.target.value)}
+              className="border p-2 rounded"
+            >
+              <option value="x-low">x-low</option>
+              <option value="low">low</option>
+              <option value="medium">medium</option>
+              <option value="high">high</option>
+              <option value="x-high">x-high</option>
+            </select>
+          </label>
+
+          {/* Rate Selection */}
+          <label className="flex flex-col">
+            <span className="font-semibold">Select Rate:</span>
+            <select
+              value={selectedRate}
+              onChange={(e) => setSelectedRate(e.target.value)}
+              className="border p-2 rounded"
+            >
+              <option value="x-slow">x-slow</option>
+              <option value="slow">slow</option>
+              <option value="medium">medium</option>
+              <option value="fast">fast</option>
+              <option value="x-fast">x-fast</option>
+            </select>
+          </label>
         </div>
 
         {files.length == 0 && (
