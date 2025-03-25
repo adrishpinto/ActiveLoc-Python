@@ -47,14 +47,15 @@ class AWSCONFIG(Config):
     DEBUG = True
     JWT_COOKIE_SECURE = False  # Allow cookies over HTTP
     JWT_COOKIE_HTTPONLY = True  # Keep cookies HTTP-only for security
-    JWT_COOKIE_SAMESITE = "None"
+    JWT_COOKIE_SAMESITE = "Lax"
     
 
 
 config_by_name = {
     "development": DevelopmentConfig,
     "production": ProductionConfig,
-    "http": HTTPTestingConfig 
+    "http": HTTPTestingConfig,
+    "aws": AWSCONFIG
 }
 
 FLASK_ENV = os.getenv("FLASK_ENV", "development")
