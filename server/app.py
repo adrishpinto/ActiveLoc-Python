@@ -53,6 +53,9 @@ app.register_blueprint(file_bp)
 # Initialize JWT
 jwt = JWTManager(app) 
 
+@app.route('/')
+def home():
+    return "Server is working"
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))  

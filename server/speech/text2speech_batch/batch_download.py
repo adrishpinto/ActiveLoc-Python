@@ -4,7 +4,7 @@ import requests
 #for running as script remove the use extract_text_func and but change it to .extract_text_func to make it work
 from .extract_text_func import extract_text
 
-def text_to_speech(voice: str, texts: list, synthesis_id: str):
+def text_to_speech(voice: str, texts: list, synthesis_id: str, rate: str, pitch: str):
     speech_key = os.getenv("SPEECH_KEY")
     speech_region = os.getenv("SPEECH_REGION")
     if not speech_key or not speech_region:
@@ -25,7 +25,7 @@ def text_to_speech(voice: str, texts: list, synthesis_id: str):
             "concatenateResult": False,
             "decompressOutputFiles": False
         },
-        "synthesisConfig": {"voice": voice}
+        "synthesisConfig": {"voice": voice, "pitch": pitch, "rate": rate}
     }
     
     

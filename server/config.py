@@ -12,7 +12,8 @@ class Config:
     JWT_TOKEN_LOCATION = ["cookies"]
     CORS_ALLOWED_ORIGINS = [
         "http://localhost:5173",
-        "https://active-loc-python.vercel.app"
+        "https://active-loc-python.vercel.app",
+        "http://13.127.94.53"
     ]
     CORS_ALLOW_HEADERS = ["Content-Type", "Authorization", "X-CSRF-TOKEN", "file_name"]
     CORS_METHODS = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
@@ -34,11 +35,19 @@ class ProductionConfig(Config):
     JWT_COOKIE_SECURE = True  
     JWT_COOKIE_HTTPONLY = True  
     JWT_COOKIE_SAMESITE = "None"
+    
+class HTTPTestingConfig(Config):
+    """Config for testing JWT cookies over HTTP."""
+    DEBUG = True
+    JWT_COOKIE_SECURE = False  # Allow cookies over HTTP
+    JWT_COOKIE_HTTPONLY = True  # Keep cookies HTTP-only for security
+    JWT_COOKIE_SAMESITE = "Lax"
 
 
 config_by_name = {
     "development": DevelopmentConfig,
-    "production": ProductionConfig
+    "production": ProductionConfig,
+    "http": HTTPTestingConfig 
 }
 
 FLASK_ENV = os.getenv("FLASK_ENV", "development")

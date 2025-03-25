@@ -14,6 +14,8 @@ t2s_batch = Blueprint('t2s_batch', __name__)
 def t2s_batch_func():
     data = request.get_json()
     voice = data.get("voice")
+    pitch = data.get("pitch")
+    rate = data.get("rate")
     custom_names = data.get("custom_names", [])  
     
     # uploaded folder path
@@ -29,7 +31,7 @@ def t2s_batch_func():
     logger.info(folder_name)
 
     text = extract_text(folder_path)
-    output_file = text_to_speech(voice, text, folder_name)
+    output_file = text_to_speech(voice, text, folder_name, rate, pitch)
     print(f"Speech synthesis completed: {output_file}")
 
     # Use filenames from request body
