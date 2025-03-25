@@ -41,7 +41,14 @@ class HTTPTestingConfig(Config):
     DEBUG = True
     JWT_COOKIE_SECURE = False  # Allow cookies over HTTP
     JWT_COOKIE_HTTPONLY = True  # Keep cookies HTTP-only for security
-    JWT_COOKIE_SAMESITE = "Lax"
+    JWT_COOKIE_SAMESITE = "None"
+    
+class AWSCONFIG(Config):
+    DEBUG = True
+    JWT_COOKIE_SECURE = False  # Allow cookies over HTTP
+    JWT_COOKIE_HTTPONLY = True  # Keep cookies HTTP-only for security
+    JWT_COOKIE_SAMESITE = "None"
+    
 
 
 config_by_name = {
