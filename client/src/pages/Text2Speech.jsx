@@ -1,6 +1,8 @@
 import { useState } from "react";
 import LanguageDropdownT2S from "../components/LanguageDropdownT2S";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function LanguageDropdown() {
   const [selectedVoice, setSelectedVoice] = useState("");
   const [text, setText] = useState("");
@@ -14,7 +16,7 @@ export default function LanguageDropdown() {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/synthesize", {
+      const response = await fetch(`${API_URL}/synthesize`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text, voice: selectedVoice }),
@@ -22,7 +24,7 @@ export default function LanguageDropdown() {
 
       const data = await response.json();
       if (response.ok) {
-        setAudioFile(`http://127.0.0.1:5000${data.file}`);
+        setAudioFile(`${API_URL}${data.file}`);
         setAudioKey((prevKey) => prevKey + 1);
       } else {
         alert(data.error || "Something went wrong");

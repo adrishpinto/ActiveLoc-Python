@@ -17,11 +17,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 
   const handleLogout = async () => {
     try {
-      await axios.post(
-        "http://localhost:5000/logout",
-        {},
-        { withCredentials: true }
-      );
+      await axios.post(`${API_URL}/logout`, {}, { withCredentials: true });
       localStorage.removeItem("userData");
       navigate("/");
     } catch (err) {

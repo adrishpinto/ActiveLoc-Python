@@ -4,6 +4,7 @@ import FolderUploadT2S from "../components/FolderUploadT2S";
 import { toast } from "react-toastify";
 import LanguageDropdownT2S from "../components/LanguageDropdownT2S";
 
+const API_URL = import.meta.env.VITE_API_URL;
 const Text2SpeechBatch = () => {
   const [selectedVoice, setSelectedVoice] = useState("en-US-JennyNeural");
   const [files, setFiles] = useState([]);
@@ -46,7 +47,7 @@ const Text2SpeechBatch = () => {
   const handleTextToSpeech = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/t2s_batch",
+        `${API_URL}/t2s_batch`,
         {
           voice: selectedVoice,
           custom_names: customNames,
