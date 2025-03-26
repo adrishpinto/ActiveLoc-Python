@@ -13,12 +13,15 @@ class Config:
     CORS_ALLOWED_ORIGINS = [
         "http://localhost:5173",
         "https://active-loc-python.vercel.app",
-        "http://13.127.94.53"
+        "https://tms.activeloc.com/"
     ]
     CORS_ALLOW_HEADERS = ["Content-Type", "Authorization", "X-CSRF-TOKEN", "file_name"]
     CORS_METHODS = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
     MONGO_URI = os.getenv("MONGO_URI")
-
+    
+    JWT_COOKIE_CSRF_PROTECT = False
+    
+    
 
 #specific configs
 class DevelopmentConfig(Config):

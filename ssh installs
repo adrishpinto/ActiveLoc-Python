@@ -1,4 +1,0 @@
-pip install elevenLabs
-pip install flask
-pip install flask_wtf
-pip install azure-cognitiveservices-speech
