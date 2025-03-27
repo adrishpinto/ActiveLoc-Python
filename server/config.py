@@ -13,7 +13,8 @@ class Config:
     CORS_ALLOWED_ORIGINS = [
         "http://localhost:5173",
         "https://active-loc-python.vercel.app",
-        "https://tms.activeloc.com/"
+        "https://tms.activeloc.com/",
+        "https://nice-field-0ad812800.6.azurestaticapps.net"
     ]
     CORS_ALLOW_HEADERS = ["Content-Type", "Authorization", "X-CSRF-TOKEN", "file_name"]
     CORS_METHODS = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
