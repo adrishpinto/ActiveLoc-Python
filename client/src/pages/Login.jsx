@@ -98,7 +98,7 @@ const App = () => {
             Sign in
           </h1>
           <p className="text-[#969696] w-fit sm:w-[399px] mx-auto">
-            Please login to continue to your account.
+            Please login to continue to your account
           </p>
 
           <form onSubmit={handleLogin}>
