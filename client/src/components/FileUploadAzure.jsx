@@ -51,7 +51,7 @@ const FileUpload = ({ onUploadSuccess }) => {
         console.log("Unauthorized: Invalid credentials");
         navigate("/");
         toast.error("Unauthorized: Invalid credentials or session expired.");
-      }
+      } 
 
       const result = await response.json();
       console.log("Upload result:", result); // Logs the response body

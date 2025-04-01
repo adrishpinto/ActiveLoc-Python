@@ -13,16 +13,11 @@ const MachineTranslate = () => {
   });
   const [loading, setLoading] = useState(false);
 
-  const getCookie = (name) => {
-    const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`));
-    return match ? match[2] : null;
-  };
 
   const translate = async (language) => {
     setTranslationStatus({ message: "Translating..." });
     if (!language) return toast.error("please select a language");
     try {
-      const csrfToken = getCookie("csrf_access_token");
       const response = await axios.post(
         `${API_URL}/translate`,
         { lang: language },
@@ -77,7 +72,7 @@ const MachineTranslate = () => {
 
   return (
     <div>
-      <div className="w-[80%] lg:w-[50%] border border-black mx-auto rounded-2xl my-32 p-10">
+      <div className="w-[80%] lg:w-[50%] border border-black mx-auto rounded-2xl my-20 p-10">
         <h1 className="mb-10 text-center text-3xl">Machine Translation</h1>
 
         {/* File Upload Component */}

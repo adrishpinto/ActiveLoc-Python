@@ -8,20 +8,26 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { FaMicrophoneAlt } from "react-icons/fa";
 import { GiSoundWaves } from "react-icons/gi";
 import { GiSpeaker } from "react-icons/gi";
-
+import { VscCombine } from "react-icons/vsc";
 import axios from "axios";
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleLogout = async () => {
+  const API_URL = import.meta.env.VITE_API_URL;
+
+  const logout = async () => {
     try {
-      await axios.post(`${API_URL}/logout`, {}, { withCredentials: true });
-      localStorage.removeItem("userData");
+      const response = await axios.post(
+        `${API_URL}/logout`,
+        {},
+        { withCredentials: true }
+      );
       navigate("/");
-    } catch (err) {
-      console.log(err.response?.data?.error || "Logout failed");
+      console.log(response.data.message);
+    } catch (error) {
+      console.error("Logout failed:", error.response?.data || error.message);
     }
   };
 
@@ -136,6 +142,32 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 {!isOpen && (
                   <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
                     Post Edit Translation
+                  </span>
+                )}
+              </button>
+            </li>
+
+            <li>
+              <button
+                onClick={() => navigate("/merge-mtpe")}
+                className={`relative group flex items-center ${
+                  isOpen ? "justify-start" : "justify-center"
+                } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+                  "/merge-mtpe"
+                )}`}
+              >
+                <VscCombine size={20} />
+                <span
+                  className={`ms-3 transition-all ${
+                    isOpen ? "block" : "hidden"
+                  }`}
+                >
+                  Merge MTPE
+                </span>
+
+                {!isOpen && (
+                  <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
+                    Merge MTPE
                   </span>
                 )}
               </button>
@@ -286,7 +318,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
           {/* Logout */}
           <li>
             <button
-              onClick={handleLogout}
+              onClick={logout}
               className={`relative group flex items-center ${
                 isOpen ? "justify-start" : "justify-center"
               } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}

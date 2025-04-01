@@ -12,29 +12,25 @@ from azure_api.download_api import download
 from routes.t2s_batch_routes import t2s_batch
 from routes.user_routes import user_bp
 from routes.file_route import file_bp
-from routes.convert_routes import convert_bp
 from routes.s2t_routes import speech_bp
 from routes.isolator_routes import isolator_bp
 from routes.t2s_routes import t2s_bp
-
-# Import the new config
+from routes.convert_routes_tikal import convert_tikal_bp
+from routes.merge_routes_tikal import merge_tikal_bp
 from config import CurrentConfig
 
 app = Flask(__name__)
 
-# Apply configurations
+# config.py set up here
 app.config.from_object(CurrentConfig)
 
-# CORS Configuration
 CORS(app, supports_credentials=True, 
      origins=CurrentConfig.CORS_ALLOWED_ORIGINS,
      allow_headers=CurrentConfig.CORS_ALLOW_HEADERS,
      methods=CurrentConfig.CORS_METHODS)
 
-# Cache setup
 cache.init_app(app)
 
-# Database connection
 connect(db="activeloc_users", host=CurrentConfig.MONGO_URI, alias="default")
 
 # Register blueprints
@@ -44,13 +40,14 @@ app.register_blueprint(t2s_batch)
 app.register_blueprint(translate) 
 app.register_blueprint(download)
 app.register_blueprint(download_xliff)
-app.register_blueprint(convert_bp)
 app.register_blueprint(user_bp)
 app.register_blueprint(isolator_bp)
 app.register_blueprint(t2s_bp)
 app.register_blueprint(file_bp)
+app.register_blueprint(convert_tikal_bp)
+app.register_blueprint(merge_tikal_bp)
 
-# Initialize JWT
+
 jwt = JWTManager(app) 
 
 @app.route('/')

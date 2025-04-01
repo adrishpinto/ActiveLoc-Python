@@ -18,6 +18,7 @@ import FileList from "./pages/FileList";
 import Text2Speech from "./pages/Text2Speech";
 import Text2SpeechBatch from "./pages/Text2SpeechBatch";
 import LanguageDropdown from "./components/LanguageDropdownT2S";
+import MergeMTPE from "./pages/MergeMTPE";
 
 function Layout() {
   const location = useLocation();
@@ -43,6 +44,7 @@ function Layout() {
           <Route path="/texttospeech" element={<Text2Speech />} />
           <Route path="/texttospeechbatch" element={<Text2SpeechBatch />} />
           <Route path="/t" element={<LanguageDropdown />} />
+          <Route path="/merge-mtpe" element={<MergeMTPE />} />
         </Routes>
       </div>
 

@@ -5,9 +5,8 @@ import os
 load_dotenv()
 
 CONNECTION_STRING = os.getenv("CONTAINER_CONNECTION_STRING")
-CONTAINER_NAME = "source"
 
-def upload_blob(file_path, blob_name):
+def upload_blob(file_path, blob_name, CONTAINER_NAME):
     try:
         blob_service_client = BlobServiceClient.from_connection_string(CONNECTION_STRING)
         container_client = blob_service_client.get_container_client(CONTAINER_NAME)

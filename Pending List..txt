@@ -3,9 +3,10 @@ Pending List.
 important-- 
 
 Auto Delete Files uploaded. 
-Production level backend using Gunicorn
-Set up output log when server is running 
-Test CSRF protection
+Production level backend using Gunicorn 
+Set up output log when server is running  
+Test CSRF protection 
+
 
 essential--
 

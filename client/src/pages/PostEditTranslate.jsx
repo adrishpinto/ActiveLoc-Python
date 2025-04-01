@@ -1,38 +1,30 @@
 import React, { useState } from "react";
-import axios from "axios";
 import LanguageDropdown from "../components/LanguageDropdownMT";
-import FileUpload from "../components/FileUploadAzure";
+import FileUpload from "../components/FileUploadMTPE";
 import { toast } from "react-toastify";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const PostEditTranslate = () => {
-  const [language, setLanguage] = useState("");
-
-  const translate = async () => {
-    setTranslationStatus({ message: "Translating..." });
-    try {
-      const response = await axios.get(`${API_URL}/covert`);
-    } catch (error) {
-      console.error("Translation Error:", error);
-      setTranslationStatus({ message: "Translation failed" });
-    }
-  };
+  const [srcLanguage, setSrcLanguage] = useState("");
+  const [trgLanguage, setTrgLanguage] = useState("");
 
   // uploads...
 
   const convertFile = async () => {
-    if (!language) return toast.error("please select a language");
-
+    toast.success("File conversion intiated");
     try {
-      const res = await axios.get(`${API_URL}/convert`, {
-        params: { language },
-        withCredentials: true,
+      const res = await fetch(`${API_URL}/convert-file`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ srcLanguage, trgLanguage }),
       });
-      // Handle success response here if needed
-      toast.success("File sent succesfully");
+
+      toast.success("File converted successfully");
+      console.log("Response:", res.data); // Debugging
     } catch (error) {
-      console.log("error:", error);
+      console.log("Error:", error.response ? error.response.data : error);
       toast.error("Failed to convert file. Please try again.");
     }
   };
@@ -61,21 +53,49 @@ const PostEditTranslate = () => {
 
   return (
     <div>
-      <div className="w-[80%] lg:w-[50%] border border-black mx-auto rounded-2xl my-32 p-10 mb-20">
+      <div className="w-[80%] lg:w-[50%] border border-black mx-auto rounded-2xl my-20 p-10 mb-20">
         <h1 className="text-center mb-10 text-3xl">Post Edit Translation</h1>
-        <h2 className="border-2 border-green-500 bg-green-200 mb-8 w-fit mx-auto px-6 py-2 rounded-lg  text-black font-semibold">
-          <span className="font-semibold text-lg pr-1">
-            Supported File Types:{" "}
-          </span>{" "}
-          docx, andriod strings, HTML, iOS Strings, ODT
+        <h2 className="border-2 border-green-500 bg-green-200 mb-8 w-fit mx-auto px-6 py-2 rounded-lg text-black font-semibold">
+          <h2 className="font-semibold text-lg pr-1">Supported File Types: </h2>
+          .catkeys, .csv, .dita, .docm, .docx, .dox, .dotm, .dotx, .dtd, .htm,
+          .html, .icml, .idml, .json, .lang, .markdown, .md, .mif, .odg, .odp,
+          .ods, .odt, .otp, .ots, .ott, .php, .po, .potm, .potx, .ppsm, .ppsx,
+          .pptm, .pptx, .properties, .rdf, .resx, .rtf, .sdlppx, .sdlrpx, .srt,
+          .strings, .stringsdict, .swd, .swc, .swx, .sxd, .sxi, .tex, .tmx, .ts,
+          .tsv, .ttml, .ttx, .txml, .vtt, .vsdm, .vsdx, .wxl, .wiki, .xhtml,
+          .xlf, .xliff, .xlsm, .xlsx, .xltm, .xltx, .xml, .yaml, .yml
         </h2>
-        <FileUpload />
 
+        <h2 className="border-2 border-red-500 bg-red-200 mb-8 w-fit mx-auto px-6 py-2 rounded-lg text-black font-semibold">
+          <h2 className="font-semibold text-lg pr-1">
+            Unsupported File Types:
+          </h2>
+          .doc, .rtfd, .odf, .epub, .mobi, .texi, .xps, .djvu, .ppt, .xls, .pdf
+        </h2>
+
+        <FileUpload />
+        <div className="flex gap-12 items-center justify-center my-5">
+          <div>
+            <h2 className="text-sm font-bold mb-1 text-center">
+              Select Source Language
+            </h2>
+            <LanguageDropdown
+              language={srcLanguage}
+              onLanguageChange={(e) => setSrcLanguage(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <h2 className="text-sm font-bold mb-1 text-center">
+              Select Target Language
+            </h2>
+            <LanguageDropdown
+              language={trgLanguage}
+              onLanguageChange={(e) => setTrgLanguage(e.target.value)}
+            />
+          </div>
+        </div>
         <div className="flex items-center justify-center mt-10">
-          <LanguageDropdown
-            language={language}
-            onLanguageChange={(e) => setLanguage(e.target.value)}
-          />
           <button
             onClick={convertFile}
             className="bg-blue-200 hover:bg-blue-300  mx-4 px-2 py-1 rounded"

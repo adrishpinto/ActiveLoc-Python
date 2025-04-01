@@ -21,7 +21,7 @@ download_xliff = Blueprint('download_xliff', __name__)
 def download_blob():
     user_id = get_jwt_identity()
     try:
-        blob_name = cache.get(f"base_name_{user_id}") + ".xlf"
+        blob_name = cache.get(f"file_name_{user_id}") + ".xlf"
        
 
         if not blob_name:

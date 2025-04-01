@@ -8,14 +8,12 @@ from flask_wtf.csrf import generate_csrf
 from flask import jsonify, request
 from flask_jwt_extended import (
     create_access_token,
-    get_csrf_token,
     set_access_cookies
 )
 
 user_bp = Blueprint("user", __name__)
 
 from flask import jsonify, request
-from flask_wtf.csrf import generate_csrf
 from datetime import timedelta
 from flask_jwt_extended import create_access_token, set_access_cookies
 

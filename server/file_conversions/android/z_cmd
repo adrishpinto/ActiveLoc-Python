@@ -1,9 +1,0 @@
-python android_to_xliff.py
-
-python modify_xliff.py
---this will change the source to target and then empty old target allowing for it to be translated
---translate the xlf
-
-
-
-python xliff_to_android.py
