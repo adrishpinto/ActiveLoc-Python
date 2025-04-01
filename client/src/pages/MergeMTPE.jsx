@@ -7,7 +7,7 @@ const MergeMTPE = () => {
   const [file1, setFile1] = useState(false);
   const [file2, setFile2] = useState(false);
 
-  const mergeFile = async () => {
+  const mergeFiles = async () => {
     try {
       const response = await axios.post(
         "/merge-file",
@@ -31,7 +31,6 @@ const MergeMTPE = () => {
       throw error;
     }
   };
-
 
   return (
     <div className="w-[80%] lg:w-[60%] border border-black mx-auto rounded-2xl my-20 p-10 flex items-center justify-center flex-col">
