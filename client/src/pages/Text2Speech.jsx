@@ -8,8 +8,8 @@ export default function LanguageDropdown() {
   const [text, setText] = useState("");
   const [audioFile, setAudioFile] = useState(null);
   const [audioKey, setAudioKey] = useState(0);
-  const [rate, setRate] = useState("0%");
-  const [pitch, setPitch] = useState("0%");
+  const [rate, setRate] = useState("");
+  const [pitch, setPitch] = useState("");
 
   const synthesizeSpeech = async () => {
     if (!text || !selectedVoice) {
@@ -50,23 +50,14 @@ export default function LanguageDropdown() {
 
       {/* rate and ptich */}
 
-      <div className="">
-        <h2 className=" text-center">faster rate = 1% to 100%</h2>
-        <h2 className=" text-center">slower rate = -1% to -100% </h2>
-        <h2 className=" text-center">higher pitch = 1% to 100%</h2>
-        <h2 className=" text-center">lower pitch = -1% to -100% </h2>
-        <h2 className="text-center text-gray-400 text-xs">
-          0% is default, values outside these are invalid
-        </h2>
-      </div>
-
-      <div className="  mx-auto  border bg-slate-50 px-20 py-2 rounded-lg my-5">
+      <div className="  mx-auto  border bg-slate-50 px-20 py-2 rounded-lg mb-5">
         <div className="flex gap-4">
           <div>
             <h2>Rate</h2>
             <input
               type="text"
               className="outline-none bg-slate-200"
+              placeholder="-100% - 100%"
               value={rate}
               onChange={(e) => {
                 setRate(e.target.value);
@@ -78,6 +69,7 @@ export default function LanguageDropdown() {
             <input
               type="text"
               className="outline-none bg-slate-200"
+              placeholder="-100% - 100%"
               value={pitch}
               onChange={(e) => {
                 setPitch(e.target.value);
@@ -85,6 +77,7 @@ export default function LanguageDropdown() {
             ></input>
           </div>
         </div>
+        <h2 className="mt-2 text-xs ">note: 0% is default value</h2>
       </div>
       {/* Text Input */}
 
