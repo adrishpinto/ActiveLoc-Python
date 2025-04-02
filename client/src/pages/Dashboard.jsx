@@ -41,6 +41,7 @@ const Dashboard = () => {
         <Card name="Voice Isolator" link="voice-isolator" />
         <Card name="Text to Speech" link="texttospeech" />
         <Card name="Text to Speech Batch" link="texttospeechbatch" />
+        <Card name="Merge Files" link="merge-mtpe" />
       </div>
     </div>
   );
