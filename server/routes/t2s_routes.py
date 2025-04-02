@@ -26,10 +26,10 @@ def synthesize_speech():
     rate = data.get('rate', '0%')
     pitch = data.get('pitch', '0%')
     
-    if pitch == 0:
+    if pitch == 0 or not pitch:
         pitch = "0%"
     
-    if rate == 0:
+    if rate == 0 or not rate:
         rate = "0%"
 
     if not text:

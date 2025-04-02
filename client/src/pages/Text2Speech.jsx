@@ -37,7 +37,7 @@ export default function LanguageDropdown() {
   };
 
   return (
-    <div className="flex flex-col  w-[50%] my-20 border p-10 border-black rounded-lg mx-auto">
+    <div className="flex flex-col  w-[50%] my-20 mt-10 border p-10 border-black rounded-lg mx-auto">
       <h1 className="text-center text-3xl mb-5">Text to Speech</h1>
       {/* Language Dropdown */}
 
