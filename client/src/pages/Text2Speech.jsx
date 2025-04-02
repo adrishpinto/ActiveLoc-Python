@@ -8,6 +8,8 @@ export default function LanguageDropdown() {
   const [text, setText] = useState("");
   const [audioFile, setAudioFile] = useState(null);
   const [audioKey, setAudioKey] = useState(0);
+  const [rate, setRate] = useState("0%");
+  const [pitch, setPitch] = useState("0%");
 
   const synthesizeSpeech = async () => {
     if (!text || !selectedVoice) {
@@ -19,7 +21,7 @@ export default function LanguageDropdown() {
       const response = await fetch(`${API_URL}/synthesize`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text, voice: selectedVoice }),
+        body: JSON.stringify({ text, voice: selectedVoice, rate, pitch }),
       });
 
       const data = await response.json();
@@ -35,17 +37,55 @@ export default function LanguageDropdown() {
   };
 
   return (
-    <div className="flex flex-col space-y-4 w-[50%] my-20 border p-10 border-black rounded-lg mx-auto">
+    <div className="flex flex-col  w-[50%] my-20 border p-10 border-black rounded-lg mx-auto">
       <h1 className="text-center text-3xl mb-5">Text to Speech</h1>
       {/* Language Dropdown */}
 
-      <div className="">
+      <div className="mb-10">
         <LanguageDropdownT2S
           selectedVoice={selectedVoice}
           setSelectedVoice={setSelectedVoice}
         />
       </div>
 
+      {/* rate and ptich */}
+
+      <div className="">
+        <h2 className=" text-center">faster rate = 1% to 100%</h2>
+        <h2 className=" text-center">slower rate = -1% to -100% </h2>
+        <h2 className=" text-center">higher pitch = 1% to 100%</h2>
+        <h2 className=" text-center">lower pitch = -1% to -100% </h2>
+        <h2 className="text-center text-gray-400 text-xs">
+          0% is default, values outside these are invalid
+        </h2>
+      </div>
+
+      <div className="  mx-auto  border bg-slate-50 px-20 py-2 rounded-lg my-5">
+        <div className="flex gap-4">
+          <div>
+            <h2>Rate</h2>
+            <input
+              type="text"
+              className="outline-none bg-slate-200"
+              value={rate}
+              onChange={(e) => {
+                setRate(e.target.value);
+              }}
+            ></input>
+          </div>
+          <div>
+            <h2>Pitch</h2>
+            <input
+              type="text"
+              className="outline-none bg-slate-200"
+              value={pitch}
+              onChange={(e) => {
+                setPitch(e.target.value);
+              }}
+            ></input>
+          </div>
+        </div>
+      </div>
       {/* Text Input */}
 
       <div>
