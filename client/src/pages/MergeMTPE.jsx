@@ -10,7 +10,7 @@ const MergeMTPE = () => {
   const mergeFiles = async () => {
     try {
       const response = await axios.post(
-        "/merge-file",
+        `${API_URL}/merge-file`,
         {},
         {
           withCredentials: true,
@@ -33,7 +33,7 @@ const MergeMTPE = () => {
   };
 
   return (
-    <div className="w-[80%] lg:w-[60%] border border-black mx-auto rounded-2xl my-20 p-10 flex items-center justify-center flex-col">
+    <div className="w-[80%] lg:w-[60%] border border-black mx-auto rounded-2xl my-20 p-10 flex items-center justify-center flex-col ">
       <h1 className="text-3xl mb-8 text-center">Merge Files</h1>
       <div className="border-2 border-gray-700 bg-gray-200 my-4 p-2 rounded-lg">
         <p>
@@ -41,7 +41,7 @@ const MergeMTPE = () => {
         </p>
         <p>post-edit filename = original filename + .xlf</p>
       </div>
-      <div className="flex gap-10">
+      <div className="flex">
         <FileUpload
           name="original file"
           fileC={file1}

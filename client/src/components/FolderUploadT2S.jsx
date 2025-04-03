@@ -8,7 +8,6 @@ const FolderUploadT2S = ({ setFiles, files, uploadCheck, setUploadCheck }) => {
   };
 
   const handleUpload = async () => {
-    const csrfToken = getCsrfToken();
     if (files.length === 0) {
       toast.error("No files selected");
       return;
@@ -24,9 +23,6 @@ const FolderUploadT2S = ({ setFiles, files, uploadCheck, setUploadCheck }) => {
         method: "POST",
         body: formData,
         credentials: "include",
-        headers: {
-          "X-CSRF-TOKEN": csrfToken,
-        },
       });
 
       const data = await response.json();

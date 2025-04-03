@@ -6,7 +6,7 @@ from extensions import cache
 from custom_logger import logger
 from uuid import uuid4
 import os 
-
+import time
 # Define the blueprint
 t2s_batch = Blueprint('t2s_batch', __name__)
 
@@ -31,7 +31,9 @@ def t2s_batch_func():
     logger.info(folder_name)
 
     text = extract_text(folder_path)
+    time.sleep(0)  
     output_file = text_to_speech(voice, text, folder_name, rate, pitch)
+    
     print(f"Speech synthesis completed: {output_file}")
 
     # Use filenames from request body

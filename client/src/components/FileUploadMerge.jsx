@@ -67,10 +67,10 @@ const FileUpload = ({ name, fileC, setFileC, api }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-4">
+    <div className="flex flex-col items-center justify-center space-y-4 mx-4 w-fit">
       <div
         {...getRootProps()}
-        className={`sm:w-[250px] p-10 h-[250px] flex flex-col items-center justify-center border-2 border-dashed rounded-lg cursor-pointer ${
+        className={`sm:w-[250px] p-5 h-[250px] flex flex-col items-center justify-center border-2 border-dashed rounded-lg cursor-pointer ${
           isDragActive ? "border-blue-500 bg-blue-100" : "border-gray-300"
         }`}
       >
@@ -85,8 +85,9 @@ const FileUpload = ({ name, fileC, setFileC, api }) => {
         <div className="text-red-500 text-sm">{name} not uploaded yet</div>
       )}
       {file && (
-        <div className="mt-2 text-sm text-gray-600">
-          Selected file: {file.name}
+        <div className="mt-2 text-sm text-gray-600 text-center">
+          Selected file:{" "}
+          {file.name.length > 20 ? file.name.slice(0, 20) + "..." : file.name}
         </div>
       )}
 

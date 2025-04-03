@@ -3,8 +3,6 @@ from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from mongoengine import connect
 from extensions import cache
-from flask_limiter import Limiter
-from flask_limiter.util import get_remote_address
 import os
 
 from routes.upload_routes import upload
@@ -36,12 +34,7 @@ cache.init_app(app)
 connect(db="activeloc_users", host=CurrentConfig.MONGO_URI, alias="default")
 
 
-limiter = Limiter(
-    get_remote_address,  # Use the client’s IP for rate limiting
-    app=app,
-    default_limits=["50 per minute"],  # Adjust as needed
-    storage_uri="memory://",  # Use Redis in production
-)
+
 
 # Register blueprints
 app.register_blueprint(upload)  
