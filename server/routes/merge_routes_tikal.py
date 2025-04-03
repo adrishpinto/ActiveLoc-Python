@@ -19,16 +19,15 @@ def merge():
     if not file_name:
         return jsonify({"error": "No file found for merging"}), 400
 
-    # Detect OS
-    is_windows = platform.system() == "Windows"
+   #  is_windows = platform.system() == "Windows"
 
-    # Set command dynamically
-    if is_windows:
-        command = f"tikal -m ./all_files/merge_files/{file_name}.xlf"
-        result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    else:
-        command = ["tikal.sh", "-m", f"./all_files/merge_files/{file_name}.xlf"]
-        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+   #  if is_windows:
+   #      command = f"tikal -m ./all_files/merge_files/{file_name}.xlf"
+   #      result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+   #  else:
+   
+    command = ["tikal.sh", "-m", f"./all_files/merge_files/{file_name}.xlf"]
+    result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
     logger.info(f"{file_name}")
     logger.info(f"{command}")

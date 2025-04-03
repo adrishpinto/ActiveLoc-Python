@@ -25,7 +25,7 @@ def convert():
     # Detect OS
     is_windows = platform.system() == "Windows"
 
-    # Set command dynamically
+
     if is_windows:
         command = f"tikal -x ./all_files/mtpe_uploads/{file_name} -nocopy -sl {srcLanguage} -tl {trgLanguage}"
         result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
