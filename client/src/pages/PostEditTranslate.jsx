@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import LanguageDropdown from "../components/LanguageDropdownMT";
-import FileUpload from "../components/FileUploadMTPE";
+import FileUpload from "../components/upload_components/FileUploadMTPE";
 import { toast } from "react-toastify";
 
 const API_URL = import.meta.env.VITE_API_URL;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import FileUploadAudio from "../components/FileUploadAudio";
+import FileUploadAudio from "../components//upload_components/FileUploadAudio";
 import { toast } from "react-toastify";
 
 const API_URL = import.meta.env.VITE_API_URL;

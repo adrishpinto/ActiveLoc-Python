@@ -9,6 +9,8 @@ import { FaMicrophoneAlt } from "react-icons/fa";
 import { GiSoundWaves } from "react-icons/gi";
 import { GiSpeaker } from "react-icons/gi";
 import { VscCombine } from "react-icons/vsc";
+import { FileCode } from "lucide-react";
+import { FaEdit } from "react-icons/fa";
 import axios from "axios";
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
@@ -130,7 +132,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                   "/postedit-translate"
                 )}`}
               >
-                <MdGTranslate size={20} />
+                <FaEdit size={20} />
                 <span
                   className={`ms-3 transition-all ${
                     isOpen ? "block" : "hidden"
@@ -168,6 +170,32 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 {!isOpen && (
                   <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
                     Merge MTPE
+                  </span>
+                )}
+              </button>
+            </li>
+
+            <li>
+              <button
+                onClick={() => navigate("/workbench")}
+                className={`relative group flex items-center ${
+                  isOpen ? "justify-start" : "justify-center"
+                } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+                  "/workbench"
+                )}`}
+              >
+                <FileCode className="w-5 h-5" />
+                <span
+                  className={`ms-3 transition-all ${
+                    isOpen ? "block" : "hidden"
+                  }`}
+                >
+                  Workbench
+                </span>
+
+                {!isOpen && (
+                  <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
+                    Workbench
                   </span>
                 )}
               </button>
@@ -272,7 +300,10 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                   "/texttospeechbatch"
                 )}`}
               >
-                <GiSpeaker size={20} />
+                <GiSpeaker
+                  className="text-white bg-black rounded-xl"
+                  size={20}
+                />
                 <span
                   className={`ms-3 transition-all ${
                     isOpen ? "block" : "hidden"

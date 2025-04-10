@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import FolderUploadT2S from "../components/FolderUploadT2S";
+import FolderUploadT2S from "../components//upload_components/FolderUploadT2S";
 import { toast } from "react-toastify";
 import LanguageDropdownT2S from "../components/LanguageDropdownT2S";
 

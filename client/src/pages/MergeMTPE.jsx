@@ -1,5 +1,5 @@
 import { useState } from "react";
-import FileUpload from "../components/FileUploadMerge";
+import FileUpload from "../components//upload_components/FileUploadMerge";
 import axios from "axios";
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -20,7 +20,7 @@ const MergeMTPE = () => {
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "merged_file.docx");
+      link.setAttribute("download", "merged_file.txt");
       document.body.appendChild(link);
       link.click();
       link.remove();

@@ -4,13 +4,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def blob_download(blob_name):
+def blob_download(blob_name , CONTAINER_NAME):
     CONNECTION_STRING = os.getenv("CONTAINER_CONNECTION_STRING")
     if not CONNECTION_STRING:
         raise ValueError("Missing connection string in environment variables.")
 
     blob_service_client = BlobServiceClient.from_connection_string(CONNECTION_STRING)
-    CONTAINER_NAME = "target"
     blob_client = blob_service_client.get_blob_client(container=CONTAINER_NAME, blob=blob_name)
 
     try:
@@ -18,7 +17,7 @@ def blob_download(blob_name):
         blob_data = blob_client.download_blob().readall()
 
         
-        destination_folder = "./test"
+        destination_folder = "./all_files/workbench_files"
         os.makedirs(destination_folder, exist_ok=True)
 
         
@@ -36,4 +35,4 @@ def blob_download(blob_name):
 
 # Example usage:
 if __name__ == "__main__":
-    blob_download("test.txt")
+    blob_download("81113582-76f9-44f5-a3ae-01b87b817c50.docx.xlf")

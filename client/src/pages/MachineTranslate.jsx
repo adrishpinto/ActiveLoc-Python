@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import LanguageDropdown from "../components/LanguageDropdownMT";
-import FileUpload from "../components/FileUploadAzure";
+import FileUpload from "../components/upload_components/FileUploadAzure";
 import { toast } from "react-toastify";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -12,7 +12,6 @@ const MachineTranslate = () => {
     message: "not started",
   });
   const [loading, setLoading] = useState(false);
-
 
   const translate = async (language) => {
     setTranslationStatus({ message: "Translating..." });

@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, send_file, request
-from speech.text2speech_batch.batch_download import text_to_speech
-from speech.text2speech_batch.extract_text_func import extract_text
-from speech.text2speech_batch.rename import rename_files
+from functions.text2speech_batch.batch_download import text_to_speech
+from functions.text2speech_batch.extract_text_func import extract_text
+from functions.text2speech_batch.rename import rename_files
+
 from extensions import cache
 from custom_logger import logger
 from uuid import uuid4
@@ -26,12 +27,11 @@ def t2s_batch_func():
 
     logger.info(f"folder: {folder_path}")
 
-    # passed to name zip file
     folder_name = str(uuid4())
-    logger.info(folder_name)
 
     text = extract_text(folder_path)
-    time.sleep(0)  
+    logger.info(text)
+    time.sleep(2)  
     output_file = text_to_speech(voice, text, folder_name, rate, pitch)
     
     print(f"Speech synthesis completed: {output_file}")

@@ -6,6 +6,8 @@ from extensions import cache
 from azure.upload_blob_xliff import upload_blob_xliff
 from azure.translate_xliff import translate_xliff
 
+
+
 convert_tikal_bp = Blueprint('convert_tikal_bp', __name__)
 
 @convert_tikal_bp.route("/convert-file", methods=['POST'])
@@ -13,6 +15,7 @@ convert_tikal_bp = Blueprint('convert_tikal_bp', __name__)
 def convert():
     user_id = get_jwt_identity()
     file_name = cache.get(f"file_name_{user_id}")
+    
     
     if not file_name:
         return jsonify({"error": "No file found for conversion"}), 400
@@ -27,7 +30,7 @@ def convert():
 
 
     if is_windows:
-        command = f"tikal -x ./all_files/mtpe_uploads/{file_name} -nocopy -sl {srcLanguage} -tl {trgLanguage}"
+        command = f"tikal -x ./all_files/mtpe_uploads/{file_name} -nocopy -sl {srcLanguage} -tl {trgLanguage} -seg seg.srx"
         result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     else:
         command = [

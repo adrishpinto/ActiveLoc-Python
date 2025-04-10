@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FileUploadEnchanced from "../components/FileUploadEnhanced";
+import FileUploadEnchanced from "../components//upload_components/FileUploadEnhanced";
 import axios from "axios";
 import { toast } from "react-toastify";
 const API_URL = import.meta.env.VITE_API_URL;

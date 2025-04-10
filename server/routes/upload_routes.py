@@ -24,6 +24,8 @@ UPLOAD_T2S_FOLDER = './all_Files/t2s_batch'
 
 UPLOAD_MERGE_FOLDER = './all_files/merge_files'
 
+UPLOAD_WORKBENCH_FOLDER = './all_files/workbench_files'
+
 # create folders if not there
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
@@ -42,6 +44,9 @@ if not os.path.exists(UPLOAD_T2S_FOLDER):
     
 if not os.path.exists(UPLOAD_MERGE_FOLDER):
     os.makedirs(UPLOAD_MERGE_FOLDER)
+    
+if not os.path.exists(UPLOAD_WORKBENCH_FOLDER):
+    os.makedirs(UPLOAD_WORKBENCH_FOLDER)
     
     
     
@@ -64,18 +69,18 @@ def upload_file():
     file_name = base_name + extension
     file_path = os.path.join(UPLOAD_FOLDER, file_name)
     
-    cache.set('file_path', file_path, timeout=300)
-    cache.set(f'file_name_{user_id}', file_name, timeout=300)
-    cache.set(f'extension_{user_id}', extension, timeout=300)
+    cache.set('file_path', file_path, timeout=1300)
+    cache.set(f'file_name_{user_id}', file_name, timeout=1300)
+    cache.set(f'extension_{user_id}', extension, timeout=1300)
     
-    cache.set(f'base_name_{user_id}', base_name, timeout=300)
+    cache.set(f'base_name_{user_id}', base_name, timeout=1300)
     
-    cache.set(f"original_name_{user_id}", original_name, timeout=300)
+    cache.set(f"original_name_{user_id}", original_name, timeout=1300)
     
     logger.info(f"Stored file to cache: {cache.get('file_name')}")
 
     file.save(file_path)
-    delete_after_delay(file_path, delay=600)
+    delete_after_delay(file_path, delay=1200)
    
     try:
         azure_response = upload_blob(file_path, file_name, "source")
@@ -90,6 +95,48 @@ def upload_file():
         'file_path': file_path,
         'azure_response': azure_response
     })
+    
+@upload.route('/upload-workbench', methods=['POST'])
+@jwt_required()
+def upload_workbench_file():
+    user_id = get_jwt_identity()
+    
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file provided'}), 400
+    
+    file = request.files['file']
+    original_name = file.filename
+    extension = os.path.splitext(original_name)[1]
+    original_name = os.path.splitext(original_name)[0]
+    
+    base_name = str(uuid.uuid4())
+    file_name = base_name + extension
+    file_path = os.path.join(UPLOAD_WORKBENCH_FOLDER, file_name)
+    
+    cache.set('file_path', file_path, timeout=1300)
+    cache.set(f'file_name_wb_{user_id}', file_name, timeout=1300)
+    cache.set(f'extension_{user_id}', extension, timeout=1300)
+    
+    cache.set(f'base_name_{user_id}', base_name, timeout=1300)
+    
+    cache.set(f"original_name_{user_id}", original_name, timeout=1300)
+    file.save(file_path)
+    delete_after_delay(file_path, delay=1200)
+    
+    try:
+        logger.info(f"File uploaded")
+        logger.info(cache.get(f"file_name_wb_{user_id}"))
+    except Exception as e:
+        logger.error(f"Error uploading file {str(e)}")
+        return jsonify({'error': 'failed'}), 500
+
+    return jsonify({
+        'message': 'File uploaded successfully',
+        'filename': file_name,
+        'file_path': file_path,
+    })
+
+
     
 @upload.route('/upload-merge-original', methods=['POST'])
 @jwt_required()
@@ -109,24 +156,24 @@ def upload_merge_original():
     file_name = base_name + extension
     file_path = os.path.join(UPLOAD_MERGE_FOLDER, file_name)
     
-    cache.set('file_path', file_path, timeout=300)
-    cache.set(f'file_name_mtpe_{user_id}', file_name, timeout=300)
-    cache.set(f'extension_{user_id}', extension, timeout=300)
+    cache.set('file_path', file_path, timeout=1300)
+    cache.set(f'file_name_mtpe_{user_id}', file_name, timeout=1300)
+    cache.set(f'extension_{user_id}', extension, timeout=1300)
     
-    cache.set(f'base_name_{user_id}', base_name, timeout=300)
+    cache.set(f'base_name_{user_id}', base_name, timeout=1300)
     
-    cache.set(f"original_name_{user_id}", original_name, timeout=300)
+    cache.set(f"original_name_{user_id}", original_name, timeout=1300)
     
     logger.info(f"Stored file to cache: {cache.get('file_name')}")
 
     file.save(file_path)
-    delete_after_delay(file_path, delay=600)
+    delete_after_delay(file_path, delay=1200)
    
     try:
         logger.info(f"File uploaded")
     except Exception as e:
         logger.error(f"Error uploading file {str(e)}")
-        return jsonify({'error': 'Azure failed'}), 500
+        return jsonify({'error': 'failed'}), 500
 
     return jsonify({
         'message': 'File uploaded successfully',
@@ -153,7 +200,7 @@ def upload_merge_xlf():
     logger.info(f"Stored file to cache: {cache.get('file_name')}")
 
     file.save(file_path)
-    delete_after_delay(file_path, delay=600)
+    delete_after_delay(file_path, delay=1200)
    
     try:
         logger.info(f"File uploaded")
@@ -186,18 +233,18 @@ def upload_file_mtpe():
     file_name = base_name + extension
     file_path = os.path.join(UPLOAD_MTPE_FOLDER, file_name)
     
-    cache.set('file_path', file_path, timeout=300)
-    cache.set(f'file_name_{user_id}', file_name, timeout=300)
-    cache.set(f'extension_{user_id}', extension, timeout=300)
+    cache.set('file_path', file_path, timeout=1300)
+    cache.set(f'file_name_{user_id}', file_name, timeout=1300)
+    cache.set(f'extension_{user_id}', extension, timeout=1300)
     
-    cache.set(f'base_name_{user_id}', base_name, timeout=300)
+    cache.set(f'base_name_{user_id}', base_name, timeout=1300)
     
-    cache.set(f"original_name_{user_id}", original_name, timeout=300)
+    cache.set(f"original_name_{user_id}", original_name, timeout=1300)
     
     logger.info(f"Stored file to cache: {cache.get('file_name')}")
 
     file.save(file_path)
-    delete_after_delay(file_path, delay=600)
+    delete_after_delay(file_path, delay=1200)
    
     try:
         azure_response = upload_blob(file_path, file_name, "mtpe-template")
@@ -236,17 +283,17 @@ def upload_audio_file():
     file_path = os.path.join(UPLOAD_AUDIO_FOLDER, file_name)
     
     
-    cache.set('file_path', file_path, timeout=300)
-    cache.set(f'file_name_{user_id}', file_name, timeout=300)
-    cache.set(f'extension_{user_id}', extension, timeout=300)
-    cache.set(f'base_name_{user_id}', base_name, timeout=300)
-    cache.set(f"original_name_{user_id}", original_name, timeout=300)
+    cache.set('file_path', file_path, timeout=1300)
+    cache.set(f'file_name_{user_id}', file_name, timeout=1300)
+    cache.set(f'extension_{user_id}', extension, timeout=1300)
+    cache.set(f'base_name_{user_id}', base_name, timeout=1300)
+    cache.set(f"original_name_{user_id}", original_name, timeout=1300)
     
     logger.info(f"Stored file to cache: {file_name}")
 
  
     file.save(file_path)
-    delete_after_delay(file_path, delay=600)
+    delete_after_delay(file_path, delay=1200)
     return jsonify({
         'message': 'File uploaded successfully',
         'filename': file_name,
@@ -277,17 +324,17 @@ def upload_audio_enchanced_file():
     file_path = os.path.join(UPLOAD_ENHANCED_FOLDER, file_name)
     
    
-    cache.set('file_path', file_path, timeout=300)
-    cache.set(f'file_name_{user_id}', file_name, timeout=300)
-    cache.set(f'extension_{user_id}', extension, timeout=300)
-    cache.set(f'base_name_{user_id}', base_name, timeout=300)
-    cache.set(f"original_name_{user_id}", original_name, timeout=300)
+    cache.set('file_path', file_path, timeout=1300)
+    cache.set(f'file_name_{user_id}', file_name, timeout=1300)
+    cache.set(f'extension_{user_id}', extension, timeout=1300)
+    cache.set(f'base_name_{user_id}', base_name, timeout=1300)
+    cache.set(f"original_name_{user_id}", original_name, timeout=1300)
     
     logger.info(f"Stored file to cache: {file_name}")
 
     
     file.save(file_path)
-    delete_after_delay(file_path, delay=600)
+    delete_after_delay(file_path, delay=1200)
     
     return jsonify({
         'message': 'File uploaded successfully',
@@ -311,7 +358,7 @@ def upload_folder():
     logger.info(UPLOAD_T2S_FOLDER)
     folder_name = UPLOAD_T2S_FOLDER + "/" + unique
     
-    cache.set('t2s_folder_name', folder_name, timeout=300)
+    cache.set('t2s_folder_name', folder_name, timeout=1300)
     
     
     os.makedirs(folder_name)

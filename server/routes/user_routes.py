@@ -11,11 +11,12 @@ from flask_jwt_extended import (
     set_access_cookies
 )
 
-user_bp = Blueprint("user", __name__)
-
 from flask import jsonify, request
 from datetime import timedelta
 from flask_jwt_extended import create_access_token, set_access_cookies
+
+user_bp = Blueprint("user", __name__)
+
 
 
 @user_bp.route("/users", methods=["GET"])
