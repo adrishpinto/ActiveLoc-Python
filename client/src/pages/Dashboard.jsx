@@ -42,6 +42,7 @@ const Dashboard = () => {
         <Card name="Text to Speech" link="texttospeech" />
         <Card name="Text to Speech Batch" link="texttospeechbatch" />
         <Card name="Merge Files" link="merge-mtpe" />
+        <Card name="Workbench" link="workbench" />
       </div>
     </div>
   );
@@ -51,7 +52,7 @@ const Card = ({ name, link }) => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="border border-gray-400 rounded-xl w-[300px] h-[250px] p-2 mt-5 cursor-hover">
+      <div className="border border-gray-400 rounded-xl w-[270px] h-[250px] p-2 mt-5 mx-2 cursor-hover">
         <div
           onClick={() => navigate(`/${link}`)}
           className="border border-gray-300 rounded w-full h-full p-2 bg-blue-300 flex items-center justify-center cursor-pointer hover:bg-blue-200 "
