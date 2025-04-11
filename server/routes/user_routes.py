@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, make_response  # Removed `session`
 from flask_jwt_extended import create_access_token, set_access_cookies, jwt_required, get_jwt_identity, unset_jwt_cookies # JWT for authentication
-from datetime import timedelta  # Set token expiration
-from models.user_model import User  # Import User model
+from datetime import timedelta 
+from models.user_model import User  
 from mongoengine.errors import NotUniqueError, ValidationError
 from werkzeug.security import generate_password_hash
 from flask_wtf.csrf import generate_csrf
@@ -17,8 +17,6 @@ from flask_jwt_extended import create_access_token, set_access_cookies
 
 user_bp = Blueprint("user", __name__)
 
-
-
 @user_bp.route("/users", methods=["GET"])
 @jwt_required()
 def get_users():
@@ -31,6 +29,8 @@ def get_users():
         return jsonify({"current_user": current_user, "users": user_list}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
     
 
     

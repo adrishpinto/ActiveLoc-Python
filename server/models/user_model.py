@@ -1,7 +1,7 @@
 from mongoengine import Document, StringField, BooleanField, IntField, EnumField
 import enum
 
-# ✅ Define Enum Classes Correctly
+
 class GroupEnum(enum.Enum):
     ADMIN = "Admin"
     SALES = "Sales"
@@ -30,4 +30,4 @@ class User(Document):
     company_name = StringField()
     form_filled = BooleanField(default=True)
 
-    meta = {"collection": "user"}  # Defines the MongoDB collection name
+    meta = {"collection": "user"} 
