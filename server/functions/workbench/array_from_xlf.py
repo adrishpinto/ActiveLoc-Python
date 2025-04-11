@@ -13,7 +13,7 @@ def remove_namespace_prefix(xml_string):
     xml_string = re.sub(r'\sxmlns(:ns\d+)?="[^"]+"', '', xml_string)
     return xml_string
 
-def extract_xlf(file_path):
+def extract_xlf(file_path): 
     tree = ET.parse(file_path)
     root = tree.getroot()
 

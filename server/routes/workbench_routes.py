@@ -38,7 +38,7 @@ def workbench_load():
     else:
         command = [
             "tikal.sh", "-x", f"./all_files/workbench_files/{file_name}",
-            "-nocopy", "-sl", srcLanguage, "-tl", trgLanguage
+            "-nocopy", "-sl", srcLanguage, "-tl", trgLanguage, "-seg", "seg.srx"
         ]
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     
