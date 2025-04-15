@@ -3,7 +3,7 @@ from mongoengine import (
     ListField, EnumField, URLField
 )
 import enum
-from user_model import User 
+from .user_model import User 
 
 
 class PermissionEnum(enum.Enum):

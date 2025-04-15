@@ -1,4 +1,4 @@
-from mongoengine import Document, StringField, BooleanField, IntField, EnumField
+from mongoengine import Document, StringField, BooleanField, IntField, EnumField, DictField
 import enum
 
 
@@ -8,26 +8,17 @@ class GroupEnum(enum.Enum):
     OPERATIONS = "Operations"
     CUSTOMER = "Customer"
     VENDOR = "Vendor"
-    CUSTOM = "Custom"
 
-class CustomerTypeEnum(enum.Enum):
-    BUSINESS = "Business"
-    INDIVIDUAL = "Individual"
 
 class User(Document):
     email = StringField(required=True, unique=True)
     password = StringField(required=True)
     first_name = StringField(required=True, max_length=20)
-    last_name = StringField()
+    last_name = StringField(required=True)
+    group = EnumField(GroupEnum, required=True)
+    status = BooleanField(required=True) 
+    permission = StringField(required=True)
+    usage = DictField(field=IntField(min_value=0), default=dict)
 
-    group = EnumField(GroupEnum, required=True)  
+    
 
-    customer_id = IntField(min_value=100000, max_value=999999) 
-    customer_code = StringField(uppercase=True, min_length=4, max_length=4)
-
-    access_level = StringField()
-    customer_type = EnumField(CustomerTypeEnum) 
-    company_name = StringField()
-    form_filled = BooleanField(default=True)
-
-    meta = {"collection": "user"} 

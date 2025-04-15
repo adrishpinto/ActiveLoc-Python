@@ -1,17 +1,9 @@
-import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MachineTranslate from "./pages/MachineTranslate";
 import PostEditTranslate from "./pages/PostEditTranslate";
 import Login from "./pages/Login";
-import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import Speech2Text from "./pages/Speech2Text";
 import VoiceIsolator from "./pages/VoiceIsolator";
 import FileList from "./pages/FileList";
@@ -21,22 +13,22 @@ import LanguageDropdown from "./components/LanguageDropdownT2S";
 import MergeMTPE from "./pages/MergeMTPE";
 import Workbench from "./pages/Workbench";
 import Test from "./pages/Test";
+import UserProfile from "./pages/UserProfile";
+import ResetPassword from "./pages/ResetPassword";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Layout from "./Layout"; // extracted layout component
 
-function Layout() {
-  const location = useLocation();
-  const [isOpen, setIsOpen] = useState(true);
-  const isLoginPage = location.pathname === "/";
-
+export default function App() {
   return (
-    <div className="flex">
-      {!isLoginPage && <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />}
-      <div
-        className={`flex-1 ${
-          !isLoginPage ? (isOpen ? "sm:ml-64" : "sm:ml-16") : ""
-        }`}
-      >
-        <Routes>
-          <Route path="/" element={<Login />} />
+    <Router>
+      <Routes>
+        {/* Non-layout routes */}
+        <Route path="/" element={<Login />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+
+        {/* Layout-wrapped routes */}
+        <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/machine-translate" element={<MachineTranslate />} />
           <Route path="/postedit-translate" element={<PostEditTranslate />} />
@@ -49,18 +41,11 @@ function Layout() {
           <Route path="/merge-mtpe" element={<MergeMTPE />} />
           <Route path="/workbench" element={<Workbench />} />
           <Route path="/test" element={<Test />} />
-        </Routes>
-      </div>
+          <Route path="/user-profile" element={<UserProfile />} />
+        </Route>
+      </Routes>
 
       <ToastContainer position="top-right" autoClose={3000} />
-    </div>
-  );
-}
-
-export default function App() {
-  return (
-    <Router>
-      <Layout />
     </Router>
   );
 }

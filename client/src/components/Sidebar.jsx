@@ -11,6 +11,7 @@ import { GiSpeaker } from "react-icons/gi";
 import { VscCombine } from "react-icons/vsc";
 import { FileCode } from "lucide-react";
 import { FaEdit } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
 import axios from "axios";
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
@@ -41,7 +42,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       {/* Sidebar Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 left-6 z-50 p-2 bg-gray-800 text-white rounded-lg"
+        className="fixed top-4 left-6 z-50 p-2  bg-gray-800 text-white rounded-lg"
       >
         {!isOpen ? <FaBars /> : <IoMdClose />}
       </button>
@@ -49,7 +50,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       {/* Sidebar */}
       <div
         className={`fixed top-0 left-0 z-40 h-screen p-4 bg-white dark:bg-gray-800 transition-all border-r border-gray-300 ${
-          isOpen ? "w-64" : "w-20"
+          isOpen ? "w-64 overflow-auto" : "w-20"
         }`}
       >
         <h5
@@ -321,8 +322,32 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             </li>
           </div>
 
-          {/* Settings */}
+          {/* User Profile */}
           <li className="pt-10">
+            <button
+              onClick={() => navigate("/user-profile")}
+              className={`relative group flex items-center ${
+                isOpen ? "justify-start" : "justify-center"
+              } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+                "/user-profile"
+              )}`}
+            >
+              <FaUserCircle size={20} />
+              <span
+                className={`ms-3 transition-all ${isOpen ? "block" : "hidden"}`}
+              >
+                User Profile
+              </span>
+
+              {!isOpen && (
+                <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
+                  User Profile
+                </span>
+              )}
+            </button>
+          </li>
+          {/* Settings */}
+          <li className="">
             <button
               onClick={() => navigate("/settings")}
               className={`relative group flex items-center ${

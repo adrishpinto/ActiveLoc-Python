@@ -5,15 +5,19 @@ from models.user_model import User
 from mongoengine.errors import NotUniqueError, ValidationError
 from werkzeug.security import generate_password_hash
 from flask_wtf.csrf import generate_csrf
+from flask_mail import Message
+import random
+from extensions import cache
 from flask import jsonify, request
 from flask_jwt_extended import (
     create_access_token,
     set_access_cookies
 )
-
 from flask import jsonify, request
 from datetime import timedelta
 from flask_jwt_extended import create_access_token, set_access_cookies
+from werkzeug.security import check_password_hash
+from extensions import mail
 
 user_bp = Blueprint("user", __name__)
 
@@ -31,9 +35,7 @@ def get_users():
         return jsonify({"error": str(e)}), 500
 
 
-    
 
-    
 @user_bp.route("/login", methods=["POST"])
 def login():
     try:
@@ -44,9 +46,9 @@ def login():
         if not email or not password:
             return jsonify({"error": "Email and password are required"}), 400
 
-        user = User.objects(email=email, password=password).first()
+        user = User.objects(email=email).first()
 
-        if user:
+        if user and check_password_hash(user.password, password):
             expires = timedelta(hours=1)
             access_token = create_access_token(identity=str(user.id), expires_delta=expires)
 
@@ -57,7 +59,6 @@ def login():
             })
             
             set_access_cookies(response, access_token)
-
             return response
 
         return jsonify({"error": "Invalid email or password"}), 401
@@ -77,40 +78,37 @@ def logout():
         return jsonify({"error": str(e)}), 500
     
     
+    
 @user_bp.route("/edit_user/<user_id>", methods=["PUT"])
 def edit_user(user_id):
     try:
         data = request.get_json()
-        
-        # Find the user by ID
+
         user = User.objects(id=user_id).first()
         if not user:
             return jsonify({'error': 'User not found'}), 404
-        
-        
-        updatable_fields = ['email', 'password', 'first_name', 'group', 'last_name',
-                            'customer_id', 'customer_code', 'access_level', 
-                            'customer_type', 'company_name', 'form_filled']
-        
+
+        updatable_fields = ['email', 'password', 'first_name', 'last_name', 'group', 'status', 'permission']
+
         for field in updatable_fields:
             if field in data:
                 if field == 'password':
                     setattr(user, field, generate_password_hash(data[field]))
                 else:
                     setattr(user, field, data[field])
-        
-        # Save updated user
+
         user.validate()
         user.save()
-        
+
         return jsonify({'message': 'User updated successfully'}), 200
-    
+
     except ValidationError as e:
         return jsonify({'error': 'Validation error', 'details': str(e)}), 400
-    
+
     except Exception as e:
         return jsonify({'error': 'An unexpected error occurred', 'details': str(e)}), 500
 
+    
     
 @user_bp.route("/user", methods=["GET"])
 @jwt_required()  
@@ -124,10 +122,117 @@ def get_user_details():
         return jsonify({
             "user_id": str(user.id),
             "first_name": user.first_name,
+            "last_name": user.last_name,
             "email": user.email,
+            "status": user.status,
+            "group": user.group.value,
+            "permission": user.permission
         })
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    
+   
+   
+@user_bp.route("/add-user", methods=["POST"])
+def create_user():
+    try:
+        data = request.get_json()
+        required_fields = ["email", "password", "first_name", "last_name", "group", "status"]
 
+        missing_fields = [field for field in required_fields if field not in data or not data[field]]
+        if missing_fields:
+           return jsonify({
+              "error": "All required fields must be provided",
+              "missing_fields": missing_fields
+        }), 400
+
+        hashed_password = generate_password_hash(data["password"])
+
+        user = User(
+            email=data["email"],
+            password=hashed_password,
+            first_name=data["first_name"],
+            last_name=data["last_name"],
+            group=data["group"],
+            status=data["status"],
+            permission=data["permission"]
+            # usage is added by default so no need to add here,
+        )
+
+        user.validate()
+        user.save()
+
+        return jsonify({
+            "message": "User created successfully",
+            "user_id": str(user.id)
+        }), 201
+
+    except NotUniqueError:
+        return jsonify({"error": "User with this email already exists"}), 409
+
+    except ValidationError as e:
+        return jsonify({"error": "Validation error", "details": str(e)}), 400
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+
+@user_bp.route("/send-otp", methods=["POST"])
+def send_otp():
+    try:
+        data = request.get_json()
+        email = data.get("email")
+        user = User.objects(email=email).first()
+        if not user:
+            return jsonify({'error': 'User not found'}), 404
+
+        if not email:
+            return jsonify({"error": "Email is required"}), 400
+
+        otp = str(random.randint(100000, 999999))
+
+        cache.set(email, otp, timeout=300) 
+
+        msg = Message(
+            subject="Your OTP Code",
+            recipients=[email],
+            body=f"Your OTP code is: {otp}"
+        )
+        mail.send(msg)
+
+        return jsonify({"message": "OTP sent successfully"}), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
+    
+    
+@user_bp.route("/reset-password", methods=["POST"])
+def reset_password():
+    try:
+        data = request.get_json()
+        email = data.get("email")
+        otp = data.get("otp")
+        new_password = data.get("new_password")
+
+        if not all([email, otp, new_password]):
+            return jsonify({"error": "Email, OTP, and new password are required"}), 400
+
+        cached_otp = cache.get(email)
+        if cached_otp != otp:
+            return jsonify({"error": "Invalid or expired OTP"}), 400
+
+        user = User.objects(email=email).first()
+        if not user:
+            return jsonify({"error": "User not found"}), 404
+
+        user.password = generate_password_hash(new_password)
+        user.save()
+
+        cache.delete(email)
+
+        return jsonify({"message": "Password updated successfully"}), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500

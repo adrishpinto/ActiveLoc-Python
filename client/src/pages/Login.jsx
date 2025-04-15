@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-const App = () => {
+const Login = () => {
   const navigate = useNavigate();
   const [eye, setEye] = useState(false);
   const [email, setEmail] = useState("");
@@ -139,37 +139,28 @@ const App = () => {
               >
                 {eye ? <IoEyeOutline /> : <FaRegEyeSlash />}
               </div>
+
+              {/* forgot password */}
+              <p
+                className="my-2 ml-1 font-semibold text-xs underline text-gray-400 cursor-pointer"
+                onClick={() => navigate("reset-password")}
+              >
+                Forgot password?
+              </p>
             </div>
 
-            <div className="flex items-center mt-4 sm:w-[399px] w-[90%] mx-auto">
-              <input
-                type="checkbox"
-                id="rememberMe"
-                checked={rememberMe}
-                onChange={() => setRememberMe(!rememberMe)}
-                className="h-5 w-5"
-              />
-              <label htmlFor="rememberMe" className="ml-2 text-sm">
-                Remember Me
-              </label>
-            </div>
-
+            <div></div>
             {/* Message display */}
 
             {/* Submit Button */}
             <button
               type="submit"
-              className="relative w-[90%] sm:w-[399px] mx-auto mt-5 h-[54px] bg-[#367AFF] rounded-xl flex items-center justify-center text-white text-[18px] font-semibold cursor-pointer hover:bg-opacity-90"
+              className="relative w-[90%] sm:w-[399px] mx-auto mt-6 h-[54px] bg-[#367AFF] rounded-xl flex items-center justify-center text-white text-[18px] font-semibold cursor-pointer hover:bg-opacity-90"
             >
               Sign in
             </button>
           </form>
 
-          <div className="w-fit sm:w-[399px] mx-auto flex items-center">
-            <div className="h-[1px] sm:w-[181.5px] bg-[#D9D9D9] mt-10 mb-10"></div>
-            <p className="text-[16px] px-2">or</p>
-            <div className="h-[1px] sm:w-[181.5px] bg-[#D9D9D9] mt-10 mb-10"></div>
-          </div>
           {/* <Google /> */}
         </div>
       </div>
@@ -184,4 +175,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Login;

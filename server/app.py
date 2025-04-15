@@ -18,7 +18,9 @@ from routes.t2s_routes import t2s_bp
 from routes.workbench_routes import workbench_bp
 from routes.convert_routes_tikal import convert_tikal_bp
 from routes.merge_routes_tikal import merge_tikal_bp
+from routes.project_routes import project_bp
 from config import CurrentConfig
+from extensions import mail
 
 app = Flask(__name__)
 
@@ -31,11 +33,10 @@ CORS(app, supports_credentials=True,
      methods=CurrentConfig.CORS_METHODS)
 
 cache.init_app(app)
+mail.init_app(app)
+
 
 connect(db="activeloc_users", host=CurrentConfig.MONGO_URI, alias="default")
-
-
-
 
 # Register blueprints
 app.register_blueprint(upload)  
@@ -50,6 +51,7 @@ app.register_blueprint(t2s_bp)
 app.register_blueprint(convert_tikal_bp)
 app.register_blueprint(merge_tikal_bp)
 app.register_blueprint(workbench_bp)
+app.register_blueprint(project_bp)
 
 jwt = JWTManager(app) 
 
