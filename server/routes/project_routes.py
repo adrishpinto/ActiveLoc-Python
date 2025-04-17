@@ -2,12 +2,14 @@ from flask import Blueprint, request, jsonify
 from models.project_model import Project, PermissionEnum
 from models.user_model import User
 from flask_jwt_extended import jwt_required,get_jwt_identity
+from decorator.decorator import group_required
 
 project_bp = Blueprint('projects', __name__)
 
 
 @project_bp.route('/create-project', methods=['POST'])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def create_project():
     user_id = get_jwt_identity()
     owner = User.objects(id=user_id).first()
@@ -33,6 +35,7 @@ def create_project():
 
 @project_bp.route('/add-member', methods=['POST'])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def add_member():
     data = request.json
     project = Project.objects(id=data.get('project_id')).first()
@@ -65,6 +68,7 @@ def add_member():
 
 @project_bp.route('/get-projects', methods=['GET'])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def get_projects():
     user_id = get_jwt_identity()
     user = User.objects(id=user_id).first()
@@ -93,6 +97,7 @@ def get_projects():
 
 @project_bp.route('/project/<project_id>', methods=['GET'])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def get_project_by_id(project_id):
     user_id = get_jwt_identity()
     user = User.objects(id=user_id).first()

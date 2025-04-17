@@ -19,9 +19,9 @@ from routes.workbench_routes import workbench_bp
 from routes.convert_routes_tikal import convert_tikal_bp
 from routes.merge_routes_tikal import merge_tikal_bp
 from routes.project_routes import project_bp
+from routes.customer_vendor_mangement_routes import customer_vendor_bp
 from config import CurrentConfig
 from extensions import mail
-
 app = Flask(__name__)
 
 # config.py set up here
@@ -52,6 +52,7 @@ app.register_blueprint(convert_tikal_bp)
 app.register_blueprint(merge_tikal_bp)
 app.register_blueprint(workbench_bp)
 app.register_blueprint(project_bp)
+app.register_blueprint(customer_vendor_bp)
 
 jwt = JWTManager(app) 
 

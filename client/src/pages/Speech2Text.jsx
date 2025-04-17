@@ -13,31 +13,13 @@ const Speech2Text = () => {
   const [error, setError] = useState(null);
   const [viewing, setViewing] = useState(null);
 
-  const getCookie = (name) => {
-    const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`));
-    return match ? match[2] : null;
-  };
-
-  const fetchCSRFToken = () => {
-    const csrfToken = getCookie("csrf_access_token");
-    if (!csrfToken) {
-      toast.error("CSRF token missing.");
-      return null;
-    }
-    return csrfToken;
-  };
-
   const transcribe = async () => {
-    const csrfToken = fetchCSRFToken();
-    if (!csrfToken) return;
-
     try {
       const response = await axios.post(
         `${API_URL}/transcribe`,
         {},
         {
           withCredentials: true,
-          headers: { "X-CSRF-TOKEN": csrfToken },
         }
       );
 
@@ -54,16 +36,12 @@ const Speech2Text = () => {
   };
 
   const fetchText = async () => {
-    const csrfToken = fetchCSRFToken();
-    if (!csrfToken) return;
-
     try {
       const response = await axios.post(
         `${API_URL}/transcribe-text`,
         {},
         {
           withCredentials: true,
-          headers: { "X-CSRF-TOKEN": csrfToken },
         }
       );
 
@@ -76,16 +54,12 @@ const Speech2Text = () => {
   };
 
   const fetchDialogue = async () => {
-    const csrfToken = fetchCSRFToken();
-    if (!csrfToken) return;
-
     try {
       const response = await axios.post(
         `${API_URL}/transcribe-dialogue`,
         {},
         {
           withCredentials: true,
-          headers: { "X-CSRF-TOKEN": csrfToken },
         }
       );
 
@@ -98,19 +72,14 @@ const Speech2Text = () => {
   };
 
   const fetchSRT = async () => {
-    const csrfToken = fetchCSRFToken();
-    if (!csrfToken) return;
-
     try {
       const response = await axios.post(
         `${API_URL}/transcribe-srt`,
         {},
         {
           withCredentials: true,
-          headers: { "X-CSRF-TOKEN": csrfToken },
         }
       );
-
       if (response.data.subtitles) {
         const formattedSRT = response.data.subtitles
           .map(

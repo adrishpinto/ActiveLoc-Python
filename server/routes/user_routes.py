@@ -18,14 +18,18 @@ from datetime import timedelta
 from flask_jwt_extended import create_access_token, set_access_cookies
 from werkzeug.security import check_password_hash
 from extensions import mail
+from decorator.decorator import group_required
 
 user_bp = Blueprint("user", __name__)
 
 @user_bp.route("/users", methods=["GET"])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def get_users():
     try:
         current_user = get_jwt_identity()
+        
+            
         users = User.objects()
         user_list = [
             {**user.to_mongo().to_dict(), "_id": str(user.id)} for user in users
@@ -51,11 +55,13 @@ def login():
         if user and check_password_hash(user.password, password):
             expires = timedelta(hours=1)
             access_token = create_access_token(identity=str(user.id), expires_delta=expires)
-
+            user_group = getattr(user.group, 'value', "No Group")
+            
             response = jsonify({
                 "message": "Login successful",
                 "user_id": str(user.id),
-                "email": email
+                "email": email,
+                "group": user_group
             })
             
             set_access_cookies(response, access_token)
@@ -112,10 +118,12 @@ def edit_user(user_id):
     
 @user_bp.route("/user", methods=["GET"])
 @jwt_required()  
+@group_required(["Admin", "Sales", "Operations", "Customer"])
 def get_user_details():
     try:
         user_id = get_jwt_identity()
         user = User.objects(id=user_id).first()  
+        
         if not user:
             return jsonify({"error": "User not found"}), 404
 
@@ -134,6 +142,8 @@ def get_user_details():
    
    
 @user_bp.route("/add-user", methods=["POST"])
+@jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def create_user():
     try:
         data = request.get_json()
@@ -172,6 +182,25 @@ def create_user():
 
     except ValidationError as e:
         return jsonify({"error": "Validation error", "details": str(e)}), 400
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@user_bp.route("/delete-user/<user_id>", methods=["DELETE"])
+@jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
+def delete_user(user_id):
+    try:
+        user = User.objects(id=user_id).first()
+        
+        if not user:
+            return jsonify({"error": "User not found"}), 404
+        
+        user.delete()
+
+        return jsonify({
+            "message": "User deleted successfully"
+        }), 200
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500

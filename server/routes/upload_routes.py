@@ -9,6 +9,7 @@ from custom_logger import logger
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from models.user_model import User
 from .delete_file_func import delete_after_delay
+from decorator.decorator import group_required
 
 upload = Blueprint('upload', __name__)
 
@@ -53,6 +54,7 @@ if not os.path.exists(UPLOAD_WORKBENCH_FOLDER):
 #azure file upload for mtpe
 @upload.route('/upload', methods=['POST'])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def upload_file():
     user_id = get_jwt_identity()  
     logger.info(user_id) 
@@ -97,6 +99,7 @@ def upload_file():
     })
     
 @upload.route('/upload-workbench', methods=['POST'])
+@group_required(["Admin", "Sales", "Operations", "Vendor"])
 @jwt_required()
 def upload_workbench_file():
     user_id = get_jwt_identity()
@@ -140,6 +143,7 @@ def upload_workbench_file():
     
 @upload.route('/upload-merge-original', methods=['POST'])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations", "Vendor"])
 def upload_merge_original():
     user_id = get_jwt_identity()  
     logger.info(user_id) 
@@ -184,6 +188,7 @@ def upload_merge_original():
 
 @upload.route('/upload-merge-xlf', methods=['POST'])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations", "Vendor"])
 def upload_merge_xlf():
     user_id = get_jwt_identity()  
     logger.info(user_id) 
@@ -217,6 +222,7 @@ def upload_merge_xlf():
     
 @upload.route('/upload-mtpe', methods=['POST'])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def upload_file_mtpe():
     user_id = get_jwt_identity()  
     logger.info(user_id) 
@@ -265,6 +271,7 @@ def upload_file_mtpe():
 
 @upload.route('/upload_audio', methods=['POST'])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def upload_audio_file():
     user_id = get_jwt_identity()  
     logger.info(user_id) 
@@ -306,6 +313,7 @@ def upload_audio_file():
 
 @upload.route('/upload-enhanced-audio', methods=['POST'])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def upload_audio_enchanced_file():
     user_id = get_jwt_identity()  
     logger.info(user_id) 
@@ -346,6 +354,7 @@ def upload_audio_enchanced_file():
 
 @upload.route('/upload_folder', methods=['POST'])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def upload_folder():
     user_id = get_jwt_identity()  
     logger.info(user_id) 

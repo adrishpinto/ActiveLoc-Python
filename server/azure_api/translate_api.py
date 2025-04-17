@@ -1,15 +1,10 @@
-from flask import Blueprint, session, jsonify, redirect, url_for, request
-from azure.core.credentials import AzureKeyCredential
-from azure.ai.translation.document import DocumentTranslationClient
-from flask_jwt_extended import create_access_token, set_access_cookies, jwt_required, get_jwt_identity
-from dotenv import load_dotenv
-from models.user_model import User
-from extensions import cache
 import os
-import logging
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+from flask import Blueprint, request, jsonify
+import requests
+from dotenv import load_dotenv
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from decorator.decorator import group_required
+from extensions import cache
 
 load_dotenv()
 
@@ -17,44 +12,69 @@ translate = Blueprint('translate', __name__)
 
 @translate.route('/translate', methods=['POST'])
 @jwt_required()
-def translate_file():
-    user_id = get_jwt_identity()  
-    file_name = cache.get(f"file_name_{user_id}")
-    
-    if not file_name:
-        return jsonify({"error": "Please upload a file first"}), 404
-
-    language = request.json.get("lang", "fr")
-
-
-    endpoint = os.getenv("ENDPOINT") 
-    cred = os.getenv("CREDENTIAL")
-    credential = AzureKeyCredential(cred)
-
-    source_url = os.getenv("SOURCE_URL")
-    target_url = os.getenv("TARGET_URL")
-
-    if not source_url or not target_url:
-        return jsonify({"error": "Source or Target URL is not set in environment variables."}), 400
-
-    document_translation_client = DocumentTranslationClient(endpoint, credential)
-
+@group_required(["Admin", "Sales", "Operations"])
+def translate_text():
     try:
-        poller = document_translation_client.begin_translation(source_url, target_url, language, prefix=file_name)
-        result = poller.result()
-        logger.info(f"Translation result: {result}")
-        logger.info(language)
-    except Exception as e:
-        logger.error(f"Error during translation: {str(e)}")
-        return jsonify({"error": str(e)}), 500
+        user_id = get_jwt_identity()
+        file_name = cache.get(f"file_name_{user_id}")
+        
+        if not file_name:
+            return jsonify({"error": "No file found in cache for the user"}), 404
 
-    if poller.status() == "Succeeded":
-        return jsonify({
-            "status": "success",
-            "message": "Translation completed successfully."
-        })
-    else:
-        return jsonify({
-            "status": "failed",
-            "message": f"Translation failed with status: {poller.status()}"
-        })
+        data = request.get_json()
+        language = data.get("lang", "fr")
+
+        if not language:
+            return jsonify({"error": "Missing 'language' in request body"}), 400
+        
+        source_url   = os.getenv("SOURCE_URL")
+        target_url   = os.getenv("TARGET_URL")
+        glossary_url = "https://translatefiles.blob.core.windows.net/glossary/glossary.csv?sp=r&st=2025-04-16T11:47:49Z&se=2025-04-16T19:47:49Z&spr=https&sv=2024-11-04&sr=b&sig=SMhqyP8EkeQMN1hdJMWXbFsOKImI0hmjG6CrfmTExHI%3D"
+        endpoint     = os.getenv("ENDPOINT")
+        key = os.getenv("CREDENTIAL")
+
+        if not all([source_url, target_url, glossary_url, endpoint]):
+            return jsonify({"error": "One or more required environment variables are missing"}), 500
+
+        constructed_url = endpoint
+        headers = {
+            "Content-Type": "application/json",
+            "Ocp-Apim-Subscription-Key": key  # Auth header
+        }
+
+
+        payload = {
+            "inputs": [
+                {
+                    "source": {
+                        "sourceUrl": source_url,
+                        "filter": {
+                            "prefix": file_name
+                        }
+                    },
+                    "targets": [
+                        {
+                            "targetUrl": target_url,
+                            "language": language,
+                            "glossaries": [
+                                {
+                                    "glossaryUrl": glossary_url,
+                                    "format": "csv"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+
+        response = requests.post(constructed_url, headers=headers, json=payload)
+
+        print(f'response status code: {response.status_code}\n'
+              f'response status: {response.reason}\n'
+              f'response headers: {response.headers}')
+
+        return jsonify(response.json()), response.status_code
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500

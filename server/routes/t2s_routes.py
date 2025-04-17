@@ -3,22 +3,23 @@ import uuid
 import time
 from flask import Blueprint, request, jsonify, send_from_directory
 import azure.cognitiveservices.speech as speechsdk
+from decorator.decorator import group_required
+from flask_jwt_extended import jwt_required
 
 t2s_bp = Blueprint('speech', __name__)
 
-# Retrieve environment variables
 speech_key = os.environ.get('SPEECH_KEY')
 speech_region = os.environ.get('SPEECH_REGION')
 
-# Validate environment variables
 if not speech_key or not speech_region:
     raise ValueError("Missing SPEECH_KEY or SPEECH_REGION environment variables. Set them before running.")
 
-# Set output directory
 OUTPUT_FOLDER = "all_files/Text2Speech"
-os.makedirs(OUTPUT_FOLDER, exist_ok=True)  # Ensure the directory exists
+os.makedirs(OUTPUT_FOLDER, exist_ok=True)  
 
 @t2s_bp.route('/synthesize', methods=['POST'])
+@jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def synthesize_speech():
     data = request.json
     text = data.get('text')

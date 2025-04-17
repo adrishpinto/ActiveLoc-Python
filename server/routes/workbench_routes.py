@@ -11,11 +11,13 @@ from azure.translate_xliff import translate_xliff
 from azure.blob_download import blob_download
 from functions.workbench.update_xlf import update_xlf
 from functions.workbench.decode import decode
-
+from decorator.decorator import group_required
 workbench_bp = Blueprint("workbench", __name__)
+
 
 @workbench_bp.route('/load-workbench', methods=['POST'])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations", "Vendor"])
 def workbench_load():    
     user_id = get_jwt_identity()
     file_name = cache.get(f"file_name_wb_{user_id}")
@@ -41,6 +43,7 @@ def workbench_load():
             "-nocopy", "-sl", srcLanguage, "-tl", trgLanguage, "-seg", "seg.srx"
         ]
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    
     
     if result.stderr:
         return jsonify({"error": f"Conversion failed: {result.stderr}"}), 400
@@ -74,6 +77,7 @@ def workbench_load():
 
 @workbench_bp.route('/workbench-update', methods=['POST'])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations", "Vendor"])
 def workbench_update():
     user_id = get_jwt_identity()
     file_name = cache.get(f"file_name_wb_{user_id}")
@@ -96,7 +100,6 @@ def workbench_update():
     try:
         update_xlf(file_path, new_targets)
 
-        # Return the updated XLF file
         return send_file(
             file_path,
             as_attachment=True,

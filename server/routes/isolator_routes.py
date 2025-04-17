@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from elevenlabs.client import ElevenLabs
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from extensions import cache
-
+from decorator.decorator import group_required
 
 load_dotenv()
 
@@ -18,6 +18,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @isolator_bp.route("/isolate-audio", methods=["POST"])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def process_audio():
     user_id = get_jwt_identity()
     file_name = cache.get(f"file_name_{user_id}")

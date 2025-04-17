@@ -13,9 +13,7 @@ const Login = () => {
   const [eye, setEye] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
   const [emailErr, setEmailErr] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
 
   const validateEmail = (email) => {
     const invalidSymbols = /[\s!#$%^&*()+=<>?]/;
@@ -70,17 +68,27 @@ const Login = () => {
         }
       );
 
-      setMessage(response.data.message);
-      console.log("User ID:", response.data.user_id);
+      const userGroup = response.data.group;
 
-      navigate("/dashboard");
+      console.log("User ID:", response.data.user_id);
+      console.log("Group:", userGroup);
+
+      if (userGroup === "Customer") {
+        navigate("/dashboard-c");
+      } else if (
+        userGroup === "Admin" ||
+        userGroup === "Sales" ||
+        userGroup === "Operation"
+      ) {
+        navigate("/dashboard");
+      } else {
+        navigate("/dashboard-c");
+      }
     } catch (error) {
       if (error.response) {
-        setMessage(error.response.data.error);
         toast.error("Invalid email or password");
       } else {
         toast.error("Something went wrong");
-        setMessage("Something went wrong");
       }
     }
   };

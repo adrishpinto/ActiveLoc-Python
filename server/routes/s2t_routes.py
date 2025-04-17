@@ -6,7 +6,8 @@ import pickle
 from custom_logger import logger 
 from extensions import cache
 from flask_jwt_extended import jwt_required, get_jwt_identity
-
+from decorator.decorator import group_required
+from .delete_file_func import delete_after_delay
 load_dotenv()
 
 speech_bp = Blueprint("speech_bp", __name__)
@@ -15,6 +16,7 @@ client = ElevenLabs(api_key=os.getenv("ELEVENLABS_API_KEY"))
 
 @speech_bp.route("/transcribe", methods=["POST"])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def transcribe():
     try:
         user_id = get_jwt_identity()
@@ -25,6 +27,7 @@ def transcribe():
 
         audio_file_path = f"./all_files/audio/{file_name}"
         
+        
         with open(audio_file_path, "rb") as audio_data:
             transcription = client.speech_to_text.convert(
                 file=audio_data,
@@ -33,9 +36,17 @@ def transcribe():
                 language_code="eng",
                 diarize=True,
             )
+            
+        print("=== Transcription Result ===")
+        print(transcription)
+        
+        output_dir = f"./all_files/audio_output"
+        os.makedirs(output_dir, exist_ok=True)
         
         with open(f"./all_files/audio_output/{file_name}.pkl", "wb") as file:
             pickle.dump(transcription, file)
+            
+        delete_after_delay(f"./all_files/audio_output/{file_name}.pkl", 1800)
 
         return jsonify({"success": True, "message": "Transcription complete and saved to file."}), 200
 
@@ -45,6 +56,7 @@ def transcribe():
 
 @speech_bp.route("/transcribe-text", methods=["POST"])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def transcribe_audio():
     try:
         user_id = get_jwt_identity()
@@ -65,6 +77,7 @@ def transcribe_audio():
 
 @speech_bp.route("/transcribe-dialogue", methods=["POST"])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def transcribe_dialogue():
     try:
         user_id = get_jwt_identity()
@@ -102,6 +115,7 @@ def transcribe_dialogue():
     
 @speech_bp.route("/transcribe-srt", methods=["POST"])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def transcribe_srt():
     try:
         user_id = get_jwt_identity()

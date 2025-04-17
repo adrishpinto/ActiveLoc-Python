@@ -8,10 +8,14 @@ from custom_logger import logger
 from uuid import uuid4
 import os 
 import time
+from decorator.decorator import group_required
+from flask_jwt_extended import jwt_required
 # Define the blueprint
 t2s_batch = Blueprint('t2s_batch', __name__)
 
 @t2s_batch.route('/t2s_batch', methods=['POST'])
+@jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def t2s_batch_func():
     data = request.get_json()
     voice = data.get("voice")

@@ -22,9 +22,6 @@ const MachineTranslate = () => {
         { lang: language },
         {
           withCredentials: true,
-          headers: {
-            "X-CSRF-TOKEN": "7e751158-100e-4ea1-87a7-54ccc8b9b594",
-          },
         }
       );
 

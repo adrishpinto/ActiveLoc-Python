@@ -5,6 +5,7 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 from extensions import cache
 from azure.upload_blob_xliff import upload_blob_xliff
 from azure.translate_xliff import translate_xliff
+from decorator.decorator import group_required
 
 
 
@@ -12,6 +13,7 @@ convert_tikal_bp = Blueprint('convert_tikal_bp', __name__)
 
 @convert_tikal_bp.route("/convert-file", methods=['POST'])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def convert():
     user_id = get_jwt_identity()
     file_name = cache.get(f"file_name_{user_id}")

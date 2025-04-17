@@ -12,13 +12,29 @@ import { VscCombine } from "react-icons/vsc";
 import { FileCode } from "lucide-react";
 import { FaEdit } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
+import { FaUserPlus } from "react-icons/fa";
+import { useEffect } from "react";
+
 import axios from "axios";
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
   const navigate = useNavigate();
   const location = useLocation();
-
+  const [group, setGroup] = useState("");
   const API_URL = import.meta.env.VITE_API_URL;
+
+  const getUser = async () => {
+    try {
+      const res = await axios.get(`${API_URL}/user`, { withCredentials: true });
+      setGroup(res.data.group);
+    } catch (error) {
+      console.error("Error fetching user:", error);
+    }
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
 
   const logout = async () => {
     try {
@@ -320,6 +336,48 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 )}
               </button>
             </li>
+          </div>
+
+          {/* USER CREATION FOR ADMIN / SALES / OPERATIONS */}
+
+          <div className={`${isOpen ? "pt-4 space-y-1" : "pt-0 space-y-2"}`}>
+            {isOpen && (
+              <div className="flex items-center w-full my-2">
+                <div className="w-[25%] h-[1px] bg-gray-300"></div>
+                <p className="text-[12px] text-gray-400 font-[400] mx-2">
+                  Manage Users
+                </p>
+                <div className="w-[25%] h-[1px] bg-gray-300"></div>
+              </div>
+            )}
+            {group == "Sales" && (
+              <li>
+                <button
+                  onClick={() => navigate("/customer-table")}
+                  className={`relative group flex items-center ${
+                    isOpen ? "justify-start" : "justify-center"
+                  } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+                    "/customer-table"
+                  )}`}
+                >
+                  <FaUserPlus size={20} />
+                  <span
+                    className={`ms-3 transition-all ${
+                      isOpen ? "block" : "hidden"
+                    }`}
+                  >
+                    Manage Customers
+                  </span>
+
+                  {!isOpen && (
+                    <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
+                      Manage Customers
+                    </span>
+                  )}
+                </button>
+              </li>
+            )}
+            {group == "Admin" && <div>unavalible</div>}
           </div>
 
           {/* User Profile */}

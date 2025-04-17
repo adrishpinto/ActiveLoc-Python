@@ -33,7 +33,10 @@ const Dashboard = () => {
         <h1 className="text-center text-4xl ml-2">{name}</h1>
       </motion.div>
 
-      <h1 className="text-center text-4xl mt-10 font-[200]">Our Sevices</h1>
+      <h1 className="text-center text-4xl mt-10 font-[200]">
+        Service Catalogue
+      </h1>
+
       <div className="border flex sm:flex-row gap-4 items-center justify-center flex-col mt-10 flex-wrap">
         <Card name="Machine Translation" link="machine-translate" />
         <Card name="Post Edit Translation" link="postedit-translate" />

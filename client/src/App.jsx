@@ -17,31 +17,156 @@ import UserProfile from "./pages/UserProfile";
 import ResetPassword from "./pages/ResetPassword";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Layout from "./Layout"; // extracted layout component
+import Layout from "./Layout";
+import ProtectedRoute from "./ProtectedRoute";
+import CustomerDashboard from "./groups/customer/pages/CustomerDashboard";
+import AddCustomer from "./groups/sales/components/AddCustomer";
+import CustomerTable from "./groups/sales/components/CustomerTable";
+
+const internalGroups = ["Admin", "Sales", "Operations"];
 
 export default function App() {
   return (
     <Router>
       <Routes>
-        {/* Non-layout routes */}
+        {/* Public routes */}
         <Route path="/" element={<Login />} />
         <Route path="/reset-password" element={<ResetPassword />} />
 
-        {/* Layout-wrapped routes */}
+        {/* Protected routes under layout */}
         <Route element={<Layout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/machine-translate" element={<MachineTranslate />} />
-          <Route path="/postedit-translate" element={<PostEditTranslate />} />
-          <Route path="/speechtotext" element={<Speech2Text />} />
-          <Route path="/voice-isolator" element={<VoiceIsolator />} />
-          <Route path="/file-list" element={<FileList />} />
-          <Route path="/texttospeech" element={<Text2Speech />} />
-          <Route path="/texttospeechbatch" element={<Text2SpeechBatch />} />
-          <Route path="/t" element={<LanguageDropdown />} />
-          <Route path="/merge-mtpe" element={<MergeMTPE />} />
-          <Route path="/workbench" element={<Workbench />} />
-          <Route path="/test" element={<Test />} />
-          <Route path="/user-profile" element={<UserProfile />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute allowedGroups={internalGroups}>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/machine-translate"
+            element={
+              <ProtectedRoute allowedGroups={internalGroups}>
+                <MachineTranslate />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/postedit-translate"
+            element={
+              <ProtectedRoute allowedGroups={internalGroups}>
+                <PostEditTranslate />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/speechtotext"
+            element={
+              <ProtectedRoute allowedGroups={internalGroups}>
+                <Speech2Text />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/voice-isolator"
+            element={
+              <ProtectedRoute allowedGroups={internalGroups}>
+                <VoiceIsolator />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/file-list"
+            element={
+              <ProtectedRoute allowedGroups={internalGroups}>
+                <FileList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/texttospeech"
+            element={
+              <ProtectedRoute allowedGroups={internalGroups}>
+                <Text2Speech />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/texttospeechbatch"
+            element={
+              <ProtectedRoute allowedGroups={internalGroups}>
+                <Text2SpeechBatch />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/t"
+            element={
+              <ProtectedRoute allowedGroups={internalGroups}>
+                <LanguageDropdown />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/merge-mtpe"
+            element={
+              <ProtectedRoute allowedGroups={internalGroups}>
+                <MergeMTPE />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/workbench"
+            element={
+              <ProtectedRoute allowedGroups={internalGroups}>
+                <Workbench />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/test"
+            element={
+              <ProtectedRoute allowedGroups={internalGroups}>
+                <Test />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/user-profile"
+            element={
+              <ProtectedRoute allowedGroups={[...internalGroups, "Customer"]}>
+                <UserProfile />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* SALES SPECIFIC ROUTES */}
+          <Route
+            path="/add-customer"
+            element={
+              <ProtectedRoute allowedGroups={["Sales", "Admin", "Operations"]}>
+                <AddCustomer />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/customer-table"
+            element={
+              <ProtectedRoute allowedGroups={["Sales", "Admin", "Operations"]}>
+                <CustomerTable />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/dashboard-c"
+            element={
+              <ProtectedRoute allowedGroups={["Customer", "Admin"]}>
+                <CustomerDashboard />
+              </ProtectedRoute>
+            }
+          />
         </Route>
       </Routes>
 

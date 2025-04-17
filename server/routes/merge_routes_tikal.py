@@ -7,11 +7,13 @@ from azure.upload_blob_xliff import upload_blob_xliff
 from azure.translate_xliff import translate_xliff
 from custom_logger import logger
 import os
+from decorator.decorator import group_required
 
 merge_tikal_bp = Blueprint('merge_tikal_bp', __name__)
 
 @merge_tikal_bp.route("/merge-file", methods=['POST'])
 @jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def merge():
     user_id = get_jwt_identity()
     file_name = cache.get(f"file_name_mtpe_{user_id}")
