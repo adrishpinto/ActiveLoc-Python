@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import CustomerSidebar from "./groups/customer/components/CustomerSidebar";
+import VendorSidebar from "./groups/vendor/components/VendorSidebar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -59,6 +60,16 @@ export default function Layout() {
     return (
       <div className="flex">
         <CustomerSidebar isOpen={isOpen} setIsOpen={setIsOpen} />
+        <div className={`flex-1 ${isOpen ? "sm:ml-64" : "sm:ml-20"}`}>
+          <Outlet context={{ group }} />
+        </div>
+      </div>
+    );
+
+  if (group === "Vendor")
+    return (
+      <div className="flex">
+        <VendorSidebar isOpen={isOpen} setIsOpen={setIsOpen} />
         <div className={`flex-1 ${isOpen ? "sm:ml-64" : "sm:ml-20"}`}>
           <Outlet context={{ group }} />
         </div>

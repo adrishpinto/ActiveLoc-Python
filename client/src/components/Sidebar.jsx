@@ -66,7 +66,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       {/* Sidebar */}
       <div
         className={`fixed top-0 left-0 z-40 h-screen p-4 bg-white dark:bg-gray-800 transition-all border-r border-gray-300 ${
-          isOpen ? "w-64 overflow-auto" : "w-20"
+          isOpen ? "w-72 overflow-auto" : "w-20"
         }`}
       >
         <h5
@@ -136,6 +136,32 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 {!isOpen && (
                   <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
                     Machine Translation
+                  </span>
+                )}
+              </button>
+            </li>
+            {/* mt v2 */}
+            <li>
+              <button
+                onClick={() => navigate("/machine-translate_v2")}
+                className={`relative group flex items-center ${
+                  isOpen ? "justify-start" : "justify-center"
+                } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+                  "/machine-translate_v2"
+                )}`}
+              >
+                <MdGTranslate size={20} className="text-cyan-800" />
+                <span
+                  className={`ms-3 transition-all ${
+                    isOpen ? "block" : "hidden"
+                  }`}
+                >
+                  Machine Translation V2
+                </span>
+
+                {!isOpen && (
+                  <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
+                    Machine Translation V2
                   </span>
                 )}
               </button>
@@ -377,7 +403,60 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 </button>
               </li>
             )}
-            {group == "Admin" && <div>unavalible</div>}
+            {group == "Operations" && (
+              <li>
+                <button
+                  onClick={() => navigate("/vendor-table")}
+                  className={`relative group flex items-center ${
+                    isOpen ? "justify-start" : "justify-center"
+                  } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+                    "/customer-table"
+                  )}`}
+                >
+                  <FaUserPlus size={20} />
+                  <span
+                    className={`ms-3 transition-all ${
+                      isOpen ? "block" : "hidden"
+                    }`}
+                  >
+                    Manage Vendors
+                  </span>
+
+                  {!isOpen && (
+                    <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
+                      Manage Vendors
+                    </span>
+                  )}
+                </button>
+              </li>
+            )}
+            {group == "Admin" && (
+              <li>
+                <button
+                  onClick={() => navigate("/user-table")}
+                  className={`relative group flex items-center ${
+                    isOpen ? "justify-start" : "justify-center"
+                  } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
+                    "/customer-table"
+                  )}`}
+                >
+                  <FaUserPlus size={20} />
+                  <span
+                    className={`ms-3 transition-all ${
+                      isOpen ? "block" : "hidden"
+                    }`}
+                  >
+                    Manage Users
+                  </span>
+
+                  {!isOpen && (
+                    <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
+                      Manage Users
+                    </span>
+                  )}
+                </button>
+              </li>
+            )}
           </div>
 
           {/* User Profile */}

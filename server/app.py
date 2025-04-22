@@ -6,7 +6,7 @@ from extensions import cache
 import os
 
 from routes.upload_routes import upload
-from azure_api.translate_api import translate
+from routes.translate_api import translate
 from azure_api.download_xliff_api import download_xliff
 from azure_api.download_api import download
 
@@ -20,6 +20,7 @@ from routes.convert_routes_tikal import convert_tikal_bp
 from routes.merge_routes_tikal import merge_tikal_bp
 from routes.project_routes import project_bp
 from routes.customer_vendor_mangement_routes import customer_vendor_bp
+from routes.customer_routes import customer_bp
 from config import CurrentConfig
 from extensions import mail
 app = Flask(__name__)
@@ -39,7 +40,8 @@ mail.init_app(app)
 connect(db="activeloc_users", host=CurrentConfig.MONGO_URI, alias="default")
 
 # Register blueprints
-app.register_blueprint(upload)  
+app.register_blueprint(upload)
+app.register_blueprint(customer_bp)  
 app.register_blueprint(speech_bp)  
 app.register_blueprint(t2s_batch)
 app.register_blueprint(translate) 

@@ -28,11 +28,12 @@ user_bp = Blueprint("user", __name__)
 def get_users():
     try:
         current_user = get_jwt_identity()
-        
-            
+
         users = User.objects()
+        sorted_users = sorted(users, key=lambda u: u.first_name.lower() if u.first_name else "")
+
         user_list = [
-            {**user.to_mongo().to_dict(), "_id": str(user.id)} for user in users
+            {**user.to_mongo().to_dict(), "_id": str(user.id)} for user in sorted_users
         ]
         return jsonify({"current_user": current_user, "users": user_list}), 200
     except Exception as e:
@@ -114,31 +115,6 @@ def edit_user(user_id):
     except Exception as e:
         return jsonify({'error': 'An unexpected error occurred', 'details': str(e)}), 500
 
-    
-    
-@user_bp.route("/user", methods=["GET"])
-@jwt_required()  
-@group_required(["Admin", "Sales", "Operations", "Customer"])
-def get_user_details():
-    try:
-        user_id = get_jwt_identity()
-        user = User.objects(id=user_id).first()  
-        
-        if not user:
-            return jsonify({"error": "User not found"}), 404
-
-        return jsonify({
-            "user_id": str(user.id),
-            "first_name": user.first_name,
-            "last_name": user.last_name,
-            "email": user.email,
-            "status": user.status,
-            "group": user.group.value,
-            "permission": user.permission
-        })
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
    
    
 @user_bp.route("/add-user", methods=["POST"])
@@ -149,28 +125,41 @@ def create_user():
         data = request.get_json()
         required_fields = ["email", "password", "first_name", "last_name", "group", "status"]
 
+        
         missing_fields = [field for field in required_fields if field not in data or not data[field]]
         if missing_fields:
-           return jsonify({
-              "error": "All required fields must be provided",
-              "missing_fields": missing_fields
-        }), 400
+            return jsonify({
+                "error": "All required fields must be provided",
+                "missing_fields": missing_fields
+            }), 400
 
+       
         hashed_password = generate_password_hash(data["password"])
 
-        user = User(
-            email=data["email"],
-            password=hashed_password,
-            first_name=data["first_name"],
-            last_name=data["last_name"],
-            group=data["group"],
-            status=data["status"],
-            permission=data["permission"]
-            # usage is added by default so no need to add here,
-        )
+        
+        user_data = {
+            "email": data["email"],
+            "password": hashed_password,
+            "first_name": data["first_name"],
+            "last_name": data["last_name"],
+            "group": data["group"],
+            "status": data["status"],
+            "permission": data.get("permission", ""), 
+        }
 
-        user.validate()
-        user.save()
+      
+        if "phone_number" in data and data["phone_number"]:
+            user_data["phone_number"] = data["phone_number"]
+        if "city" in data and data["city"]:
+            user_data["city"] = data["city"]
+        if "country" in data and data["country"]:
+            user_data["country"] = data["country"]
+        if "organization_name" in data and data["organization_name"]:
+            user_data["organization_name"] = data["organization_name"]
+
+        user = User(**user_data)
+        user.validate() 
+        user.save()  
 
         return jsonify({
             "message": "User created successfully",
@@ -186,16 +175,22 @@ def create_user():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+
+
 @user_bp.route("/delete-user/<user_id>", methods=["DELETE"])
 @jwt_required()
 @group_required(["Admin", "Sales", "Operations"])
 def delete_user(user_id):
     try:
         user = User.objects(id=user_id).first()
+        protected_email = user.email.split("@")
         
         if not user:
             return jsonify({"error": "User not found"}), 404
         
+        if protected_email[1] == "activeloc.com":
+            return jsonify({"error": "This user cannot be deleted"}), 403
+
         user.delete()
 
         return jsonify({
@@ -204,6 +199,8 @@ def delete_user(user_id):
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
 
 
 
@@ -262,6 +259,44 @@ def reset_password():
         cache.delete(email)
 
         return jsonify({"message": "Password updated successfully"}), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
+    
+@user_bp.route("/user", methods=["GET"])
+@jwt_required()
+@group_required(["Admin", "Sales", "Operations", "Customer","Vendor"])
+def get_user_details():
+    try:
+        user_id = get_jwt_identity()
+        user = User.objects(id=user_id).first()
+
+        if not user:
+            return jsonify({"error": "User not found"}), 404
+
+       
+        response = {
+            "user_id": str(user.id),
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "email": user.email,
+            "status": user.status,
+            "group": user.group.value,
+            "permission": user.permission
+        }
+
+       
+        if user.phone_number:
+            response["phone_number"] = user.phone_number
+        if user.city:
+            response["city"] = user.city
+        if user.country:
+            response["country"] = user.country
+        if user.organization_name:
+            response["organization_name"] = user.organization_name
+
+        return jsonify(response)
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500

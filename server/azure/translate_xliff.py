@@ -9,7 +9,7 @@ def translate_xliff(file_name, language):
     if not file_name or not language:
         return {"error": "File name and language are required."}, 400
 
-    endpoint = os.getenv("ENDPOINT")
+    endpoint = os.getenv("ENDPOINT1")
     credential = os.getenv("CREDENTIAL")
     source_url = os.getenv("SOURCE_XLIFF_URL")
     target_url = os.getenv("TARGET_XLIFF_URL")

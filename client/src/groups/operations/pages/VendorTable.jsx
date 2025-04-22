@@ -3,7 +3,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-// Modal component
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
@@ -22,8 +21,8 @@ const Modal = ({ isOpen, onClose, children }) => {
   );
 };
 
-const CustomerTable = () => {
-  const [customers, setCustomers] = useState([]);
+const VendorTable = () => {
+  const [vendors, setVendors] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const navigate = useNavigate();
@@ -44,7 +43,7 @@ const CustomerTable = () => {
         withCredentials: true,
       });
       toast.success("User deleted");
-      setCustomers((prev) => prev.filter((c) => c._id !== userId));
+      setVendors((prev) => prev.filter((c) => c._id !== userId));
     } catch (error) {
       console.error(
         "Error deleting user:",
@@ -55,29 +54,29 @@ const CustomerTable = () => {
   };
 
   useEffect(() => {
-    const fetchCustomers = async () => {
+    const fetchVendors = async () => {
       try {
-        const response = await axios.get(`${API_URL}/users-customer`, {
+        const response = await axios.get(`${API_URL}/users-vendor`, {
           withCredentials: true,
         });
-        setCustomers(response.data.customers);
+        setVendors(response.data.vendors);
       } catch (error) {
-        toast.error("Error fetching customers");
+        toast.error("Error fetching vendors");
       }
     };
 
-    fetchCustomers();
+    fetchVendors();
   }, []);
 
-  const EditCustomer = (customer) => {
-    setSelectedUser(customer);
+  const EditVendor = (vendor) => {
+    setSelectedUser(vendor);
     setFormData({
-      email: customer.email,
-      first_name: customer.first_name,
-      last_name: customer.last_name,
-      group: customer.group,
-      status: customer.status,
-      permission: customer.permission || "",
+      email: vendor.email,
+      first_name: vendor.first_name,
+      last_name: vendor.last_name,
+      group: vendor.group,
+      status: vendor.status,
+      permission: vendor.permission || "",
     });
     setIsEditing(true);
   };
@@ -100,12 +99,10 @@ const CustomerTable = () => {
       setIsEditing(false);
       setSelectedUser(null);
 
-      const updatedCustomers = customers.map((customer) =>
-        customer._id === selectedUser._id
-          ? { ...customer, ...formData }
-          : customer
+      const updatedVendors = vendors.map((vendor) =>
+        vendor._id === selectedUser._id ? { ...vendor, ...formData } : vendor
       );
-      setCustomers(updatedCustomers);
+      setVendors(updatedVendors);
     } catch (error) {
       toast.error("Error updating user");
     }
@@ -113,12 +110,12 @@ const CustomerTable = () => {
 
   return (
     <div className="p-6 bg-gray-50 rounded-lg shadow-md">
-      <h2 className="text-2xl font-semibold text-center mb-4">Customer List</h2>
+      <h2 className="text-2xl font-semibold text-center mb-4">Vendor List</h2>
       <div
-        onClick={() => navigate("/add-customer")}
+        onClick={() => navigate("/add-vendor")}
         className="bg-green-500 text-white px-2 py-1 w-fit rounded-lg mt-2 mb-4 cursor-pointer border-green-500 border"
       >
-        Add Customer +
+        Add Vendor +
       </div>
 
       {/* Edit Modal */}
@@ -131,7 +128,7 @@ const CustomerTable = () => {
             name="first_name"
             value={formData.first_name}
             onChange={handleInputChange}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
           />
         </div>
         <div className="mb-2">
@@ -141,7 +138,7 @@ const CustomerTable = () => {
             name="last_name"
             value={formData.last_name}
             onChange={handleInputChange}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
           />
         </div>
         <div className="mb-2">
@@ -151,7 +148,7 @@ const CustomerTable = () => {
             name="email"
             value={formData.email}
             onChange={handleInputChange}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
           />
         </div>
         <div className="mb-2">
@@ -159,9 +156,10 @@ const CustomerTable = () => {
           <input
             type="text"
             name="group"
+            readOnly
             value={formData.group}
             onChange={handleInputChange}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded focus:outline-none focus:border-blue-500 cursor-not-allowed bg-slate-100"
           />
         </div>
         <div className="mb-4">
@@ -170,7 +168,7 @@ const CustomerTable = () => {
             name="status"
             value={formData.status}
             onChange={handleInputChange}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
           >
             <option value={true}>Activated</option>
             <option value={false}>Deactivated</option>
@@ -192,7 +190,7 @@ const CustomerTable = () => {
         </div>
       </Modal>
 
-      {/* Customer Table */}
+      {/* Vendor Table */}
       <div className="flex flex-col">
         <div className="flex w-full border bg-cyan-500 text-white font-semibold">
           <div className="w-[14%] px-2 py-2">First Name</div>
@@ -204,41 +202,36 @@ const CustomerTable = () => {
           <div className="w-[11%] px-2 py-2">Remove</div>
         </div>
 
-        {customers.map((customer) => (
+        {vendors.map((vendor) => (
           <div
-            key={customer._id}
+            key={vendor._id}
             className="flex w-full border-b hover:bg-gray-100 items-center"
           >
-            <div className="w-[14%] px-2 py-2">{customer.first_name}</div>
-            <div className="w-[14%] px-2 py-2">{customer.last_name}</div>
-            <div className="w-[20%] px-2 py-2">{customer.email}</div>
-            <div className="w-[14%] px-2 py-2">{customer.group}</div>
+            <div className="w-[14%] px-2 py-2">{vendor.first_name}</div>
+            <div className="w-[14%] px-2 py-2">{vendor.last_name}</div>
+            <div className="w-[20%] px-2 py-2">{vendor.email}</div>
+            <div className="w-[14%] px-2 py-2">{vendor.group}</div>
             <div className="w-[14%]">
               <div
                 className={`w-fit px-2 py-1 rounded-full text-center text-sm ${
-                  customer.status
+                  vendor.status
                     ? "bg-green-200 text-green-700"
                     : "bg-red-200 text-red-600"
                 }`}
               >
-                {customer.status ? "Activated" : "Deactivated"}
+                {vendor.status ? "Activated" : "Deactivated"}
               </div>
             </div>
             <div className="w-[11%] px-2 py-2">
               <button
-                onClick={() => EditCustomer(customer)}
+                onClick={() => EditVendor(vendor)}
                 className="px-3 py-1 bg-sky-500 text-white rounded"
               >
                 Edit
               </button>
             </div>
             <div className="w-[11%] px-2 py-2">
-              <button
-                onClick={() => deleteUser(customer._id)}
-                className="px-3 py-1 bg-red-500 text-white rounded"
-              >
-                Delete
-              </button>
+              <ConfirmDeleteButton onDelete={() => deleteUser(vendor._id)} />
             </div>
           </div>
         ))}
@@ -247,4 +240,49 @@ const CustomerTable = () => {
   );
 };
 
-export default CustomerTable;
+export default VendorTable;
+
+const ConfirmDeleteButton = ({ onDelete }) => {
+  const confirmDelete = () => {
+    toast(
+      ({ closeToast }) => (
+        <div className="flex flex-col gap-2 w-[90%]">
+          <span>Are you sure you want to delete this user?</span>
+          <div className="flex justify-end gap-2">
+            <button
+              onClick={() => {
+                onDelete();
+                closeToast();
+              }}
+              className="px-3 py-1 bg-red-500 text-white rounded"
+            >
+              Yes
+            </button>
+            <button
+              onClick={closeToast}
+              className="px-3 py-1 bg-gray-300 text-black rounded"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      ),
+      {
+        position: "top-center",
+        autoClose: false,
+        closeOnClick: false,
+        closeButton: false,
+        draggable: false,
+      }
+    );
+  };
+
+  return (
+    <button
+      onClick={confirmDelete}
+      className="px-3 py-1 bg-red-500 text-white rounded"
+    >
+      Delete
+    </button>
+  );
+};

@@ -35,11 +35,8 @@ const MergeMTPE = () => {
   return (
     <div className="w-[80%] lg:w-[60%] border border-black mx-auto rounded-2xl my-20 p-10 flex items-center justify-center flex-col ">
       <h1 className="text-3xl mb-8 text-center">Merge Files</h1>
-      <div className="border-2 border-gray-700 bg-gray-200 my-4 p-2 rounded-lg">
-        <p>
-          Make sure the original file name and post edit file name are the same
-        </p>
-        <p>post-edit filename = original filename + .xlf</p>
+      <div className="border-2 border-blue-400 bg-blue-200 my-4 p-2 rounded-lg">
+        <p>Make sure to upload original file first, followed by .xlf file</p>
       </div>
       <div className="flex">
         <FileUpload

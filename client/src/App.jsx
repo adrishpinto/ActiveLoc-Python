@@ -20,8 +20,17 @@ import "react-toastify/dist/ReactToastify.css";
 import Layout from "./Layout";
 import ProtectedRoute from "./ProtectedRoute";
 import CustomerDashboard from "./groups/customer/pages/CustomerDashboard";
-import AddCustomer from "./groups/sales/components/AddCustomer";
-import CustomerTable from "./groups/sales/components/CustomerTable";
+import AddCustomer from "./groups/sales/pages/AddCustomer";
+import CustomerTable from "./groups/sales/pages/CustomerTable";
+import VendorTable from "./groups/operations/pages/VendorTable";
+import AddVendor from "./groups/operations/pages/AddVendor";
+import UserTable from "./groups/admin/pages/UserTable";
+import AddUser from "./groups/admin/pages/AddUser";
+import MachineTranslate_V2 from "./pages/MachineTranslate_V2";
+import VendorDashboard from "./groups/vendor/pages/VendorDashboard";
+import Glossary from "./pages/Glossary";
+import RequirementsForm from "./groups/customer/pages/RequirementsForm";
+import RequirementsList from "./groups/sales/pages/RequirementsList";
 
 const internalGroups = ["Admin", "Sales", "Operations"];
 
@@ -48,6 +57,14 @@ export default function App() {
             element={
               <ProtectedRoute allowedGroups={internalGroups}>
                 <MachineTranslate />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/machine-translate_v2"
+            element={
+              <ProtectedRoute allowedGroups={internalGroups}>
+                <MachineTranslate_V2 />
               </ProtectedRoute>
             }
           />
@@ -140,6 +157,15 @@ export default function App() {
             }
           />
 
+          <Route
+            path="/add-glossary"
+            element={
+              <ProtectedRoute allowedGroups={[...internalGroups]}>
+                <Glossary />
+              </ProtectedRoute>
+            }
+          />
+
           {/* SALES SPECIFIC ROUTES */}
           <Route
             path="/add-customer"
@@ -160,10 +186,75 @@ export default function App() {
           />
 
           <Route
+            path="/requirements-list"
+            element={
+              <ProtectedRoute allowedGroups={["Sales", "Admin", "Operations"]}>
+                <RequirementsList />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Operation Routes */}
+          <Route
+            path="/vendor-table"
+            element={
+              <ProtectedRoute allowedGroups={internalGroups}>
+                <VendorTable />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/add-vendor"
+            element={
+              <ProtectedRoute allowedGroups={internalGroups}>
+                <AddVendor />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Admin Specific user */}
+          <Route
+            path="/user-table"
+            element={
+              <ProtectedRoute allowedGroups={["Admin"]}>
+                <UserTable />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/add-user"
+            element={
+              <ProtectedRoute allowedGroups={["Admin"]}>
+                <AddUser />
+              </ProtectedRoute>
+            }
+          />
+          {/* Customer specific routes */}
+          <Route
             path="/dashboard-c"
             element={
-              <ProtectedRoute allowedGroups={["Customer", "Admin"]}>
+              <ProtectedRoute allowedGroups={["Admin", "Customer"]}>
                 <CustomerDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/requirements-form"
+            element={
+              <ProtectedRoute allowedGroups={["Admin", "Customer"]}>
+                <RequirementsForm />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Vendor specific routes */}
+          <Route
+            path="/dashboard-v"
+            element={
+              <ProtectedRoute allowedGroups={["Vendor", "Admin"]}>
+                <VendorDashboard />
               </ProtectedRoute>
             }
           />

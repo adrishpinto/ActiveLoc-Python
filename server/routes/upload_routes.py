@@ -27,6 +27,8 @@ UPLOAD_MERGE_FOLDER = './all_files/merge_files'
 
 UPLOAD_WORKBENCH_FOLDER = './all_files/workbench_files'
 
+UPLOAD_GLOSSARY_FOLDER = './all_files/glossary'
+
 # create folders if not there
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
@@ -48,6 +50,9 @@ if not os.path.exists(UPLOAD_MERGE_FOLDER):
     
 if not os.path.exists(UPLOAD_WORKBENCH_FOLDER):
     os.makedirs(UPLOAD_WORKBENCH_FOLDER)
+    
+if not os.path.exists(UPLOAD_GLOSSARY_FOLDER):
+    os.makedirs(UPLOAD_GLOSSARY_FOLDER)
     
     
     
@@ -279,7 +284,6 @@ def upload_audio_file():
     if 'file' not in request.files:
         return jsonify({'error': 'No file provided'}), 400
     
-  
     file = request.files['file']
     original_name = file.filename
     extension = os.path.splitext(original_name)[1]
@@ -289,7 +293,6 @@ def upload_audio_file():
     file_name = base_name + extension
     file_path = os.path.join(UPLOAD_AUDIO_FOLDER, file_name)
     
-    
     cache.set('file_path', file_path, timeout=1300)
     cache.set(f'file_name_{user_id}', file_name, timeout=1300)
     cache.set(f'extension_{user_id}', extension, timeout=1300)
@@ -298,7 +301,6 @@ def upload_audio_file():
     
     logger.info(f"Stored file to cache: {file_name}")
 
- 
     file.save(file_path)
     delete_after_delay(file_path, delay=1200)
     return jsonify({
@@ -350,6 +352,97 @@ def upload_audio_enchanced_file():
         'file_path': file_path
     })
     
+@upload.route('/upload-requirments', methods=['POST'])
+@jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
+def upload_req_file():
+    user_id = get_jwt_identity()  
+    logger.info(user_id) 
+     
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file provided'}), 400
+    
+    file = request.files['file']
+    original_name = file.filename
+    extension = os.path.splitext(original_name)[1]
+    original_name = os.path.splitext(original_name)[0]
+    
+    base_name = original_name
+    req_file_name = base_name + extension
+    file_path = os.path.join(UPLOAD_FOLDER, req_file_name)
+    
+    cache.set(f'req_file_name_{user_id}', req_file_name, timeout=1300)
+    cache.set(f'extension_{user_id}', extension, timeout=1300)
+    cache.set(f'base_name_{user_id}', base_name, timeout=1300)
+    cache.set(f"original_name_{user_id}", original_name, timeout=1300)
+    
+    logger.info(f"Stored file to cache: {cache.get('file_name')}")
+    if extension != ".csv":
+        return jsonify({"error": "only .csv extension is valid"}), 415
+    
+    file.save(file_path)
+    delete_after_delay(file_path, delay=300)
+   
+    try:
+        azure_response = upload_blob(file_path, req_file_name, "glossary")
+        logger.info(f"File uploaded to Azure: {azure_response}")
+    except Exception as e:
+        logger.error(f"Error uploading file to Azure: {str(e)}")
+        return jsonify({'error': 'Azure upload failed'}), 500
+
+    return jsonify({
+        'message': 'File uploaded successfully',
+        'filename': req_file_name,
+        'file_path': file_path,
+        'azure_response': azure_response
+    })
+    
+    
+@upload.route('/upload-glossary', methods=['POST'])
+@jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
+def upload_glossary_file():
+    user_id = get_jwt_identity()  
+    logger.info(user_id) 
+     
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file provided'}), 400
+    
+    file = request.files['file']
+    original_name = file.filename
+    extension = os.path.splitext(original_name)[1]
+    original_name = os.path.splitext(original_name)[0]
+    
+    base_name = original_name
+    csv_file_name = base_name + extension
+    file_path = os.path.join(UPLOAD_GLOSSARY_FOLDER, csv_file_name)
+    
+    cache.set(f'csv_file_name_{user_id}', csv_file_name, timeout=1300)
+    cache.set(f'extension_{user_id}', extension, timeout=1300)
+    cache.set(f'base_name_{user_id}', base_name, timeout=1300)
+    cache.set(f"original_name_{user_id}", original_name, timeout=1300)
+    
+    logger.info(f"Stored file to cache: {cache.get('file_name')}")
+    if extension != ".csv":
+        return jsonify({"error": "only .csv extension is valid"}), 415
+    
+    file.save(file_path)
+    delete_after_delay(file_path, delay=300)
+   
+    try:
+        azure_response = upload_blob(file_path, csv_file_name, "glossary")
+        logger.info(f"File uploaded to Azure: {azure_response}")
+    except Exception as e:
+        logger.error(f"Error uploading file to Azure: {str(e)}")
+        return jsonify({'error': 'Azure upload failed'}), 500
+
+    return jsonify({
+        'message': 'File uploaded successfully',
+        'filename': csv_file_name,
+        'file_path': file_path,
+        'azure_response': azure_response
+    })
+
 
 
 @upload.route('/upload_folder', methods=['POST'])

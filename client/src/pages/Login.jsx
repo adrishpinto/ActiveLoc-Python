@@ -78,11 +78,11 @@ const Login = () => {
       } else if (
         userGroup === "Admin" ||
         userGroup === "Sales" ||
-        userGroup === "Operation"
+        userGroup === "Operations"
       ) {
         navigate("/dashboard");
       } else {
-        navigate("/dashboard-c");
+        navigate("/dashboard-v");
       }
     } catch (error) {
       if (error.response) {

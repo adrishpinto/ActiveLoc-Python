@@ -1,5 +1,6 @@
 import { useState } from "react";
 import LanguageDropdownT2S from "../components/LanguageDropdownT2S";
+import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -18,21 +19,25 @@ export default function LanguageDropdown() {
     }
 
     try {
-      const response = await fetch(`${API_URL}/synthesize`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text, voice: selectedVoice, rate, pitch }),
-      });
+      const response = await axios.post(
+        `${API_URL}/synthesize`,
+        {
+          text,
+          voice: selectedVoice,
+          rate,
+          pitch,
+        },
+        {
+          withCredentials: true,
+        }
+      );
 
-      const data = await response.json();
-      if (response.ok) {
-        setAudioFile(`${API_URL}${data.file}`);
-        setAudioKey((prevKey) => prevKey + 1);
-      } else {
-        alert(data.error || "Something went wrong");
-      }
+      const data = response.data;
+      setAudioFile(`${API_URL}${data.file}`);
+      setAudioKey((prevKey) => prevKey + 1);
     } catch (error) {
-      alert("Failed to connect to the server");
+      const errMsg = error.response?.data?.error || "Something went wrong";
+      alert(errMsg);
     }
   };
 

@@ -7,7 +7,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 
-const CustomerSidebar = ({ isOpen, setIsOpen }) => {
+const VendorSidebar = ({ isOpen, setIsOpen }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const API_URL = import.meta.env.VITE_API_URL;
@@ -150,4 +150,4 @@ const CustomerSidebar = ({ isOpen, setIsOpen }) => {
   );
 };
 
-export default CustomerSidebar;
+export default VendorSidebar;
