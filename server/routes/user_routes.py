@@ -32,12 +32,31 @@ def get_users():
         users = User.objects()
         sorted_users = sorted(users, key=lambda u: u.first_name.lower() if u.first_name else "")
 
-        user_list = [
-            {**user.to_mongo().to_dict(), "_id": str(user.id)} for user in sorted_users
-        ]
+        user_list = []
+        for user in sorted_users:
+            base = {
+                "_id": str(user.id),
+                "email": user.email,
+                "first_name": user.first_name,
+                "last_name": user.last_name,
+                "group": user.group.value if user.group else None, 
+                "status": user.status,
+                "permission": user.permission.value if hasattr(user.permission, "value") else user.permission,
+            }
+
+            for field in ["phone_number", "city", "country", "organization_name"]:
+                value = getattr(user, field, None)
+                if value is not None:
+                    base[field] = value
+
+            user_list.append(base)
+
         return jsonify({"current_user": current_user, "users": user_list}), 200
+
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
 
 
 
@@ -87,6 +106,8 @@ def logout():
     
     
 @user_bp.route("/edit_user/<user_id>", methods=["PUT"])
+@jwt_required()
+@group_required(["Admin", "Sales", "Operations"])
 def edit_user(user_id):
     try:
         data = request.get_json()
@@ -95,15 +116,25 @@ def edit_user(user_id):
         if not user:
             return jsonify({'error': 'User not found'}), 404
 
-        updatable_fields = ['email', 'password', 'first_name', 'last_name', 'group', 'status', 'permission']
+      
+        updatable_fields = [
+            'email', 'password', 'first_name', 'last_name',
+            'group', 'status', 'permission',
+            'phone_number', 'city', 'country', 'organization_name'
+        ]
+
+        if "email" in data and data["email"] != user.email:
+            if User.objects(email=data["email"]).first():
+                return jsonify({'error': 'Email already in use'}), 400
 
         for field in updatable_fields:
             if field in data:
                 if field == 'password':
                     setattr(user, field, generate_password_hash(data[field]))
+                elif field in ["country", "city", "organization_name"]:
+                    setattr(user, field, data[field].title())
                 else:
                     setattr(user, field, data[field])
-
         user.validate()
         user.save()
 
@@ -115,6 +146,7 @@ def edit_user(user_id):
     except Exception as e:
         return jsonify({'error': 'An unexpected error occurred', 'details': str(e)}), 500
 
+   
    
    
 @user_bp.route("/add-user", methods=["POST"])
@@ -151,11 +183,11 @@ def create_user():
         if "phone_number" in data and data["phone_number"]:
             user_data["phone_number"] = data["phone_number"]
         if "city" in data and data["city"]:
-            user_data["city"] = data["city"]
+            user_data["city"] = data["city"].title()
         if "country" in data and data["country"]:
-            user_data["country"] = data["country"]
+            user_data["country"] = data["country"].title()
         if "organization_name" in data and data["organization_name"]:
-            user_data["organization_name"] = data["organization_name"]
+            user_data["organization_name"] = data["organization_name"].title()
 
         user = User(**user_data)
         user.validate() 
@@ -300,3 +332,39 @@ def get_user_details():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+    
+@user_bp.route("/user/<user_id>", methods=["GET"])
+@jwt_required()
+@group_required(["Admin", "Sales", "Operations", "Customer", "Vendor"])
+def get_user_by_id(user_id):
+    try:
+        user = User.objects(id=user_id).first()
+
+        if not user:
+            return jsonify({"error": "User not found"}), 404
+
+        response = {
+            "user_id": str(user.id),
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "email": user.email,
+            "status": user.status,
+            "group": user.group.value,
+            "permission": user.permission
+        }
+
+        if user.phone_number:
+            response["phone_number"] = user.phone_number
+        if user.city:
+            response["city"] = user.city
+        if user.country:
+            response["country"] = user.country
+        if user.organization_name:
+            response["organization_name"] = user.organization_name
+
+        return jsonify(response)
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaBars } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
 import { MdGTranslate } from "react-icons/md";
@@ -13,13 +13,60 @@ import { FileCode } from "lucide-react";
 import { FaEdit } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
 import { FaUserPlus } from "react-icons/fa";
-import { useEffect } from "react";
-
+import { CiBoxList } from "react-icons/ci";
+import { CiCirclePlus } from "react-icons/ci";
 import axios from "axios";
+
+// Menu Item Component
+const MenuItem = ({
+  icon,
+  label,
+  path,
+  isOpen,
+  onClick,
+  customClasses = "",
+}) => {
+  const location = useLocation();
+  const isActive = location.pathname === path ? "bg-gray-200" : "";
+
+  return (
+    <li>
+      <button
+        onClick={onClick}
+        className={`relative group flex items-center ${
+          isOpen ? "justify-start" : "justify-center"
+        } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive} ${customClasses}`}
+      >
+        {icon}
+        <span className={`ms-3 transition-all ${isOpen ? "block" : "hidden"}`}>
+          {label}
+        </span>
+
+        {!isOpen && (
+          <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
+            {label}
+          </span>
+        )}
+      </button>
+    </li>
+  );
+};
+
+// Section Divider Component
+const SectionDivider = ({ label, isOpen, x }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="flex items-center w-full my-2">
+      <div className={`${x ? "w-[30%]" : "w-[45%]"} h-[1px] bg-gray-300`}></div>
+      <p className="text-[12px] text-gray-400 font-[400] mx-2">{label}</p>
+      <div className={`${x ? "w-[30%]" : "w-[45%]"} h-[1px] bg-gray-300`}></div>
+    </div>
+  );
+};
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
   const navigate = useNavigate();
-  const location = useLocation();
   const [group, setGroup] = useState("");
   const API_URL = import.meta.env.VITE_API_URL;
 
@@ -50,15 +97,12 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
     }
   };
 
-  // Function to check if the link is active
-  const isActive = (x) => (location.pathname === x ? "bg-gray-200" : "");
-
   return (
     <>
       {/* Sidebar Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 left-6 z-50 p-2  bg-gray-800 text-white rounded-lg"
+        className="fixed top-4 left-6 z-50 p-2 bg-gray-800 text-white rounded-lg"
       >
         {!isOpen ? <FaBars /> : <IoMdClose />}
       </button>
@@ -70,7 +114,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         }`}
       >
         <h5
-          className={`text-base font-semibold  text-gray-500 uppercase dark:text-gray-400 ml-14 mt-1 transition-opacity ${
+          className={`text-base font-semibold text-gray-500 uppercase dark:text-gray-400 ml-14 mt-1 transition-opacity ${
             isOpen ? "opacity-100" : "opacity-0"
           }`}
         >
@@ -79,457 +123,181 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 
         {/* Sidebar Menu */}
         <ul className="py-4 space-y-2 font-medium">
-          <li>
-            <button
-              onClick={() => navigate("/Dashboard")}
-              className={`relative group flex items-center ${
-                isOpen ? "justify-start" : "justify-center"
-              } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                "/Dashboard"
-              )}`}
-            >
-              <IoHomeSharp size={20} />
-              <span
-                className={`ms-3 transition-all ${isOpen ? "block" : "hidden"}`}
-              >
-                Dashboard
-              </span>
-
-              {/* Tooltip for collapsed sidebar */}
-              {!isOpen && (
-                <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
-                  Dashboard
-                </span>
-              )}
-            </button>
-          </li>
+          {/* Main Section */}
+          <MenuItem
+            icon={<IoHomeSharp size={20} />}
+            label="Dashboard"
+            path="/Dashboard"
+            isOpen={isOpen}
+            onClick={() => navigate("/Dashboard")}
+          />
 
           {/* Translation Section */}
           <div className={`${isOpen ? "pt-4 space-y-1" : "pt-0 space-y-2"}`}>
-            {isOpen && (
-              <div className="flex items-center w-full my-2">
-                <div className="w-[45%] h-[1px] bg-gray-300"></div>
-                <p className="text-[12px] text-gray-400 font-[400] mx-2">
-                  Translation
-                </p>
-                <div className="w-[50%] h-[1px] bg-gray-300"></div>
-              </div>
-            )}
-            <li>
-              <button
-                onClick={() => navigate("/machine-translate")}
-                className={`relative group flex items-center ${
-                  isOpen ? "justify-start" : "justify-center"
-                } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                  "/machine-translate"
-                )}`}
-              >
-                <MdGTranslate size={20} />
-                <span
-                  className={`ms-3 transition-all ${
-                    isOpen ? "block" : "hidden"
-                  }`}
-                >
-                  Machine Translation
-                </span>
+            <SectionDivider label="Translation" isOpen={isOpen} />
 
-                {!isOpen && (
-                  <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
-                    Machine Translation
-                  </span>
-                )}
-              </button>
-            </li>
-            {/* mt v2 */}
-            <li>
-              <button
-                onClick={() => navigate("/machine-translate_v2")}
-                className={`relative group flex items-center ${
-                  isOpen ? "justify-start" : "justify-center"
-                } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                  "/machine-translate_v2"
-                )}`}
-              >
-                <MdGTranslate size={20} className="text-cyan-800" />
-                <span
-                  className={`ms-3 transition-all ${
-                    isOpen ? "block" : "hidden"
-                  }`}
-                >
-                  Machine Translation V2
-                </span>
+            <MenuItem
+              icon={<MdGTranslate size={20} />}
+              label="Machine Translation"
+              path="/machine-translate"
+              isOpen={isOpen}
+              onClick={() => navigate("/machine-translate")}
+            />
 
-                {!isOpen && (
-                  <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
-                    Machine Translation V2
-                  </span>
-                )}
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => navigate("/postedit-translate")}
-                className={`relative group flex items-center ${
-                  isOpen ? "justify-start" : "justify-center"
-                } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                  "/postedit-translate"
-                )}`}
-              >
-                <FaEdit size={20} />
-                <span
-                  className={`ms-3 transition-all ${
-                    isOpen ? "block" : "hidden"
-                  }`}
-                >
-                  Post Edit Translation
-                </span>
+            <MenuItem
+              icon={<MdGTranslate size={20} className="text-cyan-800" />}
+              label="Machine Translation V2"
+              path="/machine-translate_v2"
+              isOpen={isOpen}
+              onClick={() => navigate("/machine-translate_v2")}
+            />
 
-                {!isOpen && (
-                  <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
-                    Post Edit Translation
-                  </span>
-                )}
-              </button>
-            </li>
+            <MenuItem
+              icon={<FaEdit size={20} />}
+              label="Post Edit Translation"
+              path="/postedit-translate"
+              isOpen={isOpen}
+              onClick={() => navigate("/postedit-translate")}
+            />
 
-            <li>
-              <button
-                onClick={() => navigate("/merge-mtpe")}
-                className={`relative group flex items-center ${
-                  isOpen ? "justify-start" : "justify-center"
-                } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                  "/merge-mtpe"
-                )}`}
-              >
-                <VscCombine size={20} />
-                <span
-                  className={`ms-3 transition-all ${
-                    isOpen ? "block" : "hidden"
-                  }`}
-                >
-                  Merge MTPE
-                </span>
+            <MenuItem
+              icon={<VscCombine size={20} />}
+              label="Merge MTPE"
+              path="/merge-mtpe"
+              isOpen={isOpen}
+              onClick={() => navigate("/merge-mtpe")}
+            />
 
-                {!isOpen && (
-                  <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
-                    Merge MTPE
-                  </span>
-                )}
-              </button>
-            </li>
-
-            <li>
-              <button
-                onClick={() => navigate("/workbench")}
-                className={`relative group flex items-center ${
-                  isOpen ? "justify-start" : "justify-center"
-                } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                  "/workbench"
-                )}`}
-              >
-                <FileCode className="w-5 h-5" />
-                <span
-                  className={`ms-3 transition-all ${
-                    isOpen ? "block" : "hidden"
-                  }`}
-                >
-                  Workbench
-                </span>
-
-                {!isOpen && (
-                  <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
-                    Workbench
-                  </span>
-                )}
-              </button>
-            </li>
+            <MenuItem
+              icon={<FileCode className="w-5 h-5" />}
+              label="Workbench"
+              path="/workbench"
+              isOpen={isOpen}
+              onClick={() => navigate("/workbench")}
+            />
           </div>
 
           {/* Speech Section */}
           <div className={`${isOpen ? "pt-4 space-y-1" : "pt-0 space-y-2"}`}>
-            {isOpen && (
-              <div className="flex items-center w-full my-2">
-                <div className="w-[45%] h-[1px] bg-gray-300"></div>
-                <p className="text-[12px] text-gray-400 font-[400] mx-2">
-                  Speech
-                </p>
-                <div className="w-[50%] h-[1px] bg-gray-300"></div>
-              </div>
-            )}
+            <SectionDivider label="Speech" isOpen={isOpen} />
 
-            <li>
-              <button
-                onClick={() => navigate("/speechtotext")}
-                className={`relative group flex items-center ${
-                  isOpen ? "justify-start" : "justify-center"
-                } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                  "/speechtotext"
-                )}`}
-              >
-                <FaMicrophoneAlt size={20} />
-                <span
-                  className={`ms-3 transition-all ${
-                    isOpen ? "block" : "hidden"
-                  }`}
-                >
-                  Speech to Text
-                </span>
+            <MenuItem
+              icon={<FaMicrophoneAlt size={20} />}
+              label="Speech to Text"
+              path="/speechtotext"
+              isOpen={isOpen}
+              onClick={() => navigate("/speechtotext")}
+            />
 
-                {!isOpen && (
-                  <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
-                    Speech to Text
-                  </span>
-                )}
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => navigate("/voice-isolator")}
-                className={`relative group flex items-center ${
-                  isOpen ? "justify-start" : "justify-center"
-                } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                  "/voice-isolator"
-                )}`}
-              >
-                <GiSoundWaves size={20} />
-                <span
-                  className={`ms-3 transition-all ${
-                    isOpen ? "block" : "hidden"
-                  }`}
-                >
-                  Voice Isolator
-                </span>
+            <MenuItem
+              icon={<GiSoundWaves size={20} />}
+              label="Voice Isolator"
+              path="/voice-isolator"
+              isOpen={isOpen}
+              onClick={() => navigate("/voice-isolator")}
+            />
 
-                {!isOpen && (
-                  <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
-                    Voice Isolator
-                  </span>
-                )}
-              </button>
-            </li>
+            <MenuItem
+              icon={<GiSpeaker size={20} />}
+              label="Text to Speech"
+              path="/texttospeech"
+              isOpen={isOpen}
+              onClick={() => navigate("/texttospeech")}
+            />
 
-            <li>
-              <button
-                onClick={() => navigate("/texttospeech")}
-                className={`relative group flex items-center ${
-                  isOpen ? "justify-start" : "justify-center"
-                } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                  "/texttospeech"
-                )}`}
-              >
-                <GiSpeaker size={20} />
-                <span
-                  className={`ms-3 transition-all ${
-                    isOpen ? "block" : "hidden"
-                  }`}
-                >
-                  Text to Speech
-                </span>
-
-                {!isOpen && (
-                  <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
-                    Text to Speech
-                  </span>
-                )}
-              </button>
-            </li>
-
-            <li>
-              <button
-                onClick={() => navigate("/texttospeechbatch")}
-                className={`relative group flex items-center ${
-                  isOpen ? "justify-start" : "justify-center"
-                } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                  "/texttospeechbatch"
-                )}`}
-              >
+            <MenuItem
+              icon={
                 <GiSpeaker
                   className="text-white bg-black rounded-xl"
                   size={20}
                 />
-                <span
-                  className={`ms-3 transition-all ${
-                    isOpen ? "block" : "hidden"
-                  }`}
-                >
-                  Text to Speech Batch
-                </span>
-
-                {!isOpen && (
-                  <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
-                    Text to Speech Batch
-                  </span>
-                )}
-              </button>
-            </li>
+              }
+              label="Text to Speech Batch"
+              path="/texttospeechbatch"
+              isOpen={isOpen}
+              onClick={() => navigate("/texttospeechbatch")}
+            />
           </div>
 
-          {/* USER CREATION FOR ADMIN / SALES / OPERATIONS */}
+          {/* User Management Section */}
+          {(group === "Sales" ||
+            group === "Operations" ||
+            group === "Admin") && (
+            <div className={`${isOpen ? "pt-4 space-y-1 " : "pt-0 space-y-2"}`}>
+              <SectionDivider label="Manage Users" isOpen={isOpen} x={true} />
 
-          <div className={`${isOpen ? "pt-4 space-y-1" : "pt-0 space-y-2"}`}>
-            {isOpen && (
-              <div className="flex items-center w-full my-2">
-                <div className="w-[25%] h-[1px] bg-gray-300"></div>
-                <p className="text-[12px] text-gray-400 font-[400] mx-2">
-                  Manage Users
-                </p>
-                <div className="w-[25%] h-[1px] bg-gray-300"></div>
-              </div>
-            )}
-            {group == "Sales" && (
-              <li>
-                <button
+              {group === "Sales" && (
+                <MenuItem
+                  icon={<FaUserPlus size={20} />}
+                  label="Manage Customers"
+                  path="/customer-table"
+                  isOpen={isOpen}
                   onClick={() => navigate("/customer-table")}
-                  className={`relative group flex items-center ${
-                    isOpen ? "justify-start" : "justify-center"
-                  } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                    "/customer-table"
-                  )}`}
-                >
-                  <FaUserPlus size={20} />
-                  <span
-                    className={`ms-3 transition-all ${
-                      isOpen ? "block" : "hidden"
-                    }`}
-                  >
-                    Manage Customers
-                  </span>
+                />
+              )}
 
-                  {!isOpen && (
-                    <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
-                      Manage Customers
-                    </span>
-                  )}
-                </button>
-              </li>
-            )}
-            {group == "Operations" && (
-              <li>
-                <button
+              {group === "Operations" && (
+                <MenuItem
+                  icon={<FaUserPlus size={20} />}
+                  label="Manage Vendors"
+                  path="/vendor-table"
+                  isOpen={isOpen}
                   onClick={() => navigate("/vendor-table")}
-                  className={`relative group flex items-center ${
-                    isOpen ? "justify-start" : "justify-center"
-                  } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                    "/customer-table"
-                  )}`}
-                >
-                  <FaUserPlus size={20} />
-                  <span
-                    className={`ms-3 transition-all ${
-                      isOpen ? "block" : "hidden"
-                    }`}
-                  >
-                    Manage Vendors
-                  </span>
+                />
+              )}
 
-                  {!isOpen && (
-                    <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
-                      Manage Vendors
-                    </span>
-                  )}
-                </button>
-              </li>
-            )}
-            {group == "Admin" && (
-              <li>
-                <button
+              {group === "Admin" && (
+                <MenuItem
+                  icon={<FaUserPlus size={20} />}
+                  label="Manage Users"
+                  path="/user-table"
+                  isOpen={isOpen}
                   onClick={() => navigate("/user-table")}
-                  className={`relative group flex items-center ${
-                    isOpen ? "justify-start" : "justify-center"
-                  } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                    "/customer-table"
-                  )}`}
-                >
-                  <FaUserPlus size={20} />
-                  <span
-                    className={`ms-3 transition-all ${
-                      isOpen ? "block" : "hidden"
-                    }`}
-                  >
-                    Manage Users
-                  </span>
-
-                  {!isOpen && (
-                    <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
-                      Manage Users
-                    </span>
-                  )}
-                </button>
-              </li>
-            )}
-          </div>
-
-          {/* User Profile */}
-          <li className="pt-10">
-            <button
-              onClick={() => navigate("/user-profile")}
-              className={`relative group flex items-center ${
-                isOpen ? "justify-start" : "justify-center"
-              } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                "/user-profile"
-              )}`}
-            >
-              <FaUserCircle size={20} />
-              <span
-                className={`ms-3 transition-all ${isOpen ? "block" : "hidden"}`}
-              >
-                User Profile
-              </span>
-
-              {!isOpen && (
-                <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
-                  User Profile
-                </span>
+                />
               )}
-            </button>
-          </li>
-          {/* Settings */}
-          <li className="">
-            <button
-              onClick={() => navigate("/settings")}
-              className={`relative group flex items-center ${
-                isOpen ? "justify-start" : "justify-center"
-              } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                "/settings"
-              )}`}
-            >
-              <IoSettings size={20} />
-              <span
-                className={`ms-3 transition-all ${isOpen ? "block" : "hidden"}`}
-              >
-                Settings
-              </span>
+              <MenuItem
+                icon={<CiBoxList size={20} />}
+                label="Quotation Table"
+                path="/quotation"
+                isOpen={isOpen}
+                onClick={() => navigate("/quotation-table")}
+              />
 
-              {!isOpen && (
-                <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
-                  Settings
-                </span>
-              )}
-            </button>
-          </li>
+              <MenuItem
+                icon={<CiCirclePlus size={20} />}
+                label="Add Requirement"
+                path="/requirement-form"
+                isOpen={isOpen}
+                onClick={() => navigate("/requirements-form")}
+              />
+            </div>
+          )}
 
-          {/* Logout */}
-          <li>
-            <button
-              onClick={logout}
-              className={`relative group flex items-center ${
-                isOpen ? "justify-start" : "justify-center"
-              } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
-            >
-              <CiLogout size={20} />
-              <span
-                className={`ms-3 transition-all ${isOpen ? "block" : "hidden"}`}
-              >
-                Logout
-              </span>
+          {/* Profile Section */}
+          <MenuItem
+            icon={<FaUserCircle size={20} />}
+            label="User Profile"
+            path="/user-profile"
+            isOpen={isOpen}
+            onClick={() => navigate("/user-profile")}
+            customClasses="pt-10"
+          />
 
-              {!isOpen && (
-                <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
-                  Logout
-                </span>
-              )}
-            </button>
-          </li>
+          <MenuItem
+            icon={<IoSettings size={20} />}
+            label="Settings"
+            path="/settings"
+            isOpen={isOpen}
+            onClick={() => navigate("/settings")}
+          />
+
+          <MenuItem
+            icon={<CiLogout size={20} />}
+            label="Logout"
+            path="#"
+            isOpen={isOpen}
+            onClick={logout}
+          />
         </ul>
       </div>
     </>

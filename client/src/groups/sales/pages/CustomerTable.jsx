@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import GetUserByID from "../../../components/GetUserByID";
 
 const ConfirmDeleteButton = ({ onDelete }) => {
   const confirmDelete = () => {
@@ -70,7 +71,9 @@ const CustomerTable = () => {
   const [customers, setCustomers] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
+  const [user, setUser] = useState("");
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     first_name: "",
@@ -293,6 +296,11 @@ const CustomerTable = () => {
           <div className="w-[9%] px-2 py-2">Modify</div>
           <div className="w-[9%] px-2 py-2">Remove</div>
         </div>
+        <GetUserByID
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          user_id={user}
+        ></GetUserByID>
 
         {customers.map((customer) => (
           <div
@@ -303,6 +311,12 @@ const CustomerTable = () => {
             <div className="w-[14%] px-2 py-2">{customer.last_name}</div>
             <div className="w-[24%] px-2 py-2">{customer.email}</div>
             <div className="w-[14%] px-2 py-2">{customer.group}</div>
+            <div
+              className="w-[50%] absolute h-10 cursor-pointer"
+              onClick={() => {
+                setUser(customer._id), setIsOpen(true);
+              }}
+            ></div>
             <div className="w-[14%]">
               <div
                 className={`w-fit px-2 py-1 rounded-full text-center text-sm ${

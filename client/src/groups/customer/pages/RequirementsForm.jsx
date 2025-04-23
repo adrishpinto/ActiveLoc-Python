@@ -1,99 +1,339 @@
 import { useState } from "react";
 import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-const RequirementsForm = () => {
-  const [formData, setFormData] = useState({
-    title: "",
-    description: "",
+export default function RequirementsForm() {
+  const [form, setForm] = useState({
+    title: "Sample Project Title",
+    description: "This is a sample project description to test the form.",
     deadline: "",
-    blob_url: "",
+    customer_name: "Sample Customer Name",
+    contact_person: "John Doe",
+    email: "johndoe@example.com",
+    phone_number: "+1234567890",
+    city: "Sample City",
+    country: "Sample Country",
+    service_type: "Translation",
+    preferred_start_date: "",
+    budget: "",
+    file_link: "http://example.com/sample-file.pdf",
+    urgent: "urgent",
+    quality: "use this tool",
+    one_time: false,
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post(`${API_URL}/requirements_form`, formData, {
+      // Include hardcoded fields for `approved`, `status`, and `one_time` in the submission
+      const dataToSubmit = {
+        ...form,
+        approved: false,
+        status: "Draft",
+      };
+
+      await axios.post(`${API_URL}/requirements_form`, dataToSubmit, {
         withCredentials: true,
       });
-      toast.success("Requirements submitted successfully!");
+
+      toast.success("Requirement submitted successfully!");
+
+      // Reset form after submission
+      setForm({
+        title: "",
+        description: "",
+        deadline: "",
+        customer_name: "",
+        contact_person: "",
+        email: "",
+        phone_number: "",
+        city: "",
+        country: "",
+        service_type: "",
+        preferred_start_date: "",
+        budget: "",
+        file_link: "",
+        urgent: "Normal",
+        quality: "",
+        one_time: false, // Reset to default value
+      });
     } catch (err) {
-      toast.error("Error submitting requirements");
+      const message = err.response?.data?.message || "Submission failed.";
+      toast.error(message);
     }
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-10">
+    <div>
+      <h2 className="text-center text-5xl font-[300] my-4">
+        Requirements Form
+      </h2>
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded-2xl p-6 space-y-4"
+        className="max-w-2xl mx-auto p-4 space-y-4 bg-white border mb-20 shadow rounded-xl"
       >
-        <h2 className="text-2xl font-bold text-gray-800">
-          Submit Project Requirements
-        </h2>
+        <div className="flex flex-col gap-8">
+          {/* Project Information */}
+          <div className="space-y-2">
+            <label className="block text-lg font-medium">
+              Project Title<span className="text-red-500 pb-10 ml-1">*</span>
+            </label>
+            <input
+              type="text"
+              name="title"
+              value={form.title}
+              onChange={handleChange}
+              placeholder="Enter project title"
+              required
+              className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+            />
+          </div>
 
-        <input
-          type="text"
-          name="title"
-          placeholder="Project Title"
-          value={formData.title}
-          onChange={handleChange}
-          required
-          className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none  focus:border-blue-500"
-        />
+          <div className="space-y-2">
+            <label className="block text-lg font-medium">
+              Project Description
+              <span className="text-red-500 pb-10 ml-1">*</span>
+            </label>
+            <textarea
+              name="description"
+              value={form.description}
+              onChange={handleChange}
+              placeholder="Enter project description"
+              required
+              className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+            />
+          </div>
 
-        <input
-          type="text"
-          name="title"
-          placeholder="Link to supporting Files"
-          value={formData.blob_url}
-          onChange={handleChange}
-          required
-          className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none  focus:border-blue-500"
-        />
+          {/* Service Information */}
+          <div className="space-y-2">
+            <label className="block text-lg font-medium">
+              Service Type<span className="text-red-500 pb-10 ml-1">*</span>
+            </label>
+            <select
+              name="service_type"
+              value={form.service_type}
+              onChange={handleChange}
+              required
+              className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+            >
+              <option value="" disabled>
+                Select Service Type
+              </option>
+              <option value="Translation">Translation</option>
+              <option value="Localization">Localization</option>
+              <option value="Consulting">Consulting</option>
+              <option value="Staffing">Staffing</option>
+              <option value="Data Services">Data Services</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
 
-        <textarea
-          name="description"
-          placeholder="Project Description"
-          value={formData.description}
-          onChange={handleChange}
-          required
-          rows={4}
-          className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none  focus:border-blue-500"
-        />
+          <div className="space-y-2">
+            <label className="block text-lg font-medium">
+              Preferred Start Date
+            </label>
+            <input
+              type="date"
+              name="preferred_start_date"
+              value={form.preferred_start_date}
+              onChange={handleChange}
+              className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+            />
+          </div>
 
-        <div>
-          <label>Deadline</label>
-          <input
-            type="datetime-local"
-            name="deadline"
-            value={formData.deadline}
-            onChange={handleChange}
-            required
-            className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none  focus:border-blue-500"
-          />
+          <div className="space-y-2">
+            <label className="block text-lg font-medium">Deadline</label>
+            <input
+              type="date"
+              name="deadline"
+              value={form.deadline}
+              onChange={handleChange}
+              className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="block text-lg font-medium">Budget</label>
+            <input
+              type="number"
+              name="budget"
+              value={form.budget}
+              onChange={handleChange}
+              placeholder="Enter budget"
+              className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+            />
+          </div>
+
+          {/* Customer Information */}
+          <div className="space-y-2">
+            <label className="block text-lg font-medium">
+              Customer / Organization Name
+              <span className="text-red-500 pb-10 ml-1">*</span>
+            </label>
+            <input
+              type="text"
+              name="customer_name"
+              value={form.customer_name}
+              onChange={handleChange}
+              placeholder="Enter customer or organization name"
+              required
+              className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="block text-lg font-medium">
+              Contact Person<span className="text-red-500 pb-10 ml-1">*</span>
+            </label>
+            <input
+              type="text"
+              name="contact_person"
+              value={form.contact_person}
+              onChange={handleChange}
+              placeholder="Enter contact person's name"
+              required
+              className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="block text-lg font-medium">
+              Email Address<span className="text-red-500 pb-10 ml-1">*</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="Enter email address"
+              required
+              className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="block text-lg font-medium">
+              Phone Number<span className="text-red-500 pb-10 ml-1">*</span>
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              value={form.phone_number}
+              onChange={handleChange}
+              placeholder="Enter phone number"
+              required
+              className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+            />
+          </div>
+
+          {/* Location Information */}
+          <div className="space-y-2">
+            <label className="block text-lg font-medium">
+              City<span className="text-red-500 pb-10 ml-1">*</span>
+            </label>
+            <input
+              type="text"
+              name="city"
+              value={form.city}
+              onChange={handleChange}
+              placeholder="Enter city"
+              required
+              className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="block text-lg font-medium">
+              Country<span className="text-red-500 pb-10 ml-1">*</span>
+            </label>
+            <input
+              type="text"
+              name="country"
+              value={form.country}
+              onChange={handleChange}
+              placeholder="Enter country"
+              required
+              className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+            />
+          </div>
+
+          {/* File Link */}
+          <div className="space-y-2">
+            <label className="block text-lg font-medium">
+              Link to Supporting Files
+            </label>
+            <input
+              type="text"
+              name="file_link"
+              value={form.file_link}
+              onChange={handleChange}
+              placeholder="Enter file link"
+              className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+            />
+          </div>
+
+          {/* Urgency and Quality */}
+          <div className="space-y-2">
+            <label className="block text-lg font-medium">
+              Quality / Special Instructions
+            </label>
+            <input
+              type="text"
+              name="quality"
+              value={form.quality}
+              onChange={handleChange}
+              placeholder="Enter special requirements"
+              className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="block text-lg font-medium">Urgency</label>
+            <select
+              name="urgent"
+              value={form.urgent}
+              onChange={handleChange}
+              required
+              className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+            >
+              <option value="normal">Normal</option>
+              <option value="urgent">Urgent</option>
+              <option value="express">Express</option>
+            </select>
+          </div>
+
+          {/* One-Time Field */}
+          <div className=" flex h-fit items-center space-x-2">
+            <label className=" text-lg font-medium">One-Time Project</label>
+            <input
+              type="checkbox"
+              name="one_time"
+              checked={form.one_time}
+              onChange={(e) =>
+                handleChange({
+                  target: { name: "one_time", value: e.target.checked },
+                })
+              }
+              className="w-5 h-5"
+            />
+          </div>
         </div>
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition"
+          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
         >
-          Submit
+          Submit Requirement
         </button>
       </form>
-
-      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
-};
-
-export default RequirementsForm;
+}

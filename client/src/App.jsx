@@ -31,6 +31,8 @@ import VendorDashboard from "./groups/vendor/pages/VendorDashboard";
 import Glossary from "./pages/Glossary";
 import RequirementsForm from "./groups/customer/pages/RequirementsForm";
 import RequirementsList from "./groups/sales/pages/RequirementsList";
+import Quotation from "./pages/QuotationForm";
+import QuotationTable from "./pages/QuotationTable";
 
 const internalGroups = ["Admin", "Sales", "Operations"];
 
@@ -162,6 +164,24 @@ export default function App() {
             element={
               <ProtectedRoute allowedGroups={[...internalGroups]}>
                 <Glossary />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/quotation/:id"
+            element={
+              <ProtectedRoute allowedGroups={[...internalGroups]}>
+                <Quotation />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/quotation-table"
+            element={
+              <ProtectedRoute allowedGroups={[...internalGroups]}>
+                <QuotationTable />
               </ProtectedRoute>
             }
           />

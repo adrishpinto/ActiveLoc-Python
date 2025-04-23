@@ -15,6 +15,10 @@ const AddVendor = () => {
     group: "Vendor",
     status: true,
     permission: "",
+    phone_number: "",
+    city: "",
+    country: "",
+    organization_name: "",
   });
 
   const updateField = (e) => {
@@ -24,7 +28,38 @@ const AddVendor = () => {
     }));
   };
 
+  const validateForm = () => {
+    let isValid = true;
+
+    // Check all fields
+    const requiredFields = [
+      "email",
+      "password",
+      "first_name",
+      "last_name",
+      "group",
+      "status",
+      "phone_number",
+      "city",
+      "country",
+      "organization_name",
+    ];
+
+    requiredFields.forEach((field) => {
+      const value = formData[field];
+
+      if (!value) {
+        toast.error(`${field.replace("_", " ")} is required.`);
+        isValid = false;
+      }
+    });
+
+    return isValid;
+  };
+
   const submit = async () => {
+    if (!validateForm()) return;
+
     try {
       await axios.post(`${API_URL}/add-user`, formData, {
         withCredentials: true,
@@ -48,6 +83,7 @@ const AddVendor = () => {
             required
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
           />
+
           <input
             type="text"
             name="last_name"
@@ -56,6 +92,7 @@ const AddVendor = () => {
             required
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
           />
+
           <input
             type="email"
             name="email"
@@ -64,6 +101,7 @@ const AddVendor = () => {
             required
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
           />
+
           <input
             type="password"
             name="password"
@@ -72,9 +110,47 @@ const AddVendor = () => {
             required
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
           />
+
           <div className="w-full font-semibold px-4 cursor-not-allowed py-2 border border-black rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300">
             Group : Vendor
           </div>
+
+          <input
+            type="text"
+            name="phone_number"
+            placeholder="Phone Number"
+            onChange={updateField}
+            required
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+          />
+
+          <input
+            type="text"
+            name="city"
+            placeholder="City"
+            onChange={updateField}
+            required
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+          />
+
+          <input
+            type="text"
+            name="country"
+            placeholder="Country"
+            onChange={updateField}
+            required
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+          />
+
+          <input
+            type="text"
+            name="organization_name"
+            placeholder="Organization Name"
+            onChange={updateField}
+            required
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+          />
+
           <button
             onClick={submit}
             className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
