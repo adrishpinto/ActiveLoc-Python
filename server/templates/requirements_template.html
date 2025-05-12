@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>PDF Export</title>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding-left: 20px;
+      padding-right: 20px;
+      font-family: sans-serif;
+    "
+  >
+    <div style="">
+      <!-- Centered image -->
+      <div style="text-align: center; margin-bottom: 1.5rem">
+        <img
+          src="http://localhost:8000/static/logo.png"
+          alt="My Image"
+          style="width: 15rem"
+        />
+      </div>
+
+      <!-- Quote + Date using table layout -->
+      <table style="width: 100%; font-weight: bold; text-transform: uppercase">
+        <tr>
+          <td style="text-align: left; margin-left: 10px">
+            Quote : 2378237928
+          </td>
+          <td
+            style="text-align: right; text-transform: none; font-weight: normal"
+          >
+            Date of Issue: {{current_date}}
+          </td>
+        </tr>
+      </table>
+      <div style="margin-left: 10px">
+        <p>To,</p>
+        <p>{{data.contact_person}}</p>
+        <p>
+          {{data.email}} |
+          <span style="margin-left: 5px">{{data.phone_number}}</span>
+        </p>
+        <p>{{data.city}} {{data.country}}</p>
+        <p></p>
+      </div>
+      <p style="margin-top: 40px">
+        <strong>Subject:</strong> {{data.invoice_subject}}
+      </p>
+      <p style="margin-top: 30px">
+        Thank you for your interest. This is in reference to the discussed
+        requirements, we would like to quote the following detail.
+      </p>
+      <table
+        style="
+          margin-top: 40px;
+          width: 100%;
+          border-collapse: collapse;
+
+          text-align: center;
+        "
+      >
+        <thead>
+          <tr>
+            <th
+              style="
+                border: 1px solid;
+                padding: 2px;
+                white-space: nowrap;
+                width: 1%;
+              "
+            >
+              S no
+            </th>
+            <th
+              style="
+                border: 1px solid;
+                padding: 10px;
+
+                white-space: nowrap;
+                width: 8%;
+              "
+            >
+              Description
+            </th>
+            <th
+              style="
+                border: 1px solid;
+                padding: 2px;
+                white-space: nowrap;
+                width: 1%;
+              "
+            >
+              Languages
+            </th>
+            <th
+              style="
+                border: 1px solid;
+                padding: 2px;
+                white-space: nowrap;
+                width: 1%;
+              "
+            >
+              Words
+            </th>
+            <th
+              style="
+                border: 1px solid;
+                padding: 2px;
+                white-space: nowrap;
+                width: 1%;
+              "
+            >
+              Rate Per Word
+            </th>
+            <th
+              style="
+                border: 1px solid;
+                padding: 2px;
+                white-space: nowrap;
+                width: 1%;
+              "
+            >
+              Total
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border: 1px solid; padding: 2px">1</td>
+            <td style="border: 1px solid; padding: 10px; text-align: left">
+              {{data.invoice_description}}
+            </td>
+            <td style="border: 1px solid; padding: 2px">
+              {{data.locale_count}}
+            </td>
+            <td style="border: 1px solid; padding: 2px">{{data.units}}</td>
+            <td style="border: 1px solid; padding: 2px">{{data.rate}}</td>
+            <td style="border: 1px solid; padding: 2px">
+              {{data.rate * data.units}}
+            </td>
+          </tr>
+          <tr style="border: none">
+            <td style="border: none"></td>
+            <td style="border: none"></td>
+            <td
+              style="
+                border: 1px solid;
+                padding: 2px;
+                text-align: left;
+                padding-left: 40px;
+              "
+              colspan="3"
+            >
+              GST (18%)
+            </td>
+            <td style="border: 1px solid">{{data.rate * data.units * 0.18}}</td>
+          </tr>
+          <tr>
+            <td style="border: none"></td>
+            <td style="border: none"></td>
+            <td
+              style="
+                border: 1px solid;
+                padding: 2px;
+                text-align: left;
+                padding-left: 40px;
+                font-weight: 600;
+              "
+              colspan="3"
+            >
+              Net Amount
+            </td>
+            <td style="border: 1px solid; font-weight: 600">
+              {{data.rate * data.units + data.rate * data.units * 0.18}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Note: TAT
+        <span style="font-weight: 600">{{data.date_diff}}</span> Business days.
+      </p>
+
+      <p
+        style="
+          text-align: left;
+          font-size: 1rem;
+          font-weight: 600;
+          color: #2d3748;
+          margin-top: 50px;
+          margin-bottom: 5px;
+          text-decoration: underline;
+        "
+      >
+        Terms & Conditions
+      </p>
+
+      <ul
+        style="
+          font-size: 1rem;
+          line-height: 1.5;
+          list-style-position: outside;
+          padding-left: 20px;
+          margin: 0;
+        "
+      >
+        <li style="">
+          Payment: 25% advance and balance payment within 30 days from the day
+          of delivery of the assignment.
+        </li>
+        <li style="">
+          Quotation Validity: The quotation is valid for 30 days from the date
+          of the quotation.
+        </li>
+        <li style="">
+          Delivery Schedule: Delivery schedule of the project will be
+          reconfirmed by ActiveLoc after getting the confirmation of the job.
+        </li>
+        <li style="">
+          Cancellation: Cancellation of an order by the Client shall entitle
+          ActiveLoc to claim payment of any work already performed for that
+          order including cost for any sample work executed.
+        </li>
+        <li style="">
+          Warranty: ActiveLoc provides warranty of the services provided. If any
+          changes or modifications are requested by the Client, ActiveLoc
+          undertakes to carry them out free of charge provided such requests are
+          made within 30 days of delivery by ActiveLoc and provided that the
+          original source document/instructions are not modified.
+        </li>
+        <li style="">
+          Modifications: ActiveLoc changing any part of the project including
+          copy written, translated or edited text at the Client’s request shall
+          in no way constitute an acknowledgement on the part of ActiveLoc of
+          having supplied an inferior service. Lodging a request for
+          modification, change or alteration shall not release the Client from
+          its obligation to pay.
+        </li>
+        <li style="">
+          Acceptance: The service shall be deemed to have been fully accepted by
+          the Client at the end of 30 days from the date of delivery and allow
+          ActiveLoc to send the invoice.
+        </li>
+        <li style="">
+          Post-Completion Changes: Once the project is complete and the Client
+          requests for any further changes after completion, then the same will
+          be charged as per the regular fees.
+        </li>
+        <li style="">
+          Turnaround Time (TAT): 1700 words per day per translator.
+        </li>
+        <li style="">
+          Express Delivery Charge: We will charge 25% of overall translation
+          cost as express delivery charge for quicker TAT.
+        </li>
+        <li style="">
+          Minimum Invoicing: We practice a minimum invoicing policy of
+          INR.2500/- per language irrespective of the volume of service
+          requested.
+        </li>
+      </ul>
+      <div
+        style="
+          padding: 16px;
+          font-size: 14px;
+          line-height: 0.3;
+          margin-top: 10px;
+        "
+      >
+        <p style="text-align: center">
+          Registered office: 1st Floor, GK Complex, #45/3 Residency Road,
+          Bengaluru – 560025 INDIA
+        </p>
+        <p style="text-align: center">
+          <span style="font-weight: 600">Email:</span> contact@activeloc.com |
+          <span style="font-weight: 600">Telephone:</span> +91 6361 045 174 |
+          <span style="font-weight: 600">Website:</span>
+          <a
+            href="http://activeloc.com"
+            style="color: #3b82f6; text-decoration: none"
+            onmouseover="this.style.textDecoration='underline'"
+            onmouseout="this.style.textDecoration='none'"
+          >
+            http://activeloc.com
+          </a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
