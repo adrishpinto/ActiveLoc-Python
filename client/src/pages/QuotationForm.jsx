@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const Quotation = ({ requirementId }) => {
   const { id } = useParams();
+  const [showPopup, setShowPopup] = useState(false);
+
+  const [selectVendor, setSelectVendor] = useState({
+    email: "",
+    standard_rate: "",
+    units: "",
+    current_rate: "",
+  });
+
+  const navigate = useNavigate();
   console.log(id);
   const [requirement, setRequirement] = useState({
     title: "",
@@ -18,15 +29,15 @@ const Quotation = ({ requirementId }) => {
     budget: 0.0,
     file_link: "",
     urgent: "normal",
-    one_time: false,
+    project_status: "",
     quality: "",
-    service_type: "Translation",
+    service_type: "",
     preferred_start_date: "",
     deadline: "",
     billing_address: "",
     tax_id: "",
     task_description: "",
-    units: "",
+    units: 0.0,
     locales: "",
     resouces: "",
     tools: "",
@@ -41,41 +52,78 @@ const Quotation = ({ requirementId }) => {
     milestones: "",
     buffer_days: "",
     quote_by: "",
-    status: "Draft",
+    status: "",
     approved: false,
+    invoice_subject: "",
+    invoice_description: "",
+    countdown: "",
+    pm_hours: "",
+    pm_rate: "",
+    rate: 0.0,
   });
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const API_URL = import.meta.env.VITE_API_URL;
 
-  // Fetch existing requirement data
-  useEffect(() => {
-    const fetchRequirement = async () => {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/get-requirement/${id}`,
-          {
-            withCredentials: true,
-          }
-        );
+  const downloadPDF = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.get(`${API_URL}/requirement-pdf/${id}`, {
+        responseType: "blob",
+        withCredentials: true,
+      });
 
-        // Assuming the response data contains a 'requirement' field
-        if (response.data && response.data.requirement) {
-          setRequirement(response.data.requirement); // Set the requirement data
-        } else {
-          setError("Requirement data not found.");
-          toast.error("Requirement data not found.");
+      const blob = new Blob([response.data], { type: "application/pdf" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "requirement_report.pdf";
+      link.click();
+    } catch (error) {
+      console.error("Error downloading PDF:", error);
+      toast.error("Error downloading PDF.");
+    }
+  };
+
+  const sendQuotation = async (e) => {
+    try {
+      e.preventDefault();
+
+      const response = await axios.post(
+        `${API_URL}/send-quotation/${id}`,
+        {},
+        {
+          withCredentials: true,
         }
-      } catch (err) {
-        setError("Error fetching requirement data.");
-        toast.error("Error fetching requirement data.");
+      );
+
+      console.log("Quotation sent successfully:", response.data.message);
+    } catch (error) {
+      console.error(
+        "Error sending quotation:",
+        error.response?.data || error.message
+      );
+    }
+  };
+
+  const Navigate = (id) => {
+    navigate(`/add-vendor-project/${id}`);
+  };
+
+  const fetchRequirement = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/get-requirement/${id}`, {
+        withCredentials: true,
+      });
+
+      if (response.data && response.data.requirement) {
+        setRequirement(response.data.requirement);
+      } else {
+        toast.error("Requirement data not found.");
       }
-    };
+    } catch (err) {
+      toast.error("Error fetching requirement data.");
+    }
+  };
 
-    fetchRequirement();
-  }, [id]);
-
-  // Handle form change
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setRequirement({
@@ -84,37 +132,66 @@ const Quotation = ({ requirementId }) => {
     });
   };
 
-  // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError("");
 
     try {
-      const response = await axios.put(
-        `${import.meta.env.VITE_API_URL}/requirements/${id}`,
-        requirement,
-        { withCredentials: true }
-      );
+      await axios.put(`${API_URL}/requirements/${id}`, requirement, {
+        withCredentials: true,
+      });
       toast.success("Requirement updated successfully");
     } catch (err) {
-      setError("Error updating requirement.");
       toast.error("Error updating requirement.");
-    } finally {
-      setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchRequirement();
+  }, [id]);
 
   return (
     <div>
       <h2 className="text-center text-5xl font-[300] mt-20 mb-14">
         Update Requirement
       </h2>
-      {error && <p className="text-red-500 text-center">{error}</p>}
+
+      {requirement.approved === "rejected" && (
+        <div className="bg-white border max-w-2xl mx-auto mt-20 mb-10 px-6 py-4 rounded-xl shadow">
+          <h2 className="text-lg font-semibold text-red-700 ">
+            Rejection Details
+          </h2>
+          <p>
+            Reason:{" "}
+            {requirement.rejection_reason?.trim()
+              ? requirement.rejection_reason
+              : "Not given"}
+          </p>
+          <p>
+            Suggested Changes:{" "}
+            {requirement.rejection_changes?.trim()
+              ? requirement.rejection_changes
+              : "Not given"}
+          </p>
+        </div>
+      )}
+
       <form
         onSubmit={handleSubmit}
         className="max-w-2xl mx-auto p-4 space-y-4 bg-white border mb-20 shadow rounded-xl"
       >
+        <div className="space-y-2">
+          <label className="block text-lg font-medium">
+            Quotation Deadline (in hours)
+          </label>
+          <input
+            type="number"
+            name="countdown"
+            value={requirement.countdown}
+            onChange={handleChange}
+            placeholder="Enter deadline"
+            className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+          />
+        </div>
         {/* Project Title */}
         <div className="space-y-2">
           <label className="block text-lg font-medium">Project Title</label>
@@ -250,16 +327,6 @@ const Quotation = ({ requirementId }) => {
         </div>
 
         {/* One Time */}
-        <div className="space-y-2">
-          <label className="block text-lg font-medium">One Time</label>
-          <input
-            type="checkbox"
-            name="one_time"
-            checked={requirement.one_time}
-            onChange={handleChange}
-            className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
-          />
-        </div>
 
         {/* Service Type */}
         <div className="space-y-2">
@@ -360,12 +427,25 @@ const Quotation = ({ requirementId }) => {
         <div className="space-y-2">
           <label className="block text-lg font-medium">Units</label>
           <input
-            type="text"
+            type="number"
             name="units"
             value={requirement.units}
             onChange={handleChange}
             placeholder="Enter units"
             className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+            step="any"
+          />
+        </div>
+        <div className="space-y-2">
+          <label className="block text-lg font-medium">Rate</label>
+          <input
+            type="number"
+            name="rate"
+            value={requirement.rate}
+            onChange={handleChange}
+            placeholder="Enter rate per words/units"
+            className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+            step="any"
           />
         </div>
 
@@ -563,35 +643,326 @@ const Quotation = ({ requirementId }) => {
           >
             <option value="Draft">Draft</option>
             <option value="Submitted">Submitted</option>
-            <option value="In Progress">In Progress</option>
-            <option value="Completed">Completed</option>
           </select>
         </div>
 
         {/* Approved */}
-        <div className="flex space-x-2 items-center justify-center ">
-          <label className="block text-lg font-medium">Approved:</label>
-          {requirement.approved ? (
-            <div className="bg-green-200 w-fit px-3 py-1 rounded-full ">
-              Confirmed
+        <div className="flex space-x-2 items-center justify-center">
+          <label className="block text-lg font-medium">Status:</label>
+
+          {requirement.approved === "approved" && (
+            <div className="bg-green-200 text-green-600 w-fit px-3 py-1 rounded-full">
+              Approved
             </div>
-          ) : (
-            <div className="bg-blue-200 w-fit px-3 py-1 rounded-full ">
+          )}
+
+          {requirement.approved === "pending" && (
+            <div className="bg-blue-200 text-blue-600 w-fit px-3 py-1 rounded-full">
               Pending
+            </div>
+          )}
+
+          {requirement.approved === "terminated" && (
+            <div className="bg-red-200 text-red-600 w-fit px-3 py-1 rounded-full">
+              Terminated
+            </div>
+          )}
+
+          {requirement.approved === "rejected" && (
+            <div className="bg-red-200 text-red-600 w-fit px-3 py-1 rounded-full">
+              Rejected
             </div>
           )}
         </div>
 
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full p-3 bg-blue-600 text-white rounded-lg disabled:bg-blue-400"
-        >
-          {loading ? "Submitting..." : "Submit"}
-        </button>
+        <div className="space-y-2">
+          <label className="block text-lg font-medium">Invoice Subject</label>
+          <input
+            type="text"
+            name="invoice_subject"
+            value={requirement.invoice_subject}
+            onChange={handleChange}
+            placeholder="Enter Invoice Subject"
+            className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label className="block text-lg font-medium">
+            Invoice Description
+          </label>
+          <input
+            type="text"
+            name="invoice_description"
+            value={requirement.invoice_description}
+            onChange={handleChange}
+            placeholder="Enter Invoice Description"
+            className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+          />
+        </div>
+
+        {requirement.approved === "pending" && (
+          <div>
+            <h2 className="mt-16 text-3xl mb-6">Post Client Approval</h2>
+            <div className="space-y-2">
+              <label className="block text-lg font-medium">
+                Project Code (full code)
+              </label>
+              <input
+                type="text"
+                name="project_code"
+                value={requirement.project_code}
+                onChange={handleChange}
+                placeholder="Enter Project Code (ex. FY2026CL001)"
+                className="w-full p-2 border rounded outline-none focus:border-blue-400 focus:bg-slate-50"
+              />
+            </div>
+            <div className="mt-4">
+              <label className="text-lg font-medium">Project Status</label>
+              <select
+                className=" border p-2 w-full mb-6 border-gray-300 rounded-lg shadow"
+                value={requirement.project_status}
+                name="project_status"
+                onChange={handleChange}
+              >
+                <option value="in-progress">In Progress</option>
+                <option value="assigned">Assigned</option>
+                <option value="delivered">Delivered</option>
+              </select>
+            </div>
+            <div className="text-2xl mt-4">Current Vendors</div>
+            <h2 className="text-gray-500 mt-2 ml-2">
+              {requirement.vendors.length == 0 && "No Vendors added yet..."}
+            </h2>
+            <div className="flex flex-wrap sm:justify-between items-center gap-4 w-[90%] sm:flex-row flex-col justify-center mb-16 mx-auto ">
+              {requirement.vendors.map((req) => (
+                <div className="w-[45%] border shadow rounded-xl p-4 font-semibold bg-white">
+                  <p>
+                    <span className="text-gray-500">Name:</span> {req.name}
+                  </p>
+                  <p>
+                    <span className="text-gray-500">Email:</span> {req.email}
+                  </p>
+
+                  <p>
+                    <span className="text-gray-500">Units:</span> {req.units}
+                  </p>
+                  <p>
+                    <span className="text-gray-500">Current Rate:</span>{" "}
+                    {req.current_rate}
+                  </p>
+                  <p>
+                    <span className="text-gray-500">Currency:</span>{" "}
+                    {req.billing_currency}
+                  </p>
+
+                  {req.bill_status == "pending" && (
+                    <p>
+                      Billing Status:
+                      <span className="bg-sky-200 rounded-full px-2 text-sky-600 text-sm ml-2 font-[300]">
+                        Pending
+                      </span>
+                    </p>
+                  )}
+
+                  {req.bill_status == "submitted" && (
+                    <p>
+                      Billing Status:
+                      <span className="bg-emerald-200 rounded-full px-2 text-emerald-600 text-sm ml-2 font-[300]">
+                        Submitted
+                      </span>
+                    </p>
+                  )}
+
+                  {req.bill_status == "paid" && (
+                    <p>
+                      Billing Status:
+                      <span className="bg-green-200 rounded-full px-2 text-green-600 text-sm ml-2 font-[300]">
+                        Paid
+                      </span>
+                    </p>
+                  )}
+
+                  <p>
+                    <span className="text-gray-500">Work Status:</span>{" "}
+                    {req.work_status == "not_started"
+                      ? "Not Started"
+                      : req.work_status}
+                  </p>
+                  <button
+                    className="bg-green-500 px-2 text-white rounded-lg font-[400] hover:bg-green-400 cursor-pointer"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setShowPopup(true);
+                      setSelectVendor({
+                        email: req.email,
+                        standard_rate: req.standard_rate,
+                        units: req.units,
+                        current_rate: req.current_rate,
+                        billing_currency: req.billing_currency,
+                      });
+                    }}
+                  >
+                    Add Rate
+                  </button>
+                  <VendorEditPopup
+                    isOpen={showPopup}
+                    onClose={() => setShowPopup(false)}
+                    vendor={selectVendor}
+                    requirementId={id}
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-row">
+              <h2 className="">Profit:</h2>
+              <p className="text-green-700 rounded-lg ml-2 px-3 bg-green-200">
+                Rs.{requirement.profit}
+              </p>
+            </div>
+            <div className="flex flex-row items-center">
+              <h2>Profit Percentage:</h2>
+              <p className="text-green-700 rounded-lg ml-2 px-3 bg-green-200">
+                {requirement.profit != null &&
+                requirement.units > 0 &&
+                requirement.rate > 0
+                  ? (requirement.profit /
+                      (requirement.units * requirement.rate)) *
+                    100
+                  : "N/A"}
+                %
+              </p>
+            </div>
+          </div>
+        )}
+
+        <div className="w-full flex items-center justify-center space-x-2">
+          <button
+            type="submit"
+            className="px-8 py-3  block bg-blue-600 text-white rounded-lg disabled:bg-blue-400 w-fit"
+          >
+            Submit
+          </button>
+
+          <button
+            onClick={downloadPDF}
+            className="px-8 py-3 block bg-green-500 text-white rounded-lg disabled:bg-blue-400 w-fit"
+          >
+            Download as PDF
+          </button>
+
+          <button
+            onClick={sendQuotation}
+            className="px-8 py-3 block bg-green-500 text-white rounded-lg disabled:bg-blue-400 w-fit"
+          >
+            Send Email
+          </button>
+
+          <button
+            onClick={() => Navigate(id)}
+            className="px-8 py-3 block bg-blue-500 text-white rounded-lg disabled:bg-blue-400 w-fit"
+          >
+            Add Vendor
+          </button>
+        </div>
       </form>
     </div>
   );
 };
 
 export default Quotation;
+
+const VendorEditPopup = ({
+  isOpen,
+  onClose,
+  vendor,
+  requirementId,
+  onSuccess,
+}) => {
+  const [currentRate, setCurrentRate] = useState("");
+  const [units, setUnits] = useState("");
+
+  useEffect(() => {
+    if (isOpen && vendor) {
+      const baseRate =
+        vendor.current_rate === 0 || vendor.current_rate == null
+          ? extractRate(vendor.standard_rate)
+          : vendor.current_rate;
+      setCurrentRate(baseRate ?? "");
+      setUnits(vendor.units ?? "");
+    }
+  }, [isOpen, vendor]);
+
+  function extractRate(value) {
+    if (!value) return null;
+    const num = parseFloat(value.split("/")[0]);
+    return isNaN(num) ? null : num;
+  }
+
+  const handleUpdate = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/requirements/vendor/update",
+        {
+          requirement_id: requirementId,
+          vendor: {
+            email: vendor.email,
+            rate: parseFloat(currentRate),
+            units: parseFloat(units),
+          },
+        },
+        {
+          withCredentials: true,
+        }
+      );
+      toast.success(response.data.message);
+      onSuccess && onSuccess();
+      onClose();
+    } catch (error) {
+      toast.error("Update failed");
+    }
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+      <div className="bg-white p-6 rounded-lg w-80 shadow-md">
+        <h2 className="text-lg font-semibold mb-4">Edit Vendor</h2>
+
+        <div className="mb-3">
+          <label className="block text-sm">Rate</label>
+          <input
+            type="number"
+            value={currentRate}
+            onChange={(e) => setCurrentRate(e.target.value)}
+            className="w-full p-2 border rounded"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm">Units</label>
+          <input
+            type="number"
+            value={units}
+            onChange={(e) => setUnits(e.target.value)}
+            className="w-full p-2 border rounded"
+          />
+        </div>
+        <div className="flex justify-end space-x-2">
+          <button
+            onClick={onClose}
+            className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleUpdate}
+            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          >
+            Update
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};

@@ -56,6 +56,7 @@ const Text2SpeechBatch = () => {
         },
         {
           responseType: "blob",
+          withCredentials: true,  
         }
       );
 

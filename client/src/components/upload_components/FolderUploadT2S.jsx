@@ -19,7 +19,7 @@ const FolderUploadT2S = ({ setFiles, files, uploadCheck, setUploadCheck }) => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/upload_folder", {
+      const response = await fetch("http://localhost:8000/upload_folder", {
         method: "POST",
         body: formData,
         credentials: "include",

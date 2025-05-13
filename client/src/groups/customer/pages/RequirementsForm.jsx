@@ -63,7 +63,6 @@ export default function RequirementsForm() {
         file_link: "",
         urgent: "Normal",
         quality: "",
-        one_time: false, // Reset to default value
       });
     } catch (err) {
       const message = err.response?.data?.message || "Submission failed.";
@@ -311,20 +310,6 @@ export default function RequirementsForm() {
           </div>
 
           {/* One-Time Field */}
-          <div className=" flex h-fit items-center space-x-2">
-            <label className=" text-lg font-medium">One-Time Project</label>
-            <input
-              type="checkbox"
-              name="one_time"
-              checked={form.one_time}
-              onChange={(e) =>
-                handleChange({
-                  target: { name: "one_time", value: e.target.checked },
-                })
-              }
-              className="w-5 h-5"
-            />
-          </div>
         </div>
 
         <button

@@ -270,6 +270,14 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 isOpen={isOpen}
                 onClick={() => navigate("/requirements-form")}
               />
+
+              <MenuItem
+                icon={<CiCirclePlus size={20} />}
+                label="View Requirements"
+                path="/view-requirements"
+                isOpen={isOpen}
+                onClick={() => navigate("/view-requirements")}
+              />
             </div>
           )}
 

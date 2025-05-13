@@ -9,7 +9,7 @@ const ConfirmDeleteButton = ({ onDelete }) => {
     toast(
       ({ closeToast }) => (
         <div className="flex flex-col gap-2 w-[90%]">
-          <span>Are you sure you want to delete this user?</span>
+          <span>Are you sure you want to delete this customer?</span>
           <div className="flex justify-end gap-2">
             <button
               onClick={() => {
@@ -70,10 +70,11 @@ const Modal = ({ isOpen, onClose, children }) => {
 const CustomerTable = () => {
   const [customers, setCustomers] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
-  const [selectedUser, setSelectedUser] = useState(null);
+  const [selectedCustomer, setSelectedCustomer] = useState(null);
   const [user, setUser] = useState("");
-  const navigate = useNavigate();
+
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     first_name: "",
@@ -81,23 +82,32 @@ const CustomerTable = () => {
     group: "",
     status: true,
     permission: "",
+    phone_number: "",
+    city: "",
+    country: "",
+    organization_name: "",
+    type: "",
+    pan_number: "", // Added field
+    tax_id: "", // Added field
+    billing_address: "", // Added field
+    billing_currency: "",
   });
 
   const API_URL = import.meta.env.VITE_API_URL;
 
-  const deleteUser = async (userId) => {
+  const deleteCustomer = async (customerId) => {
     try {
-      await axios.delete(`${API_URL}/delete-user/${userId}`, {
+      await axios.delete(`${API_URL}/delete-user/${customerId}`, {
         withCredentials: true,
       });
-      toast.success("User deleted");
-      setCustomers((prev) => prev.filter((c) => c._id !== userId));
+      toast.success("Customer deleted");
+      setCustomers((prev) => prev.filter((v) => v._id !== customerId));
     } catch (error) {
       console.error(
-        "Error deleting user:",
+        "Error deleting customer:",
         error.response?.data || error.message
       );
-      toast.error("Error deleting user");
+      toast.error("Error deleting customer");
     }
   };
 
@@ -117,7 +127,7 @@ const CustomerTable = () => {
   }, []);
 
   const EditCustomer = (customer) => {
-    setSelectedUser(customer);
+    setSelectedCustomer(customer);
     setFormData({
       email: customer.email,
       first_name: customer.first_name,
@@ -129,11 +139,16 @@ const CustomerTable = () => {
       city: customer.city,
       country: customer.country,
       organization_name: customer.organization_name,
+      type: customer.type,
+      pan_number: customer.pan_number || "", // Set default if exists
+      tax_id: customer.tax_id || "", // Set default if exists
+      billing_address: customer.billing_address || "", // Set default if exists
+      billing_currency: customer.billing_currency || "", // Set default if exists
     });
     setIsEditing(true);
   };
 
-  const handleInputChange = (e) => {
+  const updateField = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -141,24 +156,28 @@ const CustomerTable = () => {
     }));
   };
 
-  const UpdateUser = async () => {
+  const UpdateCustomer = async () => {
     try {
-      await axios.put(`${API_URL}/edit_user/${selectedUser._id}`, formData, {
-        withCredentials: true,
-      });
+      await axios.put(
+        `${API_URL}/edit_user/${selectedCustomer._id}`,
+        formData,
+        {
+          withCredentials: true,
+        }
+      );
 
-      toast.success("User updated successfully");
+      toast.success("Customer updated successfully");
       setIsEditing(false);
-      setSelectedUser(null);
+      setSelectedCustomer(null);
 
       const updatedCustomers = customers.map((customer) =>
-        customer._id === selectedUser._id
+        customer._id === selectedCustomer._id
           ? { ...customer, ...formData }
           : customer
       );
       setCustomers(updatedCustomers);
     } catch (error) {
-      toast.error("Error updating user");
+      toast.error("Error updating customer");
     }
   };
 
@@ -175,14 +194,15 @@ const CustomerTable = () => {
       {/* Edit Modal */}
       <Modal isOpen={isEditing} onClose={() => setIsEditing(false)}>
         <div className="overflow-y-auto max-h-[90vh]">
-          <h3 className="text-xl font-semibold mb-4 ">Edit User</h3>
+          <h3 className="text-xl font-semibold mb-4 ">Edit Customer</h3>
+
           <div className="mb-2">
             <label className="block mb-1">First Name:</label>
             <input
               type="text"
               name="first_name"
               value={formData.first_name}
-              onChange={handleInputChange}
+              onChange={updateField}
               className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -192,7 +212,7 @@ const CustomerTable = () => {
               type="text"
               name="last_name"
               value={formData.last_name}
-              onChange={handleInputChange}
+              onChange={updateField}
               className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -202,7 +222,7 @@ const CustomerTable = () => {
               type="email"
               name="email"
               value={formData.email}
-              onChange={handleInputChange}
+              onChange={updateField}
               className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -222,7 +242,7 @@ const CustomerTable = () => {
               type="text"
               name="phone_number"
               value={formData.phone_number}
-              onChange={handleInputChange}
+              onChange={updateField}
               className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -232,7 +252,7 @@ const CustomerTable = () => {
               type="text"
               name="city"
               value={formData.city}
-              onChange={handleInputChange}
+              onChange={updateField}
               className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -242,26 +262,90 @@ const CustomerTable = () => {
               type="text"
               name="country"
               value={formData.country}
-              onChange={handleInputChange}
+              onChange={updateField}
               className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
             />
           </div>
-          <div className="mb-2">
-            <label className="block mb-1">Organization Name:</label>
-            <input
-              type="text"
-              name="organization_name"
-              value={formData.organization_name}
-              onChange={handleInputChange}
-              className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
-            />
+
+          <select
+            name="type"
+            value={formData.type}
+            onChange={updateField}
+            required
+            className="w-full px-4 py-2 my-4 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+          >
+            <option value="Individual">Individual</option>
+            <option value="Business">Business</option>
+          </select>
+
+          {formData.type === "Business" && (
+            <div>
+              <h2>Organization Name</h2>
+              <input
+                type="text"
+                name="organization_name"
+                value={formData.organization_name}
+                placeholder="Organization Name"
+                onChange={updateField}
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+              />
+            </div>
+          )}
+
+          {/* Optional Section */}
+          <div className="mb-2 mt-4">
+            <h3 className="font-semibold text-lg">Optional</h3>
+            <div className="mb-2">
+              <label className="block mb-1">PAN Number:</label>
+              <input
+                type="text"
+                name="pan_number"
+                value={formData.pan_number}
+                onChange={updateField}
+                className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            <div className="mb-2">
+              <label className="block mb-1">Tax ID:</label>
+              <input
+                type="text"
+                name="tax_id"
+                value={formData.tax_id}
+                onChange={updateField}
+                className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            <div className="mb-2">
+              <label className="block mb-1">Billing Address:</label>
+              <input
+                type="text"
+                name="billing_address"
+                value={formData.billing_address}
+                onChange={updateField}
+                className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            <div className="mb-2">
+              <label className="block mb-1">Billing Currency:</label>
+              <select
+                name="billing_currency"
+                value={formData.billing_currency}
+                onChange={updateField}
+                className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
+              >
+                <option value="USD">USD</option>
+                <option value="INR">INR</option>
+                <option value="EU">EU</option>
+              </select>
+            </div>{" "}
           </div>
+
           <div className="mb-4">
             <label className="block mb-1">Status:</label>
             <select
               name="status"
               value={formData.status}
-              onChange={handleInputChange}
+              onChange={updateField}
               className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
             >
               <option value={true}>Activated</option>
@@ -270,7 +354,7 @@ const CustomerTable = () => {
           </div>
           <div className="flex justify-end">
             <button
-              onClick={UpdateUser}
+              onClick={UpdateCustomer}
               className="px-4 py-2 bg-blue-500 text-white rounded mr-2"
             >
               Save
@@ -296,12 +380,12 @@ const CustomerTable = () => {
           <div className="w-[9%] px-2 py-2">Modify</div>
           <div className="w-[9%] px-2 py-2">Remove</div>
         </div>
+
         <GetUserByID
           isOpen={isOpen}
           setIsOpen={setIsOpen}
           user_id={user}
         ></GetUserByID>
-
         {customers.map((customer) => (
           <div
             key={customer._id}
@@ -337,7 +421,9 @@ const CustomerTable = () => {
               </button>
             </div>
             <div className="w-[9%] px-2 py-2">
-              <ConfirmDeleteButton onDelete={() => deleteUser(customer._id)} />
+              <ConfirmDeleteButton
+                onDelete={() => deleteCustomer(customer._id)}
+              />
             </div>
           </div>
         ))}

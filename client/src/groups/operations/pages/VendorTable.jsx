@@ -82,13 +82,25 @@ const VendorTable = () => {
     group: "",
     status: true,
     permission: "",
+    phone_number: "",
+    city: "",
+    country: "",
+    organization_name: "",
+    type: "",
+    pan_number: "", // Added field
+    tax_id: "", // Added field
+    billing_address: "", // Added field
+    billing_currency: "", // Added field
+    services_offered: "",
+    custom_service: "",
+    standard_rate: "",
   });
 
   const API_URL = import.meta.env.VITE_API_URL;
 
   const deleteVendor = async (vendorId) => {
     try {
-      await axios.delete(`${API_URL}/delete-vendor/${vendorId}`, {
+      await axios.delete(`${API_URL}/delete-user/${vendorId}`, {
         withCredentials: true,
       });
       toast.success("Vendor deleted");
@@ -130,11 +142,19 @@ const VendorTable = () => {
       city: vendor.city,
       country: vendor.country,
       organization_name: vendor.organization_name,
+      type: vendor.type,
+      pan_number: vendor.pan_number || "", // Set default if exists
+      tax_id: vendor.tax_id || "", // Set default if exists
+      billing_address: vendor.billing_address || "", // Set default if exists
+      billing_currency: vendor.billing_currency || "", // Set default if exists
+      services_offered: vendor.services_offered || "",
+      custom_service: vendor.custom_service || "",
+      standard_rate: vendor.standard_rate || "",
     });
     setIsEditing(true);
   };
 
-  const handleInputChange = (e) => {
+  const updateField = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -144,13 +164,9 @@ const VendorTable = () => {
 
   const UpdateVendor = async () => {
     try {
-      await axios.put(
-        `${API_URL}/edit-vendor/${selectedVendor._id}`,
-        formData,
-        {
-          withCredentials: true,
-        }
-      );
+      await axios.put(`${API_URL}/edit_user/${selectedVendor._id}`, formData, {
+        withCredentials: true,
+      });
 
       toast.success("Vendor updated successfully");
       setIsEditing(false);
@@ -179,13 +195,14 @@ const VendorTable = () => {
       <Modal isOpen={isEditing} onClose={() => setIsEditing(false)}>
         <div className="overflow-y-auto max-h-[90vh]">
           <h3 className="text-xl font-semibold mb-4 ">Edit Vendor</h3>
+
           <div className="mb-2">
             <label className="block mb-1">First Name:</label>
             <input
               type="text"
               name="first_name"
               value={formData.first_name}
-              onChange={handleInputChange}
+              onChange={updateField}
               className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -195,7 +212,7 @@ const VendorTable = () => {
               type="text"
               name="last_name"
               value={formData.last_name}
-              onChange={handleInputChange}
+              onChange={updateField}
               className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -205,7 +222,7 @@ const VendorTable = () => {
               type="email"
               name="email"
               value={formData.email}
-              onChange={handleInputChange}
+              onChange={updateField}
               className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -225,7 +242,7 @@ const VendorTable = () => {
               type="text"
               name="phone_number"
               value={formData.phone_number}
-              onChange={handleInputChange}
+              onChange={updateField}
               className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -235,7 +252,7 @@ const VendorTable = () => {
               type="text"
               name="city"
               value={formData.city}
-              onChange={handleInputChange}
+              onChange={updateField}
               className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -245,26 +262,133 @@ const VendorTable = () => {
               type="text"
               name="country"
               value={formData.country}
-              onChange={handleInputChange}
+              onChange={updateField}
               className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
             />
           </div>
-          <div className="mb-2">
-            <label className="block mb-1">Organization Name:</label>
-            <input
-              type="text"
-              name="organization_name"
-              value={formData.organization_name}
-              onChange={handleInputChange}
-              className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
-            />
+
+          <select
+            name="type"
+            value={formData.type}
+            onChange={updateField}
+            required
+            className="w-full px-4 py-2 my-4 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+          >
+            <option value="Individual">Individual</option>
+            <option value="Business">Business</option>
+          </select>
+
+          {formData.type === "Business" && (
+            <div>
+              <h2>Organization Name</h2>
+              <input
+                type="text"
+                name="organization_name"
+                value={formData.organization_name}
+                placeholder="Organization Name"
+                onChange={updateField}
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+              />
+            </div>
+          )}
+
+          {/* Optional Section */}
+          <div className="mb-2 mt-4">
+            <h3 className="font-semibold text-lg">Optional</h3>
+            <div className="mb-2">
+              <label className="block mb-1">PAN Number:</label>
+              <input
+                type="text"
+                name="pan_number"
+                value={formData.pan_number}
+                onChange={updateField}
+                className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            <div className="mb-2">
+              <label className="block mb-1">Tax ID:</label>
+              <input
+                type="text"
+                name="tax_id"
+                value={formData.tax_id}
+                onChange={updateField}
+                className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            <div className="mb-2">
+              <label className="block mb-1">Billing Address:</label>
+              <input
+                type="text"
+                name="billing_address"
+                value={formData.billing_address}
+                onChange={updateField}
+                className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            <h2 className="mt-4 font-bold">Service Offered:</h2>
+            <select
+              name="services_offered"
+              value={formData.services_offered}
+              onChange={updateField}
+              required
+              className="w-full mb-4 p-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+            >
+              <option value="">Select Service</option>
+
+              <option value="Translation">Translation</option>
+              <option value="Localization">Localization</option>
+              <option value="Transcription">Transcription</option>
+              <option value="Proofreading">Proofreading</option>
+              <option value="Copywriting">Copywriting</option>
+              <option value="Data Annotation">Data Annotation</option>
+              <option value="Data Collection">Data Collection</option>
+              <option value="Recruitment">Recruitment</option>
+              <option value="Staffing">Staffing</option>
+              <option value="Digital Marketing">Digital Marketing</option>
+
+              <option value="Other">Other</option>
+            </select>
+            {formData.services_offered === "Other" && (
+              <input
+                type="text"
+                name="custom_service"
+                placeholder="Please specify"
+                value={formData.custom_service}
+                onChange={updateField}
+                className="mb-2 w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+              />
+            )}
+            <div className="mb-2">
+              <label className="block mb-1">Billing Currency:</label>
+              <select
+                name="billing_currency"
+                value={formData.billing_currency}
+                onChange={updateField}
+                className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
+              >
+                <option value="USD">USD</option>
+                <option value="INR">INR</option>
+                <option value="EU">EU</option>
+              </select>
+            </div>{" "}
+            <div className="mb-2">
+              <label className="block mb-1">Standard Rate:</label>
+              <input
+                type="text"
+                name="standard_rate"
+                value={formData.standard_rate}
+                onChange={updateField}
+                className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
+              />
+            </div>
           </div>
+
           <div className="mb-4">
             <label className="block mb-1">Status:</label>
             <select
               name="status"
               value={formData.status}
-              onChange={handleInputChange}
+              onChange={updateField}
               className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
             >
               <option value={true}>Activated</option>

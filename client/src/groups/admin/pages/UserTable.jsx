@@ -40,6 +40,14 @@ const UserTable = () => {
     city: "",
     country: "",
     organization_name: "",
+    standard_rate: "",
+    services_offered: "",
+    billing_address: "",
+    tax_id: "",
+    pan_number: "",
+    billing_currency: "",
+    custom_service: "",
+    type: "Individual",
   });
 
   const API_URL = import.meta.env.VITE_API_URL;
@@ -86,12 +94,20 @@ const UserTable = () => {
       city: user.city || "",
       country: user.country || "",
       organization_name: user.organization_name || "",
+      standard_rate: user.standard_rate || "",
+      services_offered: user.services_offered || "",
+      billing_address: user.billing_address || "",
+      tax_id: user.tax_id || "",
+      pan_number: user.pan_number || "",
+      billing_currency: user.billing_currency || "",
+      custom_service: user.custom_service || "",
+      type: user.type || "Individual",
     });
 
     setIsEditing(true);
   };
 
-  const handleInputChange = (e) => {
+  const updateField = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -138,7 +154,7 @@ const UserTable = () => {
               type="text"
               name="first_name"
               value={formData.first_name}
-              onChange={handleInputChange}
+              onChange={updateField}
               className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -148,7 +164,7 @@ const UserTable = () => {
               type="text"
               name="last_name"
               value={formData.last_name}
-              onChange={handleInputChange}
+              onChange={updateField}
               className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -159,7 +175,7 @@ const UserTable = () => {
               name="email"
               readOnly={formData.group === "Admin"}
               value={formData.email}
-              onChange={handleInputChange}
+              onChange={updateField}
               className={`w-full p-2 border rounded focus:outline-none focus:border-blue-500 ${
                 formData.group === "Admin"
                   ? "cursor-not-allowed bg-gray-100"
@@ -174,7 +190,7 @@ const UserTable = () => {
                 type="text"
                 name="group"
                 readOnly
-                onChange={handleInputChange}
+                onChange={updateField}
                 value={formData.group}
                 className="w-full p-2 border rounded focus:outline-none focus:border-blue-500 cursor-not-allowed bg-gray-100"
               />
@@ -182,7 +198,7 @@ const UserTable = () => {
               <select
                 name="group"
                 value={formData.group}
-                onChange={handleInputChange}
+                onChange={updateField}
                 className="w-full px-2 py-2 border rounded focus:outline-none focus:bg-slate-50 focus:border-blue-300"
               >
                 <option value="Sales">Sales</option>
@@ -197,7 +213,7 @@ const UserTable = () => {
             <select
               name="status"
               value={formData.status}
-              onChange={handleInputChange}
+              onChange={updateField}
               className="w-full p-2 border rounded focus:outline-none focus:border-blue-500"
             >
               <option value={true}>Activated</option>
@@ -215,7 +231,7 @@ const UserTable = () => {
                   name="phone_number"
                   placeholder="Phone Number"
                   value={formData.phone_number}
-                  onChange={handleInputChange}
+                  onChange={updateField}
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
                 />
               </div>
@@ -228,7 +244,7 @@ const UserTable = () => {
                   name="city"
                   placeholder="City"
                   value={formData.city}
-                  onChange={handleInputChange}
+                  onChange={updateField}
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
                 />
               </div>
@@ -241,22 +257,137 @@ const UserTable = () => {
                   name="country"
                   placeholder="Country"
                   value={formData.country}
-                  onChange={handleInputChange}
+                  onChange={updateField}
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
                 />
               </div>
+
               <div className="mb-4">
                 <label className="block text-sm font-semibold mb-2">
-                  Organization Name:
+                  Currency
                 </label>
+                <select
+                  name="billing_currency"
+                  value={formData.billing_currency}
+                  onChange={updateField}
+                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+                >
+                  <option value="">Select Billing Currency</option>
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                  <option value="INR">INR</option>
+                </select>
+              </div>
+
+              {formData.group === "Vendor" && (
+                <>
+                  <div className="mb-4">
+                    <label className="block text-sm font-semibold mb-2">
+                      Standard Rate
+                    </label>
+                    <input
+                      type="text"
+                      name="standard_rate"
+                      placeholder="Standard Rate"
+                      value={formData.standard_rate}
+                      onChange={updateField}
+                      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+                    />
+                  </div>
+
+                  <select
+                    name="services_offered"
+                    value={formData.services_offered}
+                    onChange={updateField}
+                    required
+                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+                  >
+                    <option value="">Select Service</option>
+                    <option value="Translation">Translation</option>
+                    <option value="Transcription">Transcription</option>
+                    <option value="Other">Other</option>
+                  </select>
+
+                  {formData.services_offered === "Other" && (
+                    <input
+                      type="text"
+                      name="custom_service"
+                      placeholder="Please specify"
+                      value={formData.custom_service}
+                      onChange={updateField}
+                      className="mt-2 w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+                    />
+                  )}
+                </>
+              )}
+
+              <select
+                name="type"
+                value={formData.type}
+                onChange={updateField}
+                required
+                className="w-full mt-4 px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+              >
+                <option value="Individual">Individual</option>
+                <option value="Business">Business</option>
+              </select>
+
+              {formData.type === "Business" && (
                 <input
                   type="text"
                   name="organization_name"
                   placeholder="Organization Name"
                   value={formData.organization_name}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+                  onChange={updateField}
+                  className="w-full mt-4 px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
                 />
+              )}
+              <div className="mt-6">
+                <h4 className="text-md font-semibold mb-2 underline">
+                  Optional
+                </h4>
+
+                <div className="mb-4">
+                  <label className="block text-sm font-semibold mb-2">
+                    Billing Address
+                  </label>
+                  <input
+                    type="text"
+                    name="billing_address"
+                    placeholder="Billing Address"
+                    value={formData.billing_address}
+                    onChange={updateField}
+                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-sm font-semibold mb-2">
+                    Tax ID
+                  </label>
+                  <input
+                    type="text"
+                    name="tax_id"
+                    placeholder="Tax ID"
+                    value={formData.tax_id}
+                    onChange={updateField}
+                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-sm font-semibold mb-2">
+                    PAN Number
+                  </label>
+                  <input
+                    type="text"
+                    name="pan_number"
+                    placeholder="PAN Number"
+                    value={formData.pan_number}
+                    onChange={updateField}
+                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+                  />
+                </div>
               </div>
             </>
           )}

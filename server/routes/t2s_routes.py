@@ -53,13 +53,14 @@ def synthesize_speech():
     <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'>
         <voice name='{voice}'>
             <prosody rate='{rate}' pitch='{pitch}'>{text}</prosody>
+            
         </voice>
     </speak>
     """
     
   
     speech_synthesis_result = speech_synthesizer.speak_ssml_async(ssml_text).get()
-    
+   
    
     if speech_synthesis_result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
         return jsonify({"message": "Speech synthesized successfully", "file": f"/files/{audio_filename}"})

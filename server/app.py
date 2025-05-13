@@ -23,7 +23,7 @@ from routes.customer_vendor_mangement_routes import customer_vendor_bp
 from routes.customer_routes import customer_bp
 from config import CurrentConfig
 from extensions import mail
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
 # config.py set up here
 app.config.from_object(CurrentConfig)
@@ -37,7 +37,7 @@ cache.init_app(app)
 mail.init_app(app)
 
 
-connect(db="activeloc_users", host=CurrentConfig.MONGO_URI, alias="default")
+connect( host=CurrentConfig.MONGO_URI, alias="default")
 
 # Register blueprints
 app.register_blueprint(upload)

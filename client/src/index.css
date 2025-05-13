@@ -30,3 +30,14 @@ select:focus {
   border-style: solid;
   border-color: transparent rgb(55, 65, 81) transparent transparent;
 }
+
+input[type="text"],
+input[type="number"] {
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border: 1px solid rgb(154, 204, 221);
+}

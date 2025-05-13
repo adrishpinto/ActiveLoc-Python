@@ -33,6 +33,9 @@ import RequirementsForm from "./groups/customer/pages/RequirementsForm";
 import RequirementsList from "./groups/sales/pages/RequirementsList";
 import Quotation from "./pages/QuotationForm";
 import QuotationTable from "./pages/QuotationTable";
+import RequirementConfirm from "./groups/customer/pages/RequirementConfirm";
+import ViewRequirements from "./groups/customer/pages/ViewRequirements";
+import AddVendorProject from "./groups/operations/pages/AddVendorProject";
 
 const internalGroups = ["Admin", "Sales", "Operations"];
 
@@ -233,6 +236,15 @@ export default function App() {
             }
           />
 
+          <Route
+            path="/add-vendor-project/:id"
+            element={
+              <ProtectedRoute allowedGroups={internalGroups}>
+                <AddVendorProject />
+              </ProtectedRoute>
+            }
+          />
+
           {/* Admin Specific user */}
           <Route
             path="/user-table"
@@ -265,6 +277,24 @@ export default function App() {
             element={
               <ProtectedRoute allowedGroups={["Admin", "Customer"]}>
                 <RequirementsForm />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/view-requirements"
+            element={
+              <ProtectedRoute allowedGroups={["Admin", "Customer"]}>
+                <ViewRequirements />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/requirements-confirm"
+            element={
+              <ProtectedRoute allowedGroups={["Admin", "Customer"]}>
+                <RequirementConfirm />
               </ProtectedRoute>
             }
           />

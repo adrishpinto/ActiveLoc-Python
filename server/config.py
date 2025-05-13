@@ -8,6 +8,7 @@ class Config:
     
     CACHE_TYPE = "SimpleCache"
     CACHE_DEFAULT_TIMEOUT = 300
+    
     JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "your_secret_key")
     JWT_TOKEN_LOCATION = ["cookies"]
     CORS_ALLOWED_ORIGINS = [

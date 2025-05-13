@@ -21,7 +21,6 @@ from extensions import mail
 from decorator.decorator import group_required
 
 user_bp = Blueprint("user", __name__)
-
 @user_bp.route("/users", methods=["GET"])
 @jwt_required()
 @group_required(["Admin", "Sales", "Operations"])
@@ -44,7 +43,12 @@ def get_users():
                 "permission": user.permission.value if hasattr(user.permission, "value") else user.permission,
             }
 
-            for field in ["phone_number", "city", "country", "organization_name"]:
+            common_fields = [
+                "phone_number", "city", "country", "company_name", "billing_currency", 
+                "type", "organization_name", "billing_address", "tax_id", "pan_number", 
+                "standard_rate", "services_offered", "created_by"
+            ]
+            for field in common_fields:
                 value = getattr(user, field, None)
                 if value is not None:
                     base[field] = value
@@ -55,7 +59,6 @@ def get_users():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
 
 
 
@@ -104,7 +107,6 @@ def logout():
         return jsonify({"error": str(e)}), 500
     
     
-    
 @user_bp.route("/edit_user/<user_id>", methods=["PUT"])
 @jwt_required()
 @group_required(["Admin", "Sales", "Operations"])
@@ -116,11 +118,13 @@ def edit_user(user_id):
         if not user:
             return jsonify({'error': 'User not found'}), 404
 
-      
         updatable_fields = [
             'email', 'password', 'first_name', 'last_name',
             'group', 'status', 'permission',
-            'phone_number', 'city', 'country', 'organization_name'
+            'phone_number', 'city', 'country',
+            'type', 'organization_name', 'billing_address',
+            'tax_id', 'pan_number', 'billing_currency',
+            'standard_rate', 'services_offered', 'custom_service', 'created_by'
         ]
 
         if "email" in data and data["email"] != user.email:
@@ -135,6 +139,11 @@ def edit_user(user_id):
                     setattr(user, field, data[field].title())
                 else:
                     setattr(user, field, data[field])
+        
+        if 'type' in data:
+            if data['type'] == 'Business' and 'organization_name' not in data:
+                return jsonify({'error': 'Organization name is required for Business type'}), 400
+
         user.validate()
         user.save()
 
@@ -144,20 +153,18 @@ def edit_user(user_id):
         return jsonify({'error': 'Validation error', 'details': str(e)}), 400
 
     except Exception as e:
-        return jsonify({'error': 'An unexpected error occurred', 'details': str(e)}), 500
+        print(str(e))
+        return jsonify({'error': 'An unexpected error occurred', }), 500
+        
 
-   
-   
-   
+
+  
 @user_bp.route("/add-user", methods=["POST"])
-@jwt_required()
-@group_required(["Admin", "Sales", "Operations"])
 def create_user():
     try:
         data = request.get_json()
         required_fields = ["email", "password", "first_name", "last_name", "group", "status"]
 
-        
         missing_fields = [field for field in required_fields if field not in data or not data[field]]
         if missing_fields:
             return jsonify({
@@ -165,10 +172,9 @@ def create_user():
                 "missing_fields": missing_fields
             }), 400
 
-       
         hashed_password = generate_password_hash(data["password"])
 
-        
+        # Start with common user fields
         user_data = {
             "email": data["email"],
             "password": hashed_password,
@@ -176,22 +182,59 @@ def create_user():
             "last_name": data["last_name"],
             "group": data["group"],
             "status": data["status"],
-            "permission": data.get("permission", ""), 
+            "permission": data.get("permission", ""),
         }
 
-      
-        if "phone_number" in data and data["phone_number"]:
-            user_data["phone_number"] = data["phone_number"]
-        if "city" in data and data["city"]:
-            user_data["city"] = data["city"].title()
-        if "country" in data and data["country"]:
-            user_data["country"] = data["country"].title()
-        if "organization_name" in data and data["organization_name"]:
-            user_data["organization_name"] = data["organization_name"].title()
+        # Add optional fields for both Customer and Vendor
+        optional_fields = ["phone_number", "city", "country", "company_name", "billing_currency", 
+                           "type", "organization_name", "billing_address", "tax_id", "pan_number"]
+        for field in optional_fields:
+            if field in data and data[field]:
+                user_data[field] = data[field]
+
+        # Add vendor-specific fields
+        if data["group"] == "Vendor":
+            vendor_fields = ["standard_rate", "services_offered", "custom_service"]
+            for field in vendor_fields:
+                if field in data and data[field]:
+                    user_data[field] = data[field]
+
+        # Add customer-specific fields
+        if data["group"] == "Customer":
+            if "created_by" in data and data["created_by"]:
+                user_data["created_by"] = data["created_by"]
 
         user = User(**user_data)
-        user.validate() 
-        user.save()  
+        user.validate()
+        user.save()
+
+        customer_name = f"{user.first_name} {user.last_name}"
+        customer_email = user.email
+        customer_password = data["password"]
+        portal_link = "https://tms.activeloc.com/"  # <-- Replace with your actual portal link
+
+        msg = Message(
+            subject="Welcome to ActiveLoc TMS! Here are Your Account Details",
+            recipients=[customer_email],
+            body=f"""Dear {customer_name},
+
+Welcome to ActiveLoc TMS!
+Your account has been successfully created.
+
+Login Credentials:
+Username: {customer_email}
+Password: {customer_password}
+
+We're excited to support your translation, localization, and staffing needs.
+
+Login Link: {portal_link}
+
+Regards,
+ActiveLoc TMS Support Team
+"""
+        )
+        mail.send(msg)
+        # ----------------------------------------
 
         return jsonify({
             "message": "User created successfully",
@@ -206,6 +249,8 @@ def create_user():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+    
 
 
 
@@ -343,17 +388,17 @@ def get_user_by_id(user_id):
 
         if not user:
             return jsonify({"error": "User not found"}), 404
-
         response = {
             "user_id": str(user.id),
             "first_name": user.first_name,
             "last_name": user.last_name,
             "email": user.email,
             "status": user.status,
-            "group": user.group.value,
-            "permission": user.permission
+            "group": user.group.value,  # assuming Enum
+            "permission": user.permission,
         }
 
+        # Optional fields
         if user.phone_number:
             response["phone_number"] = user.phone_number
         if user.city:
@@ -362,6 +407,35 @@ def get_user_by_id(user_id):
             response["country"] = user.country
         if user.organization_name:
             response["organization_name"] = user.organization_name
+        if user.billing_address:
+            response["billing_address"] = user.billing_address
+        if user.tax_id:
+            response["tax_id"] = user.tax_id
+        if user.pan_number:
+            response["pan_number"] = user.pan_number
+        if user.billing_currency:
+            response["billing_currency"] = user.billing_currency
+        if user.type:
+            response["type"] = user.type
+
+        # Vendor-specific
+        if user.group.value == "Vendor":
+            if user.standard_rate:
+                response["standard_rate"] = user.standard_rate
+            if user.services_offered:
+                response["services_offered"] = user.services_offered
+            if user.custom_service:
+                response["custom_service"] = user.custom_service
+
+        # Customer-specific
+        if user.group.value == "Customer":
+            if user.created_by:
+                response["created_by"] = user.created_by
+
+        # Optional: Include usage if needed
+        if user.usage:
+            response["usage"] = user.usage
+
 
         return jsonify(response)
 

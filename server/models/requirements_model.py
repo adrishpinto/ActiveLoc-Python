@@ -1,10 +1,28 @@
 from mongoengine import (
-    Document, StringField, DateTimeField, URLField, BooleanField, FloatField
+    Document, StringField, DateTimeField, URLField, BooleanField, FloatField, IntField, ReferenceField, EmbeddedDocument, ListField, EmbeddedDocumentField
 )
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
+from models.user_model import User
+
+
+class Vendor(EmbeddedDocument):
+    name = StringField(default="")
+    company = StringField(default="")
+    email = StringField(default="")
+    work_status = StringField(default="", choices = ["not_started","ongoing", "completed", ""])
+    bill_status = StringField(default="", choices=["pending", "submitted", "paid", ""])
+    standard_rate = StringField(default="")
+    current_rate = FloatField(default=0.0)
+    units = FloatField(default=0.0)
+    total = FloatField(defailt=0.0)
+    billing_currency = StringField(default="")
+    
 
 class Requirements(Document):
     created_at = DateTimeField(default=lambda: datetime.now(timezone.utc))
+    user = ReferenceField(User, required=True)
+    quotation_deadline = DateTimeField(default=None)
+    countdown = IntField(default = "")
     
     # Client given
     title = StringField(required=True)
@@ -22,7 +40,7 @@ class Requirements(Document):
     urgent = StringField(required=False, choices=[
         "normal", "urgent", "express"
     ], default="normal")
-    one_time = BooleanField(default=False) 
+    
     quality = StringField(default="")
     
     # Client + Internal 
@@ -31,7 +49,7 @@ class Requirements(Document):
     ])
     preferred_start_date = DateTimeField(required=False) #optional
     deadline = DateTimeField(required=False) #optional
-     
+    date_diff = IntField(default=0)
     # Internal data 
     # A. Contact details
     billing_address = StringField(default="")
@@ -41,7 +59,7 @@ class Requirements(Document):
     task_description = StringField(default="")
     
     # C. Volume and Complexity
-    units = StringField(default="")
+    units = FloatField(default=0.0)
     locales = StringField(default="")
     resouces = StringField(default="")
     tools = StringField(default="")
@@ -50,21 +68,46 @@ class Requirements(Document):
     # D. Quatation and Pricing
     currency_choice = StringField(default="")
     billing_model = StringField(default="")
-    cost_breakdown = StringField(default="") #optional
+    cost_breakdown = StringField(default="") 
     discounts = StringField(default="") 
     tax = StringField(default="")
     payment_terms = StringField(default="")
     
     # E. Timeline Estimation
     estimation = StringField(default="")
-    milestones = StringField(default="") #optional
-    buffer_days = StringField(default="") #optional
+    milestones = StringField(default="") 
+    buffer_days = StringField(default="")
     
     # F. Internal Notes
     quote_by = StringField(default="")
     status = StringField(required=True, choices=[
-        "Draft", "Reviewed", "Sent", "Approved"
+        "Draft", "Submitted"
     ], default="Draft")
     
-    approved = BooleanField(default=False)
+    approved = StringField(default=False)
+  
+    #invoice data
+    invoice_subject = StringField(default="")
+    invoice_description = StringField(default="")
+    rate = FloatField(default = 0.0)
+    
+    rejection_reason = StringField(default="")
+    rejection_changes = StringField(default="")
+    
+    #project confirmed details 
+    project_code = StringField(default = "")
+    project_status = StringField(default="", choices=[
+        "in-progress", "assigned", "delivered", ""
+    ]) 
+    
+    vendors = ListField(EmbeddedDocumentField(Vendor), default=list)
+    
+    profit = FloatField(default = 0)
+    pm_hours = FloatField(default = 0)
+    pm_rate = FloatField(default = 0)
+    pm_profit = FloatField(default= 0) 
     meta = {"collection": "requirements"}
+    
+#PM_HOURS, PM_RATE
+    
+    

@@ -3,6 +3,7 @@ from flask import Blueprint, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from decorator.decorator import group_required
 from models.user_model import User  # Import the User model
+from flask_mail import Message
 
 customer_vendor_bp = Blueprint('customer_vendor', __name__)
 

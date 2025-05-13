@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-const AddCustomer = () => {
+const AddUser = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -19,6 +19,11 @@ const AddCustomer = () => {
     city: "",
     country: "",
     organization_name: "",
+    type: "Individual",
+    billing_address: "",
+    tax_id: "",
+    pan_number: "",
+    billing_currency: "",
   });
 
   const updateField = (e) => {
@@ -30,8 +35,6 @@ const AddCustomer = () => {
 
   const validateForm = () => {
     let isValid = true;
-
-    // Check all fields
     const requiredFields = [
       "email",
       "password",
@@ -42,13 +45,14 @@ const AddCustomer = () => {
       "phone_number",
       "city",
       "country",
-      "organization_name",
     ];
 
-    requiredFields.forEach((field) => {
-      const value = formData[field];
+    if (formData.type === "Business") {
+      requiredFields.push("organization_name");
+    }
 
-      if (!value) {
+    requiredFields.forEach((field) => {
+      if (!formData[field]) {
         toast.error(`${field.replace("_", " ")} is required.`);
         isValid = false;
       }
@@ -57,7 +61,8 @@ const AddCustomer = () => {
     return isValid;
   };
 
-  const submit = async () => {
+  const submit = async (e) => {
+    e.preventDefault();
     if (!validateForm()) return;
 
     try {
@@ -66,15 +71,15 @@ const AddCustomer = () => {
       });
       toast.success("Customer added successfully");
     } catch (err) {
-      toast.error(err.response?.data?.error || "Error adding customer");
+      toast.error(err.response?.data?.error || "Error adding Customer");
     }
   };
 
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col">
       <div className="max-w-md mx-auto p-6 bg-white rounded-xl border shadow-md space-y-4 mt-32">
         <h2 className="text-2xl font-bold text-center">Add Customer</h2>
-        <div className="space-y-4">
+        <form onSubmit={submit} className="space-y-4">
           <input
             type="text"
             name="first_name"
@@ -112,7 +117,7 @@ const AddCustomer = () => {
           />
 
           <div className="w-full font-semibold px-4 cursor-not-allowed py-2 border border-black rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300">
-            Group : Customer
+            Group: Customer
           </div>
 
           <input
@@ -142,25 +147,77 @@ const AddCustomer = () => {
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
           />
 
-          <input
-            type="text"
-            name="organization_name"
-            placeholder="Organization Name"
+          <select
+            name="type"
+            value={formData.type}
             onChange={updateField}
             required
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
-          />
+          >
+            <option value="Individual">Individual</option>
+            <option value="Business">Business</option>
+          </select>
+
+          {formData.type === "Business" && (
+            <input
+              type="text"
+              name="organization_name"
+              placeholder="Organization Name"
+              onChange={updateField}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+            />
+          )}
+
+          <select
+            name="billing_currency"
+            value={formData.billing_currency}
+            onChange={updateField}
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+          >
+            <option value="">Currency</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="INR">INR</option>
+          </select>
+
+          {/* Optional Fields Section */}
+          <div className="mt-4 space-y-4">
+            <h3 className="font-semibold text-lg">Optional (2nd phase)</h3>
+            <input
+              type="text"
+              name="billing_address"
+              placeholder="Billing Address"
+              onChange={updateField}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+            />
+
+            <input
+              type="text"
+              name="tax_id"
+              placeholder="Tax ID"
+              onChange={updateField}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+            />
+
+            <input
+              type="text"
+              name="pan_number"
+              placeholder="PAN Number"
+              onChange={updateField}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:bg-slate-50 focus:border-blue-300"
+            />
+          </div>
 
           <button
-            onClick={submit}
+            type="submit"
             className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
           >
             Add Customer
           </button>
-        </div>
+        </form>
       </div>
       <button
-        onClick={() => navigate("/customer-table")}
+        onClick={() => navigate("/Customer-table")}
         className="mt-8 cursor-pointer mx-auto w-fit bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700"
       >
         Go Back
@@ -169,4 +226,4 @@ const AddCustomer = () => {
   );
 };
 
-export default AddCustomer;
+export default AddUser;

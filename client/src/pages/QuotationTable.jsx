@@ -49,9 +49,9 @@ const QuotationTable = () => {
         <div className="flex border-b pb-2 mb-4 items-center text-sm font-semibold">
           <div className="w-[20%]">Title</div>
           <div className="w-[22%]">Customer Name</div>
-          <div className="w-[22%]">Contact Person</div>
-          <div className="w-[18%]">Service Type</div>
-          <div className="w-[9%]">Status</div>
+          <div className="w-[20%]">Contact Person</div>
+          <div className="w-[16%]">Service Type</div>
+          <div className="w-[11%] text-center">Status</div>
           <div className="w-[9%] text-right">Remove</div>
         </div>
 
@@ -75,33 +75,27 @@ const QuotationTable = () => {
                 {requirement.customer_name}
               </div>
               <div
-                className="w-[22%] cursor-pointer"
+                className="w-[20%] cursor-pointer"
                 onClick={() => handleRowClick(requirement._id)}
               >
                 {requirement.contact_person}
               </div>
               <div
-                className="w-[18%] cursor-pointer"
+                className="w-[16%] cursor-pointer"
                 onClick={() => handleRowClick(requirement._id)}
               >
                 {requirement.service_type}
               </div>
               <div
-                className="w-[9%] cursor-pointer"
+                className="w-[11%] cursor-pointer"
                 onClick={() => handleRowClick(requirement._id)}
               >
                 <div
-                  className={`w-fit px-2 py-1 rounded-full text-center text-xs
+                  className={`w-fit px-2 py-1 rounded-full text-center text-xs mx-auto
                     ${
                       requirement.status === "Draft"
-                        ? "bg-gray-200 text-gray-700"
-                        : requirement.status === "Reviewed"
-                        ? "bg-blue-200 text-blue-700"
-                        : requirement.status === "Sent"
-                        ? "bg-yellow-200 text-yellow-800"
-                        : requirement.status === "Approved"
-                        ? "bg-green-200 text-green-700"
-                        : "bg-red-200 text-red-700"
+                        ? "bg-gray-200 text-gray-700 w-[80px]"
+                        : "bg-green-200 text-green-700 w-[70px]"
                     }`}
                 >
                   {requirement.status}
