@@ -1,3 +1,0 @@
-This is file 1 
-<audio src="https://codeskulptor-demos.commondatastorage.googleapis.com/pang/arrow.mp3"/>
-and the text after the audio

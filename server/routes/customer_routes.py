@@ -361,38 +361,6 @@ def delete_requirement(requirement_id):
     
 
 
-@customer_bp.route("/requirement-pdf1/<string:requirement_id>", methods=["GET"])
-@jwt_required()
-@group_required(["Admin", "Sales", "Operations"])
-def requirement_pdf(requirement_id):
-    try:
-        requirement = Requirements.objects(id=requirement_id).first()
-        if not requirement:
-            return jsonify({"message": "Requirement not found"}), 404
-
-        data = requirement.to_mongo().to_dict()
-        data["_id"] = str(data["_id"])
-
-        for field in ["deadline", "created_at", "preferred_start_date"]:
-            if field in data and isinstance(data[field], datetime):
-                data[field] = data[field].strftime('%Y-%m-%d')
-
-        html = render_template("requirements_template.html", data=data)
-        
-        pdf = HTML(string=html).write_pdf()
-        
-        gc.collect()
-
-        response = make_response(pdf)
-        response.headers['Content-Type'] = 'application/pdf'
-        response.headers['Content-Disposition'] = 'attachment; filename=requirement_report.pdf'
-        return response
-
-    except Exception as e:
-        print(f"Error occurred: {str(e)}")
-        return jsonify({"message": f"Error: {str(e)}"}), 500
-
-
 
     
 @customer_bp.route("/requirement-pdf/<string:requirement_id>", methods=["GET"])
