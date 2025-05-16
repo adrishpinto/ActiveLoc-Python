@@ -20,7 +20,7 @@ class Vendor(EmbeddedDocument):
 
 class Requirements(Document):
     created_at = DateTimeField(default=lambda: datetime.now(timezone.utc))
-    user = ReferenceField(User, required=True)
+    users = ListField(StringField(), required=True)
     quotation_deadline = DateTimeField(default=None)
     countdown = IntField(default = "")
     

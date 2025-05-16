@@ -1,24 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
-function App() {
+function NumberInput() {
+  const [value, setValue] = useState("");
+
+  const handleChange = (e) => {
+    const raw = e.target.value.replace(/,/g, "");
+    if (!isNaN(raw)) {
+      const formatted = Number(raw).toLocaleString("en-US");
+      setValue(formatted);
+    }
+  };
+
   return (
-    <div className="p-10">
-      <div
-        contentEditable={true}
-        suppressContentEditableWarning
-        className="border p-2 rounded min-h-[100px]"
-      >
-        This is editable text
-        <span
-          contentEditable={false}
-          className="bg-gray-200 text-gray-500 px-1 mx-1 rounded"
-        >
-          &lt;run1&gt;
-        </span>
-        and this is more editable text.
-      </div>
+    <div className="w-1/2 mx-auto">
+      <input
+        type="text"
+        value={value}
+        onChange={handleChange}
+        placeholder="Enter number"
+      />
     </div>
   );
 }
 
-export default App;
+export default NumberInput;

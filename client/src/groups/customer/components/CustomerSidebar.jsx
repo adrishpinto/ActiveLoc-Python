@@ -5,11 +5,49 @@ import { IoHomeSharp, IoSettings } from "react-icons/io5";
 import { CiLogout } from "react-icons/ci";
 import { FaUserCircle } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
+
+import { FaUserPlus } from "react-icons/fa";
+import { CiBoxList } from "react-icons/ci";
+import { CiCirclePlus } from "react-icons/ci";
+
 import axios from "axios";
+
+const MenuItem = ({
+  icon,
+  label,
+  path,
+  isOpen,
+  onClick,
+  customClasses = "",
+}) => {
+  const location = useLocation();
+  const isActive = location.pathname === path ? "bg-gray-200" : "";
+
+  return (
+    <li>
+      <button
+        onClick={onClick}
+        className={`relative group flex items-center ${
+          isOpen ? "justify-start" : "justify-center"
+        } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive} ${customClasses}`}
+      >
+        {icon}
+        <span className={`ms-3 transition-all ${isOpen ? "block" : "hidden"}`}>
+          {label}
+        </span>
+
+        {!isOpen && (
+          <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity tooltip-arrow">
+            {label}
+          </span>
+        )}
+      </button>
+    </li>
+  );
+};
 
 const CustomerSidebar = ({ isOpen, setIsOpen }) => {
   const navigate = useNavigate();
-  const location = useLocation();
   const API_URL = import.meta.env.VITE_API_URL;
 
   const logout = async () => {
@@ -25,8 +63,6 @@ const CustomerSidebar = ({ isOpen, setIsOpen }) => {
       console.error("Logout failed:", error.response?.data || error.message);
     }
   };
-
-  const isActive = (x) => (location.pathname === x ? "bg-gray-200" : "");
 
   return (
     <>
@@ -51,99 +87,45 @@ const CustomerSidebar = ({ isOpen, setIsOpen }) => {
         </h5>
 
         <ul className="py-4 space-y-2 font-medium">
-          {/* Dashboard */}
-          <li>
-            <button
-              onClick={() => navigate("/dashboard-c")}
-              className={`relative group flex items-center ${
-                isOpen ? "justify-start" : "justify-center"
-              } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                "/dashboard"
-              )}`}
-            >
-              <IoHomeSharp size={20} />
-              <span
-                className={`ms-3 transition-all ${isOpen ? "block" : "hidden"}`}
-              >
-                Dashboard
-              </span>
-              {!isOpen && (
-                <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-                  Dashboard
-                </span>
-              )}
-            </button>
-          </li>
+          <MenuItem
+            icon={<IoHomeSharp size={20} />}
+            label="Dashboard"
+            path="/dashboard-c"
+            isOpen={isOpen}
+            onClick={() => navigate("/dashboard-c")}
+          />
 
-          {/* User Profile */}
-          <li>
-            <button
-              onClick={() => navigate("/user-profile")}
-              className={`relative group flex items-center ${
-                isOpen ? "justify-start" : "justify-center"
-              } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                "/user-profile"
-              )}`}
-            >
-              <FaUserCircle size={20} />
-              <span
-                className={`ms-3 transition-all ${isOpen ? "block" : "hidden"}`}
-              >
-                User Profile
-              </span>
-              {!isOpen && (
-                <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-                  User Profile
-                </span>
-              )}
-            </button>
-          </li>
+          <MenuItem
+            icon={<FaUserCircle size={20} />}
+            label="User Profile"
+            path="/user-profile"
+            isOpen={isOpen}
+            onClick={() => navigate("/user-profile")}
+          />
 
-          {/* Settings */}
-          <li>
-            <button
-              onClick={() => navigate("/settings")}
-              className={`relative group flex items-center ${
-                isOpen ? "justify-start" : "justify-center"
-              } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${isActive(
-                "/settings"
-              )}`}
-            >
-              <IoSettings size={20} />
-              <span
-                className={`ms-3 transition-all ${isOpen ? "block" : "hidden"}`}
-              >
-                Settings
-              </span>
-              {!isOpen && (
-                <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-                  Settings
-                </span>
-              )}
-            </button>
-          </li>
+          <MenuItem
+            icon={<IoSettings size={20} />}
+            label="Settings"
+            path="/settings"
+            isOpen={isOpen}
+            onClick={() => navigate("/settings")}
+          />
 
-          {/* Logout */}
-          <li>
-            <button
-              onClick={logout}
-              className={`relative group flex items-center ${
-                isOpen ? "justify-start" : "justify-center"
-              } w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
-            >
-              <CiLogout size={20} />
-              <span
-                className={`ms-3 transition-all ${isOpen ? "block" : "hidden"}`}
-              >
-                Logout
-              </span>
-              {!isOpen && (
-                <span className="absolute left-full ml-2 px-2 py-1 text-sm text-white bg-gray-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-                  Logout
-                </span>
-              )}
-            </button>
-          </li>
+          <MenuItem
+            icon={<CiLogout size={20} />}
+            label="Logout"
+            path="#"
+            isOpen={isOpen}
+            onClick={logout}
+          />
+
+          <MenuItem
+            icon={<CiCirclePlus size={20} />}
+            label="Add Requirement"
+            path="/requirement-form"
+            isOpen={isOpen}
+            onClick={() => navigate("/requirements-form")}
+          />
         </ul>
       </div>
     </>

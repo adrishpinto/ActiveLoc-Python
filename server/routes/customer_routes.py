@@ -26,7 +26,7 @@ customer_bp = Blueprint('customer_bp', __name__)
 
 @customer_bp.route("/requirements_form", methods=["POST"])
 @jwt_required()
-@group_required(["Admin", "Sales", "Operations"])
+@group_required(["Admin", "Sales", "Operations","Customer"])
 def req_capture():
     user_id = get_jwt_identity()
     data = request.json
@@ -58,7 +58,7 @@ def req_capture():
             "file_link": data.get("file_link"),
             "urgent": data.get("urgent"),
             "quality": data.get("quality"),
-            "user":user_id,
+            "users": [user_id],
             "quotation_deadline":None,
             "countdown" : 0,
             "status": "Draft"
@@ -136,7 +136,7 @@ System Notification
 
 @customer_bp.route("/get-requirement/<string:requirement_id>", methods=["GET"])
 @jwt_required()
-@group_required(["Admin", "Sales", "Operations"])
+@group_required(["Admin", "Sales", "Operations","Customer"])
 def get_requirement(requirement_id):
     try:
         # Find the requirement by its ID
@@ -209,17 +209,16 @@ from bson import ObjectId
 
 @customer_bp.route("/get-requirements-user", methods=["GET"])
 @jwt_required()
-@group_required(["Admin", "Sales", "Operations"])
+@group_required(["Admin", "Sales", "Operations","Customer","Vendor"])
 def get_user_requirements_user():
     try:
-        user_id = get_jwt_identity()
+        user_id = get_jwt_identity()  
 
-        if isinstance(user_id, str):
-            user_id = ObjectId(user_id) 
-
-        requirements = Requirements.objects(user=user_id)
-
-        requirement_list = []
+        requirements = Requirements.objects(__raw__={
+            "users": user_id 
+        })        
+        
+        requirement_list = [] 
         
         for requirement in requirements:
             requirement_data = requirement.to_mongo().to_dict()
@@ -678,6 +677,7 @@ def update_vendor_details():
     data = request.json
     requirement_id = data.get("requirement_id")
     vendor_data = data.get("vendor")
+    user_id = get_jwt_identity() 
 
     if not requirement_id or not vendor_data:
         return jsonify({'error': 'requirement_id and vendor data are required'}), 400
@@ -717,14 +717,20 @@ def add_vendor(requirement_id):
     if not requirement:
         return jsonify({'error': 'Requirement not found'}), 404
 
-    # Validate vendor data
+    # Validate required fields
     vendor_email = data.get('email')
     if not vendor_email:
         return jsonify({'error': 'Vendor email is required'}), 400
 
-    # Check if vendor with the same email already exists
+    # Check for duplicate vendor
     if any(existing_vendor.email == vendor_email for existing_vendor in requirement.vendors):
         return jsonify({'error': f"Vendor with email {vendor_email} already exists."}), 400
+
+    # Extract user and add to requirement.users (if not already present)
+    vendor_user_id = data.pop('user', None)
+    if vendor_user_id:
+        if vendor_user_id not in requirement.users:
+            requirement.users.append(vendor_user_id)
 
     # Add the new vendor
     try:
@@ -734,5 +740,4 @@ def add_vendor(requirement_id):
         return jsonify({'message': f"Vendor with email {vendor_email} added successfully."}), 201
     except Exception as e:
         return jsonify({'error': f'Failed to add vendor: {str(e)}'}), 400
-
 

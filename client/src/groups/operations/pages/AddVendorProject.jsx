@@ -39,11 +39,11 @@ const AddVendorProject = () => {
       work_status: "ongoing",
       bill_status: "pending",
       billing_currency: vendor?.billing_currency || "",
+      user: vendor._id,
     };
-
     try {
       const res = await axios.post(
-        `${API_URL}/requirements/${id}/vendor`, // This will be the new endpoint
+        `${API_URL}/requirements/${id}/vendor`,
         vendorData,
         {
           withCredentials: true,

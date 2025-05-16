@@ -284,7 +284,7 @@ export default function App() {
           <Route
             path="/view-requirements"
             element={
-              <ProtectedRoute allowedGroups={["Admin", "Customer"]}>
+              <ProtectedRoute allowedGroups={["Admin", "Customer","Vendor"]}>
                 <ViewRequirements />
               </ProtectedRoute>
             }
